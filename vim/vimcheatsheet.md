@@ -1,16 +1,16 @@
 #vim Cheatsheet
-##Modes: 
+##Modes:
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine
 o:insertBreakThenInsert, O:insertThenBreak
 
-##File: 
+##File:
 :w, :q, :wq, :q!
 
-##Movement: 
+##Movement:
 hjkl, (arrows, End, Home)
 
-##Modifiers: 
+##Modifiers:
 numbers, 0:startOfLine, $:endOfLine, w:wordByWord
 ):sentence, }:paragraphs, i:inside, a:all
 
@@ -24,12 +24,43 @@ u:undo, Ctrl+r:redo, G:jumpToLine.., gg:jumpFirstLine, GG:jumpLastLine
 :r file :insertOtherFileContent
 :! :executeShellCommand
 
-##Actions + Modifiers: 
+##Actions + Modifiers:
 d0: delete to the start of the line
 dd: delete line
 yy: copy line
 ci): change all inside the parentheses
 ra}: replace all including the brackets
+
+##Plugins
+###vim-surround
+Adds new element: surroundings.
+
+cs'":will change the surrounding apostrophes to quotes
+cs"<p>:will change the quotes to p tags
+cst':will revert to apostrophes
+ds" :will delete the surrounding quotes
+ysiw) :will add parenses to the word
+yss( :will add parenses with spaces around the whole line
+
+###vim-commentary
+Comments lines depending on the syntax.
+
+gcap :will comment out a whole paragraph
+gcc :will comment out a line
+gcgc :will uncomment all adjacent commented lines
+
+###vim-system-copy
+Adds commands to access system clipboard. (Requires package xsel)
+
+cpiw :will copy the word
+cpi" :will copy the content of the quotes
+cP :will copy the line
+cv :will paste to the next line
+
+###NERDTree
+<leader>+k :toggle NERDtree
+o inside NERDTree window will open menu
+...
 
 ##Split screen (also NERDTree)
 :sp file :splitHorizontally, :vsp file :splitVertically
