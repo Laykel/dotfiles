@@ -57,6 +57,22 @@ cpi" :will copy the content of the quotes
 cP :will copy the line
 cv :will paste to the next line
 
+###vim-fugitive
+Adds git integration to vim. Especially interesting are the file-specific functions.
+
+:Gstatus, etc...
+
+###vim-tmux-navigator
+Harmonizes the navigation between vim and tmux panes. (Needs tmux.conf config.)
+
+C-hjkl to move between panes
+C-\ to move to previous pane
+
+###vimux
+Adds :VimuxRunCommand and :VimuxRunLastCommand (needs to be in tmux).
+
+:VimuxRunCommand("make")
+
 ###NERDTree
 <leader>+k :toggle NERDtree
 o inside NERDTree window will open menu
