@@ -3,33 +3,45 @@
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine
 o:insertBreakThenInsert, O:insertThenBreak
+v:visualMode
 
 ##File:
 :w, :q, :wq, :q!
+:r file :insertOtherFileContent
 
 ##Movement:
-hjkl, (arrows, End, Home)
+hjkl, (arrows, End, Home), 0:beginningOfLine, $:endOfLine
+G:jumpToLine.., gg:jumpFirstLine, G:jumpLastLine
+
+m+a-z:setMarker, '+a-z:jumpBackToMarkedLine, \`\`+a-z:jumpBackToMarker
+H:goToTopOfDisplayedPage, M:goToMiddle, L:goToLower
+
+C-e:scrollDown, C-y:scrollUp, C-f:pageDown, C-B:pageUp
 
 ##Modifiers:
 numbers, 0:startOfLine, $:endOfLine, w:wordByWord
 ):sentence, }:paragraphs, i:inside, a:all
 
 ##Actions:
-d:delete, x:deleteLetter, r:replaceLetter, R:replaceMode, y:copy, p:paste
-u:undo, Ctrl+r:redo, G:jumpToLine.., gg:jumpFirstLine, GG:jumpLastLine
+c:change, d:delete, x:deleteLetter, r:replaceLetter, R:replaceMode, y:copy, p:paste, P:pasteBefore
+u:undo, Ctrl+r:redo, D:d$, C:c$, >:indent, <:unindent
 
 /:search-> n:nextOccurence,N:lastOccurence , ?:searchFromStartOfFile
 :s/old/new/ :searchAndReplace-> :%s/old/new/g :searchAndReplaceAllFile
 
-:r file :insertOtherFileContent
+q+a-z:startMacroRecording then q: stopRecording, @+a-z:callMacro
+
 :! :executeShellCommand
 
 ##Actions + Modifiers:
+21j:will go down 21 lines
+13G:will go to line 13
 d0: delete to the start of the line
 dd: delete line
 yy: copy line
 ci): change all inside the parentheses
-ra}: replace all including the brackets
+cit: change all inside tags (html or else)
+ca}: change all including the brackets
 
 ##Plugins
 ###vim-surround
@@ -75,17 +87,17 @@ Adds :VimuxRunCommand and :VimuxRunLastCommand (needs to be in tmux).
 
 ###NERDTree
 <leader>+k :toggle NERDtree
-o inside NERDTree window will open menu
-...
+m inside NERDTree window will open menu
+s inside NERDTree window will open file in another pane
 
 ##Split screen (also NERDTree)
 :sp file :splitHorizontally, :vsp file :splitVertically
 
-Ctrl+w:nextViewport
+Ctrl+w then w:nextViewport
 Ctrl+w then hjkl:selectViewportInDirection
 Ctrl+w then +||-:biggerOrSmallerViewport
 Ctrl+w then =:equalizeViewports
 Ctrl+w then q:closeViewport
 
 
-_:set option != :set nooption_
+*:set option != :set nooption*

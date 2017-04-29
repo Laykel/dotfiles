@@ -29,8 +29,7 @@ prefix-hjkl : swap to pane in that direction
 prefix-q : show pane numbers
 
 prefix-x : kill pane
-prefix-k : fullscreen pane
-prefix-j : reset pane from fullscreen
+prefix-z : toggle fullscreen pane
 
 prefix-space : switch between layouts
 prefix-{||} : move pane left or right
