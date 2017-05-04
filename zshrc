@@ -90,7 +90,7 @@ alias s="sudo"
 alias v="vim"
 alias fanmin="clevo-indicator 40"
 
-alias cddev="cd ~/Documents/Dev/"
+alias cddev="cd ~/Dev/"
 alias cdwww="cd ~/Shortcuts/web/www/"
 alias cdshort="cd ~/Shortcuts/"
 
