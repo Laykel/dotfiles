@@ -38,7 +38,7 @@ prefix-arrows : resize pane
 ##Copy mode
 vim-like enabled - use vim bindings to move around.
 
-C-[ : to enter copy mode
+prefix-[ : to enter copy mode
 <space> to start copying
 <enter> to copy and exit mode
 prefix-] : to paste the buffer's content

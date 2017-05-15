@@ -14,6 +14,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
+Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
+Plugin 'scrooloose/syntastic'			"Syntax checker
+Plugin 'terryma/vim-multiple-cursors'	"Sublime style multiple cursors
 
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
 Plugin 'vim-airline/vim-airline-themes'
@@ -25,6 +28,7 @@ Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
 Plugin 'tpope/vim-repeat'				"Add . command support for plugins
 Plugin 'jiangmiao/auto-pairs'			"Auto-pairs parenses and other things
+Plugin 'godlygeek/tabular'				"Aligns things
 
 Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
 Plugin 'christoomey/vim-tmux-navigator' "Makes navigating from vim and tmux panes more consistent
@@ -33,17 +37,22 @@ Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 
 " Colorschemes/themes...
 Plugin 'jacoborus/tender.vim'
+Plugin 'flazz/vim-colorschemes'
 
 " All plugins before this
 call vundle#end()
 "}}}
 
-" Defaults for plugins
-set laststatus=2				"Show the satus line all the time
-let g:airline_theme='tender'
-let g:airline_powerline_fonts=1 "Use powerline font to its full potential
+" Defaults for plugins"{{{
+set laststatus=2                                  " Show the satus line all the time
+let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
+let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
+let g:airline#extensions#syntastic#enabled=1
+let g:airline_powerline_fonts=1                   " Use powerline font to its full potential
+"}}}
 
-" Enables syntax highlighting by default."{{{
+" Visual stuff"{{{
+" Enables syntax highlighting by default.
 if !exists("g:syntax_on")
 	syntax enable
 endif
@@ -56,9 +65,12 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-colorscheme tender
+" tender, darkblue, desert, koehler, molokai...
+colorscheme Benokai
+let g:airline_theme = 'wombat'
 "}}}
 
+" Last position, indent rules, others"{{{
 " Jump to the last position when reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -69,11 +81,15 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
+" Close vim if NERDTree is the last opened buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Tab-completion for files
 set path+=**
 set wildmenu "Display all matching files with tab
+"}}}
 
-" Set basic options"{{{
+" Set options"{{{
 set showcmd		"Show (partial) command in status line.
 set showmatch   "Show matching brackets.
 set ignorecase	"Do case insensitive matching
@@ -103,18 +119,16 @@ set shiftround 		"Round indent to a multiple of 'shiftwidth'
 " Code folding settings"{{{
 set foldmethod=marker	"Fold based on indent
 set foldnestmax=10		"10 levels deep folds
-set nofoldenable		"Don't fold by default
+set foldenable			"Don't fold by default
 
 " Space to open/close folds in normal mode, to create new ones in visual mode
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 "}}}
 
-" Set a leader for more bindings
-let mapleader = ','
-
 " Custom commands"{{{
 command! MakeTags !ctags -R .
+
 command CheatSheet vsp ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet vsp ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
 command VimRC vsp ~/.vimrc
@@ -122,9 +136,32 @@ command TmuxConf vsp ~/.tmux.conf
 "}}}
 
 " Custom bindings"{{{
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-let NERDTreeMapActivateNode='<space>'
-"}}}
+let mapleader = ',' "Set a leader for more bindings
 
-" Close vim if NERDTree is the last opened buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap <silent> <leader>n :NERDTreeToggle<cr>
+let NERDTreeMapActivateNode='<space>'
+
+nmap <silent> <leader>g :GitGutterToggle<cr>
+
+" Mappings to access buffers
+" List buffers
+nnoremap <Leader>l :ls<CR>
+" Back one buffer
+nnoremap <Leader>b :bp<CR>
+" Forward one buffer
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+nnoremap <Leader>x :bp\|bd #<CR>
+
+" Write when the file wasn't opened with sudo privileges
+cmap w!! w !sudo tee % > /dev/null
+"}}}

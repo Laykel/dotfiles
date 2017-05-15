@@ -88,7 +88,36 @@ cv :will paste to the next line
 ###vim-fugitive> {{{
 Adds git integration to vim. Especially interesting are the file-specific functions.
 
-:Gstatus, etc...
+:Gstatus - git status output, "-" to add file
+:Gdiff - bring staged file on the side
+:Gcommit - git commit
+:Gvsplit - show the file in the index in edit mode
+> }}}
+
+###Syntastic> {{{
+A syntax checker for vim.
+
+
+> }}}
+
+###Tabular> {{{
+It aligns things. Woohoo.
+
+Visually select stuff, then :Tab /<symbole autour duquel il faut centrer> <cr>.
+> }}}
+
+###vim-multiple-cursors> {{{
+Sublime style multiple cursors.
+
+<C-n> in normal mode to begin selecting and to add the next.
+<C-p> to remove the current one and go back one.
+<C-x> to skip this one and go to the next.
+> }}}
+
+###vim-gitgutter> {{{
+Displays diffs in the gutter (the line number zone).
+
+<leader>g - to toggle it on and off.
 > }}}
 
 ###vim-tmux-navigator> {{{
@@ -110,7 +139,7 @@ m inside NERDTree window will open menu
 s inside NERDTree window will open file in another pane
 > }}}
 
-##Split screen (also NERDTree)> {{{
+##Split screen> {{{
 :sp file :splitHorizontally, :vsp file :splitVertically
 
 Ctrl+w then w:nextViewport
@@ -120,4 +149,4 @@ Ctrl+w then =:equalizeViewports
 Ctrl+w then q:closeViewport
 > }}}
 
-*:set option != :set nooption*
+:set option != :set nooption
