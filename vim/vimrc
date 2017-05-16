@@ -143,6 +143,7 @@ nmap <silent> <leader>n :NERDTreeToggle<cr>
 let NERDTreeMapActivateNode='<space>'
 
 nmap <silent> <leader>g :GitGutterToggle<cr>
+nmap <silent> <leader>s :w<cr>
 
 " Mappings to access buffers
 " List buffers

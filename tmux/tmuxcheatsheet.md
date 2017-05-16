@@ -18,6 +18,9 @@ prefix-n : next window
 prefix-p : previous window
 prefix-numbers : select window
 
+prefix-< : move window to the left
+prefix-> : move window to the right
+
 prefix-, : name window
 prefix-& : kill window
 
@@ -25,7 +28,7 @@ prefix-& : kill window
 prefix-- : new vertical split
 prefix-\_ : new horizontal split
 prefix-o : swap panes
-prefix-hjkl : swap to pane in that direction
+Ctrl-hjkl : swap to pane in that direction
 prefix-q : show pane numbers
 
 prefix-x : kill pane
@@ -33,15 +36,16 @@ prefix-z : toggle fullscreen pane
 
 prefix-space : switch between layouts
 prefix-{||} : move pane left or right
-prefix-arrows : resize pane
+prefix-hjkl : resize pane
 
 ##Copy mode
 vim-like enabled - use vim bindings to move around.
 
-prefix-[ : to enter copy mode
+prefix-v : to enter copy mode
 <space> to start copying
 <enter> to copy and exit mode
-prefix-] : to paste the buffer's content
+or y to copy to system clipboard
+prefix-p : to paste the buffer's content
 
 tmux list-buffers : to list tmux clipboard content
 tmux show-buffer : t show current buffer
