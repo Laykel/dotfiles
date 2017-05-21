@@ -39,6 +39,7 @@ alias cl="clear"
 alias s="sudo"
 alias v="vim"
 alias g="git"
+alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias gs="git status"
 alias ga="git add ."
 alias gp="git push origin master"
@@ -46,12 +47,15 @@ alias gp="git push origin master"
 alias fanmin="clevo-indicator 40"
 alias fanlow="clevo-indicator 45"
 alias fanhigh="clevo-indicator 55"
+alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 
 alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
+alias :q="exit"
+alias help="man"
 
 alias dp="dpkg -l | grep "
 alias aptshowupd="apt list --upgradable"
@@ -59,6 +63,9 @@ alias aptupd="sudo apt update"
 alias aptupg="sudo apt upgrade"
 
 alias tm="tmux attach -t base || tmux new -s base"
+alias tl="tmux ls"
+alias tn="tmux new -s "
+alias tk="tmux kill-session -t "
 # }}}
 
 # Launch tmux with screen-256color

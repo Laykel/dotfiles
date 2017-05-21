@@ -11,20 +11,21 @@ call vundle#begin()
 " Plugins list
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'scrooloose/syntastic'			"Syntax checker
+Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
+
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
 Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
-Plugin 'scrooloose/syntastic'			"Syntax checker
 Plugin 'terryma/vim-multiple-cursors'	"Sublime style multiple cursors
 
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ap/vim-css-color'				"Preview colours in the file
 " Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
 
 Plugin 'christoomey/vim-system-copy'	"Access system clipboard (requires xsel package)
-
+Plugin 'tommcdo/vim-exchange'			"Exchange two pieces of text
 Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
 Plugin 'tpope/vim-repeat'				"Add . command support for plugins
@@ -34,21 +35,35 @@ Plugin 'godlygeek/tabular'				"Aligns things
 Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
 Plugin 'christoomey/vim-tmux-navigator' "Makes navigating from vim and tmux panes more consistent
 
-Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
-
 " Colorschemes/themes...
-Plugin 'jacoborus/tender.vim'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline-themes'	"Themes for airline
+Plugin 'morhetz/gruvbox'				"A theme inspired by solarized with airline theme
+Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
+Plugin 'flazz/vim-colorschemes'			"A whole lot of themes... Heavy...
+Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 
 " All plugins before this
 call vundle#end()
 "}}}
 
 " Defaults for plugins"{{{
+" Defaults for YouCompleteMe
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+autocmd FileType php,python,c let b:vcm_tab_complete = "omni"
+autocmd FileType markdown,txt setlocal complete+=k/usr/share/dict/words
+
+" Defaults for syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+
+" Airline status
 set laststatus=2                                  " Show the satus line all the time
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
 let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
-let g:airline#extensions#syntastic#enabled=1
+let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline_powerline_fonts=1                   " Use powerline font to its full potential
 "}}}
 
@@ -61,14 +76,13 @@ endif
 " If using a dark background within the editing area
 set background=dark
 
-" For tender colorscheme
-if (has("termguicolors"))
-	set termguicolors
-endif
+" True colour terminal
+"set termguicolors
 
-" tender, darkblue, desert, koehler, molokai...
-colorscheme Benokai
-let g:airline_theme = 'bubblegum'
+"gruvbox, tender, benokai, darkblue, desert, koehler, molokai...
+colorscheme gruvbox
+"gruvbox, tender, bubblegum
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Last position, indent rules, others"{{{
@@ -102,6 +116,7 @@ set mouse=a		"Enable mouse usage (all modes)
 
 " Set more options
 set number relativenumber
+set completeopt=menu		"Stops the buffer from opening on omnicomplete
 set encoding=utf8
 set autoindent
 set smartindent
