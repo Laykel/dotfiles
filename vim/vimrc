@@ -57,14 +57,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_checkers = ['php']
 
 " Airline status
 set laststatus=2                                  " Show the satus line all the time
+set showtabline=2 " Always show tab bar
 let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
 let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
+let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font to its full potential
 "}}}
 
@@ -106,23 +108,27 @@ set wildmenu "Display all matching files with tab
 "}}}
 
 " Set options"{{{
-set showcmd		"Show (partial) command in status line.
-set showmatch   "Show matching brackets.
-set ignorecase	"Do case insensitive matching
-set smartcase	"Do smart case matching
-set incsearch	"Incremental search
-set autowrite	"Automatically save before commands like :next and :make
-set hidden	    "Hide buffers when they are abandoned
-set mouse=a		"Enable mouse usage (all modes)
+set showcmd    " Show (partial) command in status line.
+set showmatch  " Show matching brackets.
+set ignorecase " Do case insensitive matching
+set smartcase  " Do smart case matching
+set incsearch  " Incremental search
+set autowrite  " Automatically save before commands like :next and :make
+set hidden     " Hide buffers when they are abandoned
+set mouse=a    " Enable mouse usage (all modes)
+set wrapscan   " Searches wrap around end of file
 
 " Set more options
 set number relativenumber
 set cursorline
+set noshowmode                    " Don't show the current mode (airline)
 set completeopt=menu              " Stops the buffer from opening on omnicomplete
 set encoding=utf8
 set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
 set autoread                      " Reload files changed outside vim
 set splitright                    " Open new splits on the right
+set scrolloff=3                   " Start scrolling three lines before border of window
+set sidescrolloff=3               " Start scrolling three columns before vertical border
 "}}}
 
 " Tab control"{{{
@@ -137,9 +143,10 @@ set shiftround 		"Round indent to a multiple of 'shiftwidth'
 "}}}
 
 " Code folding settings"{{{
-set foldmethod=marker	"Fold based on indent
-set foldnestmax=10		"10 levels deep folds
-set foldenable			"Don't fold by default
+set foldmethod=marker " Fold based on indent
+set foldnestmax=5     " 5 levels deep folds
+set foldenable        " Enable folding
+set foldlevel=0       " Close all folds by default
 
 " Space to open/close folds in normal mode, to create new ones in visual mode
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
