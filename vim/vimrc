@@ -61,6 +61,7 @@ let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 " Airline status
 set laststatus=2                                  " Show the satus line all the time
+let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
 let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
@@ -116,14 +117,17 @@ set mouse=a		"Enable mouse usage (all modes)
 
 " Set more options
 set number relativenumber
-set completeopt=menu		"Stops the buffer from opening on omnicomplete
+set cursorline
+set completeopt=menu              " Stops the buffer from opening on omnicomplete
 set encoding=utf8
-set autoindent
-set smartindent
-set splitright		"Open new splits on the right
+set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
+set autoread                      " Reload files changed outside vim
+set splitright                    " Open new splits on the right
 "}}}
 
 " Tab control"{{{
+set autoindent
+set smartindent
 set noexpandtab 	"Tabs ftw
 set smarttab 		"Tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 		"The visible width of tabs
@@ -159,14 +163,26 @@ let NERDTreeMapActivateNode='<space>'
 
 nmap <silent> <leader>g :GitGutterToggle<cr>
 nmap <silent> <leader>s :w<cr>
+nmap <silent> <leader>q :q<cr>
 
-" Mappings to access buffers
-" List buffers
-nnoremap <Leader>l :ls<CR>
+"Use enter to create new lines w/o entering insert mode
+nnoremap <CR> o<Esc>
+
+" resize panes
+nnoremap <silent> <leader>l :vertical resize +5<cr>
+nnoremap <silent> <leader>h :vertical resize -5<cr>
+nnoremap <silent> <leader>k :resize +5<cr>
+nnoremap <silent> <leader>j :resize -5<cr>
+
+" Skip lines: faster navigation
+noremap J 5j
+noremap K 5k
+
+" Mappings to access buffers{{{
 " Back one buffer
-nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>. :bp<CR>
 " Forward one buffer
-nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>- :bn<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -178,6 +194,18 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 nnoremap <Leader>x :bp\|bd #<CR>
+"}}}
+
+" Navigate between display lines{{{
+noremap  <silent> <Up>   gk
+noremap  <silent> <Down> gj
+noremap  <silent> k gk
+noremap  <silent> j gj
+noremap  <silent> <Home> g<Home>
+noremap  <silent> <End>  g<End>
+inoremap <silent> <Home> <C-o>g<Home>
+inoremap <silent> <End> <C-o>g<End>
+"}}}
 
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
