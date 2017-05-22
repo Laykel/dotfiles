@@ -42,6 +42,7 @@ alias g="git"
 alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias gs="git status"
 alias ga="git add ."
+alias gc="git commit"
 alias gp="git push origin master"
 
 alias fanmin="clevo-indicator 40"

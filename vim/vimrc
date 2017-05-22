@@ -12,7 +12,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'			"Syntax checker
+Plugin 'pangloss/vim-javascript'		"JS Syntax
+Plugin 'stanangeloff/php.vim'				"PHP Syntax
 Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
+Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
 
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
@@ -33,7 +36,7 @@ Plugin 'jiangmiao/auto-pairs'			"Auto-pairs parenses and other things
 Plugin 'godlygeek/tabular'				"Aligns things
 
 Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
-Plugin 'christoomey/vim-tmux-navigator' "Makes navigating from vim and tmux panes more consistent
+Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes easier
 
 " Colorschemes/themes...
 Plugin 'vim-airline/vim-airline-themes'	"Themes for airline
@@ -58,6 +61,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php']
+let g:syntastic_javascript_checkers = ['jshint']
 
 " Airline status
 set laststatus=2                                  " Show the satus line all the time
@@ -88,7 +92,7 @@ colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
 "}}}
 
-" Last position, indent rules, others"{{{
+" Last position, file search, autocmd"{{{
 " Jump to the last position when reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -98,6 +102,9 @@ endif
 if has("autocmd")
 	filetype plugin indent on
 endif
+
+" Enable spellcheck for markdown files
+autocmd FileType gitcommit setlocal spell
 
 " Close vim if NERDTree is the last opened buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -217,3 +224,12 @@ inoremap <silent> <End> <C-o>g<End>
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
 "}}}
+
+" function! CheckJSHint()
+"     let old = &filetype
+"     set filetype = javascript
+"     SyntasticCheck jshint
+"     set filetype = old
+" endfunction
+
+" command! CheckJSHint call CheckJSHint()
