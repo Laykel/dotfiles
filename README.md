@@ -1,23 +1,36 @@
-# dotfiles (WIP)
-My system/tools' configuration
+# My system's dotfiles (WIP)
+My system/tools' configuration. I'm a developer and Linux lover. Maybe you'll find things of interest in there.
 
-i3:
-	-cheatsheet
-	-i3config
-	-bar?
+##i3:
+- Contains my i3config file as well as a cheatsheet for my config and the config for my system bar.
 
-kde:
-	-...
+##vim:
+- Contains my vimrc as well as a cheatsheet of vim, my bindings and my plugins.
+- Install vundle first:
+`$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
-vim:
-	-cheatsheet
-	-vimrc
+##tmux:
+- Contains my tmux.conf file as well as the same kind of cheatsheet as for the others configs.
+- (Also a theme file for the tmux bar.)
 
-tmux:
-	-cheatsheet
-	-tmux.conf
+##zshrc:
+- It's just my zshrc file, with all my aliases, configs and plugins. (OhMyZsh)
 
-Syncthing: $HOME/.config/syncthing/...
-	-...
+##ranger:
+- My config files for ranger. Also, surprise, a cheatsheet!
+	- rc.conf: setting various options, biding keys to functions.
+	- commands.py: functions in Python to modify its behaviour.
+	- rifle.conf: default programs for opening files.
+	- scope.sh: shell script to generate file previews.
+	- bookmarks
+- WIP
 
-zshrc
+##zathura:
+- Once again, the config file and the cheatsheet that goes with it.
+
+##Syncthing:
+- The folder contains my configuration for syncthing.
+- Folder for the config: $HOME/.config/syncthing/...
+
+##kde:
+- Contains different config files for my kde setup.

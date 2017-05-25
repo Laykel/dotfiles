@@ -3,7 +3,7 @@
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine
 o:insertBreakThenInsert, O:insertThenBreak
-v:visualMode
+v:visualMode, ctrl-v:block-visualMode
 > }}}
 
 ##File:> {{{
@@ -19,6 +19,15 @@ m+a-z:setMarker, '+a-z:jumpBackToMarkedLine, \`\`+a-z:jumpBackToMarker
 H:goToTopOfDisplayedPage, M:goToMiddle, L:goToLower
 
 C-e:scrollDown, C-y:scrollUp, C-f:pageDown, C-B:pageUp
+> }}}
+
+##Tags> {{{
+Tags are generated using the exuberant-ctags package.
+Tags are functions, classes or other significant parts of code.
+
+<C-]> or <C-i> to see definition of the tag.
+<C-o> to open a new split with the definition of the tag.
+<C-t> to get back to the call of the tag.
 > }}}
 
 ##Modifiers:> {{{

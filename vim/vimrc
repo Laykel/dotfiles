@@ -13,8 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'			"Syntax checker
 Plugin 'pangloss/vim-javascript'		"JS Syntax
-Plugin 'stanangeloff/php.vim'				"PHP Syntax
+Plugin 'stanangeloff/php.vim'			"PHP Syntax
 Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
+Plugin 'majutsushi/tagbar'				"Lists the file's tags 
 Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
 
 Plugin 'tpope/vim-fugitive'				"git integration in vim
@@ -42,7 +43,7 @@ Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes easi
 Plugin 'vim-airline/vim-airline-themes'	"Themes for airline
 Plugin 'morhetz/gruvbox'				"A theme inspired by solarized with airline theme
 Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
-Plugin 'flazz/vim-colorschemes'			"A whole lot of themes... Heavy...
+" Plugin 'flazz/vim-colorschemes'			"A whole lot of themes... Heavy...
 Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 
 " All plugins before this
@@ -50,6 +51,8 @@ call vundle#end()
 "}}}
 
 " Defaults for plugins"{{{
+let NERDTreeMapActivateNode='<space>'
+
 " Defaults for YouCompleteMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd FileType php,python,c let b:vcm_tab_complete = "omni"
@@ -92,7 +95,7 @@ colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
 "}}}
 
-" Last position, file search, autocmd"{{{
+" Autocmd (indent, spellcheck...)"{{{
 " Jump to the last position when reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -104,6 +107,7 @@ if has("autocmd")
 endif
 
 " Enable spellcheck for markdown files
+autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
 
 " Close vim if NERDTree is the last opened buffer
@@ -172,17 +176,17 @@ command TmuxConf vsp ~/.tmux.conf
 " Custom bindings"{{{
 let mapleader = ',' "Set a leader for more bindings
 
-nmap <silent> <leader>n :NERDTreeToggle<cr>
-let NERDTreeMapActivateNode='<space>'
-
-nmap <silent> <leader>g :GitGutterToggle<cr>
+" Easy shortcuts
 nmap <silent> <leader>s :w<cr>
 nmap <silent> <leader>q :q<cr>
-
-"Use enter to create new lines w/o entering insert mode
+" Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>
 
-" resize panes
+" Mappings for following tags
+nnoremap <C-i> <C-]>
+nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Resize panes
 nnoremap <silent> <leader>l :vertical resize +5<cr>
 nnoremap <silent> <leader>h :vertical resize -5<cr>
 nnoremap <silent> <leader>k :resize +5<cr>
@@ -191,6 +195,22 @@ nnoremap <silent> <leader>j :resize -5<cr>
 " Skip lines: faster navigation
 noremap J 5j
 noremap K 5k
+
+" Toggles for features{{{
+nmap <silent> <leader>n :NERDTreeToggle<cr>
+nmap <silent> <leader>g :GitGutterToggle<cr>
+nmap <silent> <leader>t :TagbarToggle<cr>
+
+" Same, but also working in insert mode
+nnoremap <F4> :GitGutterToggle<CR>
+inoremap <F4> <Esc> :GitGutterToggle<CR>i
+nnoremap <F5> :setlocal spell! spelllang=en_us<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en_us<CR>i
+nnoremap <F6> :NERDTreeToggle<CR>
+inoremap <F6> <Esc>:NERDTreeToggle<CR>i
+nnoremap <F7> :TagbarToggle<CR>
+inoremap <F7> <Esc>:TagbarToggle<CR>i
+"}}}
 
 " Mappings to access buffers{{{
 " Back one buffer
@@ -224,12 +244,3 @@ inoremap <silent> <End> <C-o>g<End>
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
 "}}}
-
-" function! CheckJSHint()
-"     let old = &filetype
-"     set filetype = javascript
-"     SyntasticCheck jshint
-"     set filetype = old
-" endfunction
-
-" command! CheckJSHint call CheckJSHint()
