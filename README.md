@@ -1,22 +1,22 @@
 # My system's dotfiles (WIP)
 My system/tools' configuration. I'm a developer and Linux lover. Maybe you'll find things of interest in there.
 
-##i3:
+## i3:
 - Contains my i3config file as well as a cheatsheet for my config and the config for my system bar.
 
-##vim:
+## vim:
 - Contains my vimrc as well as a cheatsheet of vim, my bindings and my plugins.
 - Install vundle first:
 `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
-##tmux:
+## tmux:
 - Contains my tmux.conf file as well as the same kind of cheatsheet as for the others configs.
 - (Also a theme file for the tmux bar.)
 
-##zshrc:
+## zshrc:
 - It's just my zshrc file, with all my aliases, configs and plugins. (OhMyZsh)
 
-##ranger:
+## ranger:
 - My config files for ranger. Also, surprise, a cheatsheet!
 	- rc.conf: setting various options, biding keys to functions.
 	- commands.py: functions in Python to modify its behaviour.
@@ -25,12 +25,12 @@ My system/tools' configuration. I'm a developer and Linux lover. Maybe you'll fi
 	- bookmarks
 - WIP
 
-##zathura:
+## zathura:
 - Once again, the config file and the cheatsheet that goes with it.
 
-##Syncthing:
+## Syncthing:
 - The folder contains my configuration for syncthing.
 - Folder for the config: $HOME/.config/syncthing/...
 
-##kde:
+## kde:
 - Contains different config files for my kde setup.
