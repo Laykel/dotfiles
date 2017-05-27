@@ -1,4 +1,15 @@
 #vim Cheatsheet
+
+##Spelling> {{{
+<c-w> to delete word
+<F5> to enable spell check (en and fr)
+<c-x>s to correct in insert mode
+z= to correct in normal mode
+zg to add word to wordlist
+zw to remove word from wordlist
+]s to go to next error / [s for the previous
+> }}}
+
 ##Modes: > {{{
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine

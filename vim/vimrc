@@ -12,18 +12,19 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'			"Syntax checker
+Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
 Plugin 'pangloss/vim-javascript'		"JS Syntax
 Plugin 'stanangeloff/php.vim'			"PHP Syntax
-Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
-Plugin 'majutsushi/tagbar'				"Lists the file's tags 
+Plugin 'majutsushi/tagbar'				"Lists the file's tags
 Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
 
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
 Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
-Plugin 'terryma/vim-multiple-cursors'	"Sublime style multiple cursors
+" Plugin 'terryma/vim-multiple-cursors'	"Sublime style multiple cursors
 
+Plugin 'vimwiki/vimwiki'				"Note-taking in vim
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
 Plugin 'ap/vim-css-color'				"Preview colours in the file
 " Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
@@ -52,11 +53,12 @@ call vundle#end()
 
 " Defaults for plugins"{{{
 let NERDTreeMapActivateNode='<space>'
+let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-" Defaults for YouCompleteMe
+" Defaults for VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 autocmd FileType php,python,c let b:vcm_tab_complete = "omni"
-autocmd FileType markdown,txt setlocal complete+=k/usr/share/dict/words
+autocmd FileType markdown,txt setlocal complete+=kspell
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -107,8 +109,12 @@ if has("autocmd")
 endif
 
 " Enable spellcheck for markdown files
-autocmd FileType markdown setlocal spell
-autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell spelllang=en,fr
+autocmd FileType gitcommit setlocal spell spelllang=en,fr
+
+" Set encoding
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
 
 " Close vim if NERDTree is the last opened buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -203,13 +209,15 @@ nmap <silent> <leader>t :TagbarToggle<cr>
 
 " Same, but also working in insert mode
 nnoremap <F4> :GitGutterToggle<CR>
-inoremap <F4> <Esc> :GitGutterToggle<CR>i
-nnoremap <F5> :setlocal spell! spelllang=en_us<CR>
-inoremap <F5> <Esc>:setlocal spell! spelllang=en_us<CR>i
+inoremap <F4> <Esc> :GitGutterToggle<CR>gi
+nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
 nnoremap <F6> :NERDTreeToggle<CR>
-inoremap <F6> <Esc>:NERDTreeToggle<CR>i
+inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
 nnoremap <F7> :TagbarToggle<CR>
-inoremap <F7> <Esc>:TagbarToggle<CR>i
+inoremap <F7> <Esc>:TagbarToggle<CR>gi
+nnoremap <F8> :SyntasticToggleMode<CR>
+inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
 "}}}
 
 " Mappings to access buffers{{{
