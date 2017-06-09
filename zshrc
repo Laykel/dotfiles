@@ -39,14 +39,17 @@ alias cl="clear"
 alias s="sudo"
 alias v="vim"
 alias g="git"
-alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit"
 alias gp="git push origin master"
 
+alias composer="/usr/local/bin/composer.phar"
+alias laravel="~/.config/composer/vendor/bin/laravel"
+
 alias fanmin="clevo-indicator 40"
 alias fanlow="clevo-indicator 45"
+alias fanmiddle="clevo-indicator 50"
 alias fanhigh="clevo-indicator 55"
 alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 
@@ -60,7 +63,7 @@ alias :q="exit"
 alias help="man"
 
 alias dp="dpkg -l | grep "
-alias aptshowupd="apt list --upgradable"
+alias apts="apt list --upgradable"
 alias aptupd="sudo apt update"
 alias aptupg="sudo apt upgrade"
 

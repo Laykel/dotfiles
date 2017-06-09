@@ -16,7 +16,8 @@ Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
 Plugin 'pangloss/vim-javascript'		"JS Syntax
 Plugin 'stanangeloff/php.vim'			"PHP Syntax
 Plugin 'majutsushi/tagbar'				"Lists the file's tags
-Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
+Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
+" Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
 
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
@@ -53,7 +54,7 @@ call vundle#end()
 
 " Defaults for plugins"{{{
 let NERDTreeMapActivateNode='<space>'
-let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+"let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Defaults for VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -134,10 +135,13 @@ set autowrite  " Automatically save before commands like :next and :make
 set hidden     " Hide buffers when they are abandoned
 set mouse=a    " Enable mouse usage (all modes)
 set wrapscan   " Searches wrap around end of file
+set notimeout  " Don't timeout after leader for ex.
+set ttimeout   " Don't do the previous thing for Escape
 
 " Set more options
 set number relativenumber
 set cursorline
+set shortmess+=I
 set noshowmode                    " Don't show the current mode (airline)
 set completeopt=menu              " Stops the buffer from opening on omnicomplete
 set encoding=utf8

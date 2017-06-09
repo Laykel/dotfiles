@@ -35,3 +35,7 @@ My system/tools' configuration. I'm a developer and Linux lover. Maybe you'll fi
 
 ## kde:
 - Contains different config files for my kde setup.
+
+## Package lists:
+- allPackages.txt is the output of `apt list --installed`
+- installedPackages.txt is the output of `comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)`

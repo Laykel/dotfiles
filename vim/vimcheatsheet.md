@@ -10,6 +10,14 @@ zw to remove word from wordlist
 ]s to go to next error / [s for the previous
 > }}}
 
+##Indent> {{{
+5>> : indent5Lines
+vjj> : indent3Lines
+>% : if on a curly brace, indent the whole block
+Use ]p instead of p to adjust the indent to the new location
+shiftwidth to set the width of tabs
+> }}}
+
 ##Modes: > {{{
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine
@@ -163,7 +171,7 @@ s inside NERDTree window will open file in another pane
 :sp file :splitHorizontally, :vsp file :splitVertically
 
 Ctrl+w then w:nextViewport
-Ctrl+w then hjkl:selectViewportInDirection
+Ctrl hjkl:selectViewportInDirection
 Ctrl+w then +||-:biggerOrSmallerViewport
 Ctrl+w then =:equalizeViewports
 Ctrl+w then q:closeViewport
