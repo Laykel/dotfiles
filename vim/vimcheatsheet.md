@@ -1,5 +1,10 @@
 #vim Cheatsheet
 
+##Tips
+##Pasting> {{{
+...
+> }}}
+
 ##Spelling> {{{
 <c-w> to delete word
 <F5> to enable spell check (en and fr)
@@ -18,6 +23,7 @@ Use ]p instead of p to adjust the indent to the new location
 shiftwidth to set the width of tabs
 > }}}
 
+##Classic stuff
 ##Modes: > {{{
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine
@@ -84,7 +90,7 @@ za is the default to toggle folds.
 zR to open all folds, zM to close all of them.
 > }}}
 
-#Plugins
+##Plugins
 ###vim-surround> {{{
 Adds new element: surroundings.
 

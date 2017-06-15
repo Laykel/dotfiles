@@ -27,6 +27,9 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Executes ls on dir change
+chpwd() ls
+
 # Users are encouraged to define aliases within the ZSH_CUSTOM folder.# {{{
 # For a full list of active aliases, run `alias`.
 alias zshconfig="vim ~/.zshrc"

@@ -54,7 +54,7 @@ call vundle#end()
 
 " Defaults for plugins"{{{
 let NERDTreeMapActivateNode='<space>'
-"let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
 " Defaults for VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -66,7 +66,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php']
+let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 
 " Airline status
@@ -177,10 +177,10 @@ vnoremap <Space> zf
 " Custom commands"{{{
 command! MakeTags !ctags -R .
 
-command CheatSheet vsp ~/Dev/dotfiles/vim/vimcheatsheet.md
-command TmuxCheatSheet vsp ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
-command VimRC vsp ~/.vimrc
-command TmuxConf vsp ~/.tmux.conf
+command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
+command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
+command VimRC e ~/.vimrc
+command TmuxConf e ~/.tmux.conf
 "}}}
 
 " Custom bindings"{{{
@@ -189,8 +189,11 @@ let mapleader = ',' "Set a leader for more bindings
 " Easy shortcuts
 nmap <silent> <leader>s :w<cr>
 nmap <silent> <leader>q :q<cr>
+" Open current buffer to the right, and change this split's
+" buffer to the previous
+nmap <silent> <leader>v :vs<cr><C-h>:bp<cr><C-l>
 " Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>
+nnoremap <CR> o<Esc>k
 
 " Mappings for following tags
 nnoremap <C-i> <C-]>
@@ -205,6 +208,8 @@ nnoremap <silent> <leader>j :resize -5<cr>
 " Skip lines: faster navigation
 noremap J 5j
 noremap K 5k
+noremap H 0
+noremap L $
 
 " Toggles for features{{{
 nmap <silent> <leader>n :NERDTreeToggle<cr>
