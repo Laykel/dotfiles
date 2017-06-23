@@ -1,8 +1,38 @@
 #vim Cheatsheet
 
 ##Tips
+gv : reselect last visual selection
+gx : open URL in browser
+
 ##Pasting> {{{
 ...
+> }}}
+
+##Normal mode in insert mode> {{{
+<C-o> normal command
+<C-r> = math expression - to compute the expression and then insert it
+> }}}
+
+Substitute in a visual block
+:'<,'>s/\%Vold/new
+Count the number of pattern matches
+/<<some-pattern>>
+:%s///n
+Delete all lines containing pattern
+:g/<<some-pattern>>/d
+Delete all lines not containing pattern
+:v/<<some-pattern>>/d
+
+##Sorting> {{{
+Use the sort command to sort a selection, say a visual selection:
+:'<,'>sort
+By default lines starting with 0-9 will be sorted before A-Z followed lastly by lines starting with a-z.
+Use the i option to ignore case when sorting, more often than not you want to do this:
+:'<,'>sort i
+Use a ! to reverse the sort:
+:'<,'>sort! i
+Lastly the u option can be used to remove duplicates much like the uniq system command:
+:'<,'>sort u
 > }}}
 
 ##Spelling> {{{
@@ -21,6 +51,15 @@ vjj> : indent3Lines
 >% : if on a curly brace, indent the whole block
 Use ]p instead of p to adjust the indent to the new location
 shiftwidth to set the width of tabs
+> }}}
+
+##Tags> {{{
+Tags are generated using the exuberant-ctags package.
+Tags are functions, classes or other significant parts of code.
+
+<C-]> or <C-i> to see definition of the tag.
+<C-o> to open a new split with the definition of the tag.
+<C-t> to get back to the call of the tag.
 > }}}
 
 ##Classic stuff
@@ -44,15 +83,6 @@ m+a-z:setMarker, '+a-z:jumpBackToMarkedLine, \`\`+a-z:jumpBackToMarker
 H:goToTopOfDisplayedPage, M:goToMiddle, L:goToLower
 
 C-e:scrollDown, C-y:scrollUp, C-f:pageDown, C-B:pageUp
-> }}}
-
-##Tags> {{{
-Tags are generated using the exuberant-ctags package.
-Tags are functions, classes or other significant parts of code.
-
-<C-]> or <C-i> to see definition of the tag.
-<C-o> to open a new split with the definition of the tag.
-<C-t> to get back to the call of the tag.
 > }}}
 
 ##Modifiers:> {{{

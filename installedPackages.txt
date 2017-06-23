@@ -34,17 +34,14 @@ keepassx
 lame
 language-pack-fr
 libapache2-mod-php7.0
-libappindicator3-dev
 libavcodec-extra
 libavcodec-ffmpeg-extra56
 libdvdcss2
 libdvdcss-dev
 libdvd-pkg
-libgtk-3-dev
 libreoffice
 libreoffice-kde
 libreoffice-style-papirus
-libwebkitgtk-1.0-0
 linux-generic-hwe-16.04-edge
 lynx
 mysql-client

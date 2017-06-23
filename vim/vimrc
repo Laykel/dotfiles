@@ -17,13 +17,12 @@ Plugin 'pangloss/vim-javascript'		"JS Syntax
 Plugin 'stanangeloff/php.vim'			"PHP Syntax
 Plugin 'majutsushi/tagbar'				"Lists the file's tags
 Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
-" Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
+Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
 
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
 Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
-" Plugin 'terryma/vim-multiple-cursors'	"Sublime style multiple cursors
 
 Plugin 'vimwiki/vimwiki'				"Note-taking in vim
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
@@ -45,6 +44,7 @@ Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes easi
 Plugin 'vim-airline/vim-airline-themes'	"Themes for airline
 Plugin 'morhetz/gruvbox'				"A theme inspired by solarized with airline theme
 Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
+Plugin 'bluz71/vim-moonfly-colors'
 " Plugin 'flazz/vim-colorschemes'			"A whole lot of themes... Heavy...
 Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 
@@ -78,6 +78,7 @@ let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font to its full potential
+let g:Powerline_symbols = 'fancy'
 "}}}
 
 " Visual stuff"{{{
@@ -92,13 +93,13 @@ set background=dark
 " True colour terminal
 "set termguicolors
 
-"gruvbox, tender, benokai, darkblue, desert, koehler, molokai...
-colorscheme gruvbox
-"gruvbox, tender, bubblegum
-let g:airline_theme = 'gruvbox'
+"gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
+colorscheme moonfly
+"gruvbox, tender, moonfly, bubblegum
+let g:airline_theme = 'tender'
 "}}}
 
-" Autocmd (indent, spellcheck...)"{{{
+" Autocmd (indent, spellcheck, encoding...)"{{{
 " Jump to the last position when reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -135,21 +136,22 @@ set autowrite  " Automatically save before commands like :next and :make
 set hidden     " Hide buffers when they are abandoned
 set mouse=a    " Enable mouse usage (all modes)
 set wrapscan   " Searches wrap around end of file
-set notimeout  " Don't timeout after leader for ex.
+set linebreak  " Break only at word boundaries
+set notimeout  " Don't timeout after Leader for example
 set ttimeout   " Don't do the previous thing for Escape
 
 " Set more options
 set number relativenumber
-set cursorline
-set shortmess+=I
+set cursorline					  " Highlight line where cursor is
+set shortmess+=I				  " Don't show the welcome screen
 set noshowmode                    " Don't show the current mode (airline)
 set completeopt=menu              " Stops the buffer from opening on omnicomplete
-set encoding=utf8
 set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
 set autoread                      " Reload files changed outside vim
 set splitright                    " Open new splits on the right
 set scrolloff=3                   " Start scrolling three lines before border of window
 set sidescrolloff=3               " Start scrolling three columns before vertical border
+set synmaxcol=200				  " Only syntax highlight the first 200 columns
 "}}}
 
 " Tab control"{{{
@@ -184,26 +186,27 @@ command TmuxConf e ~/.tmux.conf
 "}}}
 
 " Custom bindings"{{{
-let mapleader = ',' "Set a leader for more bindings
+let mapleader = ',' "Set a Leader for more bindings
 
 " Easy shortcuts
-nmap <silent> <leader>s :w<cr>
-nmap <silent> <leader>q :q<cr>
+nmap <silent> <Leader>s :w<CR>
+nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>wq :wq<CR>
 " Open current buffer to the right, and change this split's
 " buffer to the previous
-nmap <silent> <leader>v :vs<cr><C-h>:bp<cr><C-l>
+nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k
 
-" Mappings for following tags
+" Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
 nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Resize panes
-nnoremap <silent> <leader>l :vertical resize +5<cr>
-nnoremap <silent> <leader>h :vertical resize -5<cr>
-nnoremap <silent> <leader>k :resize +5<cr>
-nnoremap <silent> <leader>j :resize -5<cr>
+nnoremap <silent> <Leader>l :vertical resize +5<CR>
+nnoremap <silent> <Leader>h :vertical resize -5<CR>
+nnoremap <silent> <Leader>k :resize +5<CR>
+nnoremap <silent> <Leader>j :resize -5<CR>
 
 " Skip lines: faster navigation
 noremap J 5j
@@ -211,10 +214,16 @@ noremap K 5k
 noremap H 0
 noremap L $
 
+" Laravel framework commons
+nmap <Leader>lr :e app/routes.php<CR>
+nmap <Leader>la :e app/config/app.php<CR>81Gf(%O
+nmap <Leader>ld :e app/config/database.php<CR>
+nmap <Leader>lc :e composer.json<CR>
+
 " Toggles for features{{{
-nmap <silent> <leader>n :NERDTreeToggle<cr>
-nmap <silent> <leader>g :GitGutterToggle<cr>
-nmap <silent> <leader>t :TagbarToggle<cr>
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>g :GitGutterToggle<CR>
+nmap <silent> <Leader>t :TagbarToggle<CR>
 
 " Same, but also working in insert mode
 nnoremap <F4> :GitGutterToggle<CR>
@@ -248,10 +257,10 @@ nnoremap <Leader>x :bp\|bd #<CR>
 "}}}
 
 " Navigate between display lines{{{
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 noremap  <silent> <Up>   gk
 noremap  <silent> <Down> gj
-noremap  <silent> k gk
-noremap  <silent> j gj
 noremap  <silent> <Home> g<Home>
 noremap  <silent> <End>  g<End>
 inoremap <silent> <Home> <C-o>g<Home>
