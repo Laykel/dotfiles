@@ -1,0 +1,9 @@
+*.log
+*.lock
+*.tmp
+*.temp
+*.swp
+tags
+
+#Example of exception:
+# !debug.log
