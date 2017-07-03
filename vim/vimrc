@@ -19,6 +19,7 @@ Plugin 'majutsushi/tagbar'				"Lists the file's tags
 Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
 Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
 
+Plugin 'mattn/emmet-vim'				"Emmet for vim (<C-y>,)
 Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
@@ -69,8 +70,14 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 
+" Emmet defaults
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key = "<C-f>"
+let g:user_emmet_expandabbr_key = ",f"
+
 " Airline status
-set laststatus=2                                  " Show the satus line all the time
+set laststatus=2                                  " Show the status line all the time
 set showtabline=2 " Always show tab bar
 let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
@@ -94,9 +101,9 @@ set background=dark
 "set termguicolors
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme moonfly
+colorscheme gruvbox
 "gruvbox, tender, moonfly, bubblegum
-let g:airline_theme = 'tender'
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Autocmd (indent, spellcheck, encoding...)"{{{
@@ -197,6 +204,8 @@ nmap <silent> <Leader>wq :wq<CR>
 nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k
+" 
+inoremap <leader><CR> <CR><C-o>==<C-o>O
 
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
