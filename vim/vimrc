@@ -159,6 +159,11 @@ set splitright                    " Open new splits on the right
 set scrolloff=3                   " Start scrolling three lines before border of window
 set sidescrolloff=3               " Start scrolling three columns before vertical border
 set synmaxcol=200				  " Only syntax highlight the first 200 columns
+
+" Set dirs for swap and others
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 "}}}
 
 " Tab control"{{{
@@ -204,8 +209,9 @@ nmap <silent> <Leader>wq :wq<CR>
 nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k
-" 
-inoremap <leader><CR> <CR><C-o>==<C-o>O
+
+" F1 to open custom bindings help
+nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
 
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
