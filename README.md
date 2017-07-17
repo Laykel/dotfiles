@@ -1,13 +1,13 @@
 # My system's dotfiles (WIP, obviously)
 My system/tools' configuration. Maybe you'll find things of interest in there.
 
-##To-do:
-- complete vim, zsh, syncthing and kde saves
+## To-do:
+- complete vim, zsh, kde saves
 - script to update repo automatically
 - script to deploy config on a new system
 - try out neovim
 
-##Content
+## Content
 
 ### vim:
 - Contains my vimrc as well as a cheat sheet of vim, my bindings and my plugins.
