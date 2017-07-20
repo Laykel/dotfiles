@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/luc/.oh-my-zsh
 
-# Themes (random for random themes)
+# Themes (random, agnoster, bira, bureau, gallois)
 ZSH_THEME="agnoster"
 
 # Plugins
@@ -43,6 +43,7 @@ alias s="sudo"
 alias v="vim"
 alias g="git"
 alias gs="git status"
+alias gl="git log"
 alias ga="git add ."
 alias gc="git commit"
 alias gp="git push origin master"

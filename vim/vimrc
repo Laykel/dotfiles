@@ -55,6 +55,7 @@ call vundle#end()
 
 " Defaults for plugins"{{{
 let NERDTreeMapActivateNode='<space>'
+let NERDTreeShowHidden = 1
 let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
 " Defaults for VimCompletesMe
@@ -70,11 +71,17 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 
+" Defaults for Tagbar
+let g:tagbar_map_showproto = "f"
+let g:tagbar_map_togglefold = "<Space>"
+let g:tagbar_width = 30
+let g:tagbar_autofocus = 1
+
 " Emmet defaults
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,php,xml EmmetInstall
 let g:user_emmet_leader_key = "<C-f>"
-let g:user_emmet_expandabbr_key = ",f"
+" let g:user_emmet_expandabbr_key = ",f"
 
 " Airline status
 set laststatus=2                                  " Show the status line all the time
@@ -86,6 +93,9 @@ let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font to its full potential
 let g:Powerline_symbols = 'fancy'
+let g:airline_symbols = get(g:,'airline_symbols',{})
+let g:airline_symbols.maxlinenr=''
+let g:airline_section_z = airline#section#create(['maxlinenr', '  :', '%3v'])
 "}}}
 
 " Visual stuff"{{{
@@ -226,8 +236,8 @@ nnoremap <silent> <Leader>j :resize -5<CR>
 " Skip lines: faster navigation
 noremap J 5j
 noremap K 5k
-noremap H 0
-noremap L $
+"noremap H 0
+"noremap L $
 
 " Laravel framework commons
 nmap <Leader>lr :e app/routes.php<CR>

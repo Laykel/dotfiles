@@ -21,6 +21,7 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ### zshrc:
 - It's just my zshrc file, with all my aliases, configs and plugins. (OhMyZsh)
+- oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 ### tldrrc:
 - The config file, with just a little thing to display colours.

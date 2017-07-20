@@ -21,7 +21,7 @@ lc - Laravel composer.json
 ### Control key bindings
 <C-i> - follow tag
 <C-o> - follow tag in new vsplit
-<C-p> - back from the tag
+<C-t> - back from the tag
 hjkl - move between splits and Tmux panes
 
 ### Function keys bindings
