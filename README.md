@@ -3,8 +3,7 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ## To-do:
 - complete vim, zsh, kde saves
-- script to update repo automatically
-- script to deploy config on a new system
+- complete update and deploy scripts
 - try out neovim
 
 ## Content
@@ -50,6 +49,9 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ### i3:
 - Contains my i3config file as well as my bar config and a cheat sheet.
+
+## Scripts folder
+- This folder contains a script to update the package lists and the configs plugins, a script to deploy the dotfiles on a new system (provided the folder is cloned in ~/Dev/dotfiles), and the package lists.
 
 ### Package lists:
 - allPackages.txt is the output of `apt list --installed`

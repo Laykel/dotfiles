@@ -1,7 +1,9 @@
 # Sublime config
 
 ## Config stuff
-
+Font: Hack
+Font size: ...
+etc...
 
 ## Packages list
 

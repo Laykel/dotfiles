@@ -11,18 +11,17 @@ v - open current buffer in vsplit
 0-9 - specified buffer
 x - close buffer
 
-hjkl - resize split
-
-lr - Laravel routes.php
-la - Laravel app.php
-ld - Laravel database.php
+lr - Laravel routes/web.php
+la - Laravel config/app.php
+ld - Laravel config/database.php
 lc - Laravel composer.json
 
 ### Control key bindings
 <C-i> - follow tag
 <C-o> - follow tag in new vsplit
 <C-t> - back from the tag
-hjkl - move between splits and Tmux panes
+<C-hjkl> - move between splits
+<C-w>hjkl - resize splits
 
 ### Function keys bindings
 F1 - display this help
@@ -33,5 +32,5 @@ F7 - toggle TagBar
 F8 - toggle Syntastic
 
 ### Remember
-- Sort bindings in vimrc like in here.
-- ...
+- add grep and replace commands
+- add ySiw + others surround

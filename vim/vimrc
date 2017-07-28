@@ -1,36 +1,39 @@
 " Never move this
 runtime! debian.vim
+set nocompatible "Not compatible with vi 
 
-set nocompatible "Not compatible with vi
-
-" Vundle plugins"{{{
-filetype off
+" Vundle plugins"{{{ 
+filetype off 
 set rtp+=~/.vim/bundle/Vundle.vim "Set runtime path to include Vundle
 call vundle#begin()
 
 " Plugins list
 Plugin 'VundleVim/Vundle.vim'
 
+" Syntax
+Plugin 'ajh17/VimCompletesMe'			"Easy tab completion
 Plugin 'scrooloose/syntastic'			"Syntax checker
-Plugin 'ajh17/VimCompletesMe'			"Tab completion using vim native completion
-Plugin 'pangloss/vim-javascript'		"JS Syntax
 Plugin 'stanangeloff/php.vim'			"PHP Syntax
-Plugin 'majutsushi/tagbar'				"Lists the file's tags
-Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
-Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects' configs
+Plugin 'pangloss/vim-javascript'		"JS Syntax
 
-Plugin 'mattn/emmet-vim'				"Emmet for vim (<C-y>,)
-Plugin 'tpope/vim-fugitive'				"git integration in vim
+" Tags, style
+Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
+Plugin 'majutsushi/tagbar'				"Lists the file's tags
+Plugin 'editorconfig/editorconfig-vim'	"Have vim adapt to different projects
+Plugin 'ap/vim-css-color'				"Preview colours in the file
+
+" Functionality
+Plugin 'vim-airline/vim-airline'		"Nice looking airline
+Plugin 'ctrlpvim/ctrlp.vim'				"Fuzzy finder/buffer manager
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
+Plugin 'mattn/emmet-vim'				"Emmet for vim (<C-y>,)
+Plugin 'vimwiki/vimwiki'				"Note-taking in vim
+Plugin 'tpope/vim-fugitive'				"git integration in vim
 Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
 
-Plugin 'vimwiki/vimwiki'				"Note-taking in vim
-Plugin 'vim-airline/vim-airline'		"Nice looking airline
-Plugin 'ap/vim-css-color'				"Preview colours in the file
-" Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
-
-Plugin 'christoomey/vim-system-copy'	"Access system clipboard (requires xsel package)
+" Additions
+Plugin 'christoomey/vim-system-copy'	"Access system clipboard -requires xsel
 Plugin 'tommcdo/vim-exchange'			"Exchange two pieces of text
 Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
@@ -39,15 +42,16 @@ Plugin 'jiangmiao/auto-pairs'			"Auto-pairs parenses and other things
 Plugin 'godlygeek/tabular'				"Aligns things
 
 Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
-Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes easier
+Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes
 
-" Colorschemes/themes...
+" Looks
 Plugin 'vim-airline/vim-airline-themes'	"Themes for airline
-Plugin 'morhetz/gruvbox'				"A theme inspired by solarized with airline theme
+Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
+Plugin 'morhetz/gruvbox'				"A theme inspired by solarized
 Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
 Plugin 'bluz71/vim-moonfly-colors'
 " Plugin 'flazz/vim-colorschemes'			"A whole lot of themes... Heavy...
-Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
+" Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
 
 " All plugins before this
 call vundle#end()
@@ -60,7 +64,8 @@ let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'mark
 
 " Defaults for VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-autocmd FileType php,python,c let b:vcm_tab_complete = "omni"
+" autocmd FileType php,python,c let b:vcm_tab_complete = "omni"
+let b:vcm_tab_complete = "omni"
 autocmd FileType markdown,txt setlocal complete+=kspell
 
 " Defaults for syntastic
@@ -79,9 +84,8 @@ let g:tagbar_autofocus = 1
 
 " Emmet defaults
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php,xml EmmetInstall
+autocmd FileType html,php,css EmmetInstall
 let g:user_emmet_leader_key = "<C-f>"
-" let g:user_emmet_expandabbr_key = ",f"
 
 " Airline status
 set laststatus=2                                  " Show the status line all the time
@@ -91,11 +95,8 @@ let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
 let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline#extensions#branch#enabled=1		  " Enable Git support
-let g:airline_powerline_fonts=1                   " Use powerline font to its full potential
+let g:airline_powerline_fonts=1                   " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
-let g:airline_symbols = get(g:,'airline_symbols',{})
-let g:airline_symbols.maxlinenr=''
-let g:airline_section_z = airline#section#create(['maxlinenr', '  :', '%3v'])
 "}}}
 
 " Visual stuff"{{{
@@ -116,122 +117,45 @@ colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
 "}}}
 
-" Autocmd (indent, spellcheck, encoding...)"{{{
-" Jump to the last position when reopening a file
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+" Temporary / Config test{{{
 
-" Load indentation rules and plugins according to the detected filetype.
-if has("autocmd")
-	filetype plugin indent on
-endif
+" let g:user_emmet_expandabbr_key = \",f"
 
-" Enable spellcheck for markdown files
-autocmd FileType markdown setlocal spell spelllang=en,fr
-autocmd FileType gitcommit setlocal spell spelllang=en,fr
-
-" Set encoding
-set encoding=utf-8  " The encoding displayed.
-set fileencoding=utf-8  " The encoding written to file.
-
-" Close vim if NERDTree is the last opened buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Tab-completion for files
-set path+=**
-set wildmenu "Display all matching files with tab
+" let g:airline_symbols = get(g:,'airline_symbols',{})
+" let g:airline_symbols.maxlinenr=''
+" let g:airline_section_z = airline#section#create(['maxlinenr', '  :', '%3v'])
 "}}}
 
-" Set options"{{{
-set showcmd    " Show (partial) command in status line.
-set showmatch  " Show matching brackets.
-set ignorecase " Do case insensitive matching
-set smartcase  " Do smart case matching
-set incsearch  " Incremental search
-set autowrite  " Automatically save before commands like :next and :make
-set hidden     " Hide buffers when they are abandoned
-set mouse=a    " Enable mouse usage (all modes)
-set wrapscan   " Searches wrap around end of file
-set linebreak  " Break only at word boundaries
-set notimeout  " Don't timeout after Leader for example
-set ttimeout   " Don't do the previous thing for Escape
-
-" Set more options
-set number relativenumber
-set cursorline					  " Highlight line where cursor is
-set shortmess+=I				  " Don't show the welcome screen
-set noshowmode                    " Don't show the current mode (airline)
-set completeopt=menu              " Stops the buffer from opening on omnicomplete
-set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
-set autoread                      " Reload files changed outside vim
-set splitright                    " Open new splits on the right
-set scrolloff=3                   " Start scrolling three lines before border of window
-set sidescrolloff=3               " Start scrolling three columns before vertical border
-set synmaxcol=200				  " Only syntax highlight the first 200 columns
-
-" Set dirs for swap and others
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
-"}}}
-
-" Tab control"{{{
-set autoindent
-set smartindent
-set noexpandtab 	"Tabs ftw
-set smarttab 		"Tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
-set tabstop=4 		"The visible width of tabs
-set softtabstop=4 	"Edit as if the tabs are 4 characters wide
-set shiftwidth=4 	"Number of spaces to use for indent and unindent
-set shiftround 		"Round indent to a multiple of 'shiftwidth'
-"}}}
-
-" Code folding settings"{{{
-set foldmethod=marker " Fold based on indent
-set foldnestmax=5     " 5 levels deep folds
-set foldenable        " Enable folding
-set foldlevel=0       " Close all folds by default
-
-" Space to open/close folds in normal mode, to create new ones in visual mode
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
-"}}}
-
-" Custom commands"{{{
-command! MakeTags !ctags -R .
-
-command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
-command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
-command VimRC e ~/.vimrc
-command TmuxConf e ~/.tmux.conf
-"}}}
-
-" Custom bindings"{{{
+" Custom bindings{{{
 let mapleader = ',' "Set a Leader for more bindings
 
-" Easy shortcuts
-nmap <silent> <Leader>s :w<CR>
-nmap <silent> <Leader>q :q<CR>
-nmap <silent> <Leader>wq :wq<CR>
-" Open current buffer to the right, and change this split's
-" buffer to the previous
-nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
-" Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>k
-
-" F1 to open custom bindings help
-nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
-
+" Control bindings{{{
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
 nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Resize panes
-nnoremap <silent> <Leader>l :vertical resize +5<CR>
-nnoremap <silent> <Leader>h :vertical resize -5<CR>
-nnoremap <silent> <Leader>k :resize +5<CR>
-nnoremap <silent> <Leader>j :resize -5<CR>
+nnoremap <silent> <C-w>l :vertical resize +5<CR>
+nnoremap <silent> <C-w>h :vertical resize -5<CR>
+nnoremap <silent> <C-w>k :resize +5<CR>
+nnoremap <silent> <C-w>j :resize -5<CR>
+"}}}
+
+" Leader bindings{{{
+" Easy shortcuts
+nmap <silent> <Leader>s :w<CR>
+nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>wq :wq<CR>
+
+" Open current buffer to the right, and change this split's
+" buffer to the previous
+nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
+
+" Use enter to create new lines w/o entering insert mode
+nnoremap <CR> o<Esc>k
+
+" F1 to open custom bindings help
+nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
 
 " Skip lines: faster navigation
 noremap J 5j
@@ -240,28 +164,10 @@ noremap K 5k
 "noremap L $
 
 " Laravel framework commons
-nmap <Leader>lr :e app/routes.php<CR>
-nmap <Leader>la :e app/config/app.php<CR>81Gf(%O
-nmap <Leader>ld :e app/config/database.php<CR>
+nmap <Leader>lr :e routes/web.php<CR>
+nmap <Leader>la :e config/app.php<CR>81Gf(%O
+nmap <Leader>ld :e config/database.php<CR>
 nmap <Leader>lc :e composer.json<CR>
-
-" Toggles for features{{{
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>g :GitGutterToggle<CR>
-nmap <silent> <Leader>t :TagbarToggle<CR>
-
-" Same, but also working in insert mode
-nnoremap <F4> :GitGutterToggle<CR>
-inoremap <F4> <Esc> :GitGutterToggle<CR>gi
-nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
-inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
-nnoremap <F6> :NERDTreeToggle<CR>
-inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
-nnoremap <F7> :TagbarToggle<CR>
-inoremap <F7> <Esc>:TagbarToggle<CR>gi
-nnoremap <F8> :SyntasticToggleMode<CR>
-inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
-"}}}
 
 " Mappings to access buffers{{{
 " Back one buffer
@@ -281,7 +187,27 @@ nnoremap <Leader>0 :10b<CR>
 nnoremap <Leader>x :bp\|bd #<CR>
 "}}}
 
-" Navigate between display lines{{{
+"}}}
+
+" Toggles for features{{{
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>g :GitGutterToggle<CR>
+nmap <silent> <Leader>t :TagbarToggle<CR>
+
+" Toggles for features (work in insert)
+nnoremap <F4> :GitGutterToggle<CR>
+inoremap <F4> <Esc> :GitGutterToggle<CR>gi
+nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
+nnoremap <F6> :NERDTreeToggle<CR>
+inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
+nnoremap <F7> :TagbarToggle<CR>
+inoremap <F7> <Esc>:TagbarToggle<CR>gi
+nnoremap <F8> :SyntasticToggleMode<CR>
+inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
+"}}}
+
+" Basic movement{{{
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 noremap  <silent> <Up>   gk
@@ -291,7 +217,96 @@ noremap  <silent> <End>  g<End>
 inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End> <C-o>g<End>
 "}}}
+"}}}
+
+" Custom commands{{{
+command! MakeTags !ctags -R .
+
+command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
+command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
+command VimRC e ~/.vimrc
+command TmuxConf e ~/.tmux.conf
 
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
+"}}}
+
+" Autocmd, misc{{{
+" Jump to the last position when reopening a file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Load indentation rules and plugins according to the detected filetype.
+if has("autocmd")
+	filetype plugin indent on
+endif
+
+" Enable spellcheck for markdown files
+" autocmd FileType markdown setlocal spell spelllang=en,fr
+autocmd FileType gitcommit setlocal spell spelllang=en,fr
+
+" Close vim if NERDTree is the last opened buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Tab-completion for files
+set path+=**
+set wildmenu "Display all matching files with tab
+"}}}
+
+" Set options{{{
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+set encoding=utf-8     " The encoding displayed.
+set fileencoding=utf-8 " The encoding written to file.
+set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching
+set incsearch          " Incremental search
+set autowrite          " Automatically save before commands like :next and :make
+set hidden             " Hide buffers when they are abandoned
+set mouse=a            " Enable mouse usage (all modes)
+set wrapscan           " Searches wrap around end of file
+set linebreak          " Break only at word boundaries
+set notimeout          " Don't timeout after Leader for example
+set ttimeout           " Don't do the previous thing for Escape
+
+" Set more options
+set number relativenumber
+set cursorline					  " Highlight line where cursor is
+set shortmess+=I				  " Don't show the welcome screen
+set noshowmode                    " Don't show the current mode (airline)
+set completeopt=menu              " Stops the buffer from opening on omnicomplete
+set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
+set autoread                      " Reload files changed outside vim
+set splitright                    " Open new splits on the right
+set scrolloff=3                   " Start scrolling three lines before end
+set sidescrolloff=3               " Start scrolling three columns before end
+set synmaxcol=200				  " Only syntax highlight the first 200 columns
+
+" Set dirs for swap and others
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+"}}}
+
+" Tabs{{{
+set autoindent
+set smartindent
+set noexpandtab 	"Tabs ftw
+set smarttab 		"Tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+set tabstop=4 		"The visible width of tabs
+set softtabstop=4 	"Edit as if the tabs are 4 characters wide
+set shiftwidth=4 	"Number of spaces to use for indent and unindent
+set shiftround 		"Round indent to a multiple of 'shiftwidth'
+"}}}
+
+" Code folding{{{
+set foldmethod=marker " Fold based on indent
+set foldnestmax=5     " 5 levels deep folds
+set foldenable        " Enable folding
+set foldlevel=0       " Close all folds by default
+
+" Space to open/close folds in normal mode, to create new ones in visual mode
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 "}}}
