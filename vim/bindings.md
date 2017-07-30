@@ -22,6 +22,7 @@ lc - Laravel composer.json
 <C-t> - back from the tag
 <C-hjkl> - move between splits
 <C-w>hjkl - resize splits
+<C-a> - increments a number
 
 ### Function keys bindings
 F1 - display this help

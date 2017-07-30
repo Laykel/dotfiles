@@ -15,6 +15,7 @@ Plugin 'ajh17/VimCompletesMe'			"Easy tab completion
 Plugin 'scrooloose/syntastic'			"Syntax checker
 Plugin 'stanangeloff/php.vim'			"PHP Syntax
 Plugin 'pangloss/vim-javascript'		"JS Syntax
+Plugin 'jwalton512/vim-blade'			"Blade Syntax
 
 " Tags, style
 Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us

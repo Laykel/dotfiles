@@ -1,37 +1,21 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=/home/luc/.oh-my-zsh
 
 # Themes (random, agnoster, bira, bureau, gallois)
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+# Parth's prompt
+source $HOME/Dev/dotfiles/zsh/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git node npm colored-man-pages colorize z)
+plugins=(git laravel5 colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 HYPHEN_INSENSITIVE="true"
 export EDITOR='vim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Executes ls on dir change
-chpwd() ls -h --group-directories-first
-
-# Users are encouraged to define aliases within the ZSH_CUSTOM folder.# {{{
-# For a full list of active aliases, run `alias`.
+# Aliases {{{
 alias l="ls -ah --group-directories-first"
 alias ll="ls -lhaF --color=auto --group-directories-first"
 alias cl="clear;ls -h --group-directories-first"
@@ -60,7 +44,7 @@ alias cdoc="cd ~/Documents/"
 alias cnotes="cd ~/Documents/Notebooks/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
-alias :q="exit"
+alias ,q="exit"
 alias help="man"
 
 alias dp="dpkg -l | grep "
@@ -74,7 +58,62 @@ alias tn="tmux new -s "
 alias tk="tmux kill-session -t "
 # }}}
 
+# Bindings{{{
+# Executes ls on dir change
+chpwd() ls -h --group-directories-first
+
+# git
+	function git_prepare() {
+		if [ -n "$BUFFER" ];
+			then
+				BUFFER="git add -A; git commit -m \"$BUFFER\" && git push"
+		fi
+
+		if [ -z "$BUFFER" ];
+			then
+				BUFFER="git add -A; git commit -v && git push"
+		fi
+
+		zle accept-line
+	}
+	zle -N git_prepare
+	bindkey "^g" git_prepare
+
+# home
+	function goto_home() {
+		BUFFER="cd ~/"$BUFFER
+		zle end-of-line
+		zle accept-line
+	}
+	zle -N goto_home
+	bindkey "^b" goto_home
+
+# Edit and rerun
+	function edit_and_run() {
+		BUFFER="fc"
+		zle accept-line
+	}
+	zle -N edit_and_run
+	bindkey "^v" edit_and_run
+
+# LS
+	function ctrl_l() {
+		BUFFER="cl"
+		zle accept-line
+	}
+	zle -N ctrl_l
+	bindkey "^q" ctrl_l
+
+# Sudo
+	function add_sudo() {
+		BUFFER="sudo !!"
+		zle end-of-line
+	}
+	zle -N add_sudo
+	bindkey "^s" add_sudo
+# }}}
+
 # Launch tmux with screen-256color
-if [[ -n "$TMUX" ]] && [[ ! -e "/root/.automatic_start_occurred" ]];then
-	export TERM=screen-256color
-fi
+# if [[ -n "$TMUX" ]] && [[ ! -e "/root/.automatic_start_occurred" ]];then
+# 	export TERM=screen-256color
+# fi

@@ -2,21 +2,22 @@
 My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ## To-do:
-- complete vim, zsh, kde saves
+- complete vim, kde saves
 - complete update and deploy scripts
+	- zsh plugins
+- update and enhance cheatsheets
 - try out neovim
 
 ## Content
 
 ### vim:
 - Contains my vimrc as well as a cheat sheet of vim, my bindings and my plugins.
-- Install vundle first:
-
-`$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+- Install vundle first: `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 ### tmux:
 - Contains my tmux.conf file as well as the same kind of cheat sheet as for the others configs.
 - (Also a theme file for the tmux bar.)
+- Tmux plugin manager instal: `git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm`
 
 ### zshrc:
 - It's just my zshrc file, with all my aliases, configs and plugins. (OhMyZsh)
@@ -50,9 +51,9 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 ### i3:
 - Contains my i3config file as well as my bar config and a cheat sheet.
 
-## Scripts folder
+### Scripts folder
 - This folder contains a script to update the package lists and the configs plugins, a script to deploy the dotfiles on a new system (provided the folder is cloned in ~/Dev/dotfiles), and the package lists.
 
-### Package lists:
-- allPackages.txt is the output of `apt list --installed`
+#### Package lists:
+- allPackages.txt is the output of `dpkg -l | grep ii`
 - installedPackages.txt is the output of `comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)`
