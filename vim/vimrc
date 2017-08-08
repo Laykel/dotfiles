@@ -66,8 +66,8 @@ let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'mark
 
 " Defaults for VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" autocmd FileType php,python,c let b:vcm_tab_complete = \"omni"
-let b:vcm_tab_complete = "omni"
+let b:vcm_tab_complete = "vim"
+autocmd FileType html,css,javascript,php,python3,c,sql,xml let b:vcm_tab_complete = "omni"
 autocmd FileType markdown,txt setlocal complete+=kspell
 
 " Defaults for syntastic
@@ -120,15 +120,6 @@ let g:airline_theme = 'gruvbox'
 "}}}
 
 " Temporary / Config test{{{
-
-nnoremap H 0
-" nnoremap J L
-" nnoremap K H
-nnoremap L $
-
-set updatetime=750	" Refresh frequency?
-set confirm			" Dialog when :q, :w or :wq fails
-
 augroup editor_stuff
 	autocmd!
 	autocmd BufLeave * :set norelativenumber
@@ -150,43 +141,23 @@ function! g:StripWhitespace( line1, line2 )
 	let @/=_s
 	call cursor(l, c)
 endfunction
-
-" Return to the same line you left off at
-augroup line_return
-	au!
-	au BufReadPost *
-		\ if line("'\"") > 0 && line("'\"") <= line("$") |
-		\	execute 'normal! g`"zvzz' |
-		\ endif
-augroup END
-
-" let g:user_emmet_expandabbr_key = \",f"
-
-" let g:airline_symbols = get(g:,'airline_symbols',{})
-" let g:airline_symbols.maxlinenr=''
-" let g:airline_section_z = airline#section#create(['maxlinenr', '  :', '%3v'])
 "}}}
 
 " Custom bindings{{{
 let mapleader = ',' "Set a Leader for more bindings
 
-" Control bindings{{{
-" Mappings for following tags (<C-p> to go back)
-nnoremap <C-i> <C-]>
-nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-" Resize panes
-nnoremap <silent> <C-w>l :vertical resize +5<CR>
-nnoremap <silent> <C-w>h :vertical resize -5<CR>
-nnoremap <silent> <C-w>k :resize +5<CR>
-nnoremap <silent> <C-w>j :resize -5<CR>
-"}}}
+nnoremap z <C-r>
 
 " Leader bindings{{{
 " Easy shortcuts
 nmap <silent> <Leader>s :w<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>wq :wq<CR>
+
+" Remap spell bindings
+nnoremap <Leader>zg zg
+nnoremap <Leader>zw zw
+nnoremap <Leader>zz z=
 
 " Open current buffer to the right, and change this split's
 " buffer to the previous
@@ -198,19 +169,62 @@ nnoremap <CR> o<Esc>k
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
 
-" Skip lines: faster navigation
-noremap J 5j
-noremap K 5k
-"noremap H 0
-"noremap L $
-
 " Laravel framework commons
 nmap <Leader>lr :e routes/web.php<CR>
 nmap <Leader>la :e config/app.php<CR>81Gf(%O
 nmap <Leader>ld :e config/database.php<CR>
 nmap <Leader>lc :e composer.json<CR>
+"}}}
 
-" Mappings to access buffers{{{
+" Toggles for features{{{
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>g :GitGutterToggle<CR>
+nmap <silent> <Leader>tt :TagbarToggle<CR>
+
+" Toggles for features (work in insert)
+nnoremap <F4> :GitGutterToggle<CR>
+inoremap <F4> <Esc> :GitGutterToggle<CR>gi
+nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
+nnoremap <F6> :NERDTreeToggle<CR>
+inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
+nnoremap <F7> :TagbarToggle<CR>
+inoremap <F7> <Esc>:TagbarToggle<CR>gi
+nnoremap <F8> :SyntasticToggleMode<CR>
+inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
+
+" Vimux stuff
+nnoremap <leader>rp :VimuxPromptCommand<CR>
+nnoremap <leader>ro :call VimuxRunCommand("ls")<CR>
+nnoremap <leader>rl :VimuxRunLastCommand<CR>
+nnoremap <leader>rq :VimuxCloseRunner<CR>
+nnoremap <leader>rz :VimuxZoomRunner<CR>
+
+" Tabular stuff
+nnoremap <leader>tg :Tabularize /
+nnoremap <leader>tq :Tabularize /"<CR>
+nnoremap <leader>te :Tabularize /=<CR>
+"}}}
+
+" Basic movement{{{
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+noremap  <silent> <Up>   gk
+noremap  <silent> <Down> gj
+noremap  <silent> <Home> g<Home>
+noremap  <silent> <End>  g<End>
+inoremap <silent> <Home> <C-o>g<Home>
+inoremap <silent> <End> <C-o>g<End>
+
+" Skip lines: faster navigation
+nnoremap <PageUp> H
+nnoremap <PageDown> L
+nnoremap J 5j
+nnoremap K 5k
+nnoremap H 0
+nnoremap L $
+
+" Mappings to access buffers
 " Back one buffer
 nnoremap <Leader>. :bp<CR>
 " Forward one buffer
@@ -226,38 +240,26 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 nnoremap <Leader>x :bp\|bd #<CR>
+
+" Buffer navigation like Firefox
+nnoremap <C-S-tab> :bp<CR>
+nnoremap <C-tab> :bn<CR>
+inoremap <C-S-tab> <Esc>:bp<CR>i
+inoremap <C-tab> <Esc>:bn<CR>i
 "}}}
 
+" Control bindings{{{
+" Mappings for following tags (<C-p> to go back)
+nnoremap <C-i> <C-]>
+nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Resize panes
+nnoremap <silent> <C-w>l :vertical resize +5<CR>
+nnoremap <silent> <C-w>h :vertical resize -5<CR>
+nnoremap <silent> <C-w>k :resize +5<CR>
+nnoremap <silent> <C-w>j :resize -5<CR>
 "}}}
 
-" Toggles for features{{{
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>g :GitGutterToggle<CR>
-nmap <silent> <Leader>t :TagbarToggle<CR>
-
-" Toggles for features (work in insert)
-nnoremap <F4> :GitGutterToggle<CR>
-inoremap <F4> <Esc> :GitGutterToggle<CR>gi
-nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
-inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
-nnoremap <F6> :NERDTreeToggle<CR>
-inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
-nnoremap <F7> :TagbarToggle<CR>
-inoremap <F7> <Esc>:TagbarToggle<CR>gi
-nnoremap <F8> :SyntasticToggleMode<CR>
-inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
-"}}}
-
-" Basic movement{{{
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
-noremap  <silent> <Up>   gk
-noremap  <silent> <Down> gj
-noremap  <silent> <Home> g<Home>
-noremap  <silent> <End>  g<End>
-inoremap <silent> <Home> <C-o>g<Home>
-inoremap <silent> <End> <C-o>g<End>
-"}}}
 "}}}
 
 " Custom commands{{{
@@ -324,6 +326,9 @@ set splitbelow					  " Open new splits below, if not on the right
 set scrolloff=3                   " Start scrolling three lines before end
 set sidescrolloff=3               " Start scrolling three columns before end
 set synmaxcol=200				  " Only syntax highlight the first 200 columns
+set updatetime=750				  " Refresh frequency?
+set confirm						  " Dialog when :q, :w or :wq fails
+set undofile					  " Persistent undo across sessions
 
 " Set dirs for swap and others
 set backupdir=~/.vim/backup//
@@ -343,7 +348,7 @@ set shiftround 		"Round indent to a multiple of 'shiftwidth'
 "}}}
 
 " Code folding{{{
-set foldmethod=marker " Fold based on indent
+set foldmethod=marker " Fold based on markers
 set foldnestmax=5     " 5 levels deep folds
 set foldenable        " Enable folding
 set foldlevel=0       " Close all folds by default
