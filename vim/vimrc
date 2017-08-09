@@ -325,7 +325,7 @@ set splitright                    " Open new splits on the right
 set splitbelow					  " Open new splits below, if not on the right
 set scrolloff=3                   " Start scrolling three lines before end
 set sidescrolloff=3               " Start scrolling three columns before end
-set synmaxcol=200				  " Only syntax highlight the first 200 columns
+set synmaxcol=300				  " Only syntax highlight the first 200 columns
 set updatetime=750				  " Refresh frequency?
 set confirm						  " Dialog when :q, :w or :wq fails
 set undofile					  " Persistent undo across sessions
