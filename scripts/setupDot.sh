@@ -13,15 +13,15 @@ ln -s "$HOME/Dev/dotfiles/syncthing/config.xml" "$HOME/.config/syncthing/config.
 mkdir "$HOME/.vim/{backup,swap,undo}"
 
 # Install Vundle, TPM and oh-my-zsh
-git clone "https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim"
-git clone "https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone "https://github.com/VundleVim/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
+git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
+sh -c "$(curl -fksSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install zsh plugins
 # Autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 # Syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
 # Install vim and tmux plugins
 "$HOME/.tmux/plugins/tpm/bin/install_plugins"
