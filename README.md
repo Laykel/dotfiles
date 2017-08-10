@@ -3,25 +3,20 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ## To-do:
 - complete vim, kde saves
-- complete update and deploy scripts
-	- zsh plugins
 - update and enhance cheatsheets
 - try out neovim
 
 ## Content
 
 ### vim:
-- Contains my vimrc as well as a cheat sheet of vim, my bindings and my plugins.
-- Install vundle first: `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+- Contains my vimrc as well as a cheat sheet, my bindings, and my plugins, managed through Vundle.
 
 ### tmux:
-- Contains my tmux.conf file as well as the same kind of cheat sheet as for the others configs.
-- (Also a theme file for the tmux bar.)
-- Tmux plugin manager instal: `git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm`
+- Contains my tmux.conf file as well as a cheat sheet. (Also a theme file for the tmux bar)
+- Tmux plugin manager (TPM)
 
 ### zshrc:
-- It's just my zshrc file, with all my aliases, configs and plugins. (OhMyZsh)
-- oh-my-zsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+- Just my zshrc file, with all my aliases, configs and plugins, managed through oh-my-zsh.
 
 ### tldrrc:
 - The config file, with just a little thing to display colours.
@@ -36,14 +31,13 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 - WIP
 
 ### zathura:
-- Once again, the config file and the cheat sheet that goes with it.
+- Once again, the config file.
 
 ### Syncthing:
-- The folder contains my configuration for syncthing.
-- Folder for the config: $HOME/.config/syncthing/...
+- Config file for Syncthing. (Folder for the config: $HOME/.config/syncthing/...)
 
 ### Sublime:
-- A list of all the packages I use.
+- A list of all the packages (plugins) I use.
 
 ### kde:
 - Contains different config files for my kde setup.
