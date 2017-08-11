@@ -10,7 +10,7 @@ ln -s "$HOME/Dev/dotfiles/syncthing/config.xml" "$HOME/.config/syncthing/config.
 # ln ranger
 
 # Create vim folders
-mkdir "$HOME/.vim/{backup,swap,undo}"
+mkdir $HOME/.vim/{backup,swap,undo}
 
 # Install Vundle, TPM and oh-my-zsh
 git clone "https://github.com/VundleVim/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
