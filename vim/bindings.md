@@ -43,7 +43,9 @@ F12 - toggle NerdTree and TagBar
 ### Remember
 - add grep and replace commands
 - add ySiw + others surround
+	- ys$t - put the line in a tag
 - clean up nmap/nnoremap etc... 
+- Emmet: '<C-f>i' on '<img>' tag
 
 ### Basic
 <C-hjkl> - move between splits

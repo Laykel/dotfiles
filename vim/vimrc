@@ -120,13 +120,15 @@ let g:airline_theme = 'gruvbox'
 "}}}
 
 " Temporary / Config test{{{
-augroup editor_stuff
-	autocmd!
-	autocmd BufLeave * :set norelativenumber
-	autocmd BufEnter * :set relativenumber
-	autocmd InsertEnter * :set norelativenumber
-	autocmd InsertLeave * :set relativenumber
-augroup END
+
+" Quite awesome, but it gives nerdtree and tagbar numbers as well...
+" augroup editor_stuff
+" 	autocmd!
+" 	autocmd BufLeave * :set norelativenumber
+" 	autocmd BufEnter * :set relativenumber
+" 	autocmd InsertEnter * :set norelativenumber
+" 	autocmd InsertLeave * :set relativenumber
+" augroup END
 
 " Strip trailing whitespaces
 " Taken from https://github.com/ntpeters
