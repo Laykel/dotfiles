@@ -48,9 +48,11 @@ alias ,q="exit"
 alias help="man"
 
 alias dp="dpkg -l | grep "
-alias apts="apt list --upgradable"
+alias aptl="apt list --upgradable"
+alias apts="apt search"
 alias aptupd="sudo apt update"
 alias aptupg="sudo apt upgrade"
+alias apti="sudo apt install"
 
 alias tm="tmux attach -t base || tmux new -s base"
 alias tl="tmux ls"

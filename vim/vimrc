@@ -67,7 +67,7 @@ let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'mark
 " Defaults for VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let b:vcm_tab_complete = "vim"
-autocmd FileType html,css,javascript,php,python3,c,sql,xml let b:vcm_tab_complete = "omni"
+autocmd FileType html,css,javascript,php,c,sql,xml let b:vcm_tab_complete = "omni"
 autocmd FileType markdown,txt setlocal complete+=kspell
 
 " Defaults for syntastic
@@ -114,9 +114,9 @@ set background=dark
 "set termguicolors
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme gruvbox
+colorscheme tender
 "gruvbox, tender, moonfly, bubblegum
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'tender'
 "}}}
 
 " Temporary / Config test{{{
@@ -328,7 +328,7 @@ set splitbelow					  " Open new splits below, if not on the right
 set scrolloff=3                   " Start scrolling three lines before end
 set sidescrolloff=3               " Start scrolling three columns before end
 set synmaxcol=300				  " Only syntax highlight the first 200 columns
-set updatetime=750				  " Refresh frequency?
+" set updatetime=750				  " Refresh frequency?
 set confirm						  " Dialog when :q, :w or :wq fails
 set undofile					  " Persistent undo across sessions
 
