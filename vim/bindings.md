@@ -31,6 +31,9 @@ lc - Laravel composer.json
 <PageDown> - bottom of page (L)
 <PageUp> - top of page (H)
 
+<C-k>+u+> = û
+<C-k>+C+, = Ç
+
 ### Function keys bindings
 F1 - display this help
 F4 - toggle GitGutter

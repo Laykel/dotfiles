@@ -99,6 +99,17 @@ let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
+
+" Tmux navigator
+ " let g:tmux_navigator_no_mappings = 1
+
+ " nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+ " nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+ " nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+ " nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+ " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
+
 "}}}
 
 " Visual stuff"{{{
@@ -269,7 +280,7 @@ command! MakeTags !ctags -R .
 
 command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
-command VimRC e ~/.vimrc
+command VimRC e ~/Dev/dotfiles/vim/vimrc
 command TmuxConf e ~/.tmux.conf
 
 " Write when the file wasn't opened with sudo privileges

@@ -15,6 +15,10 @@ source $ZSH/oh-my-zsh.sh
 HYPHEN_INSENSITIVE="true"
 export EDITOR='vim'
 
+# Set CapsLock to act as Escape on tap and Ctrl on hold
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape' 
+
 # Aliases {{{
 alias l="ls -ah --group-directories-first"
 alias ll="ls -lhaF --color=auto --group-directories-first"
@@ -82,13 +86,13 @@ chpwd() ls -h --group-directories-first
 	bindkey "^g" git_prepare
 
 # home
-	function goto_home() {
-		BUFFER="cd ~/"$BUFFER
-		zle end-of-line
+	function go_back() {
+		BUFFER="cd .."
+		# zle end-of-line
 		zle accept-line
 	}
-	zle -N goto_home
-	bindkey "^b" goto_home
+	zle -N go_back
+	bindkey "^b" go_back
 
 # Edit and rerun
 	function edit_and_run() {
