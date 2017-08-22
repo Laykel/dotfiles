@@ -11,7 +11,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Syntax
-Plugin 'ajh17/VimCompletesMe'			"Easy tab completion
+" Plugin 'ajh17/VimCompletesMe'			"Easy tab completion
+Plugin 'ervandew/supertab'				"Easy tab completion
 Plugin 'scrooloose/syntastic'			"Syntax checker
 Plugin 'stanangeloff/php.vim'			"PHP Syntax
 Plugin 'pangloss/vim-javascript'		"JS Syntax
@@ -64,11 +65,13 @@ let NERDTreeShowHidden = 1
 let g:ctrlp_show_hidden = 1
 let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
-" Defaults for VimCompletesMe
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-let b:vcm_tab_complete = "vim"
-autocmd FileType html,css,javascript,php,c,sql,xml let b:vcm_tab_complete = "omni"
-autocmd FileType markdown,txt setlocal complete+=kspell
+" Defaults for VimCompletesMe/SuperTab
+" inoremap <expr> <CR> pumvisible() ? \"\<C-y>" : \"\<C-g>u\<CR>"
+" let b:vcm_tab_complete = \"vim"
+" autocmd FileType html,css,javascript,php,c,sql,xml let b:vcm_tab_complete = \"omni"
+" autocmd FileType markdown,txt setlocal complete+=kspell
+let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>"
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -101,13 +104,13 @@ let g:airline_powerline_fonts=1                   " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
 
 " Tmux navigator
- " let g:tmux_navigator_no_mappings = 1
+" let g:tmux_navigator_no_mappings = 1
 
- " nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
- " nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
- " nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
- " nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
- " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+" nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 
 "}}}
@@ -125,9 +128,9 @@ set background=dark
 "set termguicolors
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme tender
+colorscheme gruvbox
 "gruvbox, tender, moonfly, bubblegum
-let g:airline_theme = 'tender'
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Temporary / Config test{{{
@@ -141,19 +144,6 @@ let g:airline_theme = 'tender'
 " 	autocmd InsertLeave * :set relativenumber
 " augroup END
 
-" Strip trailing whitespaces
-" Taken from https://github.com/ntpeters
-" -> :call StripWhitespace(10, 21)
-let g:whitespace_group='[\u0009\u0020\u00a0\u1680\u180e\u2000-\u200b\u202f\u205f\u3000\ufeff]'
-let g:eol_whitespace_pattern = g:whitespace_group . '\+$'
-function! g:StripWhitespace( line1, line2 )
-	let _s = @/
-	let l  = line(".")
-	let c  = col(".")
-	silent! execute ':' . a:line1 . ',' . a:line2 . 's/' . g:eol_whitespace_pattern . '//e'
-	let @/=_s
-	call cursor(l, c)
-endfunction
 "}}}
 
 " Custom bindings{{{
@@ -285,6 +275,20 @@ command TmuxConf e ~/.tmux.conf
 
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
+
+" Strip trailing whitespaces
+" Taken from https://github.com/ntpeters
+" -> :call StripWhitespace(10, 21)
+let g:whitespace_group='[\u0009\u0020\u00a0\u1680\u180e\u2000-\u200b\u202f\u205f\u3000\ufeff]'
+let g:eol_whitespace_pattern = g:whitespace_group . '\+$'
+function! g:StripWhitespace( line1, line2 )
+	let _s = @/
+	let l  = line(".")
+	let c  = col(".")
+	silent! execute ':' . a:line1 . ',' . a:line2 . 's/' . g:eol_whitespace_pattern . '//e'
+	let @/=_s
+	call cursor(l, c)
+endfunction
 "}}}
 
 " Autocmd, misc{{{

@@ -96,9 +96,11 @@ transmission-qt
 tree
 ttf-mscorefonts-installer
 unrar
+vim-gtk3-py2
 virtualbox
 wavemon
 wireshark
+xcape
 xiphos
 xsel
 xterm

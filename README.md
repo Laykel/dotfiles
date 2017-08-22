@@ -2,9 +2,17 @@
 My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ## To-do:
+- add repos list and history
 - complete vim, kde saves
 - update and enhance cheatsheets
 - try out neovim
+
+_To save maybe:_
+Firefox accounts, config
+Thunderbird accounts, config!!
+Chrome accounts
+Eventually save /usr/share/applications or some of it
+Eventually save /opt/ -- Xmind, geekbench4, etcher, franz, tor...
 
 ## Content
 
