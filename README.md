@@ -2,7 +2,6 @@
 My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ## To-do:
-- add repos list and history
 - complete vim, kde saves
 - update and enhance cheatsheets
 - try out neovim

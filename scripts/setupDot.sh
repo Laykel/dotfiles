@@ -15,6 +15,7 @@ sudo apt-get install syncthing
 printf "source '%s/Dev/dotfiles/zsh/zshrc'" "$HOME" > ~/.zshrc
 printf "so %s/Dev/dotfiles/vim/vimrc" "$HOME" > ~/.vimrc
 printf "source-file %s/Dev/dotfiles/tmux/tmux.conf" "$HOME" > ~/.tmux.conf
+printf "source %s/Dev/dotfiles/bashrc" "$HOME" > ~/.bashrc
 ln -s "$HOME/Dev/dotfiles/tldrrc" "$HOME/.tldrrc"
 ln -s "$HOME/Dev/dotfiles/zathurarc" "$HOME/.config/zathura/zathurarc"
 ln -s "$HOME/Dev/dotfiles/syncthing/config.xml" "$HOME/.config/syncthing/config.xml"

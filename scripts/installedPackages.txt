@@ -11,6 +11,7 @@ cmatrix
 cmus
 cowsay
 curl
+dbeaver-ce
 default-jre
 deja-dup
 deja-dup-backend-gvfs

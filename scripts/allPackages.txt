@@ -19,7 +19,7 @@ ii  apt-transport-https                             1.2.24                      
 ii  apt-utils                                       1.2.24                                          amd64        package management related utility programs
 ii  apt-xapian-index                                0.47ubuntu8.3                                   all          maintenance and search tools for a Xapian index of Debian packages
 ii  arc-theme                                       1488477732.766ae1a-0                            all          Arc is a theme for GTK 3, GTK 2 and Gnome-Shell.
-ii  ark                                             4:17.04.3-0neon+16.04+xenial+build33            amd64        archive utility
+ii  ark                                             4:17.08.0-0neon+16.04+xenial+build34            amd64        archive utility
 ii  aspell                                          0.60.7~20110707-3build1                         amd64        GNU Aspell spell-checker
 ii  aspell-en                                       7.1-0-1.1                                       all          English dictionary for GNU Aspell
 ii  at-spi2-core                                    2.18.3-4ubuntu1                                 amd64        Assistive Technology Service Provider Interface (dbus core)
@@ -100,6 +100,7 @@ ii  curl                                            7.47.0-1ubuntu2.2           
 ii  dash                                            0.5.8-2.1ubuntu2                                amd64        POSIX-compliant shell
 ii  dbconfig-common                                 2.0.4ubuntu1                                    all          framework that helps packages to manage databases
 ii  dbconfig-mysql                                  2.0.4ubuntu1                                    all          dbconfig-common MySQL/MariaDB support
+ii  dbeaver-ce                                      4.1.3                                           amd64        DBeaver
 ii  dbus                                            1.10.6-1ubuntu3.3                               amd64        simple interprocess messaging system (daemon and utilities)
 ii  dbus-x11                                        1.10.6-1ubuntu3.3                               amd64        simple interprocess messaging system (X11 deps)
 ii  dc                                              1.06.95-9build1                                 amd64        GNU dc arbitrary precision reverse-polish calculator
@@ -134,7 +135,7 @@ ii  dnsutils                                        1:9.10.3.dfsg.P4-8ubuntu1.7 
 ii  docbook-xml                                     4.5-7.3                                         all          standard XML documentation system for software and systems
 ii  docbook-xsl                                     1.79.1+dfsg-1                                   all          stylesheets for processing DocBook XML to various output formats
 ii  docker-neon                                     0.0+p16.04+git20170804.1026-0                   all          Script to ease running of KDE neon Docker images
-ii  dolphin                                         4:17.04.3-0neon+16.04+xenial+build26            amd64        file manager
+ii  dolphin                                         4:17.08.0-0neon+16.04+xenial+build27            amd64        file manager
 ii  dosfstools                                      3.0.28-2ubuntu0.1                               amd64        utilities for making and checking MS-DOS FAT filesystems
 ii  dpkg                                            1.18.4ubuntu1.2                                 amd64        Debian package management system
 ii  dpkg-dev                                        1.18.4ubuntu1.2                                 all          Debian package development tools
@@ -283,7 +284,7 @@ ii  gvfs-backends                                   1.28.2-1ubuntu1~16.04.1     
 ii  gvfs-common                                     1.28.2-1ubuntu1~16.04.1                         all          userspace virtual filesystem - common data files
 ii  gvfs-daemons                                    1.28.2-1ubuntu1~16.04.1                         amd64        userspace virtual filesystem - servers
 ii  gvfs-libs:amd64                                 1.28.2-1ubuntu1~16.04.1                         amd64        userspace virtual filesystem - private libraries
-ii  gwenview                                        4:17.04.3-0neon+16.04+xenial+build34            amd64        image viewer
+ii  gwenview                                        4:17.08.0-0neon+16.04+xenial+build35            amd64        image viewer
 ii  gzip                                            1.6-4ubuntu1                                    amd64        GNU compression utilities
 ii  hdparm                                          9.48+ds-1                                       amd64        tune hard disk parameters for high performance
 ii  hicolor-icon-theme                              0.15-0ubuntu1                                   all          default fallback theme for FreeDesktop.org icon themes
@@ -318,7 +319,7 @@ ii  inkscape                                        0.91-7ubuntu2               
 ii  inputattach                                     1:1.4.9-1                                       amd64        utility to connect serial-attached peripherals to the input subsystem
 ii  insserv                                         1.14.0-5ubuntu3                                 amd64        boot sequence organizer using LSB init.d script dependency information
 ii  install-info                                    6.1.0.dfsg.1-5                                  amd64        Manage installed documentation in info format
-ii  intel-microcode                                 3.20151106.1                                    amd64        Processor microcode firmware for Intel CPUs
+ii  intel-microcode                                 3.20170707.1~ubuntu16.04.0                      amd64        Processor microcode firmware for Intel CPUs
 ii  intltool-debian                                 0.35.0+20060710.4                               all          Help i18n of RFC822 compliant config files
 ii  ippusbxd                                        1.23-1                                          amd64        Daemon for IPP USB printer support
 ii  iproute2                                        4.3.0-1ubuntu3.16.04.1                          amd64        networking and traffic control tools
@@ -336,10 +337,10 @@ ii  iw                                              3.17-1                      
 ii  java-common                                     0.56ubuntu2                                     all          Base package for Java runtimes
 ii  javascript-common                               11                                              all          Base support for JavaScript library packages
 ii  k4dirstat                                       3.1.2-1                                         amd64        graphical disk usage display with cleanup facilities
-ii  kaccounts-providers                             4:17.04.3-0neon+16.04+xenial+build13            amd64        KDE providers for accounts sign-on
+ii  kaccounts-providers                             4:17.08.0-0neon+16.04+xenial+build14            amd64        KDE providers for accounts sign-on
 ii  kactivities-bin                                 5.37.0-0neon+16.04+xenial+build33               amd64        Command Line Tool for KActivities
 ii  kactivitymanagerd                               5.10.4-0neon+16.04+xenial+build38               amd64        System service to manage user's activities
-ii  kamera                                          4:17.04.3-0neon+16.04+xenial+build20            amd64        digital camera support for KDE applications
+ii  kamera                                          4:17.08.0-0neon+16.04+xenial+build21            amd64        digital camera support for KDE applications
 ii  kate-data                                       4:4.14.3-0ubuntu4                               all          shared data files for Kate text editor
 ii  katepart                                        4:4.14.3-0ubuntu4                               amd64        embeddable text editor component
 ii  kbd                                             1.15.5-1ubuntu5                                 amd64        Linux console font and keytable utilities
@@ -352,7 +353,7 @@ ii  kde-config-screenlocker                         5.10.4-0neon+16.04+xenial+bu
 ii  kde-config-sddm                                 4:5.10.4-0neon+16.04+xenial+build38             amd64        KCM module for SDDM
 ii  kde-runtime                                     4:15.12.3-0ubuntu1                              amd64        runtime components from the official KDE release
 ii  kde-runtime-data                                4:15.12.3-0ubuntu1                              all          shared data files for the KDE base runtime module
-ii  kde-spectacle                                   17.04.3-0neon+16.04+xenial+build40              amd64        Screenshot capture utility, replaces KSnapshot
+ii  kde-spectacle                                   17.08.0-0neon+16.04+xenial+build41              amd64        Screenshot capture utility, replaces KSnapshot
 ii  kde-style-breeze                                4:5.10.4-0neon+16.04+xenial+build49             amd64        Widget style for Qt and KDE Software
 ii  kde-style-breeze-qt4                            4:5.10.4-0neon+16.04+xenial+build49             amd64        Widget style for Qt 4 and KDE Software
 ii  kdeconnect                                      1.0.3-0neon+16.04+build23                       amd64        connect smartphones to your KDE Plasma Workspace
@@ -362,7 +363,7 @@ ii  kdelibs5-data                                   4:4.14.16-0ubuntu3.2        
 ii  kdelibs5-plugins                                4:4.14.16-0ubuntu3.2                            amd64        core plugins for KDE Applications
 ii  kdeplasma-addons-data                           4:5.10.4-0neon+16.04+xenial+build61             all          locale files for kdeplasma-addons
 ii  kdesudo                                         3.4.2.4+repack-2ubuntu4                         amd64        sudo frontend for KDE
-ii  kdialog                                         4:17.04.3-0neon+16.04+xenial+build13            amd64        Dialog display utility
+ii  kdialog                                         4:17.08.0-0neon+16.04+xenial+build14            amd64        Dialog display utility
 ii  kdoctools                                       4:4.14.16-0ubuntu3.2                            amd64        various tools for accessing application documentation
 ii  keepassx                                        2.0.2-1                                         amd64        Cross Platform Password Manager
 ii  keyboard-configuration                          1.108ubuntu15.3                                 all          system-wide keyboard preferences
@@ -373,13 +374,13 @@ ii  kimageformat-plugins                            5.37.0-0neon+16.04+xenial+bu
 ii  kinfocenter                                     4:5.10.4-0neon+16.04+xenial+build41             amd64        overview of your system library
 ii  kinit                                           5.37.0-0neon+16.04+xenial+build33               amd64        process launcher to speed up launching KDE applications
 ii  kio                                             5.37.0-0neon+16.04+xenial+build44               amd64        Resource and network access abstraction
-ii  kio-extras                                      4:17.04.3-0neon+16.04+xenial+build21            amd64        Extra functionality for kioslaves.
-ii  kio-extras-data                                 4:17.04.3-0neon+16.04+xenial+build21            all          Extra functionality for kioslaves data files.
+ii  kio-extras                                      4:17.08.0-0neon+16.04+xenial+build22            amd64        Extra functionality for kioslaves.
+ii  kio-extras-data                                 4:17.08.0-0neon+16.04+xenial+build22            all          Extra functionality for kioslaves data files.
 ii  klibc-utils                                     2.0.4-8ubuntu1.16.04.3                          amd64        small utilities built with klibc for early boot
 ii  kmenuedit                                       4:5.10.4-0neon+16.04+xenial+build39             amd64        XDG menu editor
 ii  kmod                                            22-1ubuntu5                                     amd64        tools for managing Linux kernel modules
-ii  konsole                                         4:17.04.3-0neon+16.04+xenial+build30            amd64        X terminal emulator
-ii  konsole-kpart                                   4:17.04.3-0neon+16.04+xenial+build30            amd64        Konsole plugin for Qt applications
+ii  konsole                                         4:17.08.0-0neon+16.04+xenial+build31            amd64        X terminal emulator
+ii  konsole-kpart                                   4:17.08.0-0neon+16.04+xenial+build31            amd64        Konsole plugin for Qt applications
 ii  kpackagelauncherqml                             5.37.0-0neon+16.04+xenial+build38               amd64        commandline tool for launching kpackage QML application
 ii  kpackagetool5                                   5.37.0-0neon+16.04+xenial+build32               amd64        command line kpackage tool
 ii  krb5-locales                                    1.13.2+dfsg-5ubuntu2                            all          Internationalization support for MIT Kerberos
@@ -392,7 +393,7 @@ ii  ksysguardd                                      4:5.10.4-0neon+16.04+xenial+
 ii  ktexteditor-data                                5.37.0-0neon+16.04+xenial+build39               all          provide advanced plain text editing services
 ii  ktexteditor-katepart                            5.37.0-0neon+16.04+xenial+build39               amd64        provide advanced plain text editing services
 ii  kubuntu-restricted-addons                       23                                              amd64        Commonly used restricted packages for Kubuntu
-ii  kwalletmanager                                  4:17.04.3-0neon+16.04+xenial+build19            amd64        secure password wallet manager
+ii  kwalletmanager                                  4:17.08.0-0neon+16.04+xenial+build20            amd64        secure password wallet manager
 ii  kwayland-data                                   4:5.37.0-0neon+16.04+xenial+build32             all          Qt library wrapper for Wayland libraries - data files
 ii  kwayland-integration:amd64                      4:5.10.4-0neon+16.04+xenial+build36             amd64        kwayland runtime integration plugins
 ii  kwin                                            4:5.10.4-0neon+16.04+xenial+build62             all          Transitional dummy for kwin-x11
@@ -401,7 +402,7 @@ ii  kwin-common:amd64                               4:5.10.4-0neon+16.04+xenial+
 ii  kwin-data                                       4:5.10.4-0neon+16.04+xenial+build62             all          KDE window manager data files
 ii  kwin-style-breeze                               4:5.10.4-0neon+16.04+xenial+build49             amd64        KWin Breeze Style
 ii  kwin-x11                                        4:5.10.4-0neon+16.04+xenial+build62             amd64        KDE window manager, X11 version
-ii  kwrite                                          4:17.04.3-0neon+16.04+xenial+build32            amd64        simple text editor
+ii  kwrite                                          4:17.08.0-0neon+16.04+xenial+build41            amd64        simple text editor
 ii  kwrited                                         4:5.10.4-0neon+16.04+xenial+build40             amd64        Read and write console output to X.
 ii  lame                                            3.99.5+repack1-9build1                          amd64        MP3 encoding library (frontend)
 ii  language-pack-en                                1:16.04+20161009                                all          translation updates for language English
@@ -605,11 +606,11 @@ ii  libdiscid0:amd64                                0.6.1-5                     
 ii  libdiscover2                                    2.1.2-7ubuntu1                                  amd64        hardware identification library
 ii  libdjvulibre-text                               3.5.27.1-5                                      all          Linguistic support files for libdjvulibre
 ii  libdjvulibre21:amd64                            3.5.27.1-5                                      amd64        Runtime support for the DjVu image format
-ii  libdlrestrictions1                              0.15.20~ubuntu4+p16.04+git20170703.1450         amd64        library that implements library compatibility checks for dlopen()
+ii  libdlrestrictions1                              0.15.20~ubuntu4+p16.04+git20170816.1019         amd64        library that implements library compatibility checks for dlopen()
 ii  libdmtx0a:amd64                                 0.7.4-2                                         amd64        Data Matrix barcodes (runtime library)
 ii  libdns-export162                                1:9.10.3.dfsg.P4-8ubuntu1.7                     amd64        Exported DNS Shared Library
 ii  libdns162:amd64                                 1:9.10.3.dfsg.P4-8ubuntu1.7                     amd64        DNS Shared Library used by BIND
-ii  libdolphinvcs5:amd64                            4:17.04.3-0neon+16.04+xenial+build26            amd64        library to show version control in Dolphin
+ii  libdolphinvcs5:amd64                            4:17.08.0-0neon+16.04+xenial+build27            amd64        library to show version control in Dolphin
 ii  libdouble-conversion1v5:amd64                   2.0.1-3ubuntu2                                  amd64        routines to convert IEEE floats to and from strings
 ii  libdpkg-perl                                    1.18.4ubuntu1.2                                 all          Dpkg perl modules
 ii  libdrm-amdgpu1:amd64                            2.4.76-1~ubuntu16.04.1                          amd64        Userspace interface to amdgpu-specific kernel DRM services -- runtime
@@ -901,7 +902,7 @@ ii  libjson-glib-1.0-common                         1.2.8-1+16.04+xenial+build1 
 ii  libk3b6                                         2.0.3-0ubuntu5                                  amd64        KDE CD/DVD burning application library - runtime files
 ii  libk3b6-extracodecs                             2.0.3-0ubuntu5                                  amd64        KDE CD/DVD burning application library - extra decoders
 ii  libk5crypto3:amd64                              1.13.2+dfsg-5ubuntu2                            amd64        MIT Kerberos runtime libraries - Crypto Library
-ii  libkaccounts1:amd64                             4:17.04.3-0neon+16.04+xenial+build22            amd64        System to administer web accounts - shared library
+ii  libkaccounts1:amd64                             4:17.08.0-0neon+16.04+xenial+build23            amd64        System to administer web accounts - shared library
 ii  libkactivities6                                 4:4.13.3-0ubuntu6                               amd64        Activities library
 ii  libkate1:amd64                                  0.4.1-7                                         amd64        Codec for karaoke and text encapsulation
 ii  libkatepartinterfaces4                          4:4.14.3-0ubuntu4                               amd64        library for the embeddable text editor component
@@ -927,8 +928,8 @@ ii  libkf5auth-data                                 5.37.0-0neon+16.04+xenial+bu
 ii  libkf5auth5:amd64                               5.37.0-0neon+16.04+xenial+build31               amd64        Abstraction to system policy and authentication features
 ii  libkf5baloo5                                    5.37.0-0neon+16.04+xenial+build36               amd64        framework for searching and managing metadata core lib.
 ii  libkf5balooengine5                              5.37.0-0neon+16.04+xenial+build36               amd64        framework for searching and managing metadata plugins
-ii  libkf5baloowidgets-bin                          4:17.04.3-0neon+16.04+xenial+build22            amd64        Wigets for use with Baloo - binaries
-ii  libkf5baloowidgets5:amd64                       4:17.04.3-0neon+16.04+xenial+build22            amd64        Wigets for use with Baloo
+ii  libkf5baloowidgets-bin                          4:17.08.0-0neon+16.04+xenial+build23            amd64        Wigets for use with Baloo - binaries
+ii  libkf5baloowidgets5:amd64                       4:17.08.0-0neon+16.04+xenial+build23            amd64        Wigets for use with Baloo
 ii  libkf5bluezqt-data                              5.37.0-0neon+16.04+xenial+build32               all          data files for bluez-qt
 ii  libkf5bluezqt6:amd64                            5.37.0-0neon+16.04+xenial+build32               amd64        Qt wrapper for bluez
 ii  libkf5bookmarks-data                            5.37.0-0neon+16.04+xenial+build28               all          Qt library with support for bookmarks and the XBEL format.
@@ -966,8 +967,8 @@ ii  libkf5globalaccel-data                          5.37.0-0neon+16.04+xenial+bu
 ii  libkf5globalaccel5:amd64                        5.37.0-0neon+16.04+xenial+build29               amd64        Configurable global shortcut support.
 ii  libkf5globalaccelprivate5:amd64                 5.37.0-0neon+16.04+xenial+build29               amd64        Configurable global shortcut support - private runtime library
 ii  libkf5guiaddons5:amd64                          5.37.0-0neon+16.04+xenial+build22               amd64        additional addons for QtGui
-ii  libkf5holidays-data                             17.04.3-0neon+16.04+xenial+build24              all          holidays calculation library
-ii  libkf5holidays5:amd64                           17.04.3-0neon+16.04+xenial+build24              amd64        holidays calculation library
+ii  libkf5holidays-data                             17.08.0-0neon+16.04+xenial+build25              all          holidays calculation library
+ii  libkf5holidays5:amd64                           17.08.0-0neon+16.04+xenial+build25              amd64        holidays calculation library
 ii  libkf5i18n-data                                 5.37.0-0neon+16.04+xenial+build28               all          Advanced internationalization framework.
 ii  libkf5i18n5:amd64                               5.37.0-0neon+16.04+xenial+build28               amd64        Advanced internationalization framework.
 ii  libkf5iconthemes-bin                            5.37.0-0neon+16.04+xenial+build31               amd64        Support for icon themes
@@ -985,11 +986,11 @@ ii  libkf5jsembed-data                              5.37.0-0neon+16.04+xenial+bu
 ii  libkf5jsembed5:amd64                            5.37.0-0neon+16.04+xenial+build30               amd64        Embedded JS library for Qt
 ii  libkf5kcmutils-data                             5.37.0-0neon+16.04+xenial+build33               all          Extra APIs to write KConfig modules.
 ii  libkf5kcmutils5:amd64                           5.37.0-0neon+16.04+xenial+build33               amd64        Extra APIs to write KConfig modules.
-ii  libkf5kdcraw5                                   17.04.3-0neon+16.04+xenial+build24              amd64        RAW picture decoding library
+ii  libkf5kdcraw5                                   17.08.0-0neon+16.04+xenial+build25              amd64        RAW picture decoding library
 ii  libkf5kdelibs4support-data                      5.37.0-0neon+16.04+xenial+build44               all          Porting aid from KDELibs4.
 ii  libkf5kdelibs4support5:amd64                    5.37.0-0neon+16.04+xenial+build44               amd64        Porting aid from KDELibs4.
 ii  libkf5kdelibs4support5-bin                      5.37.0-0neon+16.04+xenial+build44               amd64        Porting aid from KDELibs4.
-ii  libkf5kexiv2-15.0.0                             17.04.3-0neon+16.04+xenial+build24              amd64        Qt like interface for the libexiv2 library
+ii  libkf5kexiv2-15.0.0                             17.08.0-0neon+16.04+xenial+build25              amd64        Qt like interface for the libexiv2 library
 ii  libkf5khtml-bin                                 5.37.0-0neon+16.04+xenial+build36               amd64        HTML widget and component
 ii  libkf5khtml-data                                5.37.0-0neon+16.04+xenial+build36               all          HTML widget and component
 ii  libkf5khtml5:amd64                              5.37.0-0neon+16.04+xenial+build36               amd64        HTML widget and component
@@ -997,8 +998,8 @@ ii  libkf5kiocore5:amd64                            5.37.0-0neon+16.04+xenial+bu
 ii  libkf5kiofilewidgets5:amd64                     5.37.0-0neon+16.04+xenial+build44               amd64        Resource and network access abstraction
 ii  libkf5kiontlm5:amd64                            5.37.0-0neon+16.04+xenial+build44               amd64        Resource and network access abstraction
 ii  libkf5kiowidgets5:amd64                         5.37.0-0neon+16.04+xenial+build44               amd64        Resource and network access abstraction
-ii  libkf5kipi-data                                 17.04.3-0neon+16.04+xenial+build32              all          KDE Image Plugin Interface library -- data files
-ii  libkf5kipi32.0.0                                17.04.3-0neon+16.04+xenial+build32              amd64        KDE Image Plugin Interface library
+ii  libkf5kipi-data                                 17.08.0-0neon+16.04+xenial+build33              all          KDE Image Plugin Interface library -- data files
+ii  libkf5kipi32.0.0                                17.08.0-0neon+16.04+xenial+build33              amd64        KDE Image Plugin Interface library
 ii  libkf5krosscore5:amd64                          5.37.0-0neon+16.04+xenial+build38               amd64        Multi-language application scripting.
 ii  libkf5krossui5:amd64                            5.37.0-0neon+16.04+xenial+build38               amd64        Multi-language application scripting.
 ii  libkf5modemmanagerqt6:amd64                     5.37.0-0neon+16.04+xenial+build24               amd64        Qt wrapper library for ModemManager
@@ -1224,7 +1225,7 @@ ii  libodbc1:amd64                                  2.3.1-4.1                   
 ii  libofa0:amd64                                   0.9.3-10ubuntu1                                 amd64        library for acoustic fingerprinting
 ii  libogdi3.2                                      3.2.0~beta2-7.1build1                           amd64        Open Geographic Datastore Interface Library -- library
 ii  libogg0:amd64                                   1.3.2-1                                         amd64        Ogg bitstream library
-ii  libokular5core7                                 4:17.04.3-0neon+16.04+xenial+build22            amd64        libraries for the Okular document viewer
+ii  libokular5core7                                 4:17.08.0-0neon+16.04+xenial+build23            amd64        libraries for the Okular document viewer
 ii  libopenal-data                                  1:1.16.0-3                                      all          Software implementation of the OpenAL audio API (data files)
 ii  libopenal1:amd64                                1:1.16.0-3                                      amd64        Software implementation of the OpenAL audio API (shared library)
 ii  libopencolorio1v5                               1.0.9~dfsg0-4                                   amd64        complete color management solution - runtime
@@ -1350,10 +1351,10 @@ ii  libqca-qt5-2-plugins:amd64                      2.1.3-0neon+16.04+xenial+bui
 ii  libqca2:amd64                                   2.1.1-2ubuntu1                                  amd64        libraries for the Qt Cryptographic Architecture
 ii  libqca2-plugin-ossl:amd64                       2.1.1-2ubuntu1                                  amd64        transitional package for libqca2-plugins
 ii  libqca2-plugins:amd64                           2.1.1-2ubuntu1                                  amd64        QCA plugins for libqca2
-ii  libqgsttools-p1:amd64                           5.9.1-0neon+16.04+xenial+build12                amd64        GStreamer tools for  Qt 5 Multimedia module
+ii  libqgsttools-p1:amd64                           5.9.1-0neon+16.04+xenial+build14                amd64        GStreamer tools for  Qt 5 Multimedia module
 ii  libqmi-glib1:amd64                              1.12.6-1                                        amd64        Support library to use the Qualcomm MSM Interface (QMI) protocol
 ii  libqmi-proxy                                    1.12.6-1                                        amd64        Proxy to communicate with QMI ports
-ii  libqmobipocket2:amd64                           4:17.04.3-0neon+16.04+xenial+build11            amd64        library for reading Mobipocket documents
+ii  libqmobipocket2:amd64                           4:17.08.0-0neon+16.04+xenial+build12            amd64        library for reading Mobipocket documents
 ii  libqpdf17:amd64                                 6.0.0-2                                         amd64        runtime library for PDF transformation/inspection software
 ii  libqrencode3:amd64                              3.4.4-1                                         amd64        QR Code encoding library
 ii  libqt4-dbus:amd64                               4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 D-Bus module
@@ -1368,42 +1369,42 @@ ii  libqt4-sql-mysql:amd64                          4:4.8.7+dfsg-5ubuntu2       
 ii  libqt4-svg:amd64                                4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 SVG module
 ii  libqt4-xml:amd64                                4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 XML module
 ii  libqt4-xmlpatterns:amd64                        4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 XML patterns module
-ii  libqt5concurrent5:amd64                         5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 concurrent module
-ii  libqt5core5a:amd64                              5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 core module
-ii  libqt5dbus5:amd64                               5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 D-Bus module
-ii  libqt5designer5:amd64                           5.9.1-0neon+16.04+xenial+build15                amd64        Qt 5 designer module
-ii  libqt5designercomponents5:amd64                 5.9.1-0neon+16.04+xenial+build15                amd64        Qt 5 Designer components module
-ii  libqt5gui5:amd64                                5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 GUI module
-ii  libqt5help5:amd64                               5.9.1-0neon+16.04+xenial+build15                amd64        Qt 5 help module
-ii  libqt5multimedia5:amd64                         5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 Multimedia module
-ii  libqt5multimedia5-plugins:amd64                 5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 Multimedia module plugins
-ii  libqt5multimediaquick-p5:amd64                  5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 Multimedia Quick module
-ii  libqt5multimediawidgets5:amd64                  5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 Multimedia Widgets module
-ii  libqt5network5:amd64                            5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 network module
-ii  libqt5opengl5:amd64                             5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 OpenGL module
-ii  libqt5positioning5:amd64                        5.9.1-0neon+16.04+xenial+build13                amd64        Qt Positioning module
-ii  libqt5printsupport5:amd64                       5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 print support module
-ii  libqt5qml5:amd64                                5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 QML module
-ii  libqt5quick5:amd64                              5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 Quick library
-ii  libqt5quickcontrols2-5:amd64                    5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Quick Controls 2 library
-ii  libqt5quicktemplates2-5:amd64                   5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Quick Templates 2 library
-ii  libqt5quickwidgets5:amd64                       5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 Quick Widgets library
-ii  libqt5script5:amd64                             5.9.1+dfsg-1+16.04+xenial+build12               amd64        Qt 5 script module
-ii  libqt5sql5:amd64                                5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 SQL module
-ii  libqt5sql5-sqlite:amd64                         5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 SQLite 3 database driver
-ii  libqt5svg5:amd64                                5.9.1-1+16.04+xenial+build11                    amd64        Qt 5 SVG module
-ii  libqt5test5:amd64                               5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 test module
-ii  libqt5waylandclient5:amd64                      5.9.1-0neon+16.04+xenial+build22                amd64        QtWayland client library
-ii  libqt5waylandcompositor5:amd64                  5.9.1-0neon+16.04+xenial+build22                amd64        QtWayland compositor library
-ii  libqt5webchannel5:amd64                         5.9.1-0neon+16.04+xenial+build9                 amd64        Web communication library for Qt
+ii  libqt5concurrent5:amd64                         5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 concurrent module
+ii  libqt5core5a:amd64                              5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 core module
+ii  libqt5dbus5:amd64                               5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 D-Bus module
+ii  libqt5designer5:amd64                           5.9.1-0neon+16.04+xenial+build17                amd64        Qt 5 designer module
+ii  libqt5designercomponents5:amd64                 5.9.1-0neon+16.04+xenial+build17                amd64        Qt 5 Designer components module
+ii  libqt5gui5:amd64                                5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 GUI module
+ii  libqt5help5:amd64                               5.9.1-0neon+16.04+xenial+build17                amd64        Qt 5 help module
+ii  libqt5multimedia5:amd64                         5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 Multimedia module
+ii  libqt5multimedia5-plugins:amd64                 5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 Multimedia module plugins
+ii  libqt5multimediaquick-p5:amd64                  5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 Multimedia Quick module
+ii  libqt5multimediawidgets5:amd64                  5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 Multimedia Widgets module
+ii  libqt5network5:amd64                            5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 network module
+ii  libqt5opengl5:amd64                             5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 OpenGL module
+ii  libqt5positioning5:amd64                        5.9.1-0neon+16.04+xenial+build15                amd64        Qt Positioning module
+ii  libqt5printsupport5:amd64                       5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 print support module
+ii  libqt5qml5:amd64                                5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 QML module
+ii  libqt5quick5:amd64                              5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 Quick library
+ii  libqt5quickcontrols2-5:amd64                    5.9.1-1+16.04+xenial+build19                    amd64        Qt 5 Quick Controls 2 library
+ii  libqt5quicktemplates2-5:amd64                   5.9.1-1+16.04+xenial+build19                    amd64        Qt 5 Quick Templates 2 library
+ii  libqt5quickwidgets5:amd64                       5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 Quick Widgets library
+ii  libqt5script5:amd64                             5.9.1+dfsg-1+16.04+xenial+build14               amd64        Qt 5 script module
+ii  libqt5sql5:amd64                                5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 SQL module
+ii  libqt5sql5-sqlite:amd64                         5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 SQLite 3 database driver
+ii  libqt5svg5:amd64                                5.9.1-1+16.04+xenial+build13                    amd64        Qt 5 SVG module
+ii  libqt5test5:amd64                               5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 test module
+ii  libqt5waylandclient5:amd64                      5.9.1-0neon+16.04+xenial+build24                amd64        QtWayland client library
+ii  libqt5waylandcompositor5:amd64                  5.9.1-0neon+16.04+xenial+build24                amd64        QtWayland compositor library
+ii  libqt5webchannel5:amd64                         5.9.1-0neon+16.04+xenial+build11                amd64        Web communication library for Qt
 ii  libqt5webengine-data                            5.9.1+dfsg-2+16.04+xenial+build36               all          Web content engine library for Qt - Data
 ii  libqt5webenginecore5:amd64                      5.9.1+dfsg-2+16.04+xenial+build36               amd64        Web content engine library for Qt - Core
 ii  libqt5webenginewidgets5:amd64                   5.9.1+dfsg-2+16.04+xenial+build36               amd64        Web content engine library for Qt - Widget
-ii  libqt5webkit5:amd64                             5.9.1+dfsg-1+16.04+xenial+build14               amd64        Web content engine library for Qt
-ii  libqt5widgets5:amd64                            5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 widgets module
-ii  libqt5x11extras5:amd64                          5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 X11 extras
-ii  libqt5xml5:amd64                                5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 XML module
-ii  libqt5xmlpatterns5:amd64                        5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 XML patterns module
+ii  libqt5webkit5:amd64                             5.9.1+dfsg-1+16.04+xenial+build16               amd64        Web content engine library for Qt
+ii  libqt5widgets5:amd64                            5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 widgets module
+ii  libqt5x11extras5:amd64                          5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 X11 extras
+ii  libqt5xml5:amd64                                5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 XML module
+ii  libqt5xmlpatterns5:amd64                        5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 XML patterns module
 ii  libqtcore4:amd64                                4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 core module
 ii  libqtdbus4:amd64                                4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 D-Bus module library
 ii  libqtgui4:amd64                                 4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 GUI module
@@ -1753,7 +1754,7 @@ ii  libxext6:i386                                   2:1.3.3-1                   
 ii  libxfixes-dev:amd64                             1:5.0.1-2                                       amd64        X11 miscellaneous 'fixes' extension library (development headers)
 ii  libxfixes3:amd64                                1:5.0.1-2                                       amd64        X11 miscellaneous 'fixes' extension library
 ii  libxfixes3:i386                                 1:5.0.1-2                                       i386         X11 miscellaneous 'fixes' extension library
-ii  libxfont1:amd64                                 1:1.5.1-1ubuntu0.16.04.1                        amd64        X11 font rasterisation library
+ii  libxfont1:amd64                                 1:1.5.1-1ubuntu0.16.04.2                        amd64        X11 font rasterisation library
 ii  libxfont2:amd64                                 1:2.0.1-3~ubuntu16.04.1                         amd64        X11 font rasterisation library
 ii  libxft-dev                                      2.3.2-1                                         amd64        FreeType-based font drawing library for X (development files)
 ii  libxft2:amd64                                   2.3.2-1                                         amd64        FreeType-based font drawing library for X
@@ -1906,7 +1907,7 @@ ii  ntfs-3g                                         1:2015.3.14AR.1-1ubuntu0.1  
 ii  ntrack-module-libnl-0                           016-1.3                                         amd64        libnl based ntrack module
 ii  odbcinst                                        2.3.1-4.1                                       amd64        Helper program for accessing odbc ini files
 ii  odbcinst1debian2:amd64                          2.3.1-4.1                                       amd64        Support library for accessing odbc ini files
-ii  okular                                          4:17.04.3-0neon+16.04+xenial+build22            amd64        universal document viewer
+ii  okular                                          4:17.08.0-0neon+16.04+xenial+build23            amd64        universal document viewer
 ii  onlyoffice-desktopeditors                       4.3.2-48                                        amd64        ONLYOFFICE DesktopEditors installation package
 ii  openjdk-8-jre:amd64                             8u131-b11-2ubuntu1.16.04.3                      amd64        OpenJDK Java runtime, using Hotspot JIT
 ii  openjdk-8-jre-headless:amd64                    8u131-b11-2ubuntu1.16.04.3                      amd64        OpenJDK Java runtime, using Hotspot JIT (headless)
@@ -2002,7 +2003,7 @@ ii  powermgmt-base                                  1.31+nmu1                   
 ii  powertop                                        2.8-1build1                                     amd64        diagnose issues with power consumption and management
 ii  ppp                                             2.4.7-1+2ubuntu1                                amd64        Point-to-Point Protocol (PPP) - daemon
 ii  pptp-linux                                      1.8.0-1                                         amd64        Point-to-Point Tunneling Protocol (PPTP) Client
-ii  print-manager                                   4:17.04.3-0neon+16.04+xenial+build28            amd64        printer configuration and monitoring tools
+ii  print-manager                                   4:17.08.0-0neon+16.04+xenial+build29            amd64        printer configuration and monitoring tools
 ii  printer-driver-brlaser                          3-5~ubuntu1                                     amd64        printer driver for (some) Brother laser printers
 ii  printer-driver-c2esp                            27-2                                            amd64        printer driver for Kodak ESP AiO color inkjet Series
 ii  printer-driver-foo2zjs                          20151024dfsg0-1ubuntu1                          amd64        printer driver for ZjStream-based printers
@@ -2120,14 +2121,14 @@ ii  python3.5-minimal                               3.5.2-2ubuntu0~16.04.1      
 ii  qapt-deb-installer                              3.0.3-1+16.04+xenial+build3                     amd64        tool for installing deb files
 ii  qbittorrent                                     3.3.1-1                                         amd64        bittorrent client based on libtorrent-rasterbar with a Qt4 GUI
 ii  qdbus                                           4:4.8.7+dfsg-5ubuntu2                           amd64        Qt 4 D-Bus tool
-ii  qdbus-qt5                                       5.9.1-0neon+16.04+xenial+build15                amd64        Qt 5 D-Bus tool
+ii  qdbus-qt5                                       5.9.1-0neon+16.04+xenial+build17                amd64        Qt 5 D-Bus tool
 ii  qml-module-org-kde-activities:amd64             5.37.0-0neon+16.04+xenial+build33               amd64        provides integration of QML and KDE Frameworks
 ii  qml-module-org-kde-bluezqt:amd64                5.37.0-0neon+16.04+xenial+build32               amd64        QML wrapper for bluez
 ii  qml-module-org-kde-draganddrop:amd64            5.37.0-0neon+16.04+xenial+build38               amd64        provides integration of QML and KDE frameworks - draganddrop
 ii  qml-module-org-kde-extensionplugin              5.37.0-0neon+16.04+xenial+build33               all          transitional dummy package
 ii  qml-module-org-kde-kconfig:amd64                5.37.0-0neon+16.04+xenial+build38               amd64        provides integration of QML and KDE Frameworks - kconfig
 ii  qml-module-org-kde-kcoreaddons:amd64            5.37.0-0neon+16.04+xenial+build38               amd64        provides integration of QML and KDE frameworks - kcoreaddons
-ii  qml-module-org-kde-kholidays:amd64              17.04.3-0neon+16.04+xenial+build24              amd64        holidays calculation library - qml files
+ii  qml-module-org-kde-kholidays:amd64              17.08.0-0neon+16.04+xenial+build25              amd64        holidays calculation library - qml files
 ii  qml-module-org-kde-kio:amd64                    5.37.0-0neon+16.04+xenial+build38               amd64        provides integration of QML and KDE Frameworks - kio
 ii  qml-module-org-kde-kirigami                     1.1.0-1+16.04+build16                           amd64        set of QtQuick components targeted for mobile use
 ii  qml-module-org-kde-kirigami2                    2.2.0-0neon+16.04+xenial+build8                 amd64        set of QtQuick components targeted for mobile use
@@ -2138,35 +2139,35 @@ ii  qml-module-org-kde-newstuff                     5.37.0-0neon+16.04+xenial+bu
 ii  qml-module-org-kde-purpose:amd64                1.1-0neon+16.04+build26                         amd64        library for abstractions to get the developer's purposes fulfilled
 ii  qml-module-org-kde-runnermodel                  5.37.0-0neon+16.04+xenial+build37               amd64        Used to write plugins loaded at runtime called "Runners".
 ii  qml-module-org-kde-solid:amd64                  5.37.0-0neon+16.04+xenial+build24               amd64        Qt library to query and control hardware plugin
-ii  qml-module-qt-labs-folderlistmodel:amd64        5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 folderlistmodel QML module
-ii  qml-module-qt-labs-settings:amd64               5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 settings QML module
-ii  qml-module-qtgraphicaleffects:amd64             5.9.1-1+16.04+xenial+build16                    amd64        Qt 5 Graphical Effects module
-ii  qml-module-qtmultimedia:amd64                   5.9.1-0neon+16.04+xenial+build12                amd64        Qt 5 Multimedia QML module
-ii  qml-module-qtqml-models2:amd64                  5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 Models2 QML module
-ii  qml-module-qtquick-controls:amd64               5.9.1-1+16.04+xenial+build15                    amd64        Qt 5 Quick Controls QML module
+ii  qml-module-qt-labs-folderlistmodel:amd64        5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 folderlistmodel QML module
+ii  qml-module-qt-labs-settings:amd64               5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 settings QML module
+ii  qml-module-qtgraphicaleffects:amd64             5.9.1-1+16.04+xenial+build18                    amd64        Qt 5 Graphical Effects module
+ii  qml-module-qtmultimedia:amd64                   5.9.1-0neon+16.04+xenial+build14                amd64        Qt 5 Multimedia QML module
+ii  qml-module-qtqml-models2:amd64                  5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 Models2 QML module
+ii  qml-module-qtquick-controls:amd64               5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Quick Controls QML module
 ii  qml-module-qtquick-controls-styles-breeze       4:5.10.4-0neon+16.04+xenial+build49             amd64        QtQuick style for Qt and KDE Software
-ii  qml-module-qtquick-controls2:amd64              5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Qt Quick Controls 2 QML module
-ii  qml-module-qtquick-dialogs:amd64                5.9.1-1+16.04+xenial+build15                    amd64        Qt 5 Dialogs QML module
-ii  qml-module-qtquick-layouts:amd64                5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 Quick Layouts QML module
-ii  qml-module-qtquick-privatewidgets:amd64         5.9.1-1+16.04+xenial+build15                    amd64        Qt 5 Private Widgets QML module
-ii  qml-module-qtquick-templates2:amd64             5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Qt Quick Templates 2 QML module
+ii  qml-module-qtquick-controls2:amd64              5.9.1-1+16.04+xenial+build19                    amd64        Qt 5 Qt Quick Controls 2 QML module
+ii  qml-module-qtquick-dialogs:amd64                5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Dialogs QML module
+ii  qml-module-qtquick-layouts:amd64                5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 Quick Layouts QML module
+ii  qml-module-qtquick-privatewidgets:amd64         5.9.1-1+16.04+xenial+build17                    amd64        Qt 5 Private Widgets QML module
+ii  qml-module-qtquick-templates2:amd64             5.9.1-1+16.04+xenial+build19                    amd64        Qt 5 Qt Quick Templates 2 QML module
 ii  qml-module-qtquick-virtualkeyboard              5.9.1-0neon+16.04+xenial+build1                 amd64        Qt virtual keyboard
-ii  qml-module-qtquick-window2:amd64                5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 window 2 QML module
-ii  qml-module-qtquick-xmllistmodel:amd64           5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 xmllistmodel QML module
-ii  qml-module-qtquick2:amd64                       5.9.1-4+16.04+xenial+build17                    amd64        Qt 5 Qt Quick 2 QML module
-ii  qml-module-qtwebkit:amd64                       5.9.1+dfsg-1+16.04+xenial+build14               amd64        Qt WebKit QML module
+ii  qml-module-qtquick-window2:amd64                5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 window 2 QML module
+ii  qml-module-qtquick-xmllistmodel:amd64           5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 xmllistmodel QML module
+ii  qml-module-qtquick2:amd64                       5.9.1-4+16.04+xenial+build19                    amd64        Qt 5 Qt Quick 2 QML module
+ii  qml-module-qtwebkit:amd64                       5.9.1+dfsg-1+16.04+xenial+build16               amd64        Qt WebKit QML module
 ii  qml-module-ubuntu-onlineaccounts:amd64          0.6+16.04.20151106-0ubuntu1                     amd64        Expose the Online Accounts API to QML applications
 ii  qpdf                                            6.0.0-2                                         amd64        tools for transforming and inspecting PDF files
 ii  qt-at-spi:amd64                                 0.4.0-3                                         amd64        at-spi accessibility plugin for Qt
-ii  qt5-gtk-platformtheme:amd64                     5.9.1+dfsg-2+16.04+xenial+build22               amd64        Qt 5 GTK+ 3 platform theme
+ii  qt5-gtk-platformtheme:amd64                     5.9.1+dfsg-2+16.04+xenial+build23               amd64        Qt 5 GTK+ 3 platform theme
 ii  qt5-image-formats-plugins:amd64                 5.5.1-2build1                                   amd64        Qt 5 Image Formats module
-ii  qtchooser                                       63-g13a3d08-1+16.04+build12                     amd64        Wrapper to select between Qt development binary versions
+ii  qtchooser                                       63-g13a3d08-1+16.04+xenial+build13              amd64        Wrapper to select between Qt development binary versions
 ii  qtcore4-l10n                                    4:4.8.7+dfsg-5ubuntu2                           all          Qt 4 core module translations
 ii  qtdeclarative5-qtquick2-plugin:amd64            5.5.1-2ubuntu6                                  amd64        transitional dummy package Qt 5 Qt Quick 2 QML module
-ii  qttools5-dev-tools:amd64                        5.9.1-0neon+16.04+xenial+build15                amd64        Qt 5 development tools
-ii  qttranslations5-l10n                            5.9.1-0neon+16.04+xenial+build9                 all          translations for Qt 5
+ii  qttools5-dev-tools:amd64                        5.9.1-0neon+16.04+xenial+build17                amd64        Qt 5 development tools
+ii  qttranslations5-l10n                            5.9.1-0neon+16.04+xenial+build12                all          translations for Qt 5
 ii  qtvirtualkeyboard                               5.9.1-0neon+16.04+xenial+build1                 amd64        Qt virtual keyboard
-ii  qtwayland5:amd64                                5.9.1-0neon+16.04+xenial+build22                amd64        QtWayland platform plugin
+ii  qtwayland5:amd64                                5.9.1-0neon+16.04+xenial+build24                amd64        QtWayland platform plugin
 ii  rake                                            10.5.0-2                                        all          ruby make-like utility
 ii  rambox                                          0.5.3-94                                        amd64        
 ii  ranger                                          1.7.1-1                                         all          File manager with an ncurses frontend written in Python
@@ -2272,7 +2273,7 @@ ii  ttf-bitstream-vera                              1.10-8                      
 ii  ttf-mscorefonts-installer                       3.4+nmu1ubuntu2                                 all          Installer for Microsoft TrueType core fonts
 ii  ttf-ubuntu-font-family                          1:0.83-0ubuntu2                                 all          Ubuntu Font Family, sans-serif typeface hinted for clarity
 ii  tzdata                                          2016j-0ubuntu0.16.04                            all          time zone and daylight-saving time data
-ii  ubuntu-drivers-common                           1:0.4.17.2                                      amd64        Detect and install additional Ubuntu driver packages
+ii  ubuntu-drivers-common                           1:0.4.17.3                                      amd64        Detect and install additional Ubuntu driver packages
 ii  ubuntu-keyring                                  2012.05.19                                      all          GnuPG keys of the Ubuntu archive
 ii  ubuntu-minimal                                  1.361                                           amd64        Minimal core of Ubuntu
 ii  ubuntu-mono                                     14.04+16.04.20161024-0ubuntu1                   all          Ubuntu Mono Icon theme
