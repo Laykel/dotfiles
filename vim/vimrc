@@ -11,12 +11,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Syntax
-" Plugin 'ajh17/VimCompletesMe'			"Easy tab completion
 Plugin 'ervandew/supertab'				"Easy tab completion
 Plugin 'scrooloose/syntastic'			"Syntax checker
-Plugin 'stanangeloff/php.vim'			"PHP Syntax
-Plugin 'pangloss/vim-javascript'		"JS Syntax
-Plugin 'jwalton512/vim-blade'			"Blade Syntax
+Plugin 'sheerun/vim-polyglot'			"100+ languages syntax
 
 " Tags, style
 Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
@@ -52,7 +49,7 @@ Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 Plugin 'morhetz/gruvbox'				"A theme inspired by solarized
 Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
 Plugin 'bluz71/vim-moonfly-colors'
-" Plugin 'flazz/vim-colorschemes'			"A whole lot of themes... Heavy...
+" Plugin 'flazz/vim-colorschemes'		"A whole lot of themes... Heavy...
 " Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
 
 " All plugins before this
@@ -65,13 +62,10 @@ let NERDTreeShowHidden = 1
 let g:ctrlp_show_hidden = 1
 let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
-" Defaults for VimCompletesMe/SuperTab
-" inoremap <expr> <CR> pumvisible() ? \"\<C-y>" : \"\<C-g>u\<CR>"
-" let b:vcm_tab_complete = \"vim"
-" autocmd FileType html,css,javascript,php,c,sql,xml let b:vcm_tab_complete = \"omni"
-" autocmd FileType markdown,txt setlocal complete+=kspell
+" Defaults for SuperTab
+autocmd FileType markdown,txt setlocal complete+=kspell
 let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
