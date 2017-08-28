@@ -63,7 +63,6 @@ let g:ctrlp_show_hidden = 1
 let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
 " Defaults for SuperTab
-autocmd FileType markdown,txt setlocal complete+=kspell
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
@@ -297,8 +296,9 @@ if has("autocmd")
 endif
 
 " Enable spellcheck for markdown files
-" autocmd FileType markdown setlocal spell spelllang=en,fr
+autocmd FileType markdown setlocal spell spelllang=en,fr
 autocmd FileType gitcommit setlocal spell spelllang=en,fr
+autocmd FileType markdown,txt setlocal complete+=kspell
 
 " Close vim if NERDTree is the last opened buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
