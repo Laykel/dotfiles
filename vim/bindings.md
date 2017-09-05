@@ -24,6 +24,11 @@ la - Laravel config/app.php
 ld - Laravel config/database.php
 lc - Laravel composer.json
 
+mf - mathjax fraction helper
+mr - mathjax root helper
+mx - mathjax cdot helper
+pm - pandoc md to html
+
 ### Control key bindings
 <C-i> - follow tag
 <C-o> - follow tag in new vsplit
@@ -43,12 +48,15 @@ F7 - toggle TagBar
 F8 - toggle Syntastic
 F12 - toggle NerdTree and TagBar
 
+### Replace
+- :%s/foo bar/foobar/g -le fichier
+- :s/foo bar/foobar/g -la ligne
+
 ### Remember
-- add grep and replace commands
+- add grep
 - add ySiw + others surround
 	- ys$t - put the line in a tag
-- clean up nmap/nnoremap etc... 
-- Emmet: '<C-f>i' on '<img>' tag
+- clean up nmap/nnoremap etc...
 
 ### Basic
 <C-hjkl> - move between splits

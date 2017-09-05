@@ -96,6 +96,9 @@ let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
 
+" Disable trailing space warning in markdown files
+autocmd FileType markdown AirlineToggleWhitespace
+
 " Tmux navigator
 " let g:tmux_navigator_no_mappings = 1
 
@@ -137,6 +140,14 @@ let g:airline_theme = 'gruvbox'
 " 	autocmd InsertLeave * :set relativenumber
 " augroup END
 
+augroup line_highlight
+	autocmd!
+	autocmd BufLeave * :set nocursorline
+	autocmd BufEnter * :set cursorline
+	autocmd InsertEnter * :set cursorline
+	autocmd InsertLeave * :set nocursorline
+augroup END
+
 "}}}
 
 " Custom bindings{{{
@@ -164,6 +175,15 @@ nnoremap <CR> o<Esc>k
 
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
+
+" Latex/mathjax helpers
+nmap <Leader>mf i\frac{
+nmap <Leader>mr i\sqrt{
+nmap <Leader>mx i\cdot
+
+" Pandoc shortcuts
+" Creates html file with mathjax support in html folder
+nmap <silent> <Leader>pm :!pandoc % -s --mathjax -o html/%:r.html<CR>:redraw<CR>
 
 " Laravel framework commons
 nmap <Leader>lr :e routes/web.php<CR>
