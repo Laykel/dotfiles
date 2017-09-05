@@ -95,20 +95,6 @@ let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
-
-" Disable trailing space warning in markdown files
-autocmd FileType markdown AirlineToggleWhitespace
-
-" Tmux navigator
-" let g:tmux_navigator_no_mappings = 1
-
-" nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-
-
 "}}}
 
 " Visual stuff"{{{
@@ -131,14 +117,8 @@ let g:airline_theme = 'gruvbox'
 
 " Temporary / Config test{{{
 
-" Quite awesome, but it gives nerdtree and tagbar numbers as well...
-" augroup editor_stuff
-" 	autocmd!
-" 	autocmd BufLeave * :set norelativenumber
-" 	autocmd BufEnter * :set relativenumber
-" 	autocmd InsertEnter * :set norelativenumber
-" 	autocmd InsertLeave * :set relativenumber
-" augroup END
+"Remove all trailing whitespace by pressing F5
+"nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 augroup line_highlight
 	autocmd!
@@ -148,6 +128,14 @@ augroup line_highlight
 	autocmd InsertLeave * :set nocursorline
 augroup END
 
+" Tmux navigator
+" let g:tmux_navigator_no_mappings = 1
+
+" nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 "}}}
 
 " Custom bindings{{{
@@ -349,6 +337,7 @@ set number relativenumber
 set cursorline					  " Highlight line where cursor is
 set shortmess+=I				  " Don't show the welcome screen
 set noshowmode                    " Don't show the current mode (airline)
+set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,noinsert  " Always show the menu, don't insert completion
 set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
 set autoread                      " Reload files changed outside vim
