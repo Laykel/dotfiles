@@ -64,7 +64,7 @@ let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'mark
 
 " Defaults for SuperTab
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+" let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>"
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -171,7 +171,9 @@ nmap <Leader>mx i\cdot
 
 " Pandoc shortcuts
 " Creates html file with mathjax support in html folder
-nmap <silent> <Leader>pm :!pandoc % -s --mathjax -o html/%:r.html<CR>:redraw<CR>
+nmap <silent> <Leader>pm :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
+
+nmap <Leader>cp :!g++ % -o %:r<CR>
 
 " Laravel framework commons
 nmap <Leader>lr :e routes/web.php<CR>
