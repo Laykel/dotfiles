@@ -173,7 +173,7 @@ nmap <Leader>mx i\cdot
 " Creates html file with mathjax support in html folder
 nmap <silent> <Leader>pm :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
 
-nmap <Leader>cp :!g++ % -o %:r<CR>
+nmap <Leader>cp :!g++ % -o %:r -Wall -Wconversion -Wextra -pedantic<CR><CR>
 
 " Laravel framework commons
 nmap <Leader>lr :e routes/web.php<CR>

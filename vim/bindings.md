@@ -53,6 +53,7 @@ F12 - toggle NerdTree and TagBar
 - :s/foo bar/foobar/g -la ligne
 
 ### Remember
+- `:'<,'>norm! @a` to repeat macro on selection
 - add grep
 - add ySiw + others surround
 	- ys$t - put the line in a tag
