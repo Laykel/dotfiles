@@ -3,13 +3,13 @@
 # Install stuff
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install vim zsh tmux zathura tldr wget curl httpie
+sudo apt-get install vim zsh tmux zathura tldr wget curl httpie ranger
 
 # Syncthing
-curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
-sudo echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-sudo apt-get update
-sudo apt-get install syncthing
+# curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+# sudo echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+# sudo apt-get update
+# sudo apt-get install syncthing
 
 # Move dotfiles to appropriate locations
 printf "source '%s/Dev/dotfiles/zsh/zshrc'" "$HOME" > ~/.zshrc
@@ -18,7 +18,7 @@ printf "source-file %s/Dev/dotfiles/tmux/tmux.conf" "$HOME" > ~/.tmux.conf
 printf "source %s/Dev/dotfiles/zsh/bashrc" "$HOME" > ~/.bashrc
 ln -s "$HOME/Dev/dotfiles/tldrrc" "$HOME/.tldrrc"
 ln -s "$HOME/Dev/dotfiles/zathurarc" "$HOME/.config/zathura/zathurarc"
-ln -s "$HOME/Dev/dotfiles/syncthing/config.xml" "$HOME/.config/syncthing/config.xml"
+# ln -s "$HOME/Dev/dotfiles/syncthing/config.xml" "$HOME/.config/syncthing/config.xml"
 # ln ranger
 
 # Create vim folders
