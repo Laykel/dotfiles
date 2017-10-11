@@ -1,5 +1,5 @@
 # Save command
-sudo rsync -aAXv --delete --exclude=dev/ --exclude=proc/ --exclude=sys/ --exclude=tmp/ --exclude=run/ --exclude=mnt/ --exclude=media/ --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude=".ecryptfs" / /media/luc/Elements/Lunito/Backup/rsync >> rsyncDryRun.txt
+sudo rsync -aAXv --delete --exclude=dev/ --exclude=proc/ --exclude=sys/ --exclude=tmp/ --exclude=run/ --exclude=mnt/ --exclude=media/ --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude=".ecryptfs" / /media/luc/... >> rsyncDryRun.txt
 
 # You can also add the option --dry-run to simulate the backup process.
 

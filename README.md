@@ -9,7 +9,6 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 _To save maybe:_
 Firefox accounts, config
 Thunderbird accounts, config!!
-Chrome accounts
 Eventually save /usr/share/applications or some of it
 Eventually save /opt/ -- Xmind, geekbench4, etcher, franz, tor...
 
@@ -41,7 +40,7 @@ Eventually save /opt/ -- Xmind, geekbench4, etcher, franz, tor...
 - Once again, the config file.
 
 ### Syncthing:
-- Config file for Syncthing. (Folder for the config: $HOME/.config/syncthing/...)
+- Config file for Syncthing.
 
 ### Sublime:
 - A list of all the packages (plugins) I use.
@@ -58,3 +57,4 @@ Eventually save /opt/ -- Xmind, geekbench4, etcher, franz, tor...
 #### Package lists:
 - allPackages.txt is the output of `dpkg -l | grep ii`
 - installedPackages.txt is the output of `comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)`
+- ppasList.txt is pretty self-explanatory.

@@ -8,6 +8,7 @@
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security main restricted
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security universe
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security multiverse
+/etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
 /etc/apt/sources.list.d/google-chrome.list:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/google-chrome.list.save:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/jonathonf-ubuntu-vim-xenial.list:deb http://ppa.launchpad.net/jonathonf/vim/ubuntu xenial main
@@ -18,7 +19,10 @@
 /etc/apt/sources.list.d/neon.list:deb-src http://archive.neon.kde.org/user xenial main
 /etc/apt/sources.list.d/neon.list.save:deb http://archive.neon.kde.org/user xenial main
 /etc/apt/sources.list.d/neon.list.save:deb-src http://archive.neon.kde.org/user xenial main
+/etc/apt/sources.list.d/nilarimogard-ubuntu-webupd8-xenial.list:deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main
+/etc/apt/sources.list.d/nilarimogard-ubuntu-webupd8-xenial.list.save:deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main
 /etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
+/etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list.save:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
 /etc/apt/sources.list.d/nodesource.list:deb https://deb.nodesource.com/node_6.x xenial main
 /etc/apt/sources.list.d/nodesource.list:deb-src https://deb.nodesource.com/node_6.x xenial main
 /etc/apt/sources.list.d/nodesource.list.save:deb https://deb.nodesource.com/node_6.x xenial main
