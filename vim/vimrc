@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ervandew/supertab'				"Easy tab completion
 Plugin 'scrooloose/syntastic'			"Syntax checker
 Plugin 'sheerun/vim-polyglot'			"100+ languages syntax
+Plugin 'Rip-Rip/clang_complete'			"C/C++ autocomplete
 
 " Tags, style
 Plugin 'ludovicchabant/vim-gutentags'	"Manages tags file for us
@@ -23,7 +24,7 @@ Plugin 'ap/vim-css-color'				"Preview colours in the file
 
 " Functionality
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
-Plugin 'ctrlpvim/ctrlp.vim'				"Fuzzy finder/buffer manager
+" Plugin 'ctrlpvim/ctrlp.vim'				"Fuzzy finder/buffer manager
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
 Plugin 'mattn/emmet-vim'				"Emmet for vim (<C-y>,)
@@ -37,7 +38,7 @@ Plugin 'tommcdo/vim-exchange'			"Exchange two pieces of text
 Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
 Plugin 'tpope/vim-repeat'				"Add . command support for plugins
-Plugin 'jiangmiao/auto-pairs'			"Auto-pairs parenses and other things
+Plugin 'raimondi/delimitmate'			"Auto-pairs parenses and other things
 Plugin 'godlygeek/tabular'				"Aligns things
 
 Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
@@ -65,6 +66,8 @@ let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'mark
 " Defaults for SuperTab
 let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>"
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -73,6 +76,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+
+let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
 
 " Defaults for Tagbar
 let g:tagbar_map_showproto = "f"
@@ -86,8 +92,8 @@ autocmd FileType html,php,css EmmetInstall
 let g:user_emmet_leader_key = "<C-f>"
 
 " Airline status
-set laststatus=2                                  " Show the status line all the time
-set showtabline=2 " Always show tab bar
+set laststatus=2                                  " Always show status line
+set showtabline=2								  " Always show tab bar
 let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
 let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
@@ -110,23 +116,20 @@ set background=dark
 "set termguicolors
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme gruvbox
+colorscheme tender
 "gruvbox, tender, moonfly, bubblegum
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'tender'
 "}}}
 
 " Temporary / Config test{{{
 
+" nnoremap H 0
+" nnoremap L $
+" nnoremap <PageUp> H
+" nnoremap <PageDown> L
+
 "Remove all trailing whitespace by pressing F5
 "nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-augroup line_highlight
-	autocmd!
-	autocmd BufLeave * :set nocursorline
-	autocmd BufEnter * :set cursorline
-	autocmd InsertEnter * :set cursorline
-	autocmd InsertLeave * :set nocursorline
-augroup END
 
 " Tmux navigator
 " let g:tmux_navigator_no_mappings = 1
@@ -141,13 +144,13 @@ augroup END
 " Custom bindings{{{
 let mapleader = ',' "Set a Leader for more bindings
 
-nnoremap z <C-r>
-
 " Leader bindings{{{
 " Easy shortcuts
 nmap <silent> <Leader>s :w<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>wq :wq<CR>
+
+nnoremap z <C-r>
 
 " Remap spell bindings
 nnoremap <Leader>zg zg
@@ -173,7 +176,7 @@ nmap <Leader>mx i\cdot
 " Creates html file with mathjax support in html folder
 nmap <silent> <Leader>pm :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
 
-nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic<CR><CR>
+nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
 
 " Laravel framework commons
 nmap <Leader>lr :e routes/web.php<CR>
@@ -223,12 +226,8 @@ inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End> <C-o>g<End>
 
 " Skip lines: faster navigation
-nnoremap <PageUp> H
-nnoremap <PageDown> L
 nnoremap J 5j
 nnoremap K 5k
-nnoremap H 0
-nnoremap L $
 
 " Mappings to access buffers
 " Back one buffer
@@ -305,6 +304,14 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
+augroup line_highlight
+	autocmd!
+	autocmd BufLeave * :set nocursorline
+	autocmd BufEnter * :set cursorline
+	autocmd InsertEnter * :set cursorline
+	autocmd InsertLeave * :set nocursorline
+augroup END
+
 " Enable spellcheck for markdown files
 autocmd FileType markdown setlocal spell spelllang=en,fr
 autocmd FileType gitcommit setlocal spell spelllang=en,fr
@@ -326,7 +333,7 @@ set fileencoding=utf-8 " The encoding written to file.
 set ignorecase         " Do case insensitive matching
 set smartcase          " Do smart case matching
 set incsearch          " Incremental search
-set autowrite          " Automatically save before commands like :next and :make
+set autowrite          " Automatically save before :next and :make...
 set hidden             " Hide buffers when they are abandoned
 set mouse=a            " Enable mouse usage (all modes)
 set wrapscan           " Searches wrap around end of file
@@ -340,7 +347,7 @@ set cursorline					  " Highlight line where cursor is
 set shortmess+=I				  " Don't show the welcome screen
 set noshowmode                    " Don't show the current mode (airline)
 set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone,noinsert  " Always show the menu, don't insert completion
+set completeopt=menu,menuone	  " Always show the menu
 set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key
 set autoread                      " Reload files changed outside vim
 set splitright                    " Open new splits on the right
@@ -375,7 +382,8 @@ set foldnestmax=5     " 5 levels deep folds
 set foldenable        " Enable folding
 set foldlevel=0       " Close all folds by default
 
-" Space to open/close folds in normal mode, to create new ones in visual mode
+" Space to open/close folds in normal mode,
+" and also to create new ones in visual mode
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 "}}}
