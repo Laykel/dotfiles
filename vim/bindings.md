@@ -24,10 +24,13 @@ la - Laravel config/app.php
 ld - Laravel config/database.php
 lc - Laravel composer.json
 
+cp - compile c++
 mf - mathjax fraction helper
 mr - mathjax root helper
 mx - mathjax cdot helper
 pm - pandoc md to html
+lp - compile latex to pdf
+lz - open pdf on zathura
 
 ### Control key bindings
 <C-i> - follow tag
