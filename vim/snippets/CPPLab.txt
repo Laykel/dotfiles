@@ -1,0 +1,29 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire :
+ Fichier     :
+ Auteur(s)   :
+ Date        :
+
+ But         :
+
+ Remarque(s) :
+
+ Compilateur : gcc version 5.4.0 (20160609)
+ -----------------------------------------------------------------------------------
+ */
+
+#include <cstdlib>
+#include <iostream>
+#include <iomanip> // For setprecision
+#include <cmath>   // For sqrt(), pow()...
+#include <limits>  // For numeric_limits
+
+#define EMPTY_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
+
+using namespace std;
+
+int main() {
+
+   return EXIT_SUCCESS;
+}

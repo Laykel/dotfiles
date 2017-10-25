@@ -1,0 +1,67 @@
+% Preamble
+% ---
+\documentclass{article}
+
+% Packages
+% ---
+\usepackage[utf8]{inputenc}      % UTF-8 support
+\usepackage{amsmath}             % Advanced math typesetting
+\usepackage[hidelinks]{hyperref} % Add a link to your document
+\usepackage{graphicx}            % Add pictures to your document
+\usepackage{listings}            % Source code formatting and highlighting
+
+\usepackage{fancyhdr}            % Create headers and footers
+\pagestyle{fancy}
+
+\title{}
+\date{}
+\author{}
+
+% Header and footer things
+\lhead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+% Document
+% ---
+\begin{document}
+	\pagenumbering{gobble}
+	\maketitle
+	\newpage
+
+	\pagenumbering{arabic}
+	\tableofcontents
+	\newpage
+
+	\section{}
+
+	\subsection{}
+
+	\subsubsection{}
+
+	\paragraph{}
+
+	% Equation environment, numbered
+	\begin{equation}
+	\end{equation}
+
+	% Equation environment, unnumbered
+	\begin{equation*}
+	\end{equation*}
+
+	% Align environment, aligns on "&"
+	\begin{align}
+	\end{align}
+
+	% Image positioned [h!]ere, full width...
+	\begin{figure}[h!]
+		\includegraphics[width=\linewidth]{img.jpg}
+		\caption{}
+		\label{fig:image1}
+	\end{figure}
+
+	La figure \ref{fig:image1} est très belle.
+
+\end{document}

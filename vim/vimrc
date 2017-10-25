@@ -172,14 +172,15 @@ nmap <Leader>mf i\frac{
 nmap <Leader>mr i\sqrt{
 nmap <Leader>mx i\cdot
 
-" Pandoc shortcuts
+" Compile/create files
 " Creates html file with mathjax support in html folder
-nmap <silent> <Leader>pm :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
+nmap <silent> <Leader>ph :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
+nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o pdf/%:r.pdf<CR><CR>
 
 nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 
-nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR>
 
 " Laravel framework commons
 nmap <Leader>lr :e routes/web.php<CR>

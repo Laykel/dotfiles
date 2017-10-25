@@ -19,18 +19,19 @@ zz - correct spelling
 zg - add word to dict
 zw - remove word from dict
 
-lr - Laravel routes/web.php
-la - Laravel config/app.php
-ld - Laravel config/database.php
-lc - Laravel composer.json
-
 cp - compile c++
 mf - mathjax fraction helper
 mr - mathjax root helper
 mx - mathjax cdot helper
-pm - pandoc md to html
+ph - pandoc md to html
+pp - pandoc md to pdf
 lp - compile latex to pdf
-lz - open pdf on zathura
+lz - open pdf in zathura
+
+lr - Laravel routes/web.php
+la - Laravel config/app.php
+ld - Laravel config/database.php
+lc - Laravel composer.json
 
 ### Control key bindings
 <C-i> - follow tag

@@ -1,0 +1,18 @@
+// INF1 - Recueil d'exercices
+// Exercice <nbr>, <titre>
+// <name>
+
+#include <cstdlib>
+#include <iostream>
+#include <iomanip> // For setprecision
+#include <cmath>   // For sqrt(), pow()...
+#include <limits>  // For numeric_limits
+
+#define EMPTY_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
+
+using namespace std;
+
+int main() {
+
+   return EXIT_SUCCESS;
+}
