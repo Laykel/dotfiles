@@ -32,7 +32,7 @@ alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
 alias cnotes="cd ~/Documents/Notebooks/"
-alias cheig="cd ~/HEIG/Unités"
+alias cheig="cd ~/HEIG/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
 

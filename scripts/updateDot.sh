@@ -11,3 +11,4 @@ egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/* > ppasList.tx
 
 "$HOME/.tmux/plugins/tpm/bin/update_plugins" all
 vim +VundleUpdate +qa
+npm update -g
