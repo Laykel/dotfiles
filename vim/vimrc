@@ -274,6 +274,10 @@ nnoremap <silent> <C-w>j :resize -5<CR>
 " Custom commands{{{
 command! MakeTags !ctags -R .
 
+command Snipcppex r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
+command Snipcpplab r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command Sniplatex r ~/Dev/dotfiles/vim/snippets/Latex.txt
+
 command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
 command VimRC e ~/Dev/dotfiles/vim/vimrc

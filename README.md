@@ -6,38 +6,40 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 - update and enhance cheatsheets
 - try out neovim
 
-_To save maybe:_
-Firefox accounts, config
-Thunderbird accounts, config!!
-Eventually save /usr/share/applications or some of it
-Eventually save /opt/ -- Xmind, geekbench4, etcher, franz, tor...
-
 ## Content
 
 ### vim:
-- Contains my vimrc as well as a cheat sheet, my bindings, and my plugins, managed through Vundle.
+- My vimrc file
+- A folder containing snippets
+- A cheatsheet and a little bindings help file
+- (Using Vundle for plugin management)
 
 ### tmux:
-- Contains my tmux.conf file as well as a cheat sheet. (Also a theme file for the tmux bar)
-- Tmux plugin manager (TPM)
+- My tmux.conf file
+- A theme file for the tmux bar
+- (Using tmux plugin manager - TPM)
 
 ### zshrc:
-- Just my zshrc file, with all my aliases, configs and plugins, managed through oh-my-zsh.
+- My zshrc file
+- An aliases file with all my aliases
+- A prompt file, taken from "Parth/dotfiles"
+- (Using oh-my-zsh)
+- Also my bashrc file, lightly modified
 
 ### tldrrc:
-- The config file, with just a little thing to display colours.
+- Just a little config to show colours in tldr's output
 
 ### ranger:
-- My config files for ranger. Also, surprise, a cheat sheet!
-	- rc.conf: setting various options, biding keys to functions.
-	- commands.py: functions in Python to modify its behaviour.
-	- rifle.conf: default programs for opening files.
-	- scope.sh: shell script to generate file previews.
+- My config files for ranger
+	- rc.conf: setting various options, biding keys to functions
+	- commands.py: functions in Python to modify its behaviour
+	- rifle.conf: default programs for opening files
+	- scope.sh: shell script to generate file previews
 	- bookmarks
-- WIP
+- A cheatsheet
 
 ### zathura:
-- Once again, the config file.
+- My zathurarc file.
 
 ### Syncthing:
 - Config file for Syncthing.
