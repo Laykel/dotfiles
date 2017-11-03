@@ -61,7 +61,7 @@ call vundle#end()
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowHidden = 1
 let g:ctrlp_show_hidden = 1
-let g:vimwiki_list = [{'path': '~/Documents/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
+let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
 " Defaults for SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -172,6 +172,9 @@ nmap <Leader>mf i\frac{
 nmap <Leader>mr i\sqrt{
 nmap <Leader>mx i\cdot
 
+" Insert semicolon at end of line
+inoremap <leader>; <C-o>A;<Esc>
+
 " Compile/create files
 " Creates html file with mathjax support in html folder
 nmap <silent> <Leader>ph :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
@@ -180,6 +183,7 @@ nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o pdf/%:r.pdf<CR>
 nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 
+" g++ compiler
 nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR>
 
 " Laravel framework commons
@@ -274,9 +278,9 @@ nnoremap <silent> <C-w>j :resize -5<CR>
 " Custom commands{{{
 command! MakeTags !ctags -R .
 
-command Snipcppex r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
-command Snipcpplab r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
-command Sniplatex r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command Snipcppex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
+command Snipcpplab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command Sniplatex 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
 
 command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md

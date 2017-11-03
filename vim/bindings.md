@@ -1,9 +1,14 @@
+Only aligns the last =
+- :Tabularize /^\s*\S.*\zs=
+
 ### Leader bindings
 v - open current buffer in vsplit
 - - next buffer
 . - previous buffer
 0-9 - specified buffer
 x - close buffer
+
+; - insert semicolon at eoline
 
 rp - Vimux prompt command
 ro - Vimux predefined command
