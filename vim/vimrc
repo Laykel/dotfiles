@@ -281,6 +281,7 @@ command! MakeTags !ctags -R .
 command Snipcppex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
 command Snipcpplab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
 command Sniplatex 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command Snipdoxyfunc r ~/Dev/dotfiles/vim/snippets/DoxyFunc.txt
 
 command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md

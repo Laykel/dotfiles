@@ -24,7 +24,7 @@ source $HOME/Dev/dotfiles/zsh/aliases.sh
 
 # Bindings{{{
 # Executes ls on dir change
-chpwd() ls -h --group-directories-first
+chpwd() l
 
 # git
 	function git_prepare() {

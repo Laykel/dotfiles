@@ -1,8 +1,9 @@
 # Aliases
 # Very common
-alias l="ls -ah --group-directories-first"
-alias ll="ls -lhaF --color=auto --group-directories-first"
-alias cl="clear;ls -h --group-directories-first"
+alias l="ls -ahv --group-directories-first"
+alias ll="ls -lhaFv --color=auto --group-directories-first"
+alias cl="clear"
+alias cls="clear;ls -h --group-directories-first"
 
 alias s="sudo"
 alias v="vim"

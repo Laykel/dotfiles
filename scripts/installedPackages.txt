@@ -22,6 +22,8 @@ filezilla
 fortune-mod
 gimp
 git
+gitkraken
+gnome-disk-utility
 google-chrome-stable
 gparted
 grub-customizer
@@ -114,6 +116,7 @@ vim-gtk3-py2
 virtualbox
 wavemon
 wireshark
+wolframscript
 xcape
 xiphos
 xsel
@@ -122,6 +125,7 @@ yakuake
 youtube-dl
 zathura
 zathura-pdf-poppler
+zeal
 zenmap
 zim
 zsh
