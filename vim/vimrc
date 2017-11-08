@@ -24,7 +24,7 @@ Plugin 'ap/vim-css-color'				"Preview colours in the file
 
 " Functionality
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
-" Plugin 'ctrlpvim/ctrlp.vim'				"Fuzzy finder/buffer manager
+" Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
 Plugin 'mattn/emmet-vim'				"Emmet for vim (<C-y>,)
@@ -34,6 +34,7 @@ Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
 
 " Additions
 Plugin 'christoomey/vim-system-copy'	"Access system clipboard -requires xsel
+Plugin 'christoomey/vim-run-interactive' "Make aliases work from vim
 Plugin 'tommcdo/vim-exchange'			"Exchange two pieces of text
 Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
@@ -76,7 +77,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_cpp_compiler_options = '-Wall -Wconversion -Wextra -pedantic -std=c++11'
 
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
 
@@ -144,22 +145,8 @@ let g:airline_theme = 'tender'
 " Custom bindings{{{
 let mapleader = ',' "Set a Leader for more bindings
 
-" Leader bindings{{{
-" Easy shortcuts
-nmap <silent> <Leader>s :w<CR>
-nmap <silent> <Leader>q :q<CR>
-nmap <silent> <Leader>wq :wq<CR>
-
+" Misc{{{
 nnoremap z <C-r>
-
-" Remap spell bindings
-nnoremap <Leader>zg zg
-nnoremap <Leader>zw zw
-nnoremap <Leader>zz z=
-
-" Open current buffer to the right, and change this split's
-" buffer to the previous
-nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
 
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k
@@ -167,63 +154,12 @@ nnoremap <CR> o<Esc>k
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
 
-" Latex/mathjax helpers
-nmap <Leader>mf i\frac{
-nmap <Leader>mr i\sqrt{
-nmap <Leader>mx i\cdot
-
-" Insert semicolon at end of line
-inoremap <leader>; <C-o>A;<Esc>
-
-" Compile/create files
-" Creates html file with mathjax support in html folder
-nmap <silent> <Leader>ph :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
-nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o pdf/%:r.pdf<CR><CR>
-
-nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
-nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
-
-" g++ compiler
-nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR>
-
-" Laravel framework commons
-nmap <Leader>lr :e routes/web.php<CR>
-nmap <Leader>la :e config/app.php<CR>
-nmap <Leader>ld :e config/database.php<CR>
-nmap <Leader>lc :e composer.json<CR>
+" Write when the file wasn't opened with sudo privileges
+cmap w!! w !sudo tee % > /dev/null
 "}}}
 
-" Toggles for features{{{
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>g :GitGutterToggle<CR>
-nmap <silent> <Leader>tt :TagbarToggle<CR>
-
-" Toggles for features (work in insert)
-nnoremap <F4> :GitGutterToggle<CR>
-inoremap <F4> <Esc> :GitGutterToggle<CR>gi
-nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
-inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
-nnoremap <F6> :NERDTreeToggle<CR>
-inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
-nnoremap <F7> :TagbarToggle<CR>
-inoremap <F7> <Esc>:TagbarToggle<CR>gi
-nnoremap <F8> :SyntasticToggleMode<CR>
-inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
-
-" Vimux stuff
-nnoremap <leader>rp :VimuxPromptCommand<CR>
-nnoremap <leader>ro :!tms 
-nnoremap <leader>rl :VimuxRunLastCommand<CR>
-nnoremap <leader>rq :VimuxCloseRunner<CR>
-nnoremap <leader>rz :VimuxZoomRunner<CR>
-
-" Tabular stuff
-nnoremap <leader>tg :Tabularize /
-nnoremap <leader>tq :Tabularize /"<CR>
-nnoremap <leader>te :Tabularize /=<CR>
-"}}}
-
-" Basic movement{{{
+" Basic (Movement, save, spell){{{
+" Movement
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 noremap  <silent> <Up>   gk
@@ -237,7 +173,22 @@ inoremap <silent> <End> <C-o>g<End>
 nnoremap J 5j
 nnoremap K 5k
 
-" Mappings to access buffers
+" Easy shortcuts
+nmap <silent> <Leader>s :w<CR>
+nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>wq :wq<CR>
+
+" Remap spell bindings
+nnoremap <Leader>zg zg
+nnoremap <Leader>zw zw
+nnoremap <Leader>zz z=
+"}}}
+
+" Buffers, panes{{{
+" Open current buffer to the right, and change this split's
+" buffer to the previous
+nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
+
 " Back one buffer
 nnoremap <Leader>. :bp<CR>
 " Forward one buffer
@@ -254,18 +205,6 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 nnoremap <Leader>x :bp\|bd #<CR>
 
-" Buffer navigation like Firefox
-nnoremap <C-S-tab> :bp<CR>
-nnoremap <C-tab> :bn<CR>
-inoremap <C-S-tab> <Esc>:bp<CR>i
-inoremap <C-tab> <Esc>:bn<CR>i
-"}}}
-
-" Control bindings{{{
-" Mappings for following tags (<C-p> to go back)
-nnoremap <C-i> <C-]>
-nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
 " Resize panes
 nnoremap <silent> <C-w>l :vertical resize +5<CR>
 nnoremap <silent> <C-w>h :vertical resize -5<CR>
@@ -273,6 +212,71 @@ nnoremap <silent> <C-w>k :resize +5<CR>
 nnoremap <silent> <C-w>j :resize -5<CR>
 "}}}
 
+" Toggles for features{{{
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>g :GitGutterToggle<CR>
+nmap <silent> <Leader>tt :TagbarToggle<CR>
+
+" Toggles for insert mode
+nnoremap <F4> :GitGutterToggle<CR>
+inoremap <F4> <Esc> :GitGutterToggle<CR>gi
+nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
+nnoremap <F6> :NERDTreeToggle<CR>
+inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
+nnoremap <F7> :TagbarToggle<CR>
+inoremap <F7> <Esc>:TagbarToggle<CR>gi
+nnoremap <F8> :SyntasticToggleMode<CR>
+inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
+"}}}
+
+" Prog helpers{{{
+" Insert semicolon at end of line
+inoremap <leader>; <C-o>A;<Esc>
+
+" Mappings for following tags (<C-p> to go back)
+nnoremap <C-i> <C-]>
+nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Latex/mathjax helpers
+nmap <Leader>mf i\frac{
+nmap <Leader>mr i\sqrt{
+nmap <Leader>mx i\cdot
+
+" Tabular stuff
+nnoremap <leader>tg :Tabularize /
+nnoremap <leader>tq :Tabularize /\/\/"<CR>
+nnoremap <leader>te :Tabularize /=<CR>
+
+" Laravel framework commons
+nmap <Leader>lr :e routes/web.php<CR>
+nmap <Leader>la :e config/app.php<CR>
+nmap <Leader>ld :e config/database.php<CR>
+nmap <Leader>lc :e composer.json<CR>
+"}}}
+
+" Compile files (prog, pdfs...){{{
+" Creates html file with mathjax support in html folder
+nmap <silent> <Leader>ph :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
+" Create pdf from markdown in pdf folder
+nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o pdf/%:r.pdf<CR><CR>
+
+" Create pdf from Latex
+nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
+" Open PDF file in zathura
+nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
+
+" g++ compiler
+nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+" Run current file's binary
+nmap <Leader>cr :RunInInteractiveShell tms ./bin/%:r<CR><CR>
+"}}}
+
+nnoremap <leader>ri :RunInInteractiveShell tms<space>
+nnoremap <leader>rp :VimuxPromptCommand<CR>
+nnoremap <leader>rl :VimuxRunLastCommand<CR>
+nnoremap <leader>rq :VimuxCloseRunner<CR>
+nnoremap <leader>rz :VimuxZoomRunner<CR>
 "}}}
 
 " Custom commands{{{
@@ -287,9 +291,6 @@ command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
 command VimRC e ~/Dev/dotfiles/vim/vimrc
 command TmuxConf e ~/.tmux.conf
-
-" Write when the file wasn't opened with sudo privileges
-cmap w!! w !sudo tee % > /dev/null
 
 " Strip trailing whitespaces
 " Taken from https://github.com/ntpeters
