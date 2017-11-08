@@ -212,7 +212,7 @@ inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
 
 " Vimux stuff
 nnoremap <leader>rp :VimuxPromptCommand<CR>
-nnoremap <leader>ro :call VimuxRunCommand("ls")<CR>
+nnoremap <leader>ro :!tms 
 nnoremap <leader>rl :VimuxRunLastCommand<CR>
 nnoremap <leader>rq :VimuxCloseRunner<CR>
 nnoremap <leader>rz :VimuxZoomRunner<CR>
