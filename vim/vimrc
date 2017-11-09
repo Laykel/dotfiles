@@ -24,7 +24,6 @@ Plugin 'ap/vim-css-color'				"Preview colours in the file
 
 " Functionality
 Plugin 'vim-airline/vim-airline'		"Nice looking airline
-" Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
 Plugin 'scrooloose/nerdtree'			"Classic nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'	"git interaction in nerdtree
 Plugin 'mattn/emmet-vim'				"Emmet for vim (<C-y>,)
@@ -34,15 +33,14 @@ Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
 
 " Additions
 Plugin 'christoomey/vim-system-copy'	"Access system clipboard -requires xsel
-Plugin 'christoomey/vim-run-interactive' "Make aliases work from vim
+" Plugin 'christoomey/vim-run-interactive' "Make aliases work from vim
 Plugin 'tommcdo/vim-exchange'			"Exchange two pieces of text
 Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
 Plugin 'tpope/vim-repeat'				"Add . command support for plugins
 Plugin 'raimondi/delimitmate'			"Auto-pairs parenses and other things
 Plugin 'godlygeek/tabular'				"Aligns things
-
-Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
+" Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
 Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes
 
 " Looks
@@ -51,6 +49,9 @@ Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 Plugin 'morhetz/gruvbox'				"A theme inspired by solarized
 Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
 Plugin 'bluz71/vim-moonfly-colors'
+
+" Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
+" let g:ctrlp_show_hidden = 1
 " Plugin 'flazz/vim-colorschemes'		"A whole lot of themes... Heavy...
 " Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
 
@@ -61,7 +62,6 @@ call vundle#end()
 " Defaults for plugins"{{{
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowHidden = 1
-let g:ctrlp_show_hidden = 1
 let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
 " Defaults for SuperTab
@@ -79,10 +79,11 @@ let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_cpp_compiler_options = '-Wall -Wconversion -Wextra -pedantic -std=c++11'
 
+" This is for C/C++ smart autocompletion
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
 
 " Defaults for Tagbar
-let g:tagbar_map_showproto = "f"
+let g:tagbar_map_showproto = "f"		" f to show function's prototype
 let g:tagbar_map_togglefold = "<Space>"
 let g:tagbar_width = 30
 let g:tagbar_autofocus = 1
@@ -123,6 +124,23 @@ let g:airline_theme = 'tender'
 "}}}
 
 " Temporary / Config test{{{
+" Strip trailing whitespaces
+" Taken from https://github.com/ntpeters
+" -> :call StripWhitespace(10, 21)
+let g:whitespace_group='[\u0009\u0020\u00a0\u1680\u180e\u2000-\u200b\u202f\u205f\u3000\ufeff]'
+let g:eol_whitespace_pattern = g:whitespace_group . '\+$'
+function! g:StripWhitespace( line1, line2 )
+	let _s = @/
+	let l  = line(".")
+	let c  = col(".")
+	silent! execute ':' . a:line1 . ',' . a:line2 . 's/' . g:eol_whitespace_pattern . '//e'
+	let @/=_s
+	call cursor(l, c)
+endfunction
+
+" function CallTms(command)
+" 	silent! execute ':!tmux send-keys -t right ' . a:command . ' C-m'
+" endfunction
 
 " nnoremap H 0
 " nnoremap L $
@@ -269,14 +287,14 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 " g++ compiler
 nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
 " Run current file's binary
-nmap <Leader>cr :RunInInteractiveShell tms ./bin/%:r<CR><CR>
+" nmap <Leader>cr :RunInInteractiveShell tms ./bin/%:r<CR><CR>
+nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
-nnoremap <leader>ri :RunInInteractiveShell tms<space>
-nnoremap <leader>rp :VimuxPromptCommand<CR>
-nnoremap <leader>rl :VimuxRunLastCommand<CR>
-nnoremap <leader>rq :VimuxCloseRunner<CR>
-nnoremap <leader>rz :VimuxZoomRunner<CR>
+" nnoremap <leader>ri :RunInInteractiveShell tms<space>
+nnoremap <silent> <Leader>rp :!tmux send-keys -t right  C-m
+nnoremap <silent> <Leader>rl :!tmux send-keys -t right C-p C-m<CR><CR>
+
 "}}}
 
 " Custom commands{{{
@@ -292,19 +310,6 @@ command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
 command VimRC e ~/Dev/dotfiles/vim/vimrc
 command TmuxConf e ~/.tmux.conf
 
-" Strip trailing whitespaces
-" Taken from https://github.com/ntpeters
-" -> :call StripWhitespace(10, 21)
-let g:whitespace_group='[\u0009\u0020\u00a0\u1680\u180e\u2000-\u200b\u202f\u205f\u3000\ufeff]'
-let g:eol_whitespace_pattern = g:whitespace_group . '\+$'
-function! g:StripWhitespace( line1, line2 )
-	let _s = @/
-	let l  = line(".")
-	let c  = col(".")
-	silent! execute ':' . a:line1 . ',' . a:line2 . 's/' . g:eol_whitespace_pattern . '//e'
-	let @/=_s
-	call cursor(l, c)
-endfunction
 "}}}
 
 " Autocmd, misc{{{
@@ -318,6 +323,7 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
+" Disable current line highlight when split not in focus
 augroup line_highlight
 	autocmd!
 	autocmd BufLeave * :set nocursorline
@@ -326,7 +332,7 @@ augroup line_highlight
 	autocmd InsertLeave * :set nocursorline
 augroup END
 
-" Enable spellcheck for markdown files
+" Enable spellcheck for certain files
 autocmd FileType markdown setlocal spell spelllang=en,fr
 autocmd FileType gitcommit setlocal spell spelllang=en,fr
 autocmd FileType markdown,txt setlocal complete+=kspell

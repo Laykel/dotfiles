@@ -17,21 +17,20 @@ export EDITOR='vim'
 
 # Set CapsLock to act as Escape on tap and Ctrl on hold
 setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape' 
+xcape -e 'Control_L=Escape'
 
 # Aliases
-source $HOME/Dev/dotfiles/zsh/aliases.sh
+# Currently handled by /etc/zsh/zshenv
+# source $HOME/Dev/dotfiles/zsh/aliases
 
-# Functions and their bindings{{{
+# Functions
+# Currently handled by /etc/zsh/zshenv
+# source $HOME/Dev/dotfiles/zsh/functions
+
 # Executes ls on dir change
 chpwd() l
 
-# Tmux send-keys shortcut
-function tms {
-	args=$@
-	tmux send-keys -t right "$args" C-m
-}
-
+# Control functions{{{
 # git
 function git_prepare() {
 	if [ -n "$BUFFER" ];
@@ -82,8 +81,3 @@ function edit_and_run() {
 	zle -N add_sudo
 	bindkey "^s" add_sudo
 # }}}
-
-# Launch tmux with screen-256color
-# if [[ -n "$TMUX" ]] && [[ ! -e "/root/.automatic_start_occurred" ]];then
-# 	export TERM=screen-256color
-# fi

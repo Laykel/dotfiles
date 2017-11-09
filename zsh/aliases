@@ -44,7 +44,9 @@ alias help="man"
 # Configuration
 alias vconf="vim ~/Dev/dotfiles/vim/vimrc"
 alias zconf="vim ~/Dev/dotfiles/zsh/zshrc"
-alias zaconf="vim ~/Dev/dotfiles/zsh/aliases.sh"
+alias zaconf="vim ~/Dev/dotfiles/zsh/aliases"
+alias zeconf="sudo vim /etc/zsh/zshenv"
+alias bconf="vim ~/Dev/dotfiles/zsh/bashrc"
 alias tconf="vim ~/Dev/dotfiles/tmux/tmux.conf"
 
 # Package commands

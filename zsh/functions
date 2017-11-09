@@ -1,0 +1,6 @@
+# Tmux send-keys shortcut
+function tms {
+	args=$@
+	tmux send-keys -t right "$args" C-m
+}
+
