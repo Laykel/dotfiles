@@ -37,6 +37,7 @@ alias cnotes="cd ~/Notebooks/"
 alias cheig="cd ~/HEIG/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
+alias csnip="cd ~/Dev/dotfiles/vim/snippets"
 
 alias ,q="exit"
 alias help="man"

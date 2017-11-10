@@ -292,7 +292,7 @@ nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
 " nnoremap <leader>ri :RunInInteractiveShell tms<space>
-nnoremap <silent> <Leader>rp :!tmux send-keys -t right  C-m
+nnoremap <silent> <Leader>rp :!tms<space>
 nnoremap <silent> <Leader>rl :!tmux send-keys -t right C-p C-m<CR><CR>
 
 "}}}
@@ -303,6 +303,7 @@ command! MakeTags !ctags -R .
 command Snipcppex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
 command Snipcpplab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
 command Sniplatex 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command Sniplatexgraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
 command Snipdoxyfunc r ~/Dev/dotfiles/vim/snippets/DoxyFunc.txt
 
 command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
@@ -356,6 +357,7 @@ set incsearch          " Incremental search
 set autowrite          " Automatically save before :next and :make...
 set hidden             " Hide buffers when they are abandoned
 set mouse=a            " Enable mouse usage (all modes)
+" set ttymouse=sgr	   " Fix problems on the far right side of the file
 set wrapscan           " Searches wrap around end of file
 set linebreak          " Break only at word boundaries
 set notimeout          " Don't timeout after Leader for example
