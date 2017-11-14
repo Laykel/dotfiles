@@ -20,6 +20,7 @@ setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 
 # Aliases
+source /etc/zsh/zshenv
 # Currently handled by /etc/zsh/zshenv
 # source $HOME/Dev/dotfiles/zsh/aliases
 
@@ -28,7 +29,7 @@ xcape -e 'Control_L=Escape'
 # source $HOME/Dev/dotfiles/zsh/functions
 
 # Executes ls on dir change
-chpwd() l
+chpwd() ls -v --group-directories-first
 
 # Control functions{{{
 # git

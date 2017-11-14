@@ -4,3 +4,7 @@ function tms {
 	tmux send-keys -t right "$args" C-m
 }
 
+function tmb {
+	args=$@
+	tmux send-keys -t bottom "$args" C-m
+}

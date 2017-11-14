@@ -1,9 +1,12 @@
 # Aliases
+# source zshenv
+alias zshenv="source /etc/zsh/zshenv"
+
 # Very common
-alias l="ls -ahv --group-directories-first"
+alias l="ls -v --group-directories-first"
 alias ll="ls -lhaFv --color=auto --group-directories-first"
 alias cl="clear"
-alias cls="clear;ls -h --group-directories-first"
+alias cls="clear;l"
 
 alias s="sudo"
 alias v="vim"
@@ -34,6 +37,7 @@ alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
 alias cnotes="cd ~/Notebooks/"
+alias clatex="cd ~/Notebooks/Latex/"
 alias cheig="cd ~/HEIG/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
@@ -46,6 +50,7 @@ alias help="man"
 alias vconf="vim ~/Dev/dotfiles/vim/vimrc"
 alias zconf="vim ~/Dev/dotfiles/zsh/zshrc"
 alias zaconf="vim ~/Dev/dotfiles/zsh/aliases"
+alias zfconf="vim ~/Dev/dotfiles/zsh/functions"
 alias zeconf="sudo vim /etc/zsh/zshenv"
 alias bconf="vim ~/Dev/dotfiles/zsh/bashrc"
 alias tconf="vim ~/Dev/dotfiles/tmux/tmux.conf"

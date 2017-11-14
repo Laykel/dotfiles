@@ -251,6 +251,7 @@ inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
 " Prog helpers{{{
 " Insert semicolon at end of line
 inoremap <leader>; <C-o>A;<Esc>
+nnoremap <leader>; <C-o>A;<Esc>
 
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
@@ -263,7 +264,7 @@ nmap <Leader>mx i\cdot
 
 " Tabular stuff
 nnoremap <leader>tg :Tabularize /
-nnoremap <leader>tq :Tabularize /\/\/"<CR>
+nnoremap <leader>tc :Tabularize /\/\/<CR>
 nnoremap <leader>te :Tabularize /=<CR>
 
 " Laravel framework commons
@@ -292,8 +293,12 @@ nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
 " nnoremap <leader>ri :RunInInteractiveShell tms<space>
-nnoremap <silent> <Leader>rp :!tms<space>
+nnoremap <silent> <Leader>rp :Silent tms<space>
 nnoremap <silent> <Leader>rl :!tmux send-keys -t right C-p C-m<CR><CR>
+
+command! -nargs=1 Silent
+\   execute 'silent !' . <q-args>
+\ | execute 'redraw!'
 
 "}}}
 
