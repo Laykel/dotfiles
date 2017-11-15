@@ -1,5 +1,9 @@
 /**
- * @brief <desc>
- * @param <name>
- * @return <what>
+ * \brief <desc>
+ *
+ * \param [in] <name>
+ * \param [in] <name>
+ * \return <what>
+ * 
+ * \details <details>
  */

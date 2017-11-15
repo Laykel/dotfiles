@@ -77,7 +77,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_cpp_compiler_options = '-Wall -Wconversion -Wextra -pedantic -std=c++11'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wconversion -Wextra -pedantic'
 
 " This is for C/C++ smart autocompletion
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
