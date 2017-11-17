@@ -20,7 +20,7 @@ alias gp="git push origin master"
 
 # Open program with specific parameters
 alias py="python3.5"
-alias gpp="g++ -Wall -Wconversion -Wextra -pedantic -std=c++11"
+alias gpp="g++ -std=c++11 -Wall -Wconversion -Wextra -pedantic"
 alias composer="/usr/local/bin/composer.phar"
 alias laravel="~/.config/composer/vendor/bin/laravel"
 alias heigvpn="sudo openconnect --authgroup=All_Users --user=luc.wachter --no-cert-check https://remote.heig-vd.ch"

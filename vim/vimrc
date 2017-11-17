@@ -250,8 +250,8 @@ inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
 
 " Prog helpers{{{
 " Insert semicolon at end of line
-inoremap <leader>; <C-o>A;<Esc>
-nnoremap <leader>; <C-o>A;<Esc>
+inoremap <leader>; <Esc>A;<Esc>
+nnoremap <leader>; A;<Esc>
 
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
