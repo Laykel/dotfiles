@@ -23,8 +23,8 @@
 /etc/apt/sources.list.d/nilarimogard-ubuntu-webupd8-xenial.list.save:deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main
 /etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
 /etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list.save:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
-/etc/apt/sources.list.d/nodesource.list:deb https://deb.nodesource.com/node_6.x xenial main
-/etc/apt/sources.list.d/nodesource.list:deb-src https://deb.nodesource.com/node_6.x xenial main
+/etc/apt/sources.list.d/nodesource.list:deb https://deb.nodesource.com/node_8.x xenial main
+/etc/apt/sources.list.d/nodesource.list:deb-src https://deb.nodesource.com/node_8.x xenial main
 /etc/apt/sources.list.d/nodesource.list.save:deb https://deb.nodesource.com/node_6.x xenial main
 /etc/apt/sources.list.d/nodesource.list.save:deb-src https://deb.nodesource.com/node_6.x xenial main
 /etc/apt/sources.list.d/steam.list:deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
@@ -33,6 +33,7 @@
 /etc/apt/sources.list.d/steam.list.save:deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
 /etc/apt/sources.list.d/syncthing.list:deb https://apt.syncthing.net/ syncthing stable
 /etc/apt/sources.list.d/syncthing.list.save:deb https://apt.syncthing.net/ syncthing stable
+/etc/apt/sources.list.d/virtualbox.org.list:deb http://download.virtualbox.org/virtualbox/debian zesty non-free contrib
 /etc/apt/sources.list.d/webupd8team-ubuntu-brackets-xenial.list:deb http://ppa.launchpad.net/webupd8team/brackets/ubuntu xenial main
 /etc/apt/sources.list.d/webupd8team-ubuntu-brackets-xenial.list.save:deb http://ppa.launchpad.net/webupd8team/brackets/ubuntu xenial main
 /etc/apt/sources.list.d/webupd8team-ubuntu-sublime-text-3-xenial.list:deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu xenial main

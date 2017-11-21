@@ -165,6 +165,7 @@ let mapleader = ',' "Set a Leader for more bindings
 
 " Misc{{{
 nnoremap z <C-r>
+" nnoremap : q:i
 
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k
@@ -264,7 +265,7 @@ nmap <Leader>mx i\cdot
 
 " Tabular stuff
 nnoremap <leader>tg :Tabularize /
-nnoremap <leader>tc :Tabularize /\/\/<CR>
+nnoremap <leader>tb :Tabularize /\/\/<CR>
 nnoremap <leader>te :Tabularize /=<CR>
 
 " Laravel framework commons
@@ -278,7 +279,7 @@ nmap <Leader>lc :e composer.json<CR>
 " Creates html file with mathjax support in html folder
 nmap <silent> <Leader>ph :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
 " Create pdf from markdown in pdf folder
-nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o pdf/%:r.pdf<CR><CR>
+nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o %:r.pdf<CR><CR>
 
 " Create pdf from Latex
 nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
@@ -288,13 +289,14 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 " g++ compiler
 nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
 " Run current file's binary
-" nmap <Leader>cr :RunInInteractiveShell tms ./bin/%:r<CR><CR>
 nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
-" nnoremap <leader>ri :RunInInteractiveShell tms<space>
-nnoremap <silent> <Leader>rp :Silent tms<space>
-nnoremap <silent> <Leader>rl :!tmux send-keys -t right C-p C-m<CR><CR>
+" Tmux right pane commands
+nnoremap <silent> <Leader>tm :Silent tms<space>
+nnoremap <silent> <Leader>tl :!tmux send-keys -t right C-p C-m<CR><CR>
+nnoremap <silent> <Leader>tc :!tmux send-keys -t right C-q C-m<CR><CR>
+nnoremap <silent> <Leader>tq :!tmux send-keys -t right exit C-m<CR><CR>
 
 command! -nargs=1 Silent
 \   execute 'silent !' . <q-args>

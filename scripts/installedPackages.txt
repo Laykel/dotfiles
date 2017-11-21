@@ -1,6 +1,7 @@
 aircrack-ng
 apache2
 arc-theme
+biber
 bleachbit
 blender
 bluez-tools
@@ -20,6 +21,7 @@ deja-dup-backend-gvfs
 exuberant-ctags
 filezilla
 fortune-mod
+franz
 gimp
 git
 gitkraken
@@ -65,6 +67,7 @@ mysql-client
 mysql-server
 mysql-workbench
 nethack-console
+nethogs
 nixnote2
 onlyoffice-desktopeditors
 openconnect
@@ -90,7 +93,6 @@ python-virtualenv
 qbittorrent
 qt5-default
 qtcreator
-rambox
 ranger
 remarkable
 shellcheck
@@ -114,6 +116,7 @@ ttf-mscorefonts-installer
 unrar
 vim-gtk3-py2
 virtualbox
+virtualbox-dkms
 wavemon
 wireshark
 wolframscript
