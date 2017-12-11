@@ -118,9 +118,9 @@ set background=dark
 "set termguicolors
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme tender
+colorscheme gruvbox
 "gruvbox, tender, moonfly, bubblegum
-let g:airline_theme = 'tender'
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Temporary / Config test{{{
@@ -164,6 +164,8 @@ endfunction
 let mapleader = ',' "Set a Leader for more bindings
 
 " Misc{{{
+" inoremap <Esc> <Esc>:w<CR>
+
 nnoremap z <C-r>
 " nnoremap : q:i
 
@@ -251,8 +253,12 @@ inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
 
 " Prog helpers{{{
 " Insert semicolon at end of line
-inoremap <leader>; <Esc>A;<Esc>
-nnoremap <leader>; A;<Esc>
+inoremap <Leader>; <Esc>A;<Esc>
+nnoremap <Leader>; A;<Esc>
+
+" Insert curly braces at end of line
+inoremap <Leader>à <Esc>A<Space>{}<Esc>i
+nnoremap <Leader>à A<Space>{}<Esc>i
 
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
@@ -288,6 +294,8 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 
 " g++ compiler
 nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+" Makefile
+nmap <Leader>cm :!make
 " Run current file's binary
 nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
@@ -295,7 +303,7 @@ nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 " Tmux right pane commands
 nnoremap <silent> <Leader>tm :Silent tms<space>
 nnoremap <silent> <Leader>tl :!tmux send-keys -t right C-p C-m<CR><CR>
-nnoremap <silent> <Leader>tc :!tmux send-keys -t right C-q C-m<CR><CR>
+nnoremap <silent> <Leader>tc :!tmux send-keys -t right C-q<CR><CR>
 nnoremap <silent> <Leader>tq :!tmux send-keys -t right exit C-m<CR><CR>
 
 command! -nargs=1 Silent
@@ -345,6 +353,9 @@ autocmd FileType markdown setlocal spell spelllang=en,fr
 autocmd FileType gitcommit setlocal spell spelllang=en,fr
 autocmd FileType markdown,txt setlocal complete+=kspell
 
+" INF1 max column count
+autocmd FileType cpp setlocal colorcolumn=85
+
 " Close vim if NERDTree is the last opened buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -371,7 +382,8 @@ set notimeout          " Don't timeout after Leader for example
 set ttimeout           " Don't do the previous thing for Escape
 
 " Set more options
-set number relativenumber
+set number
+" set relativenumber
 set cursorline					  " Highlight line where cursor is
 set shortmess+=I				  " Don't show the welcome screen
 set noshowmode                    " Don't show the current mode (airline)

@@ -7,6 +7,7 @@ alias l="ls -v --group-directories-first"
 alias ll="ls -lhaFv --color=auto --group-directories-first"
 alias cl="clear"
 alias cls="clear;l"
+alias du="du -sh * | sort -h"
 
 alias s="sudo"
 alias v="vim"
