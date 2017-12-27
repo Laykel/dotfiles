@@ -17,7 +17,8 @@ alias gs="git status"
 alias gl="git log"
 alias ga="git add ."
 alias gc="git commit"
-alias gp="git push origin master"
+alias gp="git pull"
+alias gpush="git push origin master"
 
 # Open program with specific parameters
 alias py="python3.5"
@@ -49,6 +50,7 @@ alias help="man"
 
 # Configuration
 alias vconf="vim ~/Dev/dotfiles/vim/vimrc"
+alias uconf="vim ~/Dev/dotfiles/urxvt/urxvt.rc"
 alias zconf="vim ~/Dev/dotfiles/zsh/zshrc"
 alias zaconf="vim ~/Dev/dotfiles/zsh/aliases"
 alias zfconf="vim ~/Dev/dotfiles/zsh/functions"

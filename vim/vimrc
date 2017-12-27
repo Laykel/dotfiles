@@ -33,14 +33,12 @@ Plugin 'airblade/vim-gitgutter'			"git diff in the gutter
 
 " Additions
 Plugin 'christoomey/vim-system-copy'	"Access system clipboard -requires xsel
-" Plugin 'christoomey/vim-run-interactive' "Make aliases work from vim
 Plugin 'tommcdo/vim-exchange'			"Exchange two pieces of text
 Plugin 'tpope/vim-surround'				"Add s object for surrounding elements
 Plugin 'tpope/vim-commentary'			"Auto-comment with gc
 Plugin 'tpope/vim-repeat'				"Add . command support for plugins
 Plugin 'raimondi/delimitmate'			"Auto-pairs parenses and other things
 Plugin 'godlygeek/tabular'				"Aligns things
-" Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
 Plugin 'christoomey/vim-tmux-navigator' "Navigating from vim and tmux panes
 
 " Looks
@@ -48,8 +46,12 @@ Plugin 'vim-airline/vim-airline-themes'	"Themes for airline
 Plugin 'ryanoasis/vim-devicons'			"Adds icons to NERDTree, Airline etc
 Plugin 'morhetz/gruvbox'				"A theme inspired by solarized
 Plugin 'jacoborus/tender.vim'			"A nice theme with airline theme
+Plugin 'altercation/vim-colors-solarized' "Solarized (dark and light)
 Plugin 'bluz71/vim-moonfly-colors'
 
+" Plugin 'lifepillar/vim-solarized8'
+" Plugin 'benmills/vimux'					"Interact with a tmux pane from vim
+" Plugin 'christoomey/vim-run-interactive' "Make aliases work from vim
 " Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
 " let g:ctrlp_show_hidden = 1
 " Plugin 'flazz/vim-colorschemes'		"A whole lot of themes... Heavy...
@@ -114,13 +116,10 @@ endif
 " If using a dark background within the editing area
 set background=dark
 
-" True colour terminal
-"set termguicolors
-
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme gruvbox
-"gruvbox, tender, moonfly, bubblegum
-let g:airline_theme = 'gruvbox'
+colorscheme solarized
+"gruvbox, tender, moonfly, bubblegum, solarized
+let g:airline_theme = 'solarized'
 "}}}
 
 " Temporary / Config test{{{
@@ -289,6 +288,7 @@ nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o %:r.pdf<CR><CR>
 
 " Create pdf from Latex
 nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
+nmap <silent> <Leader>lx :!xelatex %<CR><CR>
 " Open PDF file in zathura
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 
@@ -349,9 +349,9 @@ augroup line_highlight
 augroup END
 
 " Enable spellcheck for certain files
-autocmd FileType markdown setlocal spell spelllang=en,fr
-autocmd FileType gitcommit setlocal spell spelllang=en,fr
-autocmd FileType markdown,txt setlocal complete+=kspell
+autocmd FileType markdown,gitcommit,tex setlocal spell spelllang=en,fr
+" autocmd FileType gitcommit setlocal spell spelllang=en,fr
+" autocmd FileType markdown,txt,tex setlocal complete+=kspell
 
 " INF1 max column count
 autocmd FileType cpp setlocal colorcolumn=85
@@ -375,6 +375,7 @@ set incsearch          " Incremental search
 set autowrite          " Automatically save before :next and :make...
 set hidden             " Hide buffers when they are abandoned
 set mouse=a            " Enable mouse usage (all modes)
+" set ttymouse=urxvt	   " Make the mouse work as in GUI Vim
 " set ttymouse=sgr	   " Fix problems on the far right side of the file
 set wrapscan           " Searches wrap around end of file
 set linebreak          " Break only at word boundaries
