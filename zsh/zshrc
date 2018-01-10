@@ -10,6 +10,7 @@ source $HOME/Dev/dotfiles/zsh/prompt.sh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git laravel5 colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions)
 
+# Config
 source $ZSH/oh-my-zsh.sh
 
 HYPHEN_INSENSITIVE="true"

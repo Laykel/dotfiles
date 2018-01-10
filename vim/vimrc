@@ -47,8 +47,8 @@ Plugin 'morhetz/gruvbox'                  " A theme inspired by solarized
 Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
 Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
 Plugin 'bluz71/vim-moonfly-colors'		  " Moonfly theme
-Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 
+" Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 " Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
 " let g:ctrlp_show_hidden = 1
 " Plugin 'flazz/vim-colorschemes'		"A whole lot of themes... Heavy...
@@ -61,6 +61,9 @@ call vundle#end()
 " Defaults for plugins"{{{
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowHidden = 1
+let NERDTreeShowBookmarks = 1
+let NERDTreeNaturalSort = 1
+let NERDTreeMinimalUI=1
 let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.markdown'}]
 
 " Defaults for SuperTab
@@ -95,6 +98,8 @@ let g:user_emmet_leader_key = "<C-f>"
 " Airline status
 set laststatus=2                                  " Always show status line
 set showtabline=2								  " Always show tab bar
+let g:airline_left_sep=""						  " Default: >
+let g:airline_right_sep=""						  " Default: <
 let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
 let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers

@@ -67,7 +67,7 @@ alias aptupg="sudo apt upgrade"
 alias apti="sudo apt install"
 
 # Tmux
-alias tm="tmux attach -t base || tmux new -s base"
+alias tm="tmux attach -t Dev || tmux new -s Dev"
 alias tl="tmux ls"
 alias tn="tmux new -s "
 alias tk="tmux kill-session -t "
