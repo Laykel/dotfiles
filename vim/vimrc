@@ -42,13 +42,14 @@ Plugin 'godlygeek/tabular'                " Aligns things
 Plugin 'christoomey/vim-tmux-navigator'   " Navigating from vim and tmux panes
 
 " Looks
-Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
 Plugin 'morhetz/gruvbox'                  " A theme inspired by solarized
-Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
+Plugin 'romainl/Apprentice'				  " Nice theme, yés good
 Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
+Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
 Plugin 'bluz71/vim-moonfly-colors'		  " Moonfly theme
+Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
+Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 
-" Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 " Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
 " let g:ctrlp_show_hidden = 1
 " Plugin 'flazz/vim-colorschemes'		"A whole lot of themes... Heavy...
@@ -100,13 +101,18 @@ set laststatus=2                                  " Always show status line
 set showtabline=2								  " Always show tab bar
 let g:airline_left_sep=""						  " Default: >
 let g:airline_right_sep=""						  " Default: <
+let g:airline_right_alt_sep=""
+let g:airline_left_alt_sep=""
 let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#enabled=1        " Show tabline for buffers
-let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
+" let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 let g:airline#extensions#syntastic#enabled=1	  " Enable Syntastic support
 let g:airline#extensions#branch#enabled=1		  " Enable Git support
 let g:airline_powerline_fonts=1                   " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
+
+" Colorschemes config
+let g:gruvbox_contrast_light = 'hard'
 "}}}
 
 " Visual stuff"{{{
@@ -126,8 +132,7 @@ let g:airline_theme = 'gruvbox'
 
 " Temporary / Config test{{{
 " Strip trailing whitespaces
-" Taken from https://github.com/ntpeters
-" -> :call StripWhitespace(10, 21)
+" Taken from https://github.com/ntpeters -> :call StripWhitespace(10, 21)
 let g:whitespace_group='[\u0009\u0020\u00a0\u1680\u180e\u2000-\u200b\u202f\u205f\u3000\ufeff]'
 let g:eol_whitespace_pattern = g:whitespace_group . '\+$'
 function! g:StripWhitespace( line1, line2 )
@@ -237,6 +242,7 @@ nmap <silent> <Leader>g :GitGutterToggle<CR>
 nmap <silent> <Leader>tt :TagbarToggle<CR>
 
 " Toggles for insert mode
+call togglebg#map("<F3>")
 nnoremap <F4> :GitGutterToggle<CR>
 inoremap <F4> <Esc> :GitGutterToggle<CR>gi
 nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
@@ -304,15 +310,15 @@ nnoremap <silent> <Leader>tm :Silent tms<space>
 nnoremap <silent> <Leader>tl :!tmux send-keys -t right C-p C-m<CR><CR>
 nnoremap <silent> <Leader>tc :!tmux send-keys -t right C-q<CR><CR>
 nnoremap <silent> <Leader>tq :!tmux send-keys -t right exit C-m<CR><CR>
+"}}}
 
+"}}}
+
+" Custom functions and commands{{{
 command! -nargs=1 Silent
 \   execute 'silent !' . <q-args>
 \ | execute 'redraw!'
-"}}}
 
-"}}}
-
-" Custom commands{{{
 command! MakeTags !ctags -R .
 
 command Snipcppex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
@@ -325,7 +331,6 @@ command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
 command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
 command Vconf e ~/Dev/dotfiles/vim/vimrc
 command Tconf e ~/.tmux.conf
-
 "}}}
 
 " Autocmd, misc{{{
@@ -340,6 +345,9 @@ augroup END
 
 " Enable spellcheck for certain files
 autocmd FileType markdown,gitcommit,tex setlocal spell spelllang=en,fr
+
+" Colour misspelled words in red
+highlight SpellBad ctermfg=001 ctermbg=none cterm=none
 
 " INF1 max column count
 autocmd FileType cpp setlocal colorcolumn=85

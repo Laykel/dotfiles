@@ -23,7 +23,6 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 - My zshrc file
 - An aliases file with all my aliases
 - A prompt file, taken from "Parth/dotfiles"
-- (Using oh-my-zsh)
 - Also my bashrc file, lightly modified
 
 ### tldrrc:
@@ -49,9 +48,6 @@ My system/tools' configuration. Maybe you'll find things of interest in there.
 
 ### kde:
 - Contains different config files for my kde setup.
-
-### i3:
-- Contains my i3config file as well as my bar config and a cheat sheet.
 
 ### Scripts folder
 - This folder contains a script to update the package lists and the configs plugins, a script to deploy the dotfiles on a new system (provided the folder is cloned in ~/Dev/dotfiles), and the package lists.
