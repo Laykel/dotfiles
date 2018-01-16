@@ -47,13 +47,15 @@ Plugin 'romainl/Apprentice'				  " Nice theme, yés good
 Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
 Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
 Plugin 'bluz71/vim-moonfly-colors'		  " Moonfly theme
-Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
 Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
+Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
 
-" Plugin 'ctrlpvim/ctrlp.vim'			"Fuzzy finder/buffer manager
+" Plugin 'nathanaelkane/vim-indent-guides'  " See indentation level easily
+" Plugin 'DougBeney/pickachu'				" Color, date and file picker
+" Plugin 'ctrlpvim/ctrlp.vim'			    "Fuzzy finder/buffer manager
 " let g:ctrlp_show_hidden = 1
-" Plugin 'flazz/vim-colorschemes'		"A whole lot of themes... Heavy...
-" Plugin 'edkolev/tmuxline.vim'			"Generates tmux statusline styles
+" Plugin 'flazz/vim-colorschemes'		    "A whole lot of themes... Heavy...
+" Plugin 'edkolev/tmuxline.vim'			    "Generates tmux statusline styles
 
 " All plugins before this
 call vundle#end()
@@ -125,9 +127,9 @@ endif
 set background=dark
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme gruvbox
+colorscheme apprentice
 "gruvbox, tender, moonfly, bubblegum, solarized
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'apprentice'
 "}}}
 
 " Temporary / Config test{{{
@@ -287,7 +289,9 @@ nmap <Leader>lc :e composer.json<CR>
 
 " Compile files (prog, pdfs...){{{
 " Creates html file with mathjax support in html folder
-nmap <silent> <Leader>ph :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
+nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css pandoc.css -o html/%:r.html<CR><CR>
+" Creates html file with table of content
+nmap <silent> <Leader>pt :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
 " Create pdf from markdown in pdf folder
 nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o %:r.pdf<CR><CR>
 
