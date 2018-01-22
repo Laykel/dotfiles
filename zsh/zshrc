@@ -22,13 +22,13 @@ setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 
 # Aliases
-source /etc/zsh/zshenv
+# source /etc/zsh/zshenv
 # Currently handled by /etc/zsh/zshenv
-# source $HOME/Dev/dotfiles/zsh/aliases
+source $HOME/Dev/dotfiles/zsh/aliases
 
 # Functions
 # Currently handled by /etc/zsh/zshenv
-# source $HOME/Dev/dotfiles/zsh/functions
+source $HOME/Dev/dotfiles/zsh/functions
 
 # Executes ls on dir change
 chpwd() ls -v --group-directories-first

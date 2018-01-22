@@ -1,6 +1,5 @@
 " Never move this
 runtime! debian.vim
-set nocompatible "Not compatible with vi
 
 " Vundle plugins"{{{
 filetype off
@@ -47,8 +46,9 @@ Plugin 'romainl/Apprentice'				  " Nice theme, yés good
 Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
 Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
 Plugin 'bluz71/vim-moonfly-colors'		  " Moonfly theme
+Plugin 'benmills/vimux'					  " Run commands in tmux easily
 Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
-Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
+" Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
 
 " Plugin 'nathanaelkane/vim-indent-guides'  " See indentation level easily
 " Plugin 'DougBeney/pickachu'				" Color, date and file picker
@@ -83,6 +83,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wconversion -Wextra -pedantic'
+
+" Vimux
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "30"
+let g:VimuxPromptString = "Command: "
 
 " This is for C/C++ smart autocompletion
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
@@ -127,9 +132,9 @@ endif
 set background=dark
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme apprentice
+colorscheme gruvbox
 "gruvbox, tender, moonfly, bubblegum, solarized
-let g:airline_theme = 'apprentice'
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Temporary / Config test{{{
@@ -146,26 +151,11 @@ function! g:StripWhitespace( line1, line2 )
 	call cursor(l, c)
 endfunction
 
-" function CallTms(command)
-" 	silent! execute ':!tmux send-keys -t right ' . a:command . ' C-m'
-" endfunction
-
 " nnoremap H 0
 " nnoremap L $
 " nnoremap <PageUp> H
 " nnoremap <PageDown> L
 
-"Remove all trailing whitespace by pressing F5
-"nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-" Tmux navigator
-" let g:tmux_navigator_no_mappings = 1
-
-" nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-" nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-" nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-" nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 "}}}
 
 " Custom bindings{{{
@@ -214,6 +204,7 @@ nnoremap <Leader>zz z=
 " Open current buffer to the right, and change this split's
 " buffer to the previous
 nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
+nmap <silent> <Leader>h :vs<CR><C-h>:bp<CR><C-l>
 
 " Back one buffer
 nnoremap <Leader>. :bp<CR>
@@ -255,6 +246,7 @@ nnoremap <F7> :TagbarToggle<CR>
 inoremap <F7> <Esc>:TagbarToggle<CR>gi
 nnoremap <F8> :SyntasticToggleMode<CR>
 inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
+nnoremap <F9> :NERDTreeToggle<CR>:TagbarToggle<CR>:!tmux split-window -v -d -p 20<CR><CR>
 "}}}
 
 " Prog helpers{{{
@@ -266,59 +258,85 @@ nnoremap <Leader>; A;<Esc>
 inoremap <Leader>à <Esc>A<Space>{}<Esc>i
 nnoremap <Leader>à A<Space>{}<Esc>i
 
+" Insert chevrons at end of line (i.e. for cout)
+inoremap <Leader>< <Esc>A<Space><<<Space>
+nnoremap <Leader>< A<Space><<<Space>
+
 " Mappings for following tags (<C-p> to go back)
 nnoremap <C-i> <C-]>
 nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Markdown headers
+nmap <Leader>h1 I#<Space>
+imap <Leader>h1 #<Space>
+nmap <Leader>h2 I##<Space>
+imap <Leader>h2 ##<Space>
+nmap <Leader>h3 I###<Space>
+imap <Leader>h3 ###<Space>
+" Italics, bold and highlight
+nmap <Leader>mi ysiw*
+nmap <Leader>mb ysiw*lysiw*
+nmap <Leader>mh ysiw`
+" Code chunks
+nmap <Leader>mc I````{}<CR>```<Esc>klla
+imap <Leader>mc ````{}<CR>```<Esc>klla
+nmap <Leader>mp I````c++<CR>```<Esc>k
+imap <Leader>mp ````c++<CR>```<Esc>ko
+
 " Latex/mathjax helpers
-nmap <Leader>mf i\frac{
-nmap <Leader>mr i\sqrt{
-nmap <Leader>mx i\cdot
+nmap <Leader>la i\begin{align*}<CR>\end{align*}<Esc>k
+nmap <Leader>lm i\begin{pmatrix}<CR>\end{pmatrix}<Esc>k
+nmap <Leader>lf i\frac{
+nmap <Leader>lr i\sqrt{
+nmap <Leader>lc i\cdot
 
 " Tabular stuff
-nnoremap <leader>tg :Tabularize /
-nnoremap <leader>tb :Tabularize /\/\/<CR>
-nnoremap <leader>te :Tabularize /=<CR>
+noremap <Leader>tg :Tabularize /
+noremap <Leader>tb :Tabularize /\/\/<CR>
+noremap <Leader>te :Tabularize /=<CR>
 
 " Laravel framework commons
-nmap <Leader>lr :e routes/web.php<CR>
-nmap <Leader>la :e config/app.php<CR>
-nmap <Leader>ld :e config/database.php<CR>
-nmap <Leader>lc :e composer.json<CR>
+" nmap <Leader>lr :e routes/web.php<CR>
+" nmap <Leader>la :e config/app.php<CR>
+" nmap <Leader>ld :e config/database.php<CR>
+" nmap <Leader>lc :e composer.json<CR>
 "}}}
 
 " Compile files (prog, pdfs...){{{
 " Creates html file with mathjax support in html folder
-nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css pandoc.css -o html/%:r.html<CR><CR>
+nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css assets/pandoc.css -o /var/www/VimWikiSite/%:t:r.html<CR><CR>
 " Creates html file with table of content
 nmap <silent> <Leader>pt :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
-" Create pdf from markdown in pdf folder
-nmap <silent> <Leader>pp :!pandoc % -s --toc --css pandoc.css -o %:r.pdf<CR><CR>
+
+" R markdown to pdf
+nmap <silent> <Leader>mr :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<CR><CR>
 
 " Create pdf from Latex
-nmap <silent> <Leader>lp :!pdflatex %<CR><CR>
-nmap <silent> <Leader>lx :!xelatex %<CR><CR>
+autocmd FileType tex nmap <buffer> <silent> <Leader>lp :!pdflatex %<CR><CR>
+autocmd FileType tex nmap <buffer> <silent> <Leader>lx :!xelatex %<CR><CR>
 " Open PDF file in zathura
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 
 " g++ compiler
-nmap <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
 " Makefile
-nmap <Leader>cm :!make<CR>
-" Run current file's binary
-nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
 "}}}
 
 " Tmux right pane commands{{{
-nnoremap <silent> <Leader>tm :Silent tms<space>
-nnoremap <silent> <Leader>tl :!tmux send-keys -t right C-p C-m<CR><CR>
-nnoremap <silent> <Leader>tc :!tmux send-keys -t right C-q<CR><CR>
-nnoremap <silent> <Leader>tq :!tmux send-keys -t right exit C-m<CR><CR>
+nnoremap <silent> <Leader>to :VimuxRunCommand("l")<CR>
+nnoremap <silent> <Leader>tp :VimuxPromptCommand<CR>
+nnoremap <silent> <Leader>tl :VimuxRunLastCommand<CR>
+nnoremap <silent> <Leader>tc :VimuxRunCommand("clear")<CR>
+nnoremap <silent> <Leader>tq :VimuxCloseRunner<CR>
+" Run current file's binary
+autocmd FileType cpp nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
 "}}}
 
 " Custom functions and commands{{{
+" Used to make some fiddly commands work silently, and redraw the screen afterwards
 command! -nargs=1 Silent
 \   execute 'silent !' . <q-args>
 \ | execute 'redraw!'
@@ -376,6 +394,8 @@ endif
 "}}}
 
 " Set options{{{
+let g:tex_flavor='latex'
+
 set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
 set encoding=utf-8     " The encoding displayed.
@@ -393,7 +413,6 @@ set ttimeout           " Don't do the previous thing for Escape
 
 " Set more options
 set number
-" set relativenumber
 set cursorline					  " Highlight line where cursor is
 set shortmess+=I				  " Don't show the welcome screen
 set noshowmode                    " Don't show the current mode (airline)
@@ -401,6 +420,7 @@ set omnifunc=syntaxcomplete#Complete
 set completeopt=menu,menuone	  " Always show the menu
 set timeoutlen=1000 ttimeoutlen=0 " Removes the delay for escape key in tmux
 set autoread                      " Reload files changed outside vim
+set conceallevel=0				  " Don't hide characters in md and such
 set splitright                    " Open new splits on the right
 set splitbelow					  " Open new splits below, if not on the right
 set scrolloff=3                   " Start scrolling three lines before end
