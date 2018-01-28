@@ -1,5 +1,165 @@
 #vim Cheatsheet
 
+## Remember
+REGISTERS AND CTRL-R:> {{{
+The Control+R mechanism is very useful :-) In either insert mode or command mode (i.e. on the : line when typing commands), continue with a numbered or named register:
+
+a - z the named registers
+" the unnamed register, containing the text of the last delete or yank
+% the current file name
+# the alternate file name
+* the clipboard contents (Text selected with the mouse)
++ the clipboard contents (Ctrl-C text)
+/ the last search pattern
+: the last command-line
+. the last inserted text
+- the last small (less than a line) delete
+=5*5 insert 25 into text (mini-calculator)
+Or you can append to a register by using a capital letter "Kyy> }}}
+
+MACRO:> {{{
+Remember that a macro is just a line of commands in a register that get executed
+
+Repeat macro: @q (the first time), @@ after that.
+Repeat 20 times: 20@@
+
+AUTO INDENTATION:
+gg (go to start of document)
+= (indent time!)
+shift-g (go to end of document)> }}}
+
+Vim Motions> {{{
+gistfile1.txt:
+
+Large Object Motions:
+(
+)
+{
+}
+[[
+[]
+][
+]]
+[m
+[M
+]m
+]M
+[(
+])
+[{
+]}
+
+Word Motions:
+w
+W
+e
+E
+b
+B
+ge
+gE
+
+Line Motions:
+H
+L
+M
+j
+k
+gg
+G
+-
++
+_
+
+Display Line Motions:
+gj
+gk
+
+Column Motions:
+h (or <Left> or <ctrl-h> or <BS>)
+l (or <Right> or <Space>)
+^
+$ (or <End>)
+|
+0
+<Home>
+
+Display Column Motions:
+g^
+g$ (or g<End>)
+g_
+g0 (or g<Home>)
+gm
+
+Search Motions:
+/
+?
+n
+N
+#
+*
+
+Find Motions:
+F
+f
+T
+t
+;
+,
+
+Changelist Motions:
+g;
+g,
+
+Extended Matchit Motions:
+%
+g%
+
+Jump Motions:
+`
+'
+ctrl-o
+ctrl-i (or Tab)
+
+Buffer Motions:
+{count}%
+{count}go
+
+Some Additional Commands that move the cursor:
+
+Commence Editing:
+a
+A
+I
+gI
+o
+O
+
+Scroll Cursor:
+z<CR>
+zt
+z.
+zz
+z-
+zb
+
+Scroll Window:
+ctrl-y
+ctrl-e
+ctrl-u
+ctrl-d
+ctrl-b (or PageUp)
+ctrl-f (or PageDown)
+z^
+z+
+
+Tag Jumps:
+ctrl-]
+g]
+g ctrl-]
+ctrl-t
+> }}}
+
 ## F1Help save> {{{
 Only aligns the last =
 - :Tabularize /^\s*\S.*\zs=
@@ -94,7 +254,7 @@ gx : open URL in browser
 <C-r> = math expression - to compute the expression and then insert it
 > }}}
 
-Substitute in a visual block
+Substitute in a visual block> {{{
 :'<,'>s/\%Vold/new
 Count the number of pattern matches
 /<<some-pattern>>
@@ -103,6 +263,7 @@ Delete all lines containing pattern
 :g/<<some-pattern>>/d
 Delete all lines not containing pattern
 :v/<<some-pattern>>/d
+> }}}
 
 ##Sorting> {{{
 Use the sort command to sort a selection, say a visual selection:
@@ -143,8 +304,8 @@ Tags are functions, classes or other significant parts of code.
 <C-t> to get back to the call of the tag.
 > }}}
 
-##Classic stuff
-##Modes: > {{{
+## Classic stuff
+Modes: > {{{
 i:insertBeforeChar, a:InsertAfterChar
 I:insertStartOfLine, A:insertEndOfLine
 o:insertBreakThenInsert, O:insertThenBreak
@@ -201,7 +362,7 @@ za is the default to toggle folds.
 zR to open all folds, zM to close all of them.
 > }}}
 
-##Plugins
+## Plugins
 ###vim-surround> {{{
 Adds new element: surroundings.
 
