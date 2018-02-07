@@ -108,7 +108,7 @@ let g:airline_right_sep=""			  " Default: <
 let g:airline_right_alt_sep=""
 let g:airline_left_alt_sep=""
 let g:airline_skip_empty_sections=1
-let g:airline#extensions#whitespace#checks = ['trailing'] " Don't show warning for other than trailing whitespaces
+let g:airline#extensions#whitespace#checks = []	  " Don't show warning for other than trailing whitespaces
 let g:airline#extensions#tabline#enabled=1                 " Show tabline for buffers
 let g:airline#extensions#tabline#formatter = 'unique_tail' " Show only filename in buffer line
 let g:airline#extensions#syntastic#enabled=1               " Enable Syntastic support
@@ -275,6 +275,8 @@ nmap <Leader>mc I`{}<CR>`<Esc>kla
 imap <Leader>mc `{}<CR>`<Esc>kla
 nmap <Leader>mp I`c++<CR>`<Esc>k
 imap <Leader>mp `c++<CR>`<Esc>ko
+" vimwiki create table
+nnoremap <Leader>mt :VimwikiTable<CR>
 
 " Latex/mathjax helpers
 nmap <Leader>la i\begin{align*}<CR>\end{align*}<Esc>k
@@ -298,7 +300,7 @@ noremap <Leader>te :Tabularize /=<CR>
 
 " Compile files (prog, pdfs...){{{
 " R markdown to pdf (in pdf subfolder)
-autocmd FileType rmd nmap <silent> <Leader>mr :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<CR>:!mv %:r.pdf %:p:h/pdf/%:t:r.pdf<CR><CR>
+autocmd FileType rmd nmap <silent> <Leader>mr :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla;mv %:r.pdf %:p:h/pdf/%:t:r.pdf<CR><CR>
 
 " Creates html file with mathjax support in html folder
 nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css assets/pandoc.css -o /var/www/VimWikiSite/%:t:r.html<CR><CR>
