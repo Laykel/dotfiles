@@ -12,6 +12,7 @@ alias du="du -sh * | sort -h"
 alias s="sudo"
 alias v="vim"
 alias g="git"
+alias vw="vim +VimwikiIndex"
 
 alias gs="git status"
 alias gl="git log"

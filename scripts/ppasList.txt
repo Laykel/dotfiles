@@ -8,7 +8,9 @@
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security main restricted
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security universe
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security multiverse
+/etc/apt/sources.list:deb [arch=i386,amd64] https://cran.rstudio.com/bin/linux/ubuntu xenial/
 /etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
+/etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list.save:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
 /etc/apt/sources.list.d/google-chrome.list:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/google-chrome.list.save:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/jonathonf-ubuntu-vim-xenial.list:deb http://ppa.launchpad.net/jonathonf/vim/ubuntu xenial main
@@ -25,8 +27,10 @@
 /etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list.save:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
 /etc/apt/sources.list.d/nodesource.list:deb https://deb.nodesource.com/node_8.x xenial main
 /etc/apt/sources.list.d/nodesource.list:deb-src https://deb.nodesource.com/node_8.x xenial main
-/etc/apt/sources.list.d/nodesource.list.save:deb https://deb.nodesource.com/node_6.x xenial main
-/etc/apt/sources.list.d/nodesource.list.save:deb-src https://deb.nodesource.com/node_6.x xenial main
+/etc/apt/sources.list.d/nodesource.list.save:deb https://deb.nodesource.com/node_8.x xenial main
+/etc/apt/sources.list.d/nodesource.list.save:deb-src https://deb.nodesource.com/node_8.x xenial main
+/etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-xenial.list:deb http://ppa.launchpad.net/phoerious/keepassxc/ubuntu xenial main
+/etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-xenial.list.save:deb http://ppa.launchpad.net/phoerious/keepassxc/ubuntu xenial main
 /etc/apt/sources.list.d/steam.list:deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
 /etc/apt/sources.list.d/steam.list:deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
 /etc/apt/sources.list.d/steam.list.save:deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
@@ -34,6 +38,7 @@
 /etc/apt/sources.list.d/syncthing.list:deb https://apt.syncthing.net/ syncthing stable
 /etc/apt/sources.list.d/syncthing.list.save:deb https://apt.syncthing.net/ syncthing stable
 /etc/apt/sources.list.d/virtualbox.org.list:deb http://download.virtualbox.org/virtualbox/debian zesty non-free contrib
+/etc/apt/sources.list.d/virtualbox.org.list.save:deb http://download.virtualbox.org/virtualbox/debian zesty non-free contrib
 /etc/apt/sources.list.d/webupd8team-ubuntu-brackets-xenial.list:deb http://ppa.launchpad.net/webupd8team/brackets/ubuntu xenial main
 /etc/apt/sources.list.d/webupd8team-ubuntu-brackets-xenial.list.save:deb http://ppa.launchpad.net/webupd8team/brackets/ubuntu xenial main
 /etc/apt/sources.list.d/webupd8team-ubuntu-sublime-text-3-xenial.list:deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu xenial main

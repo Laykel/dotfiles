@@ -1,3 +1,4 @@
+adb
 aircrack-ng
 apache2
 arc-theme
@@ -19,6 +20,8 @@ dbeaver-ce
 default-jre
 deja-dup
 deja-dup-backend-gvfs
+dosbox
+emacs
 exuberant-ctags
 filezilla
 fortune-mod
@@ -41,7 +44,7 @@ intel-microcode
 irssi
 k4dirstat
 kdesudo
-keepassx
+keepassxc
 kmplot
 lame
 language-pack-fr
@@ -78,6 +81,7 @@ onlyoffice-desktopeditors
 openconnect
 openprinting-ppds-postscript-konica-minolta
 pandoc
+pandoc-citeproc
 papirus-icon-theme
 pavucontrol
 pdfchain
@@ -93,19 +97,25 @@ phpmyadmin
 plasma-applet-redshift-control
 powertop
 psensor
+python3-pip
+python-dev
 python-pip
 python-virtualenv
 qbittorrent
 qt5-default
 qtcreator
 ranger
+r-base
 remarkable
+rsibreak
 rxvt-unicode-256color
+sc
 shellcheck
 simple-scan
 sl
 smbclient
 steam-launcher
+step
 stress-ng
 sublime-text-installer
 synaptic
@@ -137,6 +147,7 @@ youtube-dl
 zathura
 zathura-pdf-poppler
 zeal
+zenity
 zenmap
 zim
 zsh
