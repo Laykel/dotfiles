@@ -1,6 +1,6 @@
-// INF1 - Recueil d'exercices
-// Exercice <nbr>, <titre>
-// <name>
+// INF2 - Recueil d'exercices
+// Exercice <++>, <++>
+// <++>
 
 #include <cstdlib>
 #include <iostream>

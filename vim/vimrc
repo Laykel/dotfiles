@@ -143,9 +143,6 @@ colorscheme apprentice
 let g:airline_theme = 'apprentice'
 "}}}
 
-" Temporary / Config test{{{
-"}}}
-
 " Custom bindings{{{
 let mapleader = ',' "Set a Leader for more bindings
 
@@ -243,6 +240,9 @@ nnoremap <F9> :NERDTreeToggle<CR>:TagbarToggle<CR>:!tmux split-window -v -d -p 2
 "}}}
 
 " Prog helpers{{{
+" Go to next placeholder
+nnoremap <Leader><Tab> <Esc>/<++><CR>
+
 " Insert semicolon at end of line
 inoremap <Leader>; <Esc>A;<Esc>
 nnoremap <Leader>; A;<Esc>
@@ -267,10 +267,11 @@ nmap <Leader>h2 I##<Space><Esc>
 imap <Leader>h2 ##<Space>
 nmap <Leader>h3 I###<Space><Esc>
 imap <Leader>h3 ###<Space>
-" Italics, bold and highlight
+" Italics, bold, highlight and links
 nmap <Leader>mi ysiw*
 nmap <Leader>mb ysiw*lysiw*
 nmap <Leader>mh ysiw`
+nmap <Leader>ml a[<++>](<++>)<Esc>0
 " Code chunks
 inoremap ` ```
 nmap <Leader>mc I`{}<CR>`<Esc>kla
@@ -279,7 +280,7 @@ nmap <Leader>mp I`c++<CR>`<Esc>k
 imap <Leader>mp `c++<CR>`<Esc>ko
 " vimwiki create table
 nnoremap <Leader>mt :VimwikiTable<CR>
-nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>theme: flatly<CR>---<CR><Esc>
+nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>theme: flatly<CR>---<CR><Esc>gg
 
 " Latex/mathjax helpers
 nmap <Leader>la i\begin{align*}<CR>\end{align*}<Esc>k
@@ -319,7 +320,8 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
 
 " g++ compiler
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+" autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ -std=c++11 -Wall -Wconversion -Wextra -pedantic *.cpp -o %:r<CR><CR>
 " Makefile
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
 "}}}
@@ -331,7 +333,7 @@ nnoremap <silent> <Leader>tl :VimuxRunLastCommand<CR>
 nnoremap <silent> <Leader>tc :VimuxRunCommand("clear")<CR>
 nnoremap <silent> <Leader>tq :VimuxCloseRunner<CR>
 " Run current file's binary
-autocmd FileType cpp nmap <Leader>cr :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
+autocmd FileType cpp nmap <Leader>cr :!tmux send-keys -t right ./%:r C-m<CR><CR>
 "}}}
 
 "}}}
@@ -346,6 +348,7 @@ command! MakeTags !ctags -R .
 
 command Snipcppex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
 command Snipcpplab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command Snipasdlab 0r ~/Dev/dotfiles/vim/snippets/ASDLab.txt
 command Sniplatex 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
 command Sniplatexgraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
 command Snipdoxyfunc r ~/Dev/dotfiles/vim/snippets/DoxyFunc.txt
@@ -444,7 +447,7 @@ set undodir=~/.vim/undo//
 set foldmethod=marker " Fold based on markers
 set foldnestmax=5     " 5 levels deep folds
 set foldenable        " Enable folding
-set foldlevel=0       " Close all folds by default
+set foldlevel=99       " Close all folds by default
 
 " Spacebar to open/close folds in normal mode,
 " and also to create new ones in visual mode
