@@ -1,3 +1,14 @@
+### Replace
+- :%s/foo bar/foobar/g -le fichier
+- :s/foo bar/foobar/g -la ligne
+
+### Remember
+- `:'<,'>norm! @a` to repeat macro on selection
+- add grep
+- add ySiw + others surround
+	- ys$t - put the line in a tag
+- clean up nmap/nnoremap etc...
+
 ### Leader bindings
 0-9 - specified buffer
 x - close buffer
@@ -36,17 +47,6 @@ lz - open pdf in zathura
 <C-k>+u+> = û
 <C-k>+C+, = Ç
 <C-a> - increments a number
-
-### Replace
-- :%s/foo bar/foobar/g -le fichier
-- :s/foo bar/foobar/g -la ligne
-
-### Remember
-- `:'<,'>norm! @a` to repeat macro on selection
-- add grep
-- add ySiw + others surround
-	- ys$t - put the line in a tag
-- clean up nmap/nnoremap etc...
 
 ### Function keys bindings
 F1 - display this help

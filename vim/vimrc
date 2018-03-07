@@ -138,9 +138,9 @@ autocmd FileType cpp setlocal colorcolumn=85
 set background=dark
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme apprentice
+colorscheme solarized
 "gruvbox, tender, moonfly, bubblegum, solarized
-let g:airline_theme = 'apprentice'
+let g:airline_theme = 'solarized'
 "}}}
 
 " Custom bindings{{{
@@ -241,7 +241,7 @@ nnoremap <F9> :NERDTreeToggle<CR>:TagbarToggle<CR>:!tmux split-window -v -d -p 2
 
 " Prog helpers{{{
 " Go to next placeholder
-nnoremap <Leader><Tab> <Esc>/<++><CR>
+nnoremap <Leader><Tab> <Esc>/<++><CR>ca<
 
 " Insert semicolon at end of line
 inoremap <Leader>; <Esc>A;<Esc>
@@ -273,11 +273,8 @@ nmap <Leader>mb ysiw*lysiw*
 nmap <Leader>mh ysiw`
 nmap <Leader>ml a[<++>](<++>)<Esc>0
 " Code chunks
-inoremap ` ```
-nmap <Leader>mc I`{}<CR>`<Esc>kla
-imap <Leader>mc `{}<CR>`<Esc>kla
-nmap <Leader>mp I`c++<CR>`<Esc>k
-imap <Leader>mp `c++<CR>`<Esc>ko
+nmap <Leader>mc I````{}<CR>```<Esc>klla
+imap <Leader>mc ````{}<CR>```<Esc>klla
 " vimwiki create table
 nnoremap <Leader>mt :VimwikiTable<CR>
 nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>theme: flatly<CR>---<CR><Esc>gg
@@ -320,7 +317,7 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
 
 " g++ compiler
-" autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ -std=c++11 -Wall -Wconversion -Wextra -pedantic *.cpp -o %:r<CR><CR>
 " Makefile
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
