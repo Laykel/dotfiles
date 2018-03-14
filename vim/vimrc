@@ -81,6 +81,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wconversion -Wextra -pedantic'
+let g:syntastic_cpp_check_header = 1
 
 " Vimux
 let g:VimuxOrientation = "h"
@@ -152,7 +153,7 @@ nnoremap t <C-r>
 
 " Copy and paste to and from system clipboard
 noremap cp "+y
-noremap cv "*p
+noremap cv "+p
 
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k
@@ -331,6 +332,7 @@ nnoremap <silent> <Leader>tc :VimuxRunCommand("clear")<CR>
 nnoremap <silent> <Leader>tq :VimuxCloseRunner<CR>
 " Run current file's binary
 autocmd FileType cpp nmap <Leader>cr :!tmux send-keys -t right ./%:r C-m<CR><CR>
+autocmd FileType cpp nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
 "}}}
