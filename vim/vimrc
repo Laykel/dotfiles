@@ -152,8 +152,9 @@ let mapleader = ',' "Set a Leader for more bindings
 nnoremap t <C-r>
 
 " Copy and paste to and from system clipboard
-noremap cp "+y
-noremap cv "+p
+noremap cy "+y
+noremap cp "+p
+noremap cP "+P
 
 " Use enter to create new lines w/o entering insert mode
 nnoremap <CR> o<Esc>k

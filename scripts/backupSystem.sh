@@ -1,9 +1,11 @@
+# Save of some commands and a script example for backup purposes
+
+
 # Save command
 sudo rsync -azv --delete --exclude=dev/ --exclude=proc/ --exclude=sys/ --exclude=tmp/ --exclude=run/ --exclude=mnt/ --exclude=media/ --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude=".ecryptfs" / /media/luc/Data/Backups/rsync
 
 # Simple home save, without zipping
 sudo rsync -va /home/luc/ /media/luc/Data/Backups/home
-
 
 
 # TEST SMART DATA
@@ -20,7 +22,6 @@ sudo rsync -va /home/luc/ /media/luc/Data/Backups/home
 
 # rsync -av /src/foo /dest
 # rsync -av /src/foo/ /dest/foo
-
 
 
 # EXAMPLE SCRIPT

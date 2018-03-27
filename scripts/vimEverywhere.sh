@@ -11,7 +11,7 @@ function getclip {
 file=$(mktemp)
 urxvt -e vim "$file" # replace with your favorite terminal
 
-cat $file | setclip
-rm $file
+cat "$file" | setclip
+rm "$file"
 
 xdotool key ctrl+v

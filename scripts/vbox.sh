@@ -1,3 +1,3 @@
 # To reconfigure vbox after kernel update
-s dpkg-reconfigure virtualbox-dkms
-s '/sbin/vboxconfig'
+sudo dpkg-reconfigure virtualbox-dkms
+sudo '/sbin/vboxconfig'
