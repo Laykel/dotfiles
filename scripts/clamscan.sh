@@ -1,1 +1,1 @@
-s clamscan ~ -r -i > clam-report.txt 
+sudo clamscan ~ -r -i > clam-report.txt 

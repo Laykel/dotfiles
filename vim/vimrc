@@ -139,9 +139,9 @@ autocmd FileType cpp setlocal colorcolumn=85
 set background=dark
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme solarized
+colorscheme apprentice
 "gruvbox, tender, moonfly, bubblegum, solarized
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'apprentice'
 "}}}
 
 " Custom bindings{{{
