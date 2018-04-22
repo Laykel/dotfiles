@@ -181,13 +181,16 @@ inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End> <C-o>g<End>
 
 " Skip lines: faster navigation
-nnoremap J 5j
-nnoremap K 5k
+noremap J }
+noremap K {
+noremap H :bp<CR>
+noremap L :bn<CR>
 
 " Easy shortcuts
 nmap <silent> <Leader>s :w<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>wq :wq<CR>
+nmap <silent> <Leader>wa :wa<CR>
 
 " Remap spell bindings
 nnoremap zz z=
@@ -216,10 +219,10 @@ nnoremap <Leader>0 :10b<CR>
 nnoremap <Leader>x :bp\|bd #<CR>
 
 " Resize panes
-nnoremap <silent> <C-w>l :vertical resize +5<CR>
-nnoremap <silent> <C-w>h :vertical resize -5<CR>
-nnoremap <silent> <C-w>k :resize +5<CR>
-nnoremap <silent> <C-w>j :resize -5<CR>
+nnoremap <silent> <C-w>l :vertical resize +10<CR>
+nnoremap <silent> <C-w>h :vertical resize -10<CR>
+nnoremap <silent> <C-w>k :resize +10<CR>
+nnoremap <silent> <C-w>j :resize -10<CR>
 "}}}
 
 " Toggles for features{{{
@@ -288,6 +291,7 @@ nmap <Leader>ls i\mathbb{}<Esc>i
 nmap <Leader>lf i\frac{
 nmap <Leader>lr i\sqrt{
 nmap <Leader>lc i\cdot
+nmap <Leader>li i\begin{center}<CR>\fbox{\includegraphics[width=9cm]{<++>}}<CR>\end{center}<Esc>kk
 
 " Tabular stuff
 noremap <Leader>tg :Tabularize /
@@ -303,7 +307,7 @@ noremap <Leader>te :Tabularize /=<CR>
 
 " Compile files (prog, pdfs...){{{
 " R markdown to pdf (in pdf subfolder)
-autocmd FileType rmd nmap <silent> <Leader>mr :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla;mv %:r.pdf %:p:h/pdf/%:t:r.pdf<CR><CR>
+autocmd FileType rmd nmap <silent> <Leader>cc :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla;mv %:r.pdf %:p:h/pdf/%:t:r.pdf<CR><CR>
 
 " Creates html file with mathjax support in html folder
 nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css assets/pandoc.css -o /var/www/VimWikiSite/%:t:r.html<CR><CR>
@@ -311,8 +315,9 @@ nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css assets/pandoc.css -o /var
 nmap <silent> <Leader>pt :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
 
 " Create pdf from Latex
-autocmd FileType tex nmap <buffer> <silent> <Leader>lp :!pdflatex %<CR><CR>
-autocmd FileType tex nmap <buffer> <silent> <Leader>lx :!xelatex %<CR><CR>
+autocmd FileType tex nmap <buffer> <silent> <Leader>cc :!pdflatex %<CR><CR>
+autocmd FileType tex nmap <buffer> <silent> <Leader>cx :!xelatex %<CR><CR>
+
 " Open LaTeX PDF file in zathura
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 " Open RMarkdown PDF file in zathura
@@ -321,8 +326,15 @@ nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
 " g++ compiler
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ -std=c++11 -Wall -Wconversion -Wextra -pedantic *.cpp -o %:r<CR><CR>
+" gcc compiler
+autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -o bin/%:r<CR><CR>
 " Makefile
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
+autocmd FileType c nmap <buffer> <Leader>cE :!gcc -E % -o extendedsrc.i<CR><CR>
+
+" Run current file's binary
+autocmd FileType cpp,c nmap <Leader>cr :!tmux send-keys -t right ./%:r C-m<CR><CR>
+autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
 " Tmux right pane commands{{{
@@ -331,9 +343,6 @@ nnoremap <silent> <Leader>tp :VimuxPromptCommand<CR>
 nnoremap <silent> <Leader>tl :VimuxRunLastCommand<CR>
 nnoremap <silent> <Leader>tc :VimuxRunCommand("clear")<CR>
 nnoremap <silent> <Leader>tq :VimuxCloseRunner<CR>
-" Run current file's binary
-autocmd FileType cpp nmap <Leader>cr :!tmux send-keys -t right ./%:r C-m<CR><CR>
-autocmd FileType cpp nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
 "}}}
 
 "}}}
@@ -346,15 +355,14 @@ command! -nargs=1 Silent
 
 command! MakeTags !ctags -R .
 
-command Snipcppex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
-command Snipcpplab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
-command Snipasdlab 0r ~/Dev/dotfiles/vim/snippets/ASDLab.txt
-command Sniplatex 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
-command Sniplatexgraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
-command Snipdoxyfunc r ~/Dev/dotfiles/vim/snippets/DoxyFunc.txt
+command SnipCPPex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
+command SnipCex 0r ~/Dev/dotfiles/vim/snippets/CEx.txt
+command SnipINFlab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command SnipASDlab 0r ~/Dev/dotfiles/vim/snippets/ASDLab.txt
+command SnipLaTeX 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command SnipLaTeXgraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
+command SnipDoxyFunc r ~/Dev/dotfiles/vim/snippets/DoxyFunc.txt
 
-command CheatSheet e ~/Dev/dotfiles/vim/vimcheatsheet.md
-command TmuxCheatSheet e ~/Dev/dotfiles/tmux/tmuxcheatsheet.md
 command Vconf e ~/Dev/dotfiles/vim/vimrc
 command Tconf e ~/.tmux.conf
 "}}}

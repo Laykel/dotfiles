@@ -37,6 +37,9 @@ alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias meteo="curl wttr.in"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 
+# Start a webserver, also accepts a port as optional argument
+alias pyserver='python3 -m http.server'
+
 # Moving around
 alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"

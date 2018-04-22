@@ -1,0 +1,10 @@
+// INF2 - Recueil d'exercices
+// Exercice <++>, <++>
+// <++>
+
+#include <stdlib.h>
+
+int main(void) {
+
+   return EXIT_SUCCESS;
+}
