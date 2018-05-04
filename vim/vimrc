@@ -63,7 +63,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeNaturalSort = 1
 let NERDTreeMinimalUI=1
-let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'R': 'R', 'python': 'python', 'c++': 'cpp'}}]
+let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c'}}]
 let g:vimwiki_conceallevel=0
 let g:vimwiki_folding='expr'
 
@@ -90,6 +90,7 @@ let g:VimuxPromptString = "Command: "
 
 " This is for C/C++ smart autocompletion
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+let g:clang_user_options = '-std=c++11'
 
 " Defaults for Tagbar
 let g:tagbar_map_showproto = "f"		" f to show function's prototype
@@ -324,17 +325,24 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
 
 " g++ compiler
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -o bin/%:r -Wall -Wconversion -Wextra -pedantic -std=c++11<CR><CR>
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cp :!g++ -std=c++11 -Wall -Wconversion -Wextra -pedantic *.cpp -o %:r<CR><CR>
+" ---current file
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
+" ---all files
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>ca :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
+" ---compile for debugging
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cd :!g++ *.cpp -g -O0 -std=c++11 -o bin/%:r_debug.out<CR><CR>
+autocmd FileType c nmap <buffer> <Leader>cE :!gcc -E % -o extendedsrc.i<CR><CR>:e extendedsrc.i<CR>
 " gcc compiler
-autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -o bin/%:r<CR><CR>
+autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -o bin/%:r.out<CR><CR>
 " Makefile
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
-autocmd FileType c nmap <buffer> <Leader>cE :!gcc -E % -o extendedsrc.i<CR><CR>
 
 " Run current file's binary
-autocmd FileType cpp,c nmap <Leader>cr :!tmux send-keys -t right ./%:r C-m<CR><CR>
-autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r C-m<CR><CR>
+autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r.out C-m<CR><CR>
+" clean binaries
+autocmd FileType cpp,hpp,c,h nmap <buffer> <Leader>cq :!rm bin/*.out<CR><CR>
+" valgrind
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cv :!tmux send-keys -t right "valgrind --leak-check=full --show-leak-kinds=all ./bin/%:r_debug.out" C-m<CR><CR>
 "}}}
 
 " Tmux right pane commands{{{
@@ -449,6 +457,7 @@ set shiftround 		"Round indent to a multiple of 'shiftwidth'
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+" set tags+=~/.vim/tags//
 "}}}
 
 " Code folding{{{

@@ -4,6 +4,7 @@ apache2
 arc-theme
 biber
 bison
+blam
 bleachbit
 blender
 bluez-tools
@@ -13,6 +14,7 @@ cloc
 cmake
 cmatrix
 cmus
+com.github.babluboy.bookworm
 cowsay
 curl
 dbeaver-ce
@@ -81,7 +83,7 @@ mysql-server
 mysql-workbench
 nethack-console
 nethogs
-nixnote2
+nyancat
 onlyoffice-desktopeditors
 openconnect
 openprinting-ppds-postscript-konica-minolta
@@ -90,6 +92,7 @@ pandoc-citeproc
 papirus-icon-theme
 pavucontrol
 pdfchain
+peek
 php7.0
 php7.0-cli
 php7.0-curl
@@ -104,6 +107,7 @@ powertop
 psensor
 python3-pip
 python3-tk
+python-beautifulsoup
 python-dev
 python-pip
 python-virtualenv
@@ -113,6 +117,9 @@ qtcreator
 ranger
 r-base
 remarkable
+remmina
+remmina-plugin-rdp
+remmina-plugin-secret
 rsibreak
 rxvt-unicode-256color
 sc
@@ -121,6 +128,7 @@ simple-scan
 sl
 smbclient
 solaar
+stacer
 staruml
 steam-launcher
 step
@@ -141,10 +149,12 @@ transmission-qt
 tree
 ttf-mscorefonts-installer
 unrar
+valgrind
 vim-gtk3-py2
 virtualbox-5.2
 virtualbox-dkms
 wavemon
+whois
 wireshark
 wolframscript
 xcape

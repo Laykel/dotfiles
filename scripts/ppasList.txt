@@ -9,8 +9,11 @@
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security universe
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu xenial-security multiverse
 /etc/apt/sources.list:deb [arch=i386,amd64] https://cran.rstudio.com/bin/linux/ubuntu xenial/
+/etc/apt/sources.list.d/bookworm-team-ubuntu-bookworm-xenial.list:deb http://ppa.launchpad.net/bookworm-team/bookworm/ubuntu xenial main
+/etc/apt/sources.list.d/bookworm-team-ubuntu-bookworm-xenial.list.save:deb http://ppa.launchpad.net/bookworm-team/bookworm/ubuntu xenial main
 /etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
 /etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list.save:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
+/etc/apt/sources.list.d/elementary-os-ubuntu-stable-xenial.list:deb http://ppa.launchpad.net/elementary-os/stable/ubuntu xenial main
 /etc/apt/sources.list.d/google-chrome.list:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/google-chrome.list.save:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/jonathonf-ubuntu-vim-xenial.list:deb http://ppa.launchpad.net/jonathonf/vim/ubuntu xenial main
@@ -23,14 +26,18 @@
 /etc/apt/sources.list.d/neon.list.save:deb-src http://archive.neon.kde.org/user xenial main
 /etc/apt/sources.list.d/nilarimogard-ubuntu-webupd8-xenial.list:deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main
 /etc/apt/sources.list.d/nilarimogard-ubuntu-webupd8-xenial.list.save:deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu xenial main
-/etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
-/etc/apt/sources.list.d/nixnote-ubuntu-nixnote2-daily-xenial.list.save:deb http://ppa.launchpad.net/nixnote/nixnote2-daily/ubuntu xenial main
 /etc/apt/sources.list.d/nodesource.list:deb https://deb.nodesource.com/node_8.x xenial main
 /etc/apt/sources.list.d/nodesource.list:deb-src https://deb.nodesource.com/node_8.x xenial main
 /etc/apt/sources.list.d/nodesource.list.save:deb https://deb.nodesource.com/node_8.x xenial main
 /etc/apt/sources.list.d/nodesource.list.save:deb-src https://deb.nodesource.com/node_8.x xenial main
+/etc/apt/sources.list.d/oguzhaninan-ubuntu-stacer-xenial.list:deb http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu xenial main
+/etc/apt/sources.list.d/oguzhaninan-ubuntu-stacer-xenial.list.save:deb http://ppa.launchpad.net/oguzhaninan/stacer/ubuntu xenial main
+/etc/apt/sources.list.d/peek-developers-ubuntu-stable-xenial.list:deb http://ppa.launchpad.net/peek-developers/stable/ubuntu xenial main
+/etc/apt/sources.list.d/peek-developers-ubuntu-stable-xenial.list.save:deb http://ppa.launchpad.net/peek-developers/stable/ubuntu xenial main
 /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-xenial.list:deb http://ppa.launchpad.net/phoerious/keepassxc/ubuntu xenial main
 /etc/apt/sources.list.d/phoerious-ubuntu-keepassxc-xenial.list.save:deb http://ppa.launchpad.net/phoerious/keepassxc/ubuntu xenial main
+/etc/apt/sources.list.d/remmina-ppa-team-ubuntu-remmina-next-xenial.list:deb http://ppa.launchpad.net/remmina-ppa-team/remmina-next/ubuntu xenial main
+/etc/apt/sources.list.d/remmina-ppa-team-ubuntu-remmina-next-xenial.list.save:deb http://ppa.launchpad.net/remmina-ppa-team/remmina-next/ubuntu xenial main
 /etc/apt/sources.list.d/steam.list:deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
 /etc/apt/sources.list.d/steam.list:deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
 /etc/apt/sources.list.d/steam.list.save:deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
