@@ -1,7 +1,4 @@
 # Aliases
-# source zshenv
-alias zshenv="source /etc/zsh/zshenv"
-
 # Very common
 alias l="ls -v --group-directories-first"
 alias ll="ls -lhaFv --color=auto --group-directories-first"
@@ -23,7 +20,6 @@ alias gpush="git push origin master"
 
 # Open program with specific parameters
 alias py="python3.5"
-alias gpp="g++ -std=c++11 -Wall -Wconversion -Wextra -pedantic"
 alias composer="/usr/local/bin/composer.phar"
 alias laravel="~/.config/composer/vendor/bin/laravel"
 alias heigvpn="sudo openconnect --authgroup=All_Users --user=luc.wachter --no-cert-check https://remote.heig-vd.ch"
@@ -77,3 +73,10 @@ alias tm="tmux attach -t Dev || tmux new -s Dev"
 alias tl="tmux ls"
 alias tn="tmux new -s "
 alias tk="tmux kill-session -t "
+
+# GCC
+alias gpp="g++ -Wall -Wconversion -Wextra -pedantic -std=c++11"
+alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
+alias gppd="g++ -Wall -std=c++11 -O0 -g"
+alias gccd="gcc -Wall -std=c11 -lm"
+alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"

@@ -63,7 +63,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
 let NERDTreeNaturalSort = 1
 let NERDTreeMinimalUI=1
-let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c'}}]
+let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
 let g:vimwiki_conceallevel=0
 let g:vimwiki_folding='expr'
 
@@ -95,8 +95,9 @@ let g:clang_user_options = '-std=c++11'
 " Defaults for Tagbar
 let g:tagbar_map_showproto = "f"		" f to show function's prototype
 let g:tagbar_map_togglefold = "<Space>"
-let g:tagbar_width = 30
-let g:tagbar_autofocus = 1
+let g:tagbar_width = 40
+" let g:tagbar_autofocus = 1
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " Emmet defaults
 let g:user_emmet_install_global = 0
@@ -134,15 +135,15 @@ endif
 highlight SpellBad ctermfg=001 ctermbg=none cterm=none
 
 " INF1 max column count
-autocmd FileType cpp setlocal colorcolumn=85
+autocmd FileType cpp,hpp,c,h setlocal colorcolumn=85
 
 " If using a dark background within the editing area
 set background=dark
 
 "gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme apprentice
+colorscheme gruvbox
 "gruvbox, tender, moonfly, bubblegum, solarized
-let g:airline_theme = 'apprentice'
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Custom bindings{{{
@@ -329,13 +330,13 @@ nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
 " ---all files
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>ca :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
+" gcc compiler
+autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
+" Makefile
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
 " ---compile for debugging
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cd :!g++ *.cpp -g -O0 -std=c++11 -o bin/%:r_debug.out<CR><CR>
 autocmd FileType c nmap <buffer> <Leader>cE :!gcc -E % -o extendedsrc.i<CR><CR>:e extendedsrc.i<CR>
-" gcc compiler
-autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -o bin/%:r.out<CR><CR>
-" Makefile
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
 
 " Run current file's binary
 autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r.out C-m<CR><CR>

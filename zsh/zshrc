@@ -2,9 +2,9 @@
 export ZSH=/home/luc/.oh-my-zsh
 
 # Themes (random, agnoster, bira, bureau, gallois)
-# ZSH_THEME="bira"
+ZSH_THEME="gallois"
 # Parth's prompt
-source $HOME/Dev/dotfiles/zsh/prompt.sh
+# source $HOME/Dev/dotfiles/zsh/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
