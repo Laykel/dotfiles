@@ -22,6 +22,7 @@ Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
 Plugin 'ap/vim-css-color'                 " Preview colours in the file
 
 " Functionality
+Plugin 'Yggdroot/LeaderF'				  " Fuzzy finder
 Plugin 'vim-airline/vim-airline'          " Nice looking airline
 Plugin 'scrooloose/nerdtree'              " Classic nerdtree
 Plugin 'mattn/emmet-vim'                  " Emmet for vim (<C-y>,)
@@ -96,8 +97,8 @@ let g:clang_user_options = '-std=c++11'
 let g:tagbar_map_showproto = "f"		" f to show function's prototype
 let g:tagbar_map_togglefold = "<Space>"
 let g:tagbar_width = 40
+let g:tagbar_sort = 0
 " let g:tagbar_autofocus = 1
-autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " Emmet defaults
 let g:user_emmet_install_global = 0
@@ -332,6 +333,7 @@ autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>ca :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
 " gcc compiler
 autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
+autocmd FileType c nmap <buffer> <Leader>ca :!gcc *.c -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
 " Makefile
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
 " ---compile for debugging

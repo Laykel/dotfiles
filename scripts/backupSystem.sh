@@ -2,7 +2,7 @@
 
 
 # Save command
-sudo rsync -azv --delete --exclude=dev/ --exclude=proc/ --exclude=sys/ --exclude=tmp/ --exclude=run/ --exclude=mnt/ --exclude=media/ --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude=".ecryptfs" / /media/luc/Data/Backups/rsync
+sudo rsync -azv --delete --exclude=dev/ --exclude=proc/ --exclude=sys/ --exclude=tmp/ --exclude=run/ --exclude=mnt/ --exclude=media/ --exclude="swapfile" --exclude="lost+found" --exclude=".cache" --exclude=".ecryptfs" / /media/luc/Data/Backups/rsync > ~/rsync-report.txt
 
 # Simple home save, without zipping
 sudo rsync -va /home/luc/ /media/luc/Data/Backups/home

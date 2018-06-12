@@ -138,6 +138,7 @@ synaptic
 syncthing
 syncthing-gtk
 syncthing-inotify
+systemd-coredump
 task
 texlive
 texlive-xetex
