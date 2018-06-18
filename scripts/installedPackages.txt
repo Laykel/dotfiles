@@ -87,6 +87,7 @@ nyancat
 onlyoffice-desktopeditors
 openconnect
 openprinting-ppds-postscript-konica-minolta
+openvpn
 pandoc
 pandoc-citeproc
 papirus-icon-theme
