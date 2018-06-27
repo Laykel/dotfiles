@@ -10,6 +10,11 @@ comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-
 egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/* > ppasList.txt
 
 # Fully update distro and apt packages
+sudo apt-get clean
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo do-release-upgrade
+sudo apt-get autoremove
 
 # Update snap packages
 

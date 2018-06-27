@@ -268,6 +268,9 @@ nnoremap <Leader>< A<Space><<<Space>
 nnoremap <C-i> <C-]>
 nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Remap increment
+nnoremap <C-y> <C-a>
+
 nnoremap <Leader>ms :set syntax=rmd<CR>
 " Markdown headers
 nmap <Leader>h1 I#<Space><Esc>

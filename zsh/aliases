@@ -49,6 +49,7 @@ alias cheig="cd ~/HEIG/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
 alias csnip="cd ~/Dev/dotfiles/vim/snippets"
+alias cstl="cd /usr/include/c++/5"
 
 alias ,q="exit"
 alias help="man"
