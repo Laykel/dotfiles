@@ -11,6 +11,7 @@ alias s="sudo"
 alias v="vim"
 alias g="git"
 alias vw="vim +VimwikiIndex"
+alias vh="vim '+normal 2,ww'"
 
 alias gs="git status"
 alias gl="git log"

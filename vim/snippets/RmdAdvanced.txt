@@ -1,0 +1,11 @@
+\header-includes: |
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    
+    \lhead{<++>}
+    \rhead{<++>}
+    \lfoot{<++>}
+    \cfoot{}
+    \rfoot{Page \thepage}
+	# Make first page like the others :
+    # \fancypagestyle{plain}{\pagestyle{fancy}}

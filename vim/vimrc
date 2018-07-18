@@ -15,6 +15,7 @@ Plugin 'ervandew/supertab'                " Easy tab completion
 Plugin 'scrooloose/syntastic'             " Syntax checker
 Plugin 'sheerun/vim-polyglot'             " 100+ languages syntax
 Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
+Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
 
 " Tags, style
 Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
@@ -49,10 +50,10 @@ Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 
 " Plugin 'Xuyuanp/nerdtree-git-plugin'      " git interaction in nerdtree
 " Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
-" Plugin 'ctrlpvim/ctrlp.vim'			    "Fuzzy finder/buffer manager
+" Plugin 'ctrlpvim/ctrlp.vim'			    " Fuzzy finder/buffer manager
 " let g:ctrlp_show_hidden = 1
-" Plugin 'edkolev/tmuxline.vim'			    "Generates tmux statusline styles
-" Plugin 'bluz71/vim-moonfly-colors'		  " Moonfly theme
+" Plugin 'edkolev/tmuxline.vim'			    " Generates tmux statusline styles
+" Plugin 'bluz71/vim-moonfly-colors'		" Moonfly theme
 " Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
 
 " All plugins before this
@@ -66,12 +67,13 @@ let NERDTreeShowBookmarks = 1
 let NERDTreeNaturalSort = 1
 let NERDTreeMinimalUI=1
 let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
+let g:vimwiki_list += [{'path': '~/Notebooks/HEIG/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
 let g:vimwiki_conceallevel=0
 let g:vimwiki_folding='expr'
 
 " Defaults for SuperTab
 let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:delimitMate_expand_cr=1
 let g:delimitMate_expand_space=1
 
@@ -107,19 +109,19 @@ autocmd FileType html,php,css EmmetInstall
 let g:user_emmet_leader_key = "<C-f>"
 
 " Airline status
-set laststatus=2                                  " Always show status line
-set showtabline=2				  " Always show tab bar
-let g:airline_left_sep=""			  " Default: >
-let g:airline_right_sep=""			  " Default: <
+set laststatus=2									" Always show status line
+set showtabline=2									" Always show tab bar
+let g:airline_left_sep=""							" Default: >
+let g:airline_right_sep=""							" Default: <
 let g:airline_right_alt_sep=""
 let g:airline_left_alt_sep=""
 let g:airline_skip_empty_sections=1
-let g:airline#extensions#whitespace#checks = []	  " Don't show warning for other than trailing whitespaces
-let g:airline#extensions#tabline#enabled=1                 " Show tabline for buffers
-let g:airline#extensions#tabline#formatter = 'unique_tail' " Show only filename in buffer line
-let g:airline#extensions#syntastic#enabled=1               " Enable Syntastic support
-let g:airline#extensions#branch#enabled=1                  " Enable Git support
-let g:airline_powerline_fonts=1                            " Use powerline font fully
+let g:airline#extensions#whitespace#checks = []				" Don't show warning for other than trailing whitespaces
+let g:airline#extensions#tabline#enabled=1                  " Show tabline for buffers
+let g:airline#extensions#tabline#formatter = 'unique_tail'	" Show only filename in buffer line
+let g:airline#extensions#syntastic#enabled=1				" Enable Syntastic support
+let g:airline#extensions#branch#enabled=1                   " Enable Git support
+let g:airline_powerline_fonts=1                             " Use powerline font fully
 let g:Powerline_symbols = 'fancy'
 " let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 
@@ -142,10 +144,9 @@ autocmd FileType cpp,hpp,c,h setlocal colorcolumn=85
 " If using a dark background within the editing area
 set background=dark
 
-"gruvbox, tender, moonfly, benokai, darkblue, desert, koehler, molokai...
-colorscheme gruvbox
-"gruvbox, tender, moonfly, bubblegum, solarized
-let g:airline_theme = 'gruvbox'
+"apprentice, gruvbox, solarized
+colorscheme apprentice
+let g:airline_theme = 'apprentice'
 "}}}
 
 " Custom bindings{{{
@@ -289,7 +290,9 @@ nmap <Leader>mc I````{}<CR>```<Esc>klla
 imap <Leader>mc ````{}<CR>```<Esc>klla
 " vimwiki create table
 nnoremap <Leader>mt :VimwikiTable<CR>
+nnoremap <Leader>ma :SnipRmdAdvanced<CR>
 nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>theme: flatly<CR>---<CR><Esc>gg
+nnoremap <Leader>mg o\begin{figure}<CR>\centering<CR>\label{}<CR>\includegraphics[width=10cm]{images/}<CR>\end{figure}<CR><Esc>kkf}
 
 " Latex/mathjax helpers
 nmap <Leader>la i\begin{align*}<CR>\end{align*}<Esc>k
@@ -329,6 +332,7 @@ autocmd FileType tex nmap <buffer> <silent> <Leader>cx :!xelatex %<CR><CR>
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 " Open RMarkdown PDF file in zathura
 nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
+nmap <silent> <Leader>ce :!zathura ~/Notebooks/HEIG/pdf/%:t:r.pdf&<CR><CR>
 
 " g++ compiler
 " ---current file
@@ -370,6 +374,7 @@ command! -nargs=1 Silent
 
 command! MakeTags !ctags -R .
 
+command SnipRmdAdvanced r ~/Dev/dotfiles/vim/snippets/RmdAdvanced.txt
 command SnipCPPex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
 command SnipCex 0r ~/Dev/dotfiles/vim/snippets/CEx.txt
 command SnipINFlab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
@@ -472,7 +477,9 @@ set undodir=~/.vim/undo//
 set foldmethod=marker " Fold based on markers
 set foldnestmax=5     " 5 levels deep folds
 set foldenable        " Enable folding
-set foldlevel=99       " Close all folds by default
+set foldlevel=99	  " Leave folds open by default
+
+autocmd FileType vim set foldlevel=0       " Close all folds by default
 
 " Spacebar to open/close folds in normal mode,
 " and also to create new ones in visual mode
