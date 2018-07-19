@@ -169,7 +169,7 @@ nnoremap <CR> o<Esc>k
 nmap <Leader><Space> <Plug>VimwikiFollowLink
 
 " F1 to open custom bindings help
-nnoremap <silent> <F1> :40vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
+nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
 
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
@@ -206,7 +206,7 @@ nnoremap zz z=
 " Open current buffer to the right, and change this split's
 " buffer to the previous
 nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
-nmap <silent> <Leader>hh :vs<CR><C-h>:bp<CR><C-l>
+nmap <silent> <Leader>hh :sp<CR><C-h>:bp<CR><C-l>
 
 " Back one buffer
 nnoremap <Leader>. :bp<CR>
@@ -333,7 +333,7 @@ autocmd FileType tex nmap <buffer> <silent> <Leader>cx :!xelatex %<CR><CR>
 nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 " Open RMarkdown PDF file in zathura
 nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
-nmap <silent> <Leader>ce :!zathura ~/Notebooks/HEIG/pdf/%:t:r.pdf&<CR><CR>
+autocmd FileType vimwiki nmap <silent> <Leader>ce :!zathura ~/Notebooks/HEIG/pdf/%:t:r.pdf&<CR><CR>
 
 " g++ compiler
 " ---current file
@@ -355,6 +355,9 @@ autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r.out C
 autocmd FileType cpp,hpp,c,h nmap <buffer> <Leader>cq :!rm bin/*.out<CR><CR>
 " valgrind
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cv :!tmux send-keys -t right "valgrind --leak-check=full --show-leak-kinds=all ./bin/%:r_debug.out" C-m<CR><CR>
+
+" python3
+autocmd FileType python nmap <buffer> <Leader>cc :!tmux send-keys -t right "python3.5 %" C-m<CR><CR>
 "}}}
 
 " Tmux right pane commands{{{
