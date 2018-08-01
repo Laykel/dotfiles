@@ -22,6 +22,8 @@ alias gpush="git push origin master"
 
 # Open program with specific parameters
 alias py="python3.5"
+alias activ="source env/bin/activate"
+alias deactiv="deactivate"
 alias heigvpn="sudo openconnect --authgroup=All_Users --user=luc.wachter --no-cert-check https://remote.heig-vd.ch"
 alias clamhome="sudo clamscan ~ -r -i > clam-report.txt"
 

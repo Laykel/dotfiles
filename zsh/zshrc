@@ -8,11 +8,12 @@ source $HOME/Dev/dotfiles/zsh/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git laravel5 colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git virtualenv laravel5 colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions)
 
 # Config
 source $ZSH/oh-my-zsh.sh
 
+VIRTUAL_ENV_DISABLE_PROMPT=0
 HYPHEN_INSENSITIVE="true"
 export EDITOR='vim'
 export CHEATCOLORS=true

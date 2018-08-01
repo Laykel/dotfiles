@@ -1,0 +1,54 @@
+# vim
+tags*
+
+# Prerequisites
+*.d
+
+# Python
+env/
+__pycache__/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+bin/
+*.exe
+*.out
+*.app
+
+# Netbeans
+.dep.inc
+nbproject
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+Makefile
+
+# Others
+*.gdb*
