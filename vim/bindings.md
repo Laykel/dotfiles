@@ -5,13 +5,16 @@
 ### Remember
 - `:'<,'>norm! @a` to repeat macro on selection
 - add grep
-- add ySiw + others surround
-	- ys$t - put the line in a tag
+    - ySiw" - put word in "
+    - ys$t - put the line in a tag
+    - v$hS" - put line in "
 - clean up nmap/nnoremap etc...
+- vim digraphs : C-k + C + , = Ç
 
 ### Bindings
 #### Toggles
 <F1> - this help page
+<F3> - toggle background
 <F4> - GitGutter toggle
 <F5> - spell check toggle
 <F6> - NERDTree toggle
@@ -39,10 +42,14 @@ cy - yank into system clipboard
 ,<Tab> - go to next placeholder
 <Space> - toggle fold
 t   - <C-r> - redo
-zz  - z= - fix list
+' - \` - backtick remapped to apostrophe
+z0  - z= - fix list
 w!! - write with sudo permissions
 
 #### Programming helpers
+zz - center line
+zt - put line at the top
+zb - put line at the bottom
 ,à - insert curly braces
 ,; - insert semicolon at end
 ,< - insert 2 chevrons at end >
@@ -112,3 +119,14 @@ w!! - write with sudo permissions
 <C-k>+C+, = Ç
 <C-y> - increments a number
 <C-x> - decrements a number
+
+### Registers
+- 0 (yank register: when you use y in normal mode, without specifying a register, yanked text goes there and also to the default register),
+- 1 to 9 (shifting delete registers, when you use commands such as c or d, what has been deleted goes to register 1, what was in register 1 goes to register 2, etc.),
+- " (default register, also known as unnamed register. This is where the " comes in Ctrl-R, "),
+- a to z for your own use (capitalized A to Z are for appending to corresponding registers).
+- _ (acts like /dev/null (Unix) or NUL (Windows), you can write to it but it's discarded and when you read from it, it is always empty),
+- - (small delete register),
+- / (search pattern register, updated when you look for text with /, ?, * or # for instance; you can also write to it to dynamically change the search pattern),
+- : (stores last VimL typed command via Q or :, readonly),
+- + and * (system clipboard registers, you can write to them to set the clipboard and read the clipboard contents from them)

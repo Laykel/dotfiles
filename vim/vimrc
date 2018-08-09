@@ -168,7 +168,7 @@ noremap cP "+P
 nnoremap <CR> o<Esc>k
 
 " vimwiki create and follow links
-nmap <Leader><Space> <Plug>VimwikiFollowLink
+autocmd FileType vimwiki nmap <Leader><Space> <Plug>VimwikiFollowLink
 
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
@@ -200,8 +200,11 @@ nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>wq :wq<CR>
 nmap <silent> <Leader>wa :wa<CR>
 
+" Remap backtick to follow mark
+noremap ' `
+
 " Remap spell bindings
-nnoremap zz z=
+nnoremap z0 z=
 "}}}
 
 " Buffers, panes{{{
