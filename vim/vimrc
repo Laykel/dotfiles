@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Syntax
-Plugin 'ervandew/supertab'                " Easy tab completion
+" Plugin 'ervandew/supertab'                " Easy tab completion
 Plugin 'scrooloose/syntastic'             " Syntax checker
 Plugin 'sheerun/vim-polyglot'             " 100+ languages syntax
 Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
@@ -34,6 +34,7 @@ Plugin 'airblade/vim-gitgutter'           " git diff in the gutter
 
 " Additions
 Plugin 'tommcdo/vim-exchange'             " Exchange two pieces of text
+Plugin 'markonm/traces.vim'				  " Shows preview for Ex commands
 Plugin 'tpope/vim-surround'               " Add object for surrounding elements
 Plugin 'tpope/vim-commentary'             " Auto-comment with gc
 Plugin 'tpope/vim-repeat'                 " Add . command support for plugins
@@ -75,10 +76,10 @@ let g:vimwiki_conceallevel=0
 autocmd FileType vimwiki,markdown set conceallevel=0	" Don't hide characters
 
 " Defaults for SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:delimitMate_expand_cr=1
-let g:delimitMate_expand_space=1
+" let g:SuperTabDefaultCompletionType = \"context\"
+" let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>\"
+" let g:delimitMate_expand_cr=1
+" let g:delimitMate_expand_space=1
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -453,6 +454,7 @@ set cursorline                       " Highlight line where cursor is
 set shortmess+=I                     " Don't show the welcome screen
 set noshowmode                       " Don't show the current mode (airline)
 set omnifunc=syntaxcomplete#Complete
+set complete+=t,k					 " Also complete with dict and tags
 set completeopt=menu,menuone         " Always show the menu
 set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 set autoread                         " Reload files changed outside vim
@@ -478,6 +480,7 @@ set shiftround 		"Round indent to a multiple of 'shiftwidth'
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+set dictionary=/usr/share/dict/words
 " set tags+=~/.vim/tags//
 "}}}
 
