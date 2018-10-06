@@ -14,6 +14,7 @@
 /etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
 /etc/apt/sources.list.d/danielrichter2007-ubuntu-grub-customizer-xenial.list.save:deb http://ppa.launchpad.net/danielrichter2007/grub-customizer/ubuntu xenial main
 /etc/apt/sources.list.d/elementary-os-ubuntu-stable-xenial.list:deb http://ppa.launchpad.net/elementary-os/stable/ubuntu xenial main
+/etc/apt/sources.list.d/elementary-os-ubuntu-stable-xenial.list.save:deb http://ppa.launchpad.net/elementary-os/stable/ubuntu xenial main
 /etc/apt/sources.list.d/google-chrome.list:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/google-chrome.list.save:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/jonathonf-ubuntu-vim-xenial.list:deb http://ppa.launchpad.net/jonathonf/vim/ubuntu xenial main

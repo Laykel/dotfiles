@@ -1,6 +1,5 @@
 " Never move this
 runtime! debian.vim
-set nocompatible
 
 " Vundle plugins"{{{
 filetype off
@@ -10,24 +9,26 @@ call vundle#begin()
 " Plugins list
 Plugin 'VundleVim/Vundle.vim'
 
-" Syntax
-" Plugin 'ervandew/supertab'                " Easy tab completion
-Plugin 'scrooloose/syntastic'             " Syntax checker
+Plugin 'ervandew/supertab'                " Easy tab completion
+Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
+Plugin 'godlygeek/tabular'                " Aligns things
+Plugin 'ap/vim-css-color'                 " Preview colours in the file
 Plugin 'sheerun/vim-polyglot'             " 100+ languages syntax
+Plugin 'mattn/emmet-vim'                  " Emmet for vim (<C-y>,)
+Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
+
+" Syntax
+Plugin 'scrooloose/syntastic'             " Syntax checker
 Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
-Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
+" Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
 
 " Tags, style
-Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
 Plugin 'majutsushi/tagbar'                " Lists the file's tags
-Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
-Plugin 'ap/vim-css-color'                 " Preview colours in the file
 
 " Functionality
 Plugin 'Yggdroot/LeaderF'				  " Fuzzy finder
 Plugin 'vim-airline/vim-airline'          " Nice looking airline
 Plugin 'scrooloose/nerdtree'              " Classic nerdtree
-Plugin 'mattn/emmet-vim'                  " Emmet for vim (<C-y>,)
 Plugin 'vimwiki/vimwiki'                  " Note-taking in vim
 Plugin 'tpope/vim-fugitive'               " git integration in vim
 Plugin 'airblade/vim-gitgutter'           " git diff in the gutter
@@ -39,9 +40,9 @@ Plugin 'tpope/vim-surround'               " Add object for surrounding elements
 Plugin 'tpope/vim-commentary'             " Auto-comment with gc
 Plugin 'tpope/vim-repeat'                 " Add . command support for plugins
 Plugin 'raimondi/delimitmate'             " Auto-pairs parenses and other things
-Plugin 'godlygeek/tabular'                " Aligns things
 Plugin 'christoomey/vim-tmux-navigator'   " Navigating from vim and tmux panes
 Plugin 'benmills/vimux'					  " Run commands in tmux easily
+Plugin 'epeli/slimux'					  " tmux helper for REPL and shell
 
 " Looks
 Plugin 'morhetz/gruvbox'                  " A theme inspired by solarized
@@ -51,8 +52,6 @@ Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 
 " Plugin 'Xuyuanp/nerdtree-git-plugin'      " git interaction in nerdtree
 " Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
-" Plugin 'ctrlpvim/ctrlp.vim'			    " Fuzzy finder/buffer manager
-" let g:ctrlp_show_hidden = 1
 " Plugin 'edkolev/tmuxline.vim'			    " Generates tmux statusline styles
 " Plugin 'bluz71/vim-moonfly-colors'		" Moonfly theme
 " Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
@@ -69,11 +68,22 @@ let NERDTreeNaturalSort = 1
 let NERDTreeMinimalUI=1
 let g:jedi#goto_command=''
 let g:jedi#documentation_command='<Leader>d'
-let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
-let g:vimwiki_list += [{'path': '~/Notebooks/HEIG/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
+let wiki = {}
+let wiki.path = '~/Notebooks/vimwiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.Rmd'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java', 'sh': 'sh', 'r': 'r', 'c': 'c', 'tex': 'tex'}
+" heig wiki parameters
+let heig = {}
+let heig.path = '~/Notebooks/HEIG/'
+let heig.syntax = 'markdown'
+let heig.ext = '.Rmd'
+" vimwiki wikis
+let g:vimwiki_list = [wiki, heig]
+" let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
+" let g:vimwiki_list += [{'path': '~/Notebooks/HEIG/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
 let g:vimwiki_folding='expr'
 let g:vimwiki_conceallevel=0
-autocmd FileType vimwiki,markdown set conceallevel=0	" Don't hide characters
 
 " Defaults for SuperTab
 " let g:SuperTabDefaultCompletionType = \"context\"
@@ -158,7 +168,7 @@ let mapleader = ',' "Set a Leader for more bindings
 
 " Misc{{{
 " Easier redo
-nnoremap t <C-r>
+nnoremap U <C-r>
 
 " Copy and paste to and from system clipboard
 noremap cy "+y
@@ -341,7 +351,7 @@ nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
 nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
 autocmd FileType vimwiki nmap <silent> <Leader>ce :!zathura ~/Notebooks/HEIG/pdf/%:t:r.pdf&<CR><CR>
 
-" g++ compiler
+" gcc, g++ compiler{{{
 " ---current file
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
 " ---all files
@@ -361,6 +371,11 @@ autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r.out C
 autocmd FileType cpp,hpp,c,h nmap <buffer> <Leader>cq :!rm bin/*.out<CR><CR>
 " valgrind
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cv :!tmux send-keys -t right "valgrind --leak-check=full --show-leak-kinds=all ./bin/%:r_debug.out" C-m<CR><CR>
+"}}}
+
+" java
+autocmd FileType java nmap <buffer> <Leader>cc :!javac %<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>ce :!tmux send-keys -t right "java %:r" C-m<CR><CR>
 
 " python3
 autocmd FileType python nmap <buffer> <Leader>cc :!tmux send-keys -t right "python3.5 %" C-m<CR><CR>
@@ -413,9 +428,8 @@ autocmd FileType vimwiki,markdown,gitcommit,tex setlocal spell spelllang=en,fr
 " Close vim if NERDTree is the last opened buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Tab-completion for files
-set path+=**
-set wildmenu "Display all matching files with tab
+set path+=** " Tab-completion for files
+set wildmenu " Display all matching files with tab
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -438,7 +452,7 @@ set encoding=utf-8     " The encoding displayed.
 set fileencoding=utf-8 " The encoding written to file.
 set backspace=2
 set ignorecase         " Do case insensitive matching
-set smartcase          " Do smart case matching
+set smartcase          " Do smart case matching (requires ignorecase)
 set incsearch          " Incremental search
 set autowrite          " Automatically save before :next and :make...
 set hidden             " Hide buffers when they are abandoned
@@ -454,7 +468,7 @@ set cursorline                       " Highlight line where cursor is
 set shortmess+=I                     " Don't show the welcome screen
 set noshowmode                       " Don't show the current mode (airline)
 set omnifunc=syntaxcomplete#Complete
-set complete+=t,k					 " Also complete with dict and tags
+set complete+=t 					 " Also complete with tags
 set completeopt=menu,menuone         " Always show the menu
 set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 set autoread                         " Reload files changed outside vim
@@ -497,3 +511,6 @@ autocmd FileType vim set foldlevel=0       " Close all folds by default
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 "}}}
+
+let g:Lf_ShowHidden=1
+nnoremap <Leader>tr :SlimuxREPLSendLine<CR>

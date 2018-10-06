@@ -1,0 +1,147 @@
+" vim-plug {{{
+" Install vim-plug if it isn't yet
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" List plugins
+call plug#begin('~/.vim/plugged')
+
+" Big functionalities
+Plug 'vimwiki/vimwiki'			" Wiki notetaking in vim
+Plug 'Yggdroot/LeaderF'			" Fuzzy finder
+Plug 'itchyny/lightline.vim'	" Light status line
+
+Plug 'tpope/vim-fugitive'		" git integration in vim
+Plug 'airblade/vim-gitgutter'	" git diff in the gutter
+Plug 'majutsushi/tagbar'                " Lists the file's tags
+
+" Syntax
+Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}           " C/C++ autocomplete
+" Plug 'w0rp/ale'				" Asynchronous linting engine
+" Plug 'Shougo/deoplete.nvim'		" Asynchronous completion engine
+
+" Small general additions
+Plug 'markonm/traces.vim'		" Shows preview for Ex commands
+Plug 'tpope/vim-surround'		" Add object for surrounding elements
+Plug 'tpope/vim-commentary'		" Auto-comment with gc
+Plug 'tpope/vim-repeat'			" Add . command support for plugins
+Plug 'raimondi/delimitmate'		" Auto-pairs parenses and other things
+
+" Tmux
+Plug 'christoomey/vim-tmux-navigator'		" Navigating from vim and tmux panes
+Plug 'epeli/slimux'						" tmux helper for REPL and shell
+
+" Looks
+Plug 'morhetz/gruvbox'                  " A theme inspired by solarized
+Plug 'romainl/Apprentice'				  " Nice theme, yés good
+Plug "https://gitlab.com/protesilaos/tempus-themes-vim.git" " A series of good quality themes
+
+call plug#end()
+" automatic filetype plugin indent on and syntax enable
+"}}}
+
+" Plugins config{{{
+" vimwiki{{{
+let wiki = {}
+let wiki.path = '~/Notebooks/vimwiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.Rmd'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}
+" heig wiki parameters
+let heig = {}
+let heig.path = '~/Notebooks/HEIG/'
+let heig.syntax = 'markdown'
+let heig.ext = '.Rmd'
+let heig.nested_syntaxes = wiki.nested_syntaxes
+" vimwiki dictionary of wikis
+let g:vimwiki_list = [wiki, heig]
+" vimwiki parameters
+let g:vimwiki_folding='expr'
+let g:vimwiki_conceallevel=0
+"}}}
+
+" Leaderf
+let g:Lf_ShowHidden=1
+
+" delimitMate
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
+" RipClang
+let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+let g:clang_user_options = '-std=c++11'
+
+" Colorschemes config
+let g:gruvbox_contrast_light = 'hard'
+"}}}
+
+" Looks{{{
+set background = dark
+colorscheme tempus_classic
+
+set laststatus = 2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+"}}}
+
+" Options{{{
+set path+=** " Tab-completion in command line
+set wildmenu " Display menu showing following files
+
+" HEIG max column count
+autocmd FileType cpp,hpp,c,h,java setlocal colorcolumn=85
+"}}}
+
+" Custom mappings{{{
+let mapleader = ","
+
+" Quit / save
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>s :w<CR>
+
+" Easier redo
+nnoremap U <C-r>
+
+" Copy and paste to and from system clipboard
+noremap cy "+y
+noremap cp "+p
+noremap cP "+P
+
+" F1 to open custom bindings help
+nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
+"}}}
+
+" Custom functions{{{
+command Vconf e ~/Dev/dotfiles/vim/vimrc
+
+" Write when the file wasn't opened with sudo privileges
+cmap w!! w !sudo tee % > /dev/null
+
+" Insert snippets
+cmap snip r ~/Dev/dotfiles/vim/snippets/
+"}}}
+
+" Tab config (when editorconfig not in use) {{{
+" set tabstop=8 " default
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+"}}}
+
+" Code folding {{{
+set foldmethod=marker " Fold based on markers
+set foldnestmax=5     " 5 levels deep folds
+set foldenable        " Enable folding
+set foldlevel=99      " Leave folds open by default
+
+autocmd FileType vim set foldlevel=0   " Close all folds by default
+
+" Spacebar to open/close folds in normal mode,
+" and also to create new ones in visual mode
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+"}}}

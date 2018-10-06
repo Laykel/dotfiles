@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/luc/.oh-my-zsh
 
+# Revert's DB-MAIN (BDR)
+export DB_MAIN_BIN=/opt/db-main/bin
+export LD_LIBRARY_PATH=$DB_MAIN_BIN:$DB_MAIN_BIN/../java/jre/lib/amd64/server:$LD_LIBRARY_PATH
+
 # Themes (random, agnoster, bira, bureau, gallois)
 # ZSH_THEME="avit"
 # Parth's prompt (gallois-like)

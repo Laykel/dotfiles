@@ -5,7 +5,6 @@ arc-theme
 biber
 bison
 blam
-bleachbit
 blender
 bluez-tools
 brackets
@@ -86,6 +85,7 @@ nethogs
 nyancat
 onlyoffice-desktopeditors
 openconnect
+openjdk-8-jdk
 openprinting-ppds-postscript-konica-minolta
 openvpn
 pandoc
@@ -106,6 +106,7 @@ phpmyadmin
 plasma-applet-redshift-control
 powertop
 psensor
+python3-jedi
 python3-pip
 python3-tk
 python-beautifulsoup
@@ -122,8 +123,10 @@ remmina
 remmina-plugin-rdp
 remmina-plugin-secret
 rsibreak
+rstudio
 rxvt-unicode-256color
 sc
+scangearmp-mg5400series-64
 shellcheck
 simple-scan
 sl
@@ -153,7 +156,6 @@ ttf-mscorefonts-installer
 unrar
 valgrind
 vim-gtk3-py2
-virtualbox-5.2
 virtualbox-dkms
 wavemon
 whois
