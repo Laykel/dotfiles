@@ -23,7 +23,7 @@ Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}           " C/C++ autocompl
 " Plug 'w0rp/ale'				" Asynchronous linting engine
 " Plug 'Shougo/deoplete.nvim'		" Asynchronous completion engine
 
-" Small general additions
+" General additions
 Plug 'markonm/traces.vim'		" Shows preview for Ex commands
 Plug 'tpope/vim-surround'		" Add object for surrounding elements
 Plug 'tpope/vim-commentary'		" Auto-comment with gc

@@ -8,6 +8,9 @@ call vundle#begin()
 
 " Plugins list
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
+" Plugin 'Shougo/deoplete.nvim'		" Asynchronous completion engine
+Plugin 'prabirshrestha/asyncomplete.vim'
 
 Plugin 'ervandew/supertab'                " Easy tab completion
 Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
@@ -61,6 +64,8 @@ call vundle#end()
 "}}}
 
 " Defaults for plugins"{{{
+let g:deoplete#enable_at_startup = 1
+
 let NERDTreeMapActivateNode='<space>'
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
@@ -159,8 +164,8 @@ autocmd FileType cpp,hpp,c,h setlocal colorcolumn=85
 set background=dark
 
 "apprentice, gruvbox, solarized
-colorscheme apprentice
-let g:airline_theme = 'apprentice'
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
 "}}}
 
 " Custom bindings{{{
@@ -174,12 +179,6 @@ nnoremap U <C-r>
 noremap cy "+y
 noremap cp "+p
 noremap cP "+P
-
-" Use enter to create new lines w/o entering insert mode
-nnoremap <CR> o<Esc>k
-
-" vimwiki create and follow links
-autocmd FileType vimwiki nmap <Leader><Space> <Plug>VimwikiFollowLink
 
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>

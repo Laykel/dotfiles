@@ -19,8 +19,6 @@
 /etc/apt/sources.list.d/google-chrome.list.save:deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 /etc/apt/sources.list.d/jonathonf-ubuntu-vim-xenial.list:deb http://ppa.launchpad.net/jonathonf/vim/ubuntu xenial main
 /etc/apt/sources.list.d/jonathonf-ubuntu-vim-xenial.list.save:deb http://ppa.launchpad.net/jonathonf/vim/ubuntu xenial main
-/etc/apt/sources.list.d/libreoffice-ubuntu-libreoffice-5-3-xenial.list:deb http://ppa.launchpad.net/libreoffice/libreoffice-5-3/ubuntu xenial main
-/etc/apt/sources.list.d/libreoffice-ubuntu-libreoffice-5-3-xenial.list.save:deb http://ppa.launchpad.net/libreoffice/libreoffice-5-3/ubuntu xenial main
 /etc/apt/sources.list.d/neon.list:deb http://archive.neon.kde.org/user xenial main
 /etc/apt/sources.list.d/neon.list:deb-src http://archive.neon.kde.org/user xenial main
 /etc/apt/sources.list.d/neon.list.save:deb http://archive.neon.kde.org/user xenial main
@@ -47,7 +45,3 @@
 /etc/apt/sources.list.d/syncthing.list.save:deb https://apt.syncthing.net/ syncthing stable
 /etc/apt/sources.list.d/virtualbox.org.list:deb http://download.virtualbox.org/virtualbox/debian zesty non-free contrib
 /etc/apt/sources.list.d/virtualbox.org.list.save:deb http://download.virtualbox.org/virtualbox/debian zesty non-free contrib
-/etc/apt/sources.list.d/webupd8team-ubuntu-brackets-xenial.list:deb http://ppa.launchpad.net/webupd8team/brackets/ubuntu xenial main
-/etc/apt/sources.list.d/webupd8team-ubuntu-brackets-xenial.list.save:deb http://ppa.launchpad.net/webupd8team/brackets/ubuntu xenial main
-/etc/apt/sources.list.d/webupd8team-ubuntu-sublime-text-3-xenial.list:deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu xenial main
-/etc/apt/sources.list.d/webupd8team-ubuntu-sublime-text-3-xenial.list.save:deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu xenial main
