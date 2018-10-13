@@ -8,33 +8,35 @@ call vundle#begin()
 
 " Plugins list
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
-" Plugin 'Shougo/deoplete.nvim'		" Asynchronous completion engine
-Plugin 'prabirshrestha/asyncomplete.vim'
 
-Plugin 'ervandew/supertab'                " Easy tab completion
-Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
-Plugin 'godlygeek/tabular'                " Aligns things
-Plugin 'ap/vim-css-color'                 " Preview colours in the file
+" Plugin 'Shougo/deoplete.nvim'            " Asynchronous completion engine
+" Plugin 'prabirshrestha/asyncomplete.vim'
+
 Plugin 'sheerun/vim-polyglot'             " 100+ languages syntax
 Plugin 'mattn/emmet-vim'                  " Emmet for vim (<C-y>,)
 Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
+Plugin 'sheerun/vim-wombat-scheme'
+
+Plugin 'itchyny/lightline.vim'                                " Light status line
+Plugin 'mgee/lightline-bufferline'
 
 " Syntax
-Plugin 'scrooloose/syntastic'             " Syntax checker
+Plugin 'w0rp/ale'				" Asynchronous linting engine
+" Plugin 'scrooloose/syntastic'             " Syntax checker
 Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
-" Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
 
 " Tags, style
+Plugin 'ervandew/supertab'                " Easy tab completion
 Plugin 'majutsushi/tagbar'                " Lists the file's tags
+Plugin 'ap/vim-css-color'
 
 " Functionality
 Plugin 'Yggdroot/LeaderF'				  " Fuzzy finder
-Plugin 'vim-airline/vim-airline'          " Nice looking airline
-Plugin 'scrooloose/nerdtree'              " Classic nerdtree
 Plugin 'vimwiki/vimwiki'                  " Note-taking in vim
 Plugin 'tpope/vim-fugitive'               " git integration in vim
 Plugin 'airblade/vim-gitgutter'           " git diff in the gutter
+Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
+Plugin 'godlygeek/tabular'                " Aligns things
 
 " Additions
 Plugin 'tommcdo/vim-exchange'             " Exchange two pieces of text
@@ -44,14 +46,20 @@ Plugin 'tpope/vim-commentary'             " Auto-comment with gc
 Plugin 'tpope/vim-repeat'                 " Add . command support for plugins
 Plugin 'raimondi/delimitmate'             " Auto-pairs parenses and other things
 Plugin 'christoomey/vim-tmux-navigator'   " Navigating from vim and tmux panes
-Plugin 'benmills/vimux'					  " Run commands in tmux easily
+" Plugin 'benmills/vimux'					  " Run commands in tmux easily
 Plugin 'epeli/slimux'					  " tmux helper for REPL and shell
 
 " Looks
 Plugin 'morhetz/gruvbox'                  " A theme inspired by solarized
 Plugin 'romainl/Apprentice'				  " Nice theme, yés good
-Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
-Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
+Plugin 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
+
+" Plugin 'vim-airline/vim-airline'          " Nice looking airline
+" Plugin 'scrooloose/nerdtree'              " Classic nerdtree
+" Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
+
+" Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
+" Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
 
 " Plugin 'Xuyuanp/nerdtree-git-plugin'      " git interaction in nerdtree
 " Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
@@ -64,15 +72,21 @@ call vundle#end()
 "}}}
 
 " Defaults for plugins"{{{
-let g:deoplete#enable_at_startup = 1
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+let g:lightline.tabline          = {'left': [['buffers']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
-let NERDTreeMapActivateNode='<space>'
-let NERDTreeShowHidden = 1
-let NERDTreeShowBookmarks = 1
-let NERDTreeNaturalSort = 1
-let NERDTreeMinimalUI=1
-let g:jedi#goto_command=''
-let g:jedi#documentation_command='<Leader>d'
+" let NERDTreeMapActivateNode='<space>'
+" let NERDTreeShowHidden = 1
+" let NERDTreeShowBookmarks = 1
+" let NERDTreeNaturalSort = 1
+" let NERDTreeMinimalUI=1
+" let g:jedi#goto_command=''
+" let g:jedi#documentation_command='<Leader>d'
 let wiki = {}
 let wiki.path = '~/Notebooks/vimwiki/'
 let wiki.syntax = 'markdown'
@@ -93,8 +107,8 @@ let g:vimwiki_conceallevel=0
 " Defaults for SuperTab
 " let g:SuperTabDefaultCompletionType = \"context\"
 " let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>\"
-" let g:delimitMate_expand_cr=1
-" let g:delimitMate_expand_space=1
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
 
 " Defaults for syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -105,11 +119,19 @@ let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wconversion -Wextra -pedantic'
 let g:syntastic_cpp_check_header = 1
+" ALE
+let g:ale_completion_enabled = 1
+let g:ale_open_list = 1
+" let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\	'cpp': ['gcc'],
+\   'javascript': ['eslint'],
+\}
 
 " Vimux
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "30"
-let g:VimuxPromptString = "Command: "
+" let g:VimuxOrientation = "h"
+" let g:VimuxHeight = "30"
+" let g:VimuxPromptString = "Command: "
 
 " This is for C/C++ smart autocompletion
 let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
@@ -128,20 +150,20 @@ autocmd FileType html,php,css EmmetInstall
 let g:user_emmet_leader_key = "<C-f>"
 
 " Airline status
-set laststatus=2									" Always show status line
+" set laststatus=2									" Always show status line
 set showtabline=2									" Always show tab bar
-let g:airline_left_sep=""							" Default: >
-let g:airline_right_sep=""							" Default: <
-let g:airline_right_alt_sep=""
-let g:airline_left_alt_sep=""
-let g:airline_skip_empty_sections=1
-let g:airline#extensions#whitespace#checks = []				" Don't show warning for other than trailing whitespaces
-let g:airline#extensions#tabline#enabled=1                  " Show tabline for buffers
-let g:airline#extensions#tabline#formatter = 'unique_tail'	" Show only filename in buffer line
-let g:airline#extensions#syntastic#enabled=1				" Enable Syntastic support
-let g:airline#extensions#branch#enabled=1                   " Enable Git support
-let g:airline_powerline_fonts=1                             " Use powerline font fully
-let g:Powerline_symbols = 'fancy'
+" let g:airline_left_sep=""							" Default: >
+" let g:airline_right_sep=""							" Default: <
+" let g:airline_right_alt_sep=""
+" let g:airline_left_alt_sep=""
+" let g:airline_skip_empty_sections=1
+" let g:airline#extensions#whitespace#checks = []				" Don't show warning for other than trailing whitespaces
+" let g:airline#extensions#tabline#enabled=1                  " Show tabline for buffers
+" let g:airline#extensions#tabline#formatter = 'unique_tail'	" Show only filename in buffer line
+" let g:airline#extensions#syntastic#enabled=1				" Enable Syntastic support
+" let g:airline#extensions#branch#enabled=1                   " Enable Git support
+" let g:airline_powerline_fonts=1                             " Use powerline font fully
+" let g:Powerline_symbols = 'fancy'
 " let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
 
 " Colorschemes config
@@ -165,7 +187,7 @@ set background=dark
 
 "apprentice, gruvbox, solarized
 colorscheme gruvbox
-let g:airline_theme = 'gruvbox'
+" let g:airline_theme = 'gruvbox'
 "}}}
 
 " Custom bindings{{{
@@ -251,7 +273,7 @@ nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>tt :TagbarToggle<CR>
 
 " Toggles for insert mode
-call togglebg#map("<F3>")
+" call togglebg#map("<F3>")
 nnoremap <F4> :GitGutterToggle<CR>
 inoremap <F4> <Esc> :GitGutterToggle<CR>gi
 nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
@@ -297,7 +319,7 @@ imap <Leader>h2 ##<Space>
 nmap <Leader>h3 I###<Space><Esc>
 imap <Leader>h3 ###<Space>
 " Italics, bold, highlight and links
-nmap <Leader>mi ysiw*
+nmap <Leader>mi ysiw_
 nmap <Leader>mb ysiw*lysiw*
 nmap <Leader>mh ysiw`
 nmap <Leader>ml a[<++>](<++>)<Esc>0
@@ -443,33 +465,35 @@ endif
 "}}}
 
 " Set options{{{
-let g:tex_flavor='latex'
-
-set showcmd            " Show (partial) command in status line.
-set showmatch          " Show matching brackets.
+set backspace=2
+set notimeout          " Don't timeout after Leader for example
+set ttimeout           " Don't do the previous thing for Escape
 set encoding=utf-8     " The encoding displayed.
 set fileencoding=utf-8 " The encoding written to file.
-set backspace=2
+set omnifunc=syntaxcomplete#Complete
+set complete+=t 					 " Also complete with tags
+set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
+set dictionary=/usr/share/dict/words
+
+let g:tex_flavor='latex'
+
+set completeopt=menu,menuone         " Always show the menu
+set hidden             " Hide buffers when they are abandoned
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
 set ignorecase         " Do case insensitive matching
 set smartcase          " Do smart case matching (requires ignorecase)
 set incsearch          " Incremental search
 set autowrite          " Automatically save before :next and :make...
-set hidden             " Hide buffers when they are abandoned
 set mouse=a            " Enable mouse usage (all modes)
 set wrapscan           " Searches wrap around end of file
 set linebreak          " Break only at word boundaries
-set notimeout          " Don't timeout after Leader for example
-set ttimeout           " Don't do the previous thing for Escape
 
 " Set more options
-set number
+set relativenumber
 set cursorline                       " Highlight line where cursor is
 set shortmess+=I                     " Don't show the welcome screen
 set noshowmode                       " Don't show the current mode (airline)
-set omnifunc=syntaxcomplete#Complete
-set complete+=t 					 " Also complete with tags
-set completeopt=menu,menuone         " Always show the menu
-set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 set autoread                         " Reload files changed outside vim
 set splitright                       " Open new splits on the right
 set splitbelow                       " Open new splits below, if not on the right
@@ -493,7 +517,6 @@ set shiftround 		"Round indent to a multiple of 'shiftwidth'
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set dictionary=/usr/share/dict/words
 " set tags+=~/.vim/tags//
 "}}}
 

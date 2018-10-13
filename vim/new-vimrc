@@ -10,34 +10,42 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Big functionalities
-Plug 'vimwiki/vimwiki'			" Wiki notetaking in vim
-Plug 'Yggdroot/LeaderF'			" Fuzzy finder
-Plug 'itchyny/lightline.vim'	" Light status line
+Plug 'vimwiki/vimwiki'              " Wiki notetaking in vim
+Plug 'Yggdroot/LeaderF'             " Fuzzy finder
+Plug 'itchyny/lightline.vim'        " Light status line
+Plug 'mgee/lightline-bufferline'	" Bufferline for lightline
+Plug 'majutsushi/tagbar'            " Lists the file's tags
+Plug 'ludovicchabant/vim-gutentags' " Manages tags file for us (important for <C-i>)
 
-Plug 'tpope/vim-fugitive'		" git integration in vim
-Plug 'airblade/vim-gitgutter'	" git diff in the gutter
-Plug 'majutsushi/tagbar'                " Lists the file's tags
+" Git
+Plug 'tpope/vim-fugitive'     " git integration in vim
+Plug 'airblade/vim-gitgutter' " git diff in the gutter
 
 " Syntax
-Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}           " C/C++ autocomplete
-" Plug 'w0rp/ale'				" Asynchronous linting engine
-" Plug 'Shougo/deoplete.nvim'		" Asynchronous completion engine
+" Plug 'w0rp/ale'                                       " Asynchronous linting engine
+Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
+
+" Style
+Plug 'editorconfig/editorconfig-vim'                    " Have vim adapt to different projects
+Plug 'godlygeek/tabular'                                " Aligns things
+Plug 'raimondi/delimitmate'                             " Auto-pairs parenses and other things
+Plug 'ap/vim-css-color', {'for': ['html', 'css', 'js']} " Preview colours in the file
 
 " General additions
-Plug 'markonm/traces.vim'		" Shows preview for Ex commands
-Plug 'tpope/vim-surround'		" Add object for surrounding elements
-Plug 'tpope/vim-commentary'		" Auto-comment with gc
-Plug 'tpope/vim-repeat'			" Add . command support for plugins
-Plug 'raimondi/delimitmate'		" Auto-pairs parenses and other things
+Plug 'ervandew/supertab'    " Easy tab completion
+Plug 'markonm/traces.vim'   " Shows preview for Ex commands
+Plug 'tpope/vim-surround'   " Add object for surrounding elements
+Plug 'tpope/vim-commentary' " Auto-comment with gc
+Plug 'tpope/vim-repeat'     " Add . command support for plugins
 
 " Tmux
-Plug 'christoomey/vim-tmux-navigator'		" Navigating from vim and tmux panes
-Plug 'epeli/slimux'						" tmux helper for REPL and shell
+Plug 'christoomey/vim-tmux-navigator' " Navigating from vim and tmux panes
+Plug 'epeli/slimux'                   " tmux helper for REPL and shell
 
 " Looks
-Plug 'morhetz/gruvbox'                  " A theme inspired by solarized
-Plug 'romainl/Apprentice'				  " Nice theme, yés good
-Plug "https://gitlab.com/protesilaos/tempus-themes-vim.git" " A series of good quality themes
+Plug 'morhetz/gruvbox'                                      " A theme inspired by solarized
+Plug 'romainl/Apprentice'                                   " Nice theme, yés good
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
 
 call plug#end()
 " automatic filetype plugin indent on and syntax enable
@@ -66,26 +74,38 @@ let g:vimwiki_conceallevel=0
 " Leaderf
 let g:Lf_ShowHidden=1
 
+" Defaults for Tagbar
+let g:tagbar_map_showproto = "f"		" f to show function's prototype
+let g:tagbar_map_togglefold = "<Space>"
+let g:tagbar_width = 40
+let g:tagbar_sort = 0
+let g:tagbar_autofocus = 1
+
 " delimitMate
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
 " RipClang
-let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+let g:clang_library_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
 let g:clang_user_options = '-std=c++11'
-
-" Colorschemes config
-let g:gruvbox_contrast_light = 'hard'
 "}}}
 
 " Looks{{{
-set background = dark
+set background=dark
 colorscheme tempus_classic
 
-set laststatus = 2
+" Lightline
+set laststatus=2
+set showtabline=2									" Always show tab bar
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+let g:lightline.tabline          = {'left': [['buffers']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+" Colorschemes config
+let g:gruvbox_contrast_light = 'hard'
 "}}}
 
 " Options{{{
@@ -94,11 +114,52 @@ set wildmenu " Display menu showing following files
 
 " HEIG max column count
 autocmd FileType cpp,hpp,c,h,java setlocal colorcolumn=85
+
+" Disable current line highlight when split not in focus
+augroup line_highlight
+    autocmd!
+    autocmd BufLeave * :set nocursorline
+    autocmd BufEnter * :set cursorline
+    autocmd InsertEnter * :set cursorline
+    autocmd InsertLeave * :set nocursorline
+augroup END
+
+" Enable spellcheck for certain files
+autocmd FileType vimwiki,markdown,gitcommit,tex setlocal spell spelllang=en,fr
+
+" Set options
+let g:tex_flavor='latex'
+
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+set noshowmode         " Don't show the current mode (airline)
+set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching (requires ignorecase)
+set incsearch          " Incremental search
+set mouse=a            " Enable mouse usage (all modes)
+set wrapscan           " Searches wrap around end of file
+set linebreak          " Break only at word boundaries
+
+set relativenumber
+set splitright                       " Open new splits on the right
+set splitbelow                       " Open new splits below, if not on the right
+set scrolloff=3                      " Start scrolling three lines before end
+set sidescrolloff=3                  " Start scrolling three columns before end
+set synmaxcol=300                    " Only syntax highlight the first so much columns
+set confirm                          " Dialog when :q, :w or :wq fails
+set undofile                         " Persistent undo across sessions
+
+set completeopt=menu,menuone,noselect,noinsert
+
+" Set dirs for swap and others
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 "}}}
 
 " Custom mappings{{{
 let mapleader = ","
 
+" Basics{{{
 " Quit / save
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :w<CR>
@@ -113,6 +174,21 @@ noremap cP "+P
 
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
+"}}}
+
+" Slimux{{{
+nnoremap <Leader>< :SlimuxREPLSendLine<CR>
+vnoremap <Leader>< :SlimuxREPLSendSelection<CR>
+nnoremap <Leader>< :SlimuxREPLConfigure<CR>
+nnoremap <Leader>< :SlimuxShellPrompt<CR>
+nnoremap <Leader>< :SlimuxShellLast<CR>
+nnoremap <Leader>< :SlimuxShellConfigure<CR>
+"}}}
+
+" Compiling
+
+" Runnnig
+
 "}}}
 
 " Custom functions{{{

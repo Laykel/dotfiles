@@ -1,0 +1,37 @@
+# To be put in my home folder as '.editorconfig'
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+# Remove whitespaces before newlines
+trim_trailing_whitespace = true
+
+[*.{md,Rmd}]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = false
+
+# INF1 + INF2 requisites
+[*.{cpp,hpp,c,h}]
+indent_style = space
+indent_size = 3
+
+[Makefile]
+indent_style = tab
+
+[*.tex]
+indent_size = 2
+
+[*.{html,json}]
+indent_style = space
+indent_size = 2
+
+# Like default
+# [*.java]
+# indent_style = space
+# indent_size = 4
+
+# [*.py]
+# indent_style = space
+# indent_size = 4

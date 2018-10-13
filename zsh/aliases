@@ -92,3 +92,6 @@ alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"
 # GHC (Haskell)
 alias ghc="/opt/ghc/bin/ghc-8.6.1"
 alias ghci="/opt/ghc/bin/ghci-8.6.1"
+# LISP
+alias ccl="/opt/ccl/ccl"
+alias lisp="/opt/ccl/ccl"
