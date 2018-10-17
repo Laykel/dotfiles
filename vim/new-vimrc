@@ -141,6 +141,7 @@ set wrapscan           " Searches wrap around end of file
 set linebreak          " Break only at word boundaries
 
 set relativenumber
+set number							 " Show number line in middle of relativenumber
 set splitright                       " Open new splits on the right
 set splitbelow                       " Open new splits below, if not on the right
 set scrolloff=3                      " Start scrolling three lines before end

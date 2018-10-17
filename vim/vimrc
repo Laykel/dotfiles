@@ -491,6 +491,7 @@ set linebreak          " Break only at word boundaries
 
 " Set more options
 set relativenumber
+set number
 set cursorline                       " Highlight line where cursor is
 set shortmess+=I                     " Don't show the welcome screen
 set noshowmode                       " Don't show the current mode (airline)
