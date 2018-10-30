@@ -21,8 +21,8 @@ Plugin 'itchyny/lightline.vim'                                " Light status lin
 Plugin 'mgee/lightline-bufferline'
 
 " Syntax
-Plugin 'w0rp/ale'				" Asynchronous linting engine
-" Plugin 'scrooloose/syntastic'             " Syntax checker
+" Plugin 'w0rp/ale'				" Asynchronous linting engine
+Plugin 'scrooloose/syntastic'             " Syntax checker
 Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
 
 " Tags, style
@@ -375,7 +375,6 @@ autocmd FileType vimwiki nmap <silent> <Leader>ce :!zathura ~/Notebooks/HEIG/pdf
 " gcc, g++ compiler{{{
 " ---current file
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
-" ---all files
 autocmd FileType cpp,hpp,h nmap <buffer> <Leader>ca :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
 " gcc compiler
 autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
