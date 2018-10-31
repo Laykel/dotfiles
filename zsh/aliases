@@ -9,29 +9,27 @@ alias findinfile="grep -rnw '/path/to/somewhere/' -e 'pattern'"
 
 alias s="sudo"
 alias v="vim"
-alias g="git"
 alias vw="vim +VimwikiIndex"
 alias vh="vim '+normal 2,ww'"
 
 # Git
+alias g="git"
 alias gs="git status"
 alias gl="git log"
 alias ga="git add"
 alias gc="git commit"
 alias gp="git pull"
+alias gpull="git pull"
 alias gpush="git push"
 
-# Open program with specific parameters
+# Python helpers
 alias py="python3.5"
 alias activ="source env/bin/activate"
 alias deactiv="deactivate"
+
+# Open program with specific parameters
 alias heigvpn="sudo openconnect --authgroup=All_Users --user=luc.wachter --no-cert-check https://remote.heig-vd.ch"
 alias clamhome="sudo clamscan ~ -r -i > clam-report.txt"
-
-alias fanmin="clevo-indicator 40"
-alias fanlow="clevo-indicator 45"
-alias fanmiddle="clevo-indicator 50"
-alias fanhigh="clevo-indicator 55"
 
 alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias meteo="curl wttr.in"
@@ -52,14 +50,12 @@ alias cheig="cd ~/HEIG/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
 alias csnip="cd ~/Dev/dotfiles/vim/snippets"
-alias cstl="cd /usr/include/c++/5"
 
 alias ,q="exit"
 alias help="man"
 
 # Configuration
 alias vconf="vim ~/Dev/dotfiles/vim/vimrc"
-alias uconf="vim ~/Dev/dotfiles/urxvt/urxvt.rc"
 alias zconf="vim ~/Dev/dotfiles/zsh/zshrc"
 alias zaconf="vim ~/Dev/dotfiles/zsh/aliases"
 alias zfconf="vim ~/Dev/dotfiles/zsh/functions"

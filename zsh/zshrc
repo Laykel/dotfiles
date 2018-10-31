@@ -79,7 +79,7 @@ function edit_and_run() {
 		zle accept-line
 	}
 	zle -N ctrl_l
-	bindkey "^q" ctrl_l
+	bindkey "^w" ctrl_l
 
 # Sudo
 	function add_sudo() {
