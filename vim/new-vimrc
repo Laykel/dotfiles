@@ -12,17 +12,19 @@ call plug#begin('~/.vim/plugged')
 " Big functionalities
 Plug 'vimwiki/vimwiki'              " Wiki notetaking in vim
 Plug 'Yggdroot/LeaderF'             " Fuzzy finder
-Plug 'itchyny/lightline.vim'        " Light status line
-Plug 'mgee/lightline-bufferline'	" Bufferline for lightline
 Plug 'majutsushi/tagbar'            " Lists the file's tags
 Plug 'ludovicchabant/vim-gutentags' " Manages tags file for us (important for <C-i>)
+
+" Vim lines
+Plug 'itchyny/lightline.vim'        " Light status line
+Plug 'mgee/lightline-bufferline'    " Bufferline for lightline
 
 " Git
 Plug 'tpope/vim-fugitive'     " git integration in vim
 Plug 'airblade/vim-gitgutter' " git diff in the gutter
 
 " Syntax
-" Plug 'w0rp/ale'                                       " Asynchronous linting engine
+Plug 'scrooloose/syntastic'                             " Syntax checker (synchronous, but awesome)
 Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
 
 " Style
@@ -43,9 +45,9 @@ Plug 'christoomey/vim-tmux-navigator' " Navigating from vim and tmux panes
 Plug 'epeli/slimux'                   " tmux helper for REPL and shell
 
 " Looks
-Plug 'morhetz/gruvbox'                                      " A theme inspired by solarized
-Plug 'romainl/Apprentice'                                   " Nice theme, yés good
-Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
+Plug 'morhetz/gruvbox'           " A theme inspired by solarized
+Plug 'romainl/Apprentice'        " Nice theme, yés good
+Plug 'sheerun/vim-wombat-scheme' " Simple dark theme
 
 call plug#end()
 " automatic filetype plugin indent on and syntax enable
@@ -69,6 +71,17 @@ let g:vimwiki_list = [wiki, heig]
 " vimwiki parameters
 let g:vimwiki_folding='expr'
 let g:vimwiki_conceallevel=0
+"}}}
+
+" Syntastic{{{
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" cpp
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wconversion -Wextra -pedantic'
+let g:syntastic_cpp_check_header = 1
 "}}}
 
 " Leaderf
@@ -95,8 +108,8 @@ set background=dark
 colorscheme apprentice
 
 " Lightline
-set laststatus=2
-set showtabline=2									" Always show tab bar
+set laststatus=2        " Always show status bar
+set showtabline=2	" Always show tab bar
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
@@ -129,6 +142,7 @@ autocmd FileType vimwiki,markdown,gitcommit,tex setlocal spell spelllang=en,fr
 
 " Set options
 let g:tex_flavor='latex'
+set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 
 set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
@@ -139,9 +153,11 @@ set incsearch          " Incremental search
 set mouse=a            " Enable mouse usage (all modes)
 set wrapscan           " Searches wrap around end of file
 set linebreak          " Break only at word boundaries
+set notimeout          " Don't timeout after Leader for example
+set ttimeout           " Don't do the previous thing for Escape
 
 set relativenumber
-set number							 " Show number line in middle of relativenumber
+set number		             " Show number line in middle of relativenumber
 set splitright                       " Open new splits on the right
 set splitbelow                       " Open new splits below, if not on the right
 set scrolloff=3                      " Start scrolling three lines before end
@@ -158,23 +174,79 @@ set undodir=~/.vim/undo//
 "}}}
 
 " Custom mappings{{{
-let mapleader = ","
+let mapleader = ','
 
 " Basics{{{
 " Quit / save
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :w<CR>
+nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>wa :wa<CR>
+
+" Movement
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Down> gj
+nnoremap <silent> <Home> g<Home>
+nnoremap <silent> <End> g<End>
+inoremap <silent> <Home> <C-o>g<Home>
+inoremap <silent> <End> <C-o>g<End>
+nnoremap J }
+nnoremap K {
 
 " Easier redo
 nnoremap U <C-r>
 
 " Copy and paste to and from system clipboard
-noremap cy "+y
-noremap cp "+p
-noremap cP "+P
+nnoremap cy "+y
+nnoremap cyy "+yy
+nnoremap cp "+p
+nnoremap cP "+P
+"}}}
+
+" Buffers{{{
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
+
+" Close buffer
+nnoremap <Leader>x :bp\|bd #<CR>
+
+" Open current buffer to the right, and change this split's
+" buffer to the previous
+nnoremap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
+nnoremap <silent> <Leader>h :sp<CR><C-h>:bp<CR><C-l>
+
+" Resize panes
+nnoremap <silent> <C-w>l :vertical resize +10<CR>
+nnoremap <silent> <C-w>h :vertical resize -10<CR>
+nnoremap <silent> <C-w>k :resize +10<CR>
+nnoremap <silent> <C-w>j :resize -10<CR>
+"}}}
+
+" Misc{{{
+" Remap backtick to follow mark
+nnoremap ' `
+
+" Remap spell bindings
+nnoremap z0 z=
+
+" Write when the file wasn't opened with sudo privileges
+cmap w!! w !sudo tee % > /dev/null
 
 " F1 to open custom bindings help
 nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
+
+" Toggles for features
+nnoremap <silent> <Leader>tt :TagbarToggle<CR>
+nnoremap <F4> :GitGutterToggle<CR>
+inoremap <F4> <Esc> :GitGutterToggle<CR>gi
+nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
+nnoremap <F7> :TagbarToggle<CR>
+inoremap <F7> <Esc>:TagbarToggle<CR>gi
+nnoremap <F8> :SyntasticToggleMode<CR>
+inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
 "}}}
 
 " Slimux{{{

@@ -28,7 +28,7 @@ alias activ="source env/bin/activate"
 alias deactiv="deactivate"
 
 # Open program with specific parameters
-alias heigvpn="sudo openconnect --authgroup=All_Users --user=luc.wachter --no-cert-check https://remote.heig-vd.ch"
+alias heigvpn="sudo openconnect --servercert sha256:37fb600e2df69cd181801741a4992232a924550378f86660ead5e76a30ac76e9 --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"
 alias clamhome="sudo clamscan ~ -r -i > clam-report.txt"
 
 alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"

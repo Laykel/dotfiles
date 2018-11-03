@@ -9,13 +9,10 @@ call vundle#begin()
 " Plugins list
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'Shougo/deoplete.nvim'            " Asynchronous completion engine
-" Plugin 'prabirshrestha/asyncomplete.vim'
-
 Plugin 'sheerun/vim-polyglot'             " 100+ languages syntax
 Plugin 'mattn/emmet-vim'                  " Emmet for vim (<C-y>,)
-Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
 Plugin 'sheerun/vim-wombat-scheme'
+Plugin 'tommcdo/vim-exchange'             " Exchange two pieces of text
 
 Plugin 'itchyny/lightline.vim'                                " Light status line
 Plugin 'mgee/lightline-bufferline'
@@ -29,6 +26,7 @@ Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
 Plugin 'ervandew/supertab'                " Easy tab completion
 Plugin 'majutsushi/tagbar'                " Lists the file's tags
 Plugin 'ap/vim-css-color'
+Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
 
 " Functionality
 Plugin 'Yggdroot/LeaderF'				  " Fuzzy finder
@@ -39,7 +37,6 @@ Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
 Plugin 'godlygeek/tabular'                " Aligns things
 
 " Additions
-Plugin 'tommcdo/vim-exchange'             " Exchange two pieces of text
 Plugin 'markonm/traces.vim'				  " Shows preview for Ex commands
 Plugin 'tpope/vim-surround'               " Add object for surrounding elements
 Plugin 'tpope/vim-commentary'             " Auto-comment with gc
@@ -54,6 +51,8 @@ Plugin 'morhetz/gruvbox'                  " A theme inspired by solarized
 Plugin 'romainl/Apprentice'				  " Nice theme, yés good
 Plugin 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
 
+" Plugin 'Shougo/deoplete.nvim'            " Asynchronous completion engine
+" Plugin 'prabirshrestha/asyncomplete.vim'
 " Plugin 'vim-airline/vim-airline'          " Nice looking airline
 " Plugin 'scrooloose/nerdtree'              " Classic nerdtree
 " Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
@@ -465,13 +464,10 @@ endif
 
 " Set options{{{
 set backspace=2
-set notimeout          " Don't timeout after Leader for example
-set ttimeout           " Don't do the previous thing for Escape
 set encoding=utf-8     " The encoding displayed.
 set fileencoding=utf-8 " The encoding written to file.
 set omnifunc=syntaxcomplete#Complete
 set complete+=t 					 " Also complete with tags
-set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 set dictionary=/usr/share/dict/words
 
 let g:tex_flavor='latex'
@@ -487,6 +483,7 @@ set autowrite          " Automatically save before :next and :make...
 set mouse=a            " Enable mouse usage (all modes)
 set wrapscan           " Searches wrap around end of file
 set linebreak          " Break only at word boundaries
+set notimeout          " Don't timeout after Leader for example
 
 " Set more options
 set relativenumber
@@ -502,6 +499,7 @@ set sidescrolloff=3                  " Start scrolling three columns before end
 set synmaxcol=300                    " Only syntax highlight the first so much columns
 set confirm                          " Dialog when :q, :w or :wq fails
 set undofile                         " Persistent undo across sessions
+set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 
 " Tabs
 " set smartindent
