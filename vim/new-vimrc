@@ -140,6 +140,9 @@ augroup END
 " Enable spellcheck for certain files
 autocmd FileType vimwiki,markdown,gitcommit,tex setlocal spell spelllang=en,fr
 
+" Jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " Set options
 let g:tex_flavor='latex'
 set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
@@ -183,6 +186,15 @@ nnoremap <Leader>s :w<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>wa :wa<CR>
 
+" Easier redo
+nnoremap U <C-r>
+
+" Remap backtick to follow mark
+noremap ' `
+
+" Remap spell bindings
+nnoremap z0 z=
+
 " Movement
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
@@ -192,11 +204,8 @@ nnoremap <silent> <Home> g<Home>
 nnoremap <silent> <End> g<End>
 inoremap <silent> <Home> <C-o>g<Home>
 inoremap <silent> <End> <C-o>g<End>
-nnoremap J }
-nnoremap K {
-
-" Easier redo
-nnoremap U <C-r>
+noremap J }
+noremap K {
 
 " Copy and paste to and from system clipboard
 nnoremap cy "+y
@@ -214,8 +223,8 @@ nnoremap <Leader>x :bp\|bd #<CR>
 
 " Open current buffer to the right, and change this split's
 " buffer to the previous
-nnoremap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
-nnoremap <silent> <Leader>h :sp<CR><C-h>:bp<CR><C-l>
+nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
+nmap <silent> <Leader>h :sp<CR><C-k>:bp<CR><C-l>
 
 " Resize panes
 nnoremap <silent> <C-w>l :vertical resize +10<CR>
@@ -225,12 +234,6 @@ nnoremap <silent> <C-w>j :resize -10<CR>
 "}}}
 
 " Misc{{{
-" Remap backtick to follow mark
-nnoremap ' `
-
-" Remap spell bindings
-nnoremap z0 z=
-
 " Write when the file wasn't opened with sudo privileges
 cmap w!! w !sudo tee % > /dev/null
 
@@ -241,8 +244,8 @@ nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
 nnoremap <silent> <Leader>tt :TagbarToggle<CR>
 nnoremap <F4> :GitGutterToggle<CR>
 inoremap <F4> <Esc> :GitGutterToggle<CR>gi
-nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
-inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
+nnoremap <F6> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F6> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
 nnoremap <F7> :TagbarToggle<CR>
 inoremap <F7> <Esc>:TagbarToggle<CR>gi
 nnoremap <F8> :SyntasticToggleMode<CR>
@@ -258,10 +261,30 @@ nnoremap <Leader>< :SlimuxShellLast<CR>
 nnoremap <Leader>< :SlimuxShellConfigure<CR>
 "}}}
 
-" Compiling
+" Programming helpers{{{
+" Go to next placeholder
+nnoremap <Leader><Tab> <Esc>/<++><CR>ca<
 
-" Runnnig
+" Insert semicolon at end of line
+inoremap <Leader>; <Esc>A;<Esc>
+nnoremap <Leader>; A;<Esc>
 
+" Insert curly braces at end of line
+inoremap <Leader>à <Esc>A<Space>{}<Esc>i
+nnoremap <Leader>à A<Space>{}<Esc>i
+"}}}
+
+" Compiling{{{
+" R markdown to pdf (in pdf subfolder)
+autocmd FileType rmd nmap <silent> <Leader>c :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla;mv %:r.pdf %:p:h/pdf/%:t:r.pdf<CR><CR>
+" Read HEIGWiki pdf file
+autocmd FileType vimwiki nmap <silent> <Leader>e :!zathura ~/Notebooks/HEIGWiki/pdf/%:t:r.pdf 2&> /dev/null &<CR><CR>
+
+" Create pdf from Latex
+autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex %<CR><CR>
+" Open LaTeX PDF file in zathura
+nmap <silent> <Leader>e :!zathura %:r.pdf&<CR><CR>
+"}}}
 "}}}
 
 " Custom functions{{{

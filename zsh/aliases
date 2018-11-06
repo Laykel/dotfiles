@@ -23,7 +23,7 @@ alias gpull="git pull"
 alias gpush="git push"
 
 # Python helpers
-alias py="python3.5"
+alias py="python3.6"
 alias activ="source env/bin/activate"
 alias deactiv="deactivate"
 

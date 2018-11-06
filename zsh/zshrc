@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/luc/.oh-my-zsh
 
+# History size
+export HISTSIZE=10000
+export SAVEHIST=$HISTSIZE
+
 # Revert's DB-MAIN (BDR)
 export DB_MAIN_BIN=/opt/db-main/bin
 export LD_LIBRARY_PATH=$DB_MAIN_BIN:$DB_MAIN_BIN/../java/jre/lib/amd64/server:$LD_LIBRARY_PATH
@@ -28,11 +32,9 @@ xcape -e 'Control_L=Escape'
 
 # Aliases
 # source /etc/zsh/zshenv
-# Currently handled by /etc/zsh/zshenv
 source $HOME/Dev/dotfiles/zsh/aliases
 
 # Functions
-# Currently handled by /etc/zsh/zshenv
 source $HOME/Dev/dotfiles/zsh/functions
 
 # Executes ls on dir change
