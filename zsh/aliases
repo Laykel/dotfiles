@@ -84,3 +84,6 @@ alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
 alias gppd="g++ -Wall -std=c++11 -O0 -g"
 alias gccd="gcc -Wall -std=c11 -lm -g"
 alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"
+
+# DBMAIN...
+alias dbmain="/opt/db-main/bin/db_main &"

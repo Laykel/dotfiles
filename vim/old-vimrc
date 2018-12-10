@@ -1,0 +1,538 @@
+" Never move this
+runtime! debian.vim
+
+" Vundle plugins"{{{
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim "Set runtime path to include Vundle
+call vundle#begin()
+
+" Plugins list
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'sheerun/vim-polyglot'             " 100+ languages syntax
+Plugin 'mattn/emmet-vim'                  " Emmet for vim (<C-y>,)
+Plugin 'sheerun/vim-wombat-scheme'
+Plugin 'tommcdo/vim-exchange'             " Exchange two pieces of text
+
+Plugin 'itchyny/lightline.vim'                                " Light status line
+Plugin 'mgee/lightline-bufferline'
+
+" Syntax
+" Plugin 'w0rp/ale'				" Asynchronous linting engine
+Plugin 'scrooloose/syntastic'             " Syntax checker
+Plugin 'Rip-Rip/clang_complete'           " C/C++ autocomplete
+
+" Tags, style
+Plugin 'ervandew/supertab'                " Easy tab completion
+Plugin 'majutsushi/tagbar'                " Lists the file's tags
+Plugin 'ap/vim-css-color'
+Plugin 'ludovicchabant/vim-gutentags'     " Manages tags file for us
+
+" Functionality
+Plugin 'Yggdroot/LeaderF'				  " Fuzzy finder
+Plugin 'vimwiki/vimwiki'                  " Note-taking in vim
+Plugin 'tpope/vim-fugitive'               " git integration in vim
+Plugin 'airblade/vim-gitgutter'           " git diff in the gutter
+Plugin 'editorconfig/editorconfig-vim'    " Have vim adapt to different projects
+Plugin 'godlygeek/tabular'                " Aligns things
+
+" Additions
+Plugin 'markonm/traces.vim'				  " Shows preview for Ex commands
+Plugin 'tpope/vim-surround'               " Add object for surrounding elements
+Plugin 'tpope/vim-commentary'             " Auto-comment with gc
+Plugin 'tpope/vim-repeat'                 " Add . command support for plugins
+Plugin 'raimondi/delimitmate'             " Auto-pairs parenses and other things
+Plugin 'christoomey/vim-tmux-navigator'   " Navigating from vim and tmux panes
+" Plugin 'benmills/vimux'					  " Run commands in tmux easily
+Plugin 'epeli/slimux'					  " tmux helper for REPL and shell
+
+" Looks
+Plugin 'morhetz/gruvbox'                  " A theme inspired by solarized
+Plugin 'romainl/Apprentice'				  " Nice theme, yés good
+Plugin 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " A series of good quality themes
+
+" Plugin 'Shougo/deoplete.nvim'            " Asynchronous completion engine
+" Plugin 'prabirshrestha/asyncomplete.vim'
+" Plugin 'vim-airline/vim-airline'          " Nice looking airline
+" Plugin 'scrooloose/nerdtree'              " Classic nerdtree
+" Plugin 'davidhalter/jedi-vim'			  " Python autocomplete
+
+" Plugin 'altercation/vim-colors-solarized' " Solarized (dark and light)
+" Plugin 'vim-airline/vim-airline-themes'   " Themes for airline
+
+" Plugin 'Xuyuanp/nerdtree-git-plugin'      " git interaction in nerdtree
+" Plugin 'ryanoasis/vim-devicons'           " Adds icons to NERDTree, Airline etc
+" Plugin 'edkolev/tmuxline.vim'			    " Generates tmux statusline styles
+" Plugin 'bluz71/vim-moonfly-colors'		" Moonfly theme
+" Plugin 'jacoborus/tender.vim'             " A nice theme with airline theme
+
+" All plugins before this
+call vundle#end()
+"}}}
+
+" Defaults for plugins"{{{
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+let g:lightline.tabline          = {'left': [['buffers']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+" let NERDTreeMapActivateNode='<space>'
+" let NERDTreeShowHidden = 1
+" let NERDTreeShowBookmarks = 1
+" let NERDTreeNaturalSort = 1
+" let NERDTreeMinimalUI=1
+" let g:jedi#goto_command=''
+" let g:jedi#documentation_command='<Leader>d'
+let wiki = {}
+let wiki.path = '~/Notebooks/vimwiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.Rmd'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'java': 'java', 'sh': 'sh', 'r': 'r', 'c': 'c', 'tex': 'tex'}
+" heig wiki parameters
+let heig = {}
+let heig.path = '~/Notebooks/HEIG/'
+let heig.syntax = 'markdown'
+let heig.ext = '.Rmd'
+" vimwiki wikis
+let g:vimwiki_list = [wiki, heig]
+" let g:vimwiki_list = [{'path': '~/Notebooks/vimwiki/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
+" let g:vimwiki_list += [{'path': '~/Notebooks/HEIG/', 'syntax': 'markdown', 'ext': '.Rmd', 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'sh': 'sh', 'R': 'R', 'c': 'c', 'tex': 'tex'}}]
+let g:vimwiki_folding='expr'
+let g:vimwiki_conceallevel=0
+
+" Defaults for SuperTab
+" let g:SuperTabDefaultCompletionType = \"context\"
+" let g:SuperTabContextDefaultCompletionType = \"<c-x><c-o>\"
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
+
+" Defaults for syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wconversion -Wextra -pedantic'
+let g:syntastic_cpp_check_header = 1
+" ALE
+let g:ale_completion_enabled = 1
+let g:ale_open_list = 1
+" let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\	'cpp': ['gcc'],
+\   'javascript': ['eslint'],
+\}
+
+" Vimux
+" let g:VimuxOrientation = "h"
+" let g:VimuxHeight = "30"
+" let g:VimuxPromptString = "Command: "
+
+" This is for C/C++ smart autocompletion
+let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+let g:clang_user_options = '-std=c++11'
+
+" Defaults for Tagbar
+let g:tagbar_map_showproto = "f"		" f to show function's prototype
+let g:tagbar_map_togglefold = "<Space>"
+let g:tagbar_width = 40
+let g:tagbar_sort = 0
+" let g:tagbar_autofocus = 1
+
+" Emmet defaults
+let g:user_emmet_install_global = 0
+autocmd FileType html,php,css EmmetInstall
+let g:user_emmet_leader_key = "<C-f>"
+
+" Airline status
+" set laststatus=2									" Always show status line
+set showtabline=2									" Always show tab bar
+" let g:airline_left_sep=""							" Default: >
+" let g:airline_right_sep=""							" Default: <
+" let g:airline_right_alt_sep=""
+" let g:airline_left_alt_sep=""
+" let g:airline_skip_empty_sections=1
+" let g:airline#extensions#whitespace#checks = []				" Don't show warning for other than trailing whitespaces
+" let g:airline#extensions#tabline#enabled=1                  " Show tabline for buffers
+" let g:airline#extensions#tabline#formatter = 'unique_tail'	" Show only filename in buffer line
+" let g:airline#extensions#syntastic#enabled=1				" Enable Syntastic support
+" let g:airline#extensions#branch#enabled=1                   " Enable Git support
+" let g:airline_powerline_fonts=1                             " Use powerline font fully
+" let g:Powerline_symbols = 'fancy'
+" let g:airline#extensions#tabline#buffer_nr_show=1 " Show buffer numbers
+
+" Colorschemes config
+let g:gruvbox_contrast_light = 'hard'
+"}}}
+
+" Visual stuff"{{{
+" Enables syntax highlighting by default.
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
+" Colour misspelled words in red
+highlight SpellBad ctermfg=001 ctermbg=none cterm=none
+
+" INF1 max column count
+autocmd FileType cpp,hpp,c,h setlocal colorcolumn=85
+
+" If using a dark background within the editing area
+set background=dark
+
+"apprentice, gruvbox, solarized
+colorscheme gruvbox
+" let g:airline_theme = 'gruvbox'
+"}}}
+
+" Custom bindings{{{
+let mapleader = ',' "Set a Leader for more bindings
+
+" Misc{{{
+" Easier redo
+nnoremap U <C-r>
+
+" Copy and paste to and from system clipboard
+noremap cy "+y
+noremap cp "+p
+noremap cP "+P
+
+" F1 to open custom bindings help
+nnoremap <silent> <F1> :60vsplit $HOME/Dev/dotfiles/vim/bindings.md<CR>
+
+" Write when the file wasn't opened with sudo privileges
+cmap w!! w !sudo tee % > /dev/null
+"}}}
+
+" Basic (Movement, save, spell){{{
+" Movement
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+noremap  <silent> <Up>   gk
+noremap  <silent> <Down> gj
+noremap  <silent> <Home> g<Home>
+noremap  <silent> <End>  g<End>
+inoremap <silent> <Home> <C-o>g<Home>
+inoremap <silent> <End> <C-o>g<End>
+
+" Skip lines: faster navigation
+noremap J }
+noremap K {
+noremap H :bp<CR>
+noremap L :bn<CR>
+
+" Easy shortcuts
+nmap <silent> <Leader>s :w<CR>
+nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>wq :wq<CR>
+nmap <silent> <Leader>wa :wa<CR>
+
+" Remap backtick to follow mark
+noremap ' `
+
+" Remap spell bindings
+nnoremap z0 z=
+"}}}
+
+" Buffers, panes{{{
+" Open current buffer to the right, and change this split's
+" buffer to the previous
+nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
+nmap <silent> <Leader>hh :sp<CR><C-h>:bp<CR><C-l>
+
+" Back one buffer
+nnoremap <Leader>. :bp<CR>
+" Forward one buffer
+nnoremap <Leader>- :bn<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+nnoremap <Leader>x :bp\|bd #<CR>
+
+" Resize panes
+nnoremap <silent> <C-w>l :vertical resize +10<CR>
+nnoremap <silent> <C-w>h :vertical resize -10<CR>
+nnoremap <silent> <C-w>k :resize +10<CR>
+nnoremap <silent> <C-w>j :resize -10<CR>
+"}}}
+
+" Toggles for features{{{
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>tt :TagbarToggle<CR>
+
+" Toggles for insert mode
+" call togglebg#map("<F3>")
+nnoremap <F4> :GitGutterToggle<CR>
+inoremap <F4> <Esc> :GitGutterToggle<CR>gi
+nnoremap <F5> :setlocal spell! spelllang=en,fr<CR>
+inoremap <F5> <Esc>:setlocal spell! spelllang=en,fr<CR>gi
+nnoremap <F6> :NERDTreeToggle<CR>
+inoremap <F6> <Esc>:NERDTreeToggle<CR>gi
+nnoremap <F7> :TagbarToggle<CR>
+inoremap <F7> <Esc>:TagbarToggle<CR>gi
+nnoremap <F8> :SyntasticToggleMode<CR>
+inoremap <F8> <Esc>:SyntasticToggleMode<CR>gi
+nnoremap <F9> :NERDTreeToggle<CR>:TagbarToggle<CR>:!tmux split-window -v -d -p 20<CR><CR>
+"}}}
+
+" Prog helpers{{{
+" Go to next placeholder
+nnoremap <Leader><Tab> <Esc>/<++><CR>ca<
+
+" Insert semicolon at end of line
+inoremap <Leader>; <Esc>A;<Esc>
+nnoremap <Leader>; A;<Esc>
+
+" Insert curly braces at end of line
+inoremap <Leader>à <Esc>A<Space>{}<Esc>i
+nnoremap <Leader>à A<Space>{}<Esc>i
+
+" Insert chevrons at end of line (i.e. for cout)
+inoremap <Leader>< <Esc>A<Space><<<Space>
+nnoremap <Leader>< A<Space><<<Space>
+
+" Mappings for following tags (<C-p> to go back)
+nnoremap <C-i> <C-]>
+" Follow tag in new tab
+nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Remap increment and decrement
+nnoremap <C-y> <C-x>
+nnoremap <C-x> <C-a>
+
+nnoremap <Leader>ms :set syntax=rmd<CR>
+" Markdown headers
+nmap <Leader>h1 I#<Space><Esc>
+imap <Leader>h1 #<Space>
+nmap <Leader>h2 I##<Space><Esc>
+imap <Leader>h2 ##<Space>
+nmap <Leader>h3 I###<Space><Esc>
+imap <Leader>h3 ###<Space>
+" Italics, bold, highlight and links
+nmap <Leader>mi ysiw_
+nmap <Leader>mb ysiw*lysiw*
+nmap <Leader>mh ysiw`
+nmap <Leader>ml a[<++>](<++>)<Esc>0
+" Code chunks
+nmap <Leader>mc I````{}<CR>```<Esc>klla
+imap <Leader>mc ````{}<CR>```<Esc>klla
+" vimwiki create table
+nnoremap <Leader>mt :VimwikiTable<CR>
+nnoremap <Leader>ma :SnipRmdAdvanced<CR>
+nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>theme: flatly<CR>---<CR><Esc>gg
+nnoremap <Leader>mg o\begin{figure}<CR>\centering<CR>\label{}<CR>\includegraphics[width=10cm]{images/}<CR>\end{figure}<Esc>kkf}
+
+" Latex/mathjax helpers
+nmap <Leader>la i\begin{align*}<CR>\end{align*}<Esc>k
+nmap <Leader>lm i\begin{pmatrix}<CR>\end{pmatrix}<Esc>k
+nmap <Leader>ls i\mathbb{}<Esc>i
+nmap <Leader>lf i\frac{
+nmap <Leader>lr i\sqrt{
+nmap <Leader>lc i\cdot
+nmap <Leader>li i\begin{center}<CR>\fbox{\includegraphics[width=9cm]{<++>}}<CR>\end{center}<Esc>kk
+
+" Tabular stuff
+noremap <Leader>tg :Tabularize /
+noremap <Leader>tb :Tabularize /\/\/<CR>
+noremap <Leader>te :Tabularize /=<CR>
+
+" Laravel framework commons
+" nmap <Leader>lr :e routes/web.php<CR>
+" nmap <Leader>la :e config/app.php<CR>
+" nmap <Leader>ld :e config/database.php<CR>
+" nmap <Leader>lc :e composer.json<CR>
+"}}}
+
+" Compile files (prog, pdfs...){{{
+" R markdown to pdf (in pdf subfolder)
+autocmd FileType rmd nmap <silent> <Leader>cc :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla;mv %:r.pdf %:p:h/pdf/%:t:r.pdf<CR><CR>
+
+" Creates html file with mathjax support in html folder
+nmap <silent> <Leader>ph :!pandoc % -s --mathjax --css assets/pandoc.css -o /var/www/VimWikiSite/%:t:r.html<CR><CR>
+" Creates html file with table of content
+nmap <silent> <Leader>pt :!pandoc % -s --mathjax --toc --css pandoc.css -o html/%:r.html<CR><CR>
+
+" Create pdf from Latex
+autocmd FileType tex nmap <buffer> <silent> <Leader>cc :!pdflatex %<CR><CR>
+autocmd FileType tex nmap <buffer> <silent> <Leader>cx :!xelatex %<CR><CR>
+
+" Open LaTeX PDF file in zathura
+nmap <silent> <Leader>lz :!zathura %:r.pdf&<CR><CR>
+" Open RMarkdown PDF file in zathura
+nmap <silent> <Leader>mz :!zathura ~/Notebooks/vimwiki/pdf/%:t:r.pdf&<CR><CR>
+autocmd FileType vimwiki nmap <silent> <Leader>ce :!zathura ~/Notebooks/HEIG/pdf/%:t:r.pdf&<CR><CR>
+
+" gcc, g++ compiler{{{
+" ---current file
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>ca :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
+" gcc compiler
+autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
+autocmd FileType c nmap <buffer> <Leader>ca :!gcc *.c -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
+" Makefile
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
+" ---compile for debugging
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cd :!g++ *.cpp -g -O0 -std=c++11 -o bin/%:r_debug.out<CR><CR>
+autocmd FileType c nmap <buffer> <Leader>cE :!gcc -E % -o extendedsrc.i<CR><CR>:e extendedsrc.i<CR>
+
+" Run current file's binary
+autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/%:r.out C-m<CR><CR>
+" clean binaries
+autocmd FileType cpp,hpp,c,h nmap <buffer> <Leader>cq :!rm bin/*.out<CR><CR>
+" valgrind
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cv :!tmux send-keys -t right "valgrind --leak-check=full --show-leak-kinds=all ./bin/%:r_debug.out" C-m<CR><CR>
+"}}}
+
+" java
+autocmd FileType java nmap <buffer> <Leader>cc :!javac %<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>ce :!tmux send-keys -t right "java %:r" C-m<CR><CR>
+
+" python3
+autocmd FileType python nmap <buffer> <Leader>cc :!tmux send-keys -t right "python3.5 %" C-m<CR><CR>
+"}}}
+
+" Tmux right pane commands{{{
+nnoremap <silent> <Leader>to :VimuxRunCommand("l")<CR>
+nnoremap <silent> <Leader>tp :VimuxPromptCommand<CR>
+nnoremap <silent> <Leader>tl :VimuxRunLastCommand<CR>
+nnoremap <silent> <Leader>tc :VimuxRunCommand("clear")<CR>
+nnoremap <silent> <Leader>tq :VimuxCloseRunner<CR>
+"}}}
+
+"}}}
+
+" Custom functions and commands{{{
+" Used to make some fiddly commands work silently, and redraw the screen afterwards
+command! -nargs=1 Silent
+    \   execute 'silent !' . <q-args>
+    \ | execute 'redraw!'
+
+command! MakeTags !ctags -R .
+
+command SnipRmdAdvanced r ~/Dev/dotfiles/vim/snippets/RmdAdvanced.txt
+command SnipCPPex 0r ~/Dev/dotfiles/vim/snippets/CPPEx.txt
+command SnipCex 0r ~/Dev/dotfiles/vim/snippets/CEx.txt
+command SnipINFlab 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command SnipASDlab 0r ~/Dev/dotfiles/vim/snippets/ASDLab.txt
+command SnipLaTeX 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command SnipLaTeXgraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
+command SnipDoxyFunc r ~/Dev/dotfiles/vim/snippets/DoxyFunc.txt
+
+command Vconf e ~/Dev/dotfiles/vim/vimrc
+command Tconf e ~/.tmux.conf
+"}}}
+
+" Autocmd, misc{{{
+" Disable current line highlight when split not in focus
+augroup line_highlight
+    autocmd!
+    autocmd BufLeave * :set nocursorline
+    autocmd BufEnter * :set cursorline
+    autocmd InsertEnter * :set cursorline
+    autocmd InsertLeave * :set nocursorline
+augroup END
+
+" Enable spellcheck for certain files
+autocmd FileType vimwiki,markdown,gitcommit,tex setlocal spell spelllang=en,fr
+
+" Close vim if NERDTree is the last opened buffer
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set path+=** " Tab-completion for files
+set wildmenu " Display all matching files with tab
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Load indentation rules and plugins according to the detected filetype.
+if has("autocmd")
+    filetype plugin indent on
+endif
+
+"}}}
+
+" Set options{{{
+set backspace=2
+set encoding=utf-8     " The encoding displayed.
+set fileencoding=utf-8 " The encoding written to file.
+set omnifunc=syntaxcomplete#Complete
+set complete+=t 					 " Also complete with tags
+set dictionary=/usr/share/dict/words
+
+let g:tex_flavor='latex'
+
+set completeopt=menu,menuone         " Always show the menu
+set hidden             " Hide buffers instead of unloading them (speeds up syntastic)
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching (requires ignorecase)
+set incsearch          " Incremental search
+set autowrite          " Automatically save before :next and :make...
+set mouse=a            " Enable mouse usage (all modes)
+set wrapscan           " Searches wrap around end of file
+set linebreak          " Break only at word boundaries
+set notimeout          " Don't timeout after Leader for example
+set autoread                         " Reload files changed outside vim
+
+" Set more options
+set relativenumber
+set number
+set cursorline                       " Highlight line where cursor is
+set shortmess+=I                     " Don't show the welcome screen
+set noshowmode                       " Don't show the current mode (airline)
+set splitright                       " Open new splits on the right
+set splitbelow                       " Open new splits below, if not on the right
+set scrolloff=3                      " Start scrolling three lines before end
+set sidescrolloff=3                  " Start scrolling three columns before end
+set synmaxcol=300                    " Only syntax highlight the first so much columns
+set confirm                          " Dialog when :q, :w or :wq fails
+set undofile                         " Persistent undo across sessions
+set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
+
+" Tabs
+" set smartindent
+" set tabstop=4
+set autoindent
+set noexpandtab 	"Tabs ftw
+set smarttab 		"Tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+set softtabstop=4 	"Edit as if the tabs are 4 characters wide
+set shiftwidth=4 	"Number of spaces to use for indent and unindent
+set shiftround 		"Round indent to a multiple of 'shiftwidth'
+
+" Set dirs for swap and others
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+" set tags+=~/.vim/tags//
+"}}}
+
+" Code folding{{{
+set foldmethod=marker " Fold based on markers
+set foldnestmax=5     " 5 levels deep folds
+set foldenable        " Enable folding
+set foldlevel=99	  " Leave folds open by default
+
+autocmd FileType vim set foldlevel=0       " Close all folds by default
+
+" Spacebar to open/close folds in normal mode,
+" and also to create new ones in visual mode
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+"}}}
+
+let g:Lf_ShowHidden=1
+nnoremap <Leader>tr :SlimuxREPLSendLine<CR>
