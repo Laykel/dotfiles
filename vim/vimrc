@@ -127,8 +127,15 @@ let g:clang_user_options = '-std=c++11'
 "}}}
 
 " Looks{{{
+" Colorschemes config
+let g:gruvbox_contrast_light = 'hard'
+let g:gruvbox_italic=1
+
 set background=dark
-colorscheme apprentice
+colorscheme gruvbox
+
+highlight clear SpellBad
+highlight SpellBad ctermfg=red guifg=red
 
 " Lightline
 set laststatus=2        " Always show status bar
@@ -139,9 +146,6 @@ let g:lightline = {
 let g:lightline.tabline          = {'left': [['buffers']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
-
-" Colorschemes config
-let g:gruvbox_contrast_light = 'hard'
 "}}}
 
 " Options{{{
@@ -246,6 +250,10 @@ noremap cy "+y
 nnoremap cyy "+yy
 nnoremap cp "+p
 nnoremap cP "+P
+
+" Remap play macro
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
 "}}}
 
 " Buffers{{{
@@ -361,7 +369,7 @@ command Vconf e ~/Dev/dotfiles/vim/vimrc
 cmap w!! w !sudo tee % > /dev/null
 
 " Insert snippets
-cmap snip r ~/Dev/dotfiles/vim/snippets/
+command SnipCpp r ~/Dev/dotfiles/vim/snippets/ASDLab.txt
 "}}}
 
 " Tab config (when editorconfig not in use) {{{

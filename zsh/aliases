@@ -80,10 +80,13 @@ alias tk="tmux kill-session -t "
 
 # GCC
 alias gpp="g++ -Wall -Wconversion -Wextra -pedantic -std=c++11"
-alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
+alias gppo="g++ -Wall -std=c++11 -O3"
 alias gppd="g++ -Wall -std=c++11 -O0 -g"
+alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
+alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
 alias gccd="gcc -Wall -std=c11 -lm -g"
 alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"
 
 # DBMAIN...
 alias dbmain="/opt/db-main/bin/db_main &"
+alias labo4="g++ -std=c++11 -Wall *.cpp libs/*.c* -o labo4.out"

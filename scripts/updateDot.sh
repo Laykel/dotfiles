@@ -25,7 +25,7 @@ sudo snap refresh
 "$HOME/.tmux/plugins/tpm/bin/update_plugins" all
 
 # Update vim plugins
-vim +VundleUpdate +qa
+vim +PlugUpdate +qa
 
 # Update npm packages
 # npm update -g
