@@ -1,4 +1,7 @@
 # Aliases
+# Processor governor -> performance (/etc/default/cpufrequtils)
+alias perf="/etc/init.d/cpufrequtils restart"
+
 # Very common
 alias l="ls -v --group-directories-first"
 alias ll="ls -lhaFv --color=auto --group-directories-first"
@@ -26,6 +29,8 @@ alias gpush="git push"
 alias py="python3.6"
 alias activ="source env/bin/activate"
 alias deactiv="deactivate"
+# Start a webserver, also accepts a port as optional argument
+alias pyserver='python3 -m http.server'
 
 # Open program with specific parameters
 alias heigvpn="sudo openconnect --servercert sha256:37fb600e2df69cd181801741a4992232a924550378f86660ead5e76a30ac76e9 --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"
@@ -37,9 +42,6 @@ alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "
 
 alias composer="/usr/local/bin/composer.phar"
 alias laravel="~/.config/composer/vendor/bin/laravel"
-
-# Start a webserver, also accepts a port as optional argument
-alias pyserver='python3 -m http.server'
 
 # Moving around
 alias cdev="cd ~/Dev/"
@@ -59,7 +61,6 @@ alias vconf="vim ~/Dev/dotfiles/vim/vimrc"
 alias zconf="vim ~/Dev/dotfiles/zsh/zshrc"
 alias zaconf="vim ~/Dev/dotfiles/zsh/aliases"
 alias zfconf="vim ~/Dev/dotfiles/zsh/functions"
-alias zeconf="sudo vim /etc/zsh/zshenv"
 alias bconf="vim ~/Dev/dotfiles/zsh/bashrc"
 alias tconf="vim ~/Dev/dotfiles/tmux/tmux.conf"
 
@@ -86,7 +87,3 @@ alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
 alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
 alias gccd="gcc -Wall -std=c11 -lm -g"
 alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"
-
-# DBMAIN...
-alias dbmain="/opt/db-main/bin/db_main &"
-alias labo4="g++ -std=c++11 -Wall *.cpp libs/*.c* -o labo4.out"

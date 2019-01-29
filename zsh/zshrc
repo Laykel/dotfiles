@@ -5,10 +5,6 @@ export ZSH=/home/luc/.oh-my-zsh
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 
-# DB-MAIN (BDR)
-export DB_MAIN_BIN=/opt/db-main/bin
-export LD_LIBRARY_PATH=$DB_MAIN_BIN:$DB_MAIN_BIN/../java/jre/lib/amd64/server:$LD_LIBRARY_PATH
-
 # Themes (random, agnoster, bira, bureau, gallois)
 # ZSH_THEME="avit"
 # Parth's prompt (gallois-like)
@@ -16,7 +12,7 @@ source $HOME/Dev/dotfiles/zsh/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git virtualenv laravel5 colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git virtualenv colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions)
 
 # Config
 source $ZSH/oh-my-zsh.sh
