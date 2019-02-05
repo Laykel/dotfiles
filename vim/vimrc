@@ -377,7 +377,11 @@ command Vconf e ~/Dev/dotfiles/vim/vimrc
 cmap w!! w !sudo tee % > /dev/null
 
 " Insert snippets
-command SnipCpp r ~/Dev/dotfiles/vim/snippets/ASDLab.txt
+command SnipCpp r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command SnipPython r ~/Dev/dotfiles/vim/snippets/Python.txt
+command SnipRmdHeaders r ~/Dev/dotfiles/vim/snippets/RmdAdvanced.txt
+command SnipLatexStart r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command SnipLatexGraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
 "}}}
 
 " Tab config (when editorconfig not in use) {{{

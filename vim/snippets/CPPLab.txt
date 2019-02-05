@@ -3,13 +3,13 @@
  Laboratoire : <++>
  Fichier     : <++>
  Auteur(s)   : <++>
- Date        : <++>.2018
+ Date        : <++>.2019
 
  But         : <++>
 
  Remarque(s) : <++>
 
- Compilateur : gcc version 5.4.0 (20160609)
+ Compilateur : gcc version 8.2.0
  -----------------------------------------------------------------------------------
 */
 
