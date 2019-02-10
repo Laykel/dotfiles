@@ -1,6 +1,7 @@
 apache2
 arc-kde
 chromium-browser
+clamav
 clang
 clisp
 cmatrix
@@ -59,6 +60,7 @@ php-xml
 php-zip
 plasma-applet-redshift-control
 python3-pip
+python3-tk
 python-apt
 r-base
 samba

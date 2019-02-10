@@ -7,14 +7,8 @@ indent_size = 4
 # Remove whitespaces before newlines
 trim_trailing_whitespace = true
 
-[*.{md,Rmd}]
-indent_style = space
-indent_size = 4
-trim_trailing_whitespace = false
-
 # INF1 + INF2 requisites
 [*.{cpp,hpp,c,h}]
-indent_style = space
 indent_size = 3
 
 [Makefile]
@@ -24,7 +18,6 @@ indent_style = tab
 indent_size = 2
 
 [*.{html,json}]
-indent_style = space
 indent_size = 2
 
 # Like default
@@ -35,3 +28,8 @@ indent_size = 2
 # [*.py]
 # indent_style = space
 # indent_size = 4
+
+# [*.{md,Rmd}]
+# indent_style = space
+# indent_size = 4
+# trim_trailing_whitespace = true

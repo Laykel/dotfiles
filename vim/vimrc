@@ -316,12 +316,18 @@ nnoremap <Leader>tf :SlimuxShellConfigure<CR>
 nnoremap <Leader><Tab> <Esc>/<++><CR>ca<
 
 " Insert semicolon at end of line
-inoremap <Leader>; <Esc>A;<Esc>
-nnoremap <Leader>; A;<Esc>
+imap <Leader>; <Esc>A;<Esc>
+nmap <Leader>; A;<Esc>
 
 " Insert curly braces at end of line
 inoremap <Leader>à <Esc>A<Space>{}<Esc>i
 nnoremap <Leader>à A<Space>{}<Esc>i
+
+" Python : Insert colon at end of line
+autocmd FileType python imap <Leader>; <Esc>A:<Esc>
+autocmd FileType python nmap <Leader>; A:<Esc>
+autocmd FileType python imap <Leader>" """"""""<Esc>hhi
+autocmd FileType python nmap <Leader>" """"""""<Esc>hhi
 
 " (R) Markdown
 " Italics, bold, highlight and links
@@ -334,7 +340,7 @@ nmap <Leader>mc I````{}<CR>```<Esc>klla
 imap <Leader>mc ````{}<CR>```<Esc>klla
 " vimwiki create table
 nnoremap <Leader>mt :VimwikiTable<CR>
-nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>theme: flatly<CR>---<CR><Esc>gg
+nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>---<CR><Esc>gg
 nnoremap <Leader>mg I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
 "}}}
 
@@ -348,25 +354,26 @@ autocmd FileType vimwiki nmap <silent> <Leader>e :!zathura ~/Notebooks/HEIGWiki/
 autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex %<CR><CR>
 " Open LaTeX PDF file in zathura
 nmap <silent> <Leader>e :!zathura %:r.pdf&<CR><CR>
-"}}}
+
+autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python3.6 %" C-m<CR><CR>
 
 " gcc, g++ compiler{{{
-" ---current file
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ % -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/%:r.out<CR><CR>
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>ca :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/main.out<CR><CR>
-" gcc compiler
+" g++
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cc :!g++ *.cpp -Wall -Wconversion -Wextra -pedantic -std=c++11 -o bin/main.out<CR><CR>
+" -- Makefile
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
+" -- Compile for debugging
+autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cd :!g++ *.cpp -g -O0 -std=c++11 -o bin/%:r_debug.out<CR><CR>
+" gcc
 autocmd FileType c nmap <buffer> <Leader>cc :!gcc % -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
 autocmd FileType c nmap <buffer> <Leader>ca :!gcc *.c -Wall -Wconversion -Wextra -pedantic -std=c11 -lm -o bin/%:r.out<CR><CR>
-" Makefile
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cm :!make<CR>
-" ---compile for debugging
-autocmd FileType cpp,hpp,h nmap <buffer> <Leader>cd :!g++ *.cpp -g -O0 -std=c++11 -o bin/%:r_debug.out<CR><CR>
 autocmd FileType c nmap <buffer> <Leader>cE :!gcc -E % -o extendedsrc.i<CR><CR>:e extendedsrc.i<CR>
 
 " Run current file's binary
-autocmd FileType cpp,c nmap <Leader>ce :!tmux send-keys -t right ./bin/main.out C-m<CR><CR>
+autocmd FileType cpp,c nmap <Leader>e :!tmux send-keys -t right ./bin/main.out C-m<CR><CR>
 " clean binaries
 autocmd FileType cpp,hpp,c,h nmap <buffer> <Leader>cq :!rm bin/*.out<CR><CR>
+"}}}
 "}}}
 "}}}
 

@@ -8,7 +8,6 @@
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu cosmic-security main restricted
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu cosmic-security universe
 /etc/apt/sources.list:deb http://security.ubuntu.com/ubuntu cosmic-security multiverse
-/etc/apt/sources.list.d/home:kozec.list:deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.10/ /
 /etc/apt/sources.list.d/home:kozec.list.save:deb http://download.opensuse.org/repositories/home:/kozec/xUbuntu_18.10/ /
 /etc/apt/sources.list.d/papirus-ubuntu-papirus-cosmic.list:deb http://ppa.launchpad.net/papirus/papirus/ubuntu cosmic main
 /etc/apt/sources.list.d/papirus-ubuntu-papirus-cosmic.list.save:deb http://ppa.launchpad.net/papirus/papirus/ubuntu cosmic main
