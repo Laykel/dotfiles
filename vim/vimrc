@@ -355,7 +355,12 @@ autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex %<CR><CR>
 " Open LaTeX PDF file in zathura
 nmap <silent> <Leader>e :!zathura %:r.pdf&<CR><CR>
 
+" Python
 autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python3.6 %" C-m<CR><CR>
+
+" Java
+autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac %" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>e :!tmux send-keys -t right "java %:r" C-m<CR><CR>
 
 " gcc, g++ compiler{{{
 " g++
