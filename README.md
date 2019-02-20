@@ -28,6 +28,7 @@ My system/tools' configuration.
 ## gdb
 - _GNU debugger_
 - Contains a powerful script to make gdb more verbose and prettier.
+- Adapted from `cyrus-and`'s [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard).
 
 ## tldr
 - _Simple reminders for not so simple commands_
