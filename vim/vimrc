@@ -125,6 +125,9 @@ let g:tagbar_autofocus = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
+" GitGutter
+let g:gitgutter_map_keys = 0
+
 " RipClang
 let g:clang_library_path = '/usr/lib/llvm-7/lib/libclang.so.1'
 let g:clang_user_options = '-std=c++11'
@@ -324,24 +327,27 @@ inoremap <Leader>à <Esc>A<Space>{}<Esc>i
 nnoremap <Leader>à A<Space>{}<Esc>i
 
 " Python : Insert colon at end of line
-autocmd FileType python imap <Leader>; <Esc>A:<Esc>
-autocmd FileType python nmap <Leader>; A:<Esc>
+autocmd FileType python imap <Leader>; <Esc>A:
+autocmd FileType python nmap <Leader>; A:
 autocmd FileType python imap <Leader>" """"""""<Esc>hhi
-autocmd FileType python nmap <Leader>" """"""""<Esc>hhi
+autocmd FileType python nmap <Leader>" i""""""""<Esc>hhi
 
 " (R) Markdown
 " Italics, bold, highlight and links
-nmap <Leader>mi ysiw_
-nmap <Leader>mb ysiw*lysiw*
-nmap <Leader>mh ysiw`
-nmap <Leader>ml a[<++>](<++>)<Esc>0
+autocmd FileType vimwiki nmap <Leader>i ysiw_
+autocmd FileType vimwiki nmap <Leader>b ysiw*lysiw*
+autocmd FileType vimwiki nmap <Leader>f ysiw`
+autocmd FileType vimwiki nmap <Leader>l a[<++>](<++>)<Esc>0
+autocmd FileType vimwiki imap <Leader>l [<++>](<++>)<Esc>B
 " Code chunks
-nmap <Leader>mc I````{}<CR>```<Esc>klla
-imap <Leader>mc ````{}<CR>```<Esc>klla
+autocmd FileType vimwiki nmap <Leader>c I````{}<CR>```<Esc>klla
+autocmd FileType vimwiki imap <Leader>c ````{}<CR>```<Esc>klla
 " vimwiki create table
-nnoremap <Leader>mt :VimwikiTable<CR>
-nnoremap <Leader>mm ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>---<CR><Esc>gg
-nnoremap <Leader>mg I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
+autocmd FileType vimwiki nnoremap <Leader>t :VimwikiTable<CR>
+" Rmarkdown prelude
+autocmd FileType vimwiki nnoremap <Leader>m ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>---<CR><Esc>gg
+" Add an image with R
+autocmd FileType vimwiki nnoremap <Leader>g I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
 "}}}
 
 " Compiling{{{
@@ -361,6 +367,7 @@ autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "pytho
 " Java
 autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac %" C-m<CR><CR>
 autocmd FileType java nmap <buffer> <Leader>e :!tmux send-keys -t right "java %:r" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>m :!tmux send-keys -t right "mvn clean test" C-m<CR><CR>
 
 " gcc, g++ compiler{{{
 " g++

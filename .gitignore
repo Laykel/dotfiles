@@ -1,3 +1,7 @@
+allPackages.txt
+installedPackages.txt
+ppasList.txt
+
 *.log
 *.lock
 *.tmp

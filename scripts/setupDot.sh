@@ -25,7 +25,6 @@ ln -s "$HOME/Dev/dotfiles/zathurarc" "$HOME/.config/zathura/zathurarc"
 mkdir -p "$HOME"/.vim/{backup,swap,undo}
 
 # Install Vundle, TPM and oh-my-zsh
-git clone "https://github.com/VundleVim/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
 git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
 sh -c "$(curl -fksSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -37,4 +36,3 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my
 
 # Install vim and tmux plugins
 "$HOME/.tmux/plugins/tpm/bin/install_plugins"
-vim +VundleInstall +qa
