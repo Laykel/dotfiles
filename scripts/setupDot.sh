@@ -19,12 +19,11 @@ printf "source %s/Dev/dotfiles/zsh/bashrc" "$HOME" > ~/.bashrc
 ln -s "$HOME/Dev/dotfiles/tldrrc" "$HOME/.tldrrc"
 ln -s "$HOME/Dev/dotfiles/zathurarc" "$HOME/.config/zathura/zathurarc"
 # ln -s "$HOME/Dev/dotfiles/syncthing/config.xml" "$HOME/.config/syncthing/config.xml"
-# ln ranger
 
 # Create vim folders
 mkdir -p "$HOME"/.vim/{backup,swap,undo}
 
-# Install Vundle, TPM and oh-my-zsh
+# Install TPM and oh-my-zsh
 git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
 sh -c "$(curl -fksSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -34,5 +33,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.oh-my-zsh/cus
 # Syntax highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-# Install vim and tmux plugins
+# Install tmux plugins
 "$HOME/.tmux/plugins/tpm/bin/install_plugins"

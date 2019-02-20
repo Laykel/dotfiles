@@ -2,7 +2,7 @@
 My system/tools' configuration.
 
 ## zsh
-- _Shell_
+- _Shell with cool features_
 - `oh-my-zsh` as a "framework".
 - `prompt.sh` is my prompt, modified from [Parth's](https://github.com/Parth/dotfiles).
 - `aliases` is a list of my shell aliases.
@@ -10,7 +10,7 @@ My system/tools' configuration.
 - `bashrc` for when I have to use bash.
 
 ## vim
-- _Modal text editor / Swiss knife_
+- _Modal text editor / Swiss army knife_
 - `vim-plug` for plugin management.
 - `np-vimrc` is a version without plugins.
 - `editorconfig` describes tab types and sizes for different filetypes.
@@ -26,10 +26,11 @@ My system/tools' configuration.
 - _PDF reader with vim bindings_
 
 ## gdb
+- _GNU debugger_
 - Contains a powerful script to make gdb more verbose and prettier.
 
 ## tldr
-- _Simple reminder for not so simple commands_
+- _Simple reminders for not so simple commands_
 
 ## ranger
 - _A file navigator for the terminal_
