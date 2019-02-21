@@ -340,7 +340,6 @@ autocmd FileType vimwiki nmap <Leader>f ysiw`
 autocmd FileType vimwiki nmap <Leader>l a[<++>](<++>)<Esc>0
 autocmd FileType vimwiki imap <Leader>l [<++>](<++>)<Esc>B
 " Code chunks
-autocmd FileType vimwiki nmap <Leader>c I````{}<CR>```<Esc>klla
 autocmd FileType vimwiki imap <Leader>c ````{}<CR>```<Esc>klla
 " vimwiki create table
 autocmd FileType vimwiki nnoremap <Leader>t :VimwikiTable<CR>

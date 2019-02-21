@@ -1,8 +1,9 @@
 # vim
 tags*
 
-# Prerequisites
-*.d
+# java
+*.class
+.idea
 
 # Python
 env/
@@ -23,10 +24,6 @@ __pycache__/
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
@@ -38,6 +35,10 @@ bin/
 *.exe
 *.out
 *.app
+*.jar
+
+# Xcode
+*.xcodeproj/
 
 # Netbeans
 .dep.inc
