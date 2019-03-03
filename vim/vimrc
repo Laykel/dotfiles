@@ -344,7 +344,7 @@ autocmd FileType vimwiki imap <Leader>c ````{}<CR>```<Esc>klla
 " vimwiki create table
 autocmd FileType vimwiki nnoremap <Leader>t :VimwikiTable<CR>
 " Rmarkdown prelude
-autocmd FileType vimwiki nnoremap <Leader>m ggI---<CR>title: <++><CR>output: pdf_document<CR>fontsize: 12pt<CR>geometry: margin=0.7in<CR>---<CR><Esc>gg
+autocmd FileType vimwiki nnoremap <Leader>m ggI---<CR>title: <++><CR>fontsize: 12pt<CR>geometry: margin=0.8in<CR>output: pdf_document<CR>subparagraph: yes<CR>header-includes: <bar><CR>    <Bslash>usepackage{titlesec}<CR><Bslash>titlespacing{<Bslash>section}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsubsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR>---<Esc><<gg
 " Add an image with R
 autocmd FileType vimwiki nnoremap <Leader>g I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
 "}}}
