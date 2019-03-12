@@ -30,7 +30,7 @@ alias gpush="git push"
 
 # Python helpers
 alias py="python3.6"
-alias activ="source env/bin/activate"
+alias activ="source venv/bin/activate"
 alias deactiv="deactivate"
 # Start a webserver, also accepts a port as optional argument
 alias pyserver='python3 -m http.server'
@@ -89,4 +89,5 @@ alias gppd="g++ -Wall -std=c++11 -O0 -g"
 alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
 alias gcc="gcc -Wall -Wconversion -Wextra -pedantic -std=c11"
 alias gccd="gcc -Wall -std=c11 -lm -g"
+alias gccreverse="gcc -O0 -m32 -fno-stack-protector -fno-pic -no-pie"
 alias valgrind="valgrind --leak-check=full --show-leak-kinds=all"
