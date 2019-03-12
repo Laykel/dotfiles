@@ -114,7 +114,7 @@ let g:Lf_ShowHidden=1
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
-" Defaults for Tagbar
+" Tagbar
 let g:tagbar_map_showproto = "f"		" f to show function's prototype
 let g:tagbar_map_togglefold = "<Space>"
 let g:tagbar_width = 40
@@ -153,6 +153,13 @@ set laststatus=2        " Always show status bar
 set showtabline=2	" Always show tab bar
 let g:lightline = {
       \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 let g:lightline.tabline          = {'left': [['buffers']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
@@ -277,7 +284,7 @@ nnoremap <Leader>x :bp\|bd #<CR>
 " Open current buffer to the right, and change this split's
 " buffer to the previous
 nmap <silent> <Leader>v :vs<CR><C-h>:bp<CR><C-l>
-nmap <silent> <Leader>h :sp<CR><C-k>:bp<CR><C-l>
+nmap <silent> <Leader>h :sp<CR><C-k>:bp<CR><C-j>
 
 " Resize panes
 nnoremap <silent> <C-w>l :vertical resize +10<CR>
@@ -334,19 +341,20 @@ autocmd FileType python nmap <Leader>" i""""""""<Esc>hhi
 
 " (R) Markdown
 " Italics, bold, highlight and links
-autocmd FileType vimwiki nmap <Leader>i ysiw_
-autocmd FileType vimwiki nmap <Leader>b ysiw*lysiw*
-autocmd FileType vimwiki nmap <Leader>f ysiw`
-autocmd FileType vimwiki nmap <Leader>l a[<++>](<++>)<Esc>0
-autocmd FileType vimwiki imap <Leader>l [<++>](<++>)<Esc>B
+autocmd FileType vimwiki nmap <Leader>mi ysiw_
+autocmd FileType vimwiki nmap <Leader>mb ysiw*lysiw*
+autocmd FileType vimwiki nmap <Leader>mh ysiw`
+autocmd FileType vimwiki nmap <Leader>ml a[<++>](<++>)<Esc>0
+autocmd FileType vimwiki imap <Leader>ml [<++>](<++>)<Esc>B
 " Code chunks
-autocmd FileType vimwiki imap <Leader>c ````{}<CR>```<Esc>klla
+autocmd FileType vimwiki nmap <Leader>mc i````{}<CR>```<Esc>klla
+autocmd FileType vimwiki imap <Leader>mc ````{}<CR>```<Esc>klla
 " vimwiki create table
-autocmd FileType vimwiki nnoremap <Leader>t :VimwikiTable<CR>
+autocmd FileType vimwiki nnoremap <Leader>mt :VimwikiTable<CR>
 " Rmarkdown prelude
-autocmd FileType vimwiki nnoremap <Leader>m ggI---<CR>title: <++><CR>fontsize: 12pt<CR>geometry: margin=0.8in<CR>output: pdf_document<CR>subparagraph: yes<CR>header-includes: <bar><CR>    <Bslash>usepackage{titlesec}<CR><Bslash>titlespacing{<Bslash>section}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsubsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR>---<Esc><<gg
+autocmd FileType vimwiki nnoremap <Leader>mm ggI---<CR>title: <++><CR>fontsize: 12pt<CR>geometry: margin=0.8in<CR>output: pdf_document<CR>subparagraph: yes<CR>header-includes: <bar><CR>    <Bslash>usepackage{titlesec}<CR><Bslash>titlespacing{<Bslash>section}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsubsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR>---<Esc><<gg
 " Add an image with R
-autocmd FileType vimwiki nnoremap <Leader>g I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
+autocmd FileType vimwiki nnoremap <Leader>mg I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
 "}}}
 
 " Compiling{{{
@@ -364,8 +372,9 @@ nmap <silent> <Leader>e :!zathura %:r.pdf&<CR><CR>
 autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python3.6 %" C-m<CR><CR>
 
 " Java
-autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac %" C-m<CR><CR>
-autocmd FileType java nmap <buffer> <Leader>e :!tmux send-keys -t right "java %:r" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac % -d target" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>r :!tmux send-keys -t right "rm -R target/*" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>e :!tmux send-keys -t right "java -cp target %:r" C-m<CR><CR>
 autocmd FileType java nmap <buffer> <Leader>m :!tmux send-keys -t right "mvn clean test" C-m<CR><CR>
 
 " gcc, g++ compiler{{{
@@ -395,10 +404,10 @@ command Vconf e ~/Dev/dotfiles/vim/vimrc
 cmap w!! w !sudo tee % > /dev/null
 
 " Insert snippets
-command SnipCpp r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
-command SnipPython r ~/Dev/dotfiles/vim/snippets/Python.txt
+command SnipCpp 0r ~/Dev/dotfiles/vim/snippets/CPPLab.txt
+command SnipPython 0r ~/Dev/dotfiles/vim/snippets/Python.txt
 command SnipRmdHeaders r ~/Dev/dotfiles/vim/snippets/RmdAdvanced.txt
-command SnipLatexStart r ~/Dev/dotfiles/vim/snippets/Latex.txt
+command SnipLatexStart 0r ~/Dev/dotfiles/vim/snippets/Latex.txt
 command SnipLatexGraph r ~/Dev/dotfiles/vim/snippets/LatexGraph.txt
 "}}}
 

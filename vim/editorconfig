@@ -7,7 +7,7 @@ indent_size = 4
 # Remove whitespaces before newlines
 trim_trailing_whitespace = true
 
-# INF1 + INF2 requisites
+# HEIG requisites
 [*.{cpp,hpp,c,h}]
 indent_size = 3
 
