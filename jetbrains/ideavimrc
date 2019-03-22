@@ -1,0 +1,38 @@
+" Options ------
+set ignorecase
+set smartcase
+
+set scrolloff=3
+
+" Integrate with system clipboard
+set clipboard=unnamedplus,unnamed
+
+" Mappings -----
+let mapleader=","
+
+nmap U <C-r>
+nmap J }
+nmap K {
+
+nmap <leader>s :action SaveAll<CR>
+
+nmap <C-h> <c-w>h
+nmap <C-l> <c-w>l
+nmap <C-k> <c-w>k
+nmap <C-j> <c-w>j
+nmap H :action PreviousTab<CR>
+nmap L :action NextTab<CR>
+
+nmap <leader>v :action VimWindowSplitVertical<CR>
+nmap <leader>h :action VimWindowSplitHorizontal<CR>
+nmap <leader>q :action VimWindowClose<CR>
+
+nmap <leader>i :action GotoImplementation<CR>
+nmap <leader>d :action GotoDeclaration<CR>
+nmap <leader>b :action Back<CR>
+nmap <leader>f :action Forward<CR>
+
+nmap <leader>c :action RunAnything<CR>
+
+" Commenting ----
+nmap gcc :action CommentByLineComment<CR>

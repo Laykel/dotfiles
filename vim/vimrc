@@ -47,9 +47,10 @@ Plug 'christoomey/vim-tmux-navigator' " Navigating from vim and tmux panes
 Plug 'epeli/slimux'                   " tmux helper for REPL and shell
 
 " Looks
-Plug 'morhetz/gruvbox'           " A theme inspired by solarized
-Plug 'romainl/Apprentice'        " Nice theme, yés good
-Plug 'sheerun/vim-wombat-scheme' " Simple dark theme
+Plug 'morhetz/gruvbox'                                      " A theme inspired by solarized
+Plug 'romainl/Apprentice'                                   " Nice theme, yés good
+Plug 'sheerun/vim-wombat-scheme'                            " Simple dark theme
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " Collection of beautiful themes
 
 call plug#end()
 " automatic filetype plugin indent on and syntax enable
@@ -82,17 +83,17 @@ function! VimwikiLinkHandler(link)
 "   2) [[vfile:./|Wiki Home]]
 let link = a:link
 if link =~# '^vfile:'
-    let link = link[1:]
+let link = link[1:]
 else
-    return 0
+return 0
 endif
 let link_infos = vimwiki#base#resolve_link(link)
 if link_infos.filename == ''
-    echomsg 'Vimwiki Error: Unable to resolve link!'
-    return 0
+echomsg 'Vimwiki Error: Unable to resolve link!'
+return 0
 else
-    exe 'edit ' . fnameescape(link_infos.filename)
-    return 1
+exe 'edit ' . fnameescape(link_infos.filename)
+return 1
 endif
 endfunction"}}}
 "}}}
@@ -110,6 +111,7 @@ let g:syntastic_cpp_check_header = 1
 
 " Leaderf
 let g:Lf_ShowHidden=1
+let g:Lf_MruFileExclude = ['*.so', '*.class', '*.out']
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -143,7 +145,7 @@ let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_italic=1
 
 set background=dark
-colorscheme gruvbox
+colorscheme apprentice
 
 highlight clear SpellBad
 highlight SpellBad ctermfg=red guifg=red
@@ -152,15 +154,15 @@ highlight SpellBad ctermfg=red guifg=red
 set laststatus=2        " Always show status bar
 set showtabline=2	" Always show tab bar
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'gitbranch': 'fugitive#head'
+\ },
+\ }
 let g:lightline.tabline          = {'left': [['buffers']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
@@ -175,11 +177,11 @@ autocmd FileType cpp,hpp,c,h,java setlocal colorcolumn=85
 
 " Disable current line highlight when split not in focus
 augroup line_highlight
-    autocmd!
-    autocmd BufLeave * :set nocursorline
-    autocmd BufEnter * :set cursorline
-    autocmd InsertEnter * :set cursorline
-    autocmd InsertLeave * :set nocursorline
+autocmd!
+autocmd BufLeave * :set nocursorline
+autocmd BufEnter * :set cursorline
+autocmd InsertEnter * :set cursorline
+autocmd InsertLeave * :set nocursorline
 augroup END
 
 " Enable spellcheck for certain files

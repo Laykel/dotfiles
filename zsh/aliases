@@ -41,6 +41,7 @@ alias clamhome="sudo clamscan ~ -r -i > clam-report.txt"
 
 alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias meteo="curl wttr.in"
+alias wifis="nmcli device wifi list"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|time\ to\ full|percentage"'
 
 alias composer="/usr/local/bin/composer.phar"
@@ -51,7 +52,7 @@ alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
 alias cnotes="cd ~/Notebooks/"
-alias cheig="cd ~/HEIG/"
+alias cheig="cd ~/HEIG/Semestre4/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
 alias csnip="cd ~/Dev/dotfiles/vim/snippets"
