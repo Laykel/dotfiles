@@ -1,9 +1,19 @@
 # vim
 tags*
 
+# Executables
+bin/
+target/
+out/
+*.exe
+*.out
+*.app
+*.jar
+
 # java
 *.class
 .idea
+*.iml
 
 # Python
 env/
@@ -29,13 +39,6 @@ __pycache__/
 *.la
 *.a
 *.lib
-
-# Executables
-bin/
-*.exe
-*.out
-*.app
-*.jar
 
 # Xcode
 *.xcodeproj/

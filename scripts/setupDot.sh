@@ -3,7 +3,7 @@
 # Install stuff
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install vim zsh tmux zathura tldr wget curl httpie ranger
+sudo apt-get install vim zsh tmux zathura tldr wget curl httpie xcape exuberant-ctags
 
 # Syncthing
 # curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -12,7 +12,6 @@ sudo apt-get install vim zsh tmux zathura tldr wget curl httpie ranger
 # sudo apt-get install syncthing
 
 # Move dotfiles to appropriate locations
-printf "source '%s/Dev/dotfiles/zsh/zshrc'" "$HOME" > ~/.zshrc
 printf "so %s/Dev/dotfiles/vim/vimrc" "$HOME" > ~/.vimrc
 printf "source-file %s/Dev/dotfiles/tmux/tmux.conf" "$HOME" > ~/.tmux.conf
 printf "source %s/Dev/dotfiles/zsh/bashrc" "$HOME" > ~/.bashrc
@@ -26,6 +25,9 @@ mkdir -p "$HOME"/.vim/{backup,swap,undo}
 # Install TPM and oh-my-zsh
 git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
 sh -c "$(curl -fksSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Once OMZ is installed, setup zsh
+printf "source '%s/Dev/dotfiles/zsh/zshrc'" "$HOME" > ~/.zshrc
 
 # Install zsh plugins
 # Autosuggestions

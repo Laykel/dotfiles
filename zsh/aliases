@@ -18,15 +18,15 @@ alias vh="vim '+normal 2,ww'"
 # Git
 alias g="git"
 alias gs="git status"
-alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias ga="git add"
 alias gc="git commit"
 alias gcl="git clone"
 alias gch="git checkout"
-alias gb="git branch"
+alias gb="git branch -av"
 alias gp="git pull"
 alias gpull="git pull"
 alias gpush="git push"
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 # Python helpers
 alias py="python3.6"
