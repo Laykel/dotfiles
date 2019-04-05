@@ -24,7 +24,6 @@ nmap H :action PreviousTab<CR>
 nmap L :action NextTab<CR>
 
 nmap <leader>t :action ActivateTerminalToolWindow<CR>
-" imap <C-h> :action Terminal.MoveToEditor<CR>
 
 nmap <leader>v :action VimWindowSplitVertical<CR>
 nmap <leader>h :action VimWindowSplitHorizontal<CR>
