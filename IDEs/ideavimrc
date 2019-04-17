@@ -1,0 +1,46 @@
+" Options ------
+set ignorecase
+set smartcase
+
+set scrolloff=3
+
+" Integrate with system clipboard
+set clipboard=unnamedplus,unnamed
+
+" Mappings -----
+let mapleader=","
+
+nmap U <C-r>
+map J }
+map K {
+
+nmap <leader>s :action SaveAll<CR>
+
+nmap <C-h> <c-w>h
+nmap <C-l> <c-w>l
+nmap <C-k> <c-w>k
+nmap <C-j> <c-w>j
+nmap H :action PreviousTab<CR>
+nmap L :action NextTab<CR>
+
+nmap <leader>t :action ActivateTerminalToolWindow<CR>
+" Also, F11 to switch it on and off
+
+nmap <leader>v :action VimWindowSplitVertical<CR>
+nmap <leader>h :action VimWindowSplitHorizontal<CR>
+nmap <leader>q :action VimWindowClose<CR>
+nmap <leader>x :action CloseContent<CR>
+
+nmap gt :action GotoTest<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap <leader>b :action Back<CR>
+nmap <leader>f :action Forward<CR>
+
+nmap <leader>c :action RunAnything<CR>
+nmap <leader>r :action Rerun<CR>
+nmap <leader>e :action RerunFailedTests<CR>
+
+" Commenting ----
+nmap gcc :action CommentByLineComment<CR>
+vmap gc :action CommentByLineComment<CR><Esc>

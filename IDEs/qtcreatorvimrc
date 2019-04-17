@@ -1,0 +1,168 @@
+" Options{{{
+set path+=** " Tab-completion in command line
+set wildmenu " Display menu showing following files
+
+" HEIG max column count
+autocmd FileType cpp,hpp,c,h,java setlocal colorcolumn=85
+
+" Disable current line highlight when split not in focus
+augroup line_highlight
+autocmd!
+autocmd BufLeave * :set nocursorline
+autocmd BufEnter * :set cursorline
+autocmd InsertEnter * :set cursorline
+autocmd InsertLeave * :set nocursorline
+augroup END
+
+" Enable spellcheck for certain files
+autocmd FileType vimwiki,markdown,gitcommit,tex setlocal spell spelllang=en,fr
+
+" Jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Set options
+let g:tex_flavor='latex'
+set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
+
+set relativenumber
+set number	       " Show number line in middle of relativenumber
+set splitright         " Open new splits on the right
+set splitbelow         " Open new splits below, if not on the right
+set scrolloff=3        " Start scrolling three lines before end
+set sidescrolloff=3    " Start scrolling three columns before end
+set synmaxcol=500      " Only syntax highlight the first so much columns
+set confirm            " Dialog when :q, :w or :wq fails
+set undofile           " Persistent undo across sessions
+set hidden             " Hide buffers instead of unloading them (speeds up syntastic)
+set linebreak          " Break only at word boundaries
+
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+set noshowmode         " Don't show the current mode (airline)
+set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching (requires ignorecase)
+set incsearch          " Incremental search
+set mouse=a            " Enable mouse usage (all modes)
+set wrapscan           " Searches wrap around end of file
+set autoread           " Reload files changed outside vim
+set notimeout          " Don't timeout after Leader for example
+set ttimeout           " Don't do the previous thing for Escape
+
+set completeopt=menu,menuone
+
+" Set dirs for swap and others
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+"}}}
+
+" Custom mappings{{{
+" Basics{{{
+" Quit / save
+nnoremap ,q :q<CR>
+nnoremap ,s :w<CR>
+nnoremap ,wq :wq<CR>
+nnoremap ,wa :wa<CR>
+
+" Easier redo
+nnoremap U <C-r>
+
+" Remap backtick to follow mark
+noremap ' `
+
+" Remap spell bindings
+nnoremap z0 z=
+
+" Remap increment and decrement
+nnoremap <C-y> <C-x>
+nnoremap <C-x> <C-a>
+
+" Mappings for following tags (<C-p> to go back)
+nnoremap <C-i> <C-]>
+" Follow tag in new tab
+nnoremap <C-o> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Movement
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Down> gj
+nnoremap <silent> <Home> g<Home>
+nnoremap <silent> <End> g<End>
+inoremap <silent> <Home> <C-o>g<Home>
+inoremap <silent> <End> <C-o>g<End>
+noremap J }
+noremap K {
+
+" Copy and paste to and from system clipboard
+noremap cy "+y
+nnoremap cyy "+yy
+nnoremap cp "+p
+nnoremap cP "+P
+
+" Remap play macro
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+"}}}
+
+" Buffers{{{
+nnoremap H :bp<CR>
+nnoremap L :bn<CR>
+
+" Close buffer
+nnoremap ,x :bp\|bd #<CR>
+
+" Open current buffer to the right, and change this split's
+" buffer to the previous
+nmap <silent> ,v :vs<CR><C-h>:bp<CR><C-l>
+nmap <silent> ,h :sp<CR><C-k>:bp<CR><C-j>
+
+" Resize panes
+nnoremap <silent> <C-w>l :vertical resize +10<CR>
+nnoremap <silent> <C-w>h :vertical resize -10<CR>
+nnoremap <silent> <C-w>k :resize +10<CR>
+nnoremap <silent> <C-w>j :resize -10<CR>
+"}}}
+
+" Programming helpers{{{
+" Go to next placeholder
+nnoremap ,<Tab> <Esc>/<++><CR>ca<
+
+" Insert semicolon at end of line
+imap ,; <Esc>A;<Esc>
+nmap ,; A;<Esc>
+
+" Insert curly braces at end of line
+inoremap ,à <Esc>A<Space>{}<Esc>i
+nnoremap ,à A<Space>{}<Esc>i
+
+" Python : Insert colon at end of line
+autocmd FileType python imap ,; <Esc>A:
+autocmd FileType python nmap ,; A:
+autocmd FileType python imap ," """"""""<Esc>hhi
+autocmd FileType python nmap ," i""""""""<Esc>hhi
+
+" (R) Markdown
+" Italics, bold, highlight and links
+autocmd FileType vimwiki nmap ,mi ysiw_
+autocmd FileType vimwiki nmap ,mb ysiw*lysiw*
+autocmd FileType vimwiki nmap ,mh ysiw`
+autocmd FileType vimwiki nmap ,ml a[<++>](<++>)<Esc>0
+autocmd FileType vimwiki imap ,ml [<++>](<++>)<Esc>B
+" Code chunks
+autocmd FileType vimwiki nmap ,mc i````{}<CR>```<Esc>klla
+autocmd FileType vimwiki imap ,mc ````{}<CR>```<Esc>klla
+" vimwiki create table
+autocmd FileType vimwiki nnoremap ,mt :VimwikiTable<CR>
+" Rmarkdown prelude
+autocmd FileType vimwiki nnoremap ,mm ggI---<CR>title: <++><CR>fontsize: 12pt<CR>geometry: margin=0.8in<CR>output: pdf_document<CR>subparagraph: yes<CR>header-includes: <bar><CR>    <Bslash>usepackage{titlesec}<CR><Bslash>titlespacing{<Bslash>section}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsubsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR>---<Esc><<gg
+" Add an image with R
+autocmd FileType vimwiki nnoremap ,mg I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
+"}}}
+"}}}
+
+" Tab config (when editorconfig not in use) {{{
+" set tabstop=8 " default
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+"}}}
