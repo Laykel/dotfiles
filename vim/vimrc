@@ -149,6 +149,8 @@ colorscheme apprentice
 
 highlight clear SpellBad
 highlight SpellBad ctermfg=red guifg=red
+" GMPL syntax
+autocmd BufRead,BufNewFile *.mod set syntax=gmpl
 
 " Lightline
 set laststatus=2        " Always show status bar
