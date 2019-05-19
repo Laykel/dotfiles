@@ -26,7 +26,7 @@ alias gb="git branch -av"
 alias gp="git pull"
 alias gpull="git pull"
 alias gpush="git push"
-alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias gl="git log --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 # Python helpers
 alias py="python3.6"
@@ -38,6 +38,9 @@ alias pyserver='python3 -m http.server'
 # Open program with specific parameters
 alias heigvpn="sudo openconnect --servercert sha256:37fb600e2df69cd181801741a4992232a924550378f86660ead5e76a30ac76e9 --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"
 alias clamhome="sudo clamscan ~ -r -i > clam-report.txt"
+
+alias lc="find . -name '*.java' | xargs wc -l"
+alias filedate="git log --format=%aD <FILE> | tail -1"
 
 alias mp3-dl="youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
 alias meteo="curl wttr.in"
