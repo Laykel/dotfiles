@@ -370,7 +370,7 @@ autocmd FileType vimwiki nmap <silent> <Leader>e :!zathura ~/Notebooks/HEIGWiki/
 " Create pdf from Latex
 autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex %<CR><CR>
 " Open LaTeX PDF file in zathura
-nmap <silent> <Leader>e :!zathura %:r.pdf&<CR><CR>
+nmap <silent> <Leader>e :!zathura %:r.pdf 2&> /dev/null &<CR><CR>
 
 " Python
 autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python3.6 %" C-m<CR><CR>
