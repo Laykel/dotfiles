@@ -12,7 +12,7 @@ source $HOME/Dev/dotfiles/zsh/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git virtualenv colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions vi-mode)
+plugins=(git virtualenv colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions vi-mode docker docker-compose)
 
 # Config
 source $ZSH/oh-my-zsh.sh

@@ -147,10 +147,9 @@ let g:gruvbox_italic=1
 set background=dark
 colorscheme apprentice
 
+" Add bad spelling highlighting
 highlight clear SpellBad
 highlight SpellBad ctermfg=red guifg=red
-" GMPL syntax
-autocmd BufRead,BufNewFile *.mod set syntax=gmpl
 
 " Lightline
 set laststatus=2        " Always show status bar
@@ -177,6 +176,9 @@ set wildmenu " Display menu showing following files
 " HEIG max column count
 autocmd FileType cpp,hpp,c,h,java setlocal colorcolumn=85
 
+" GMPL syntax
+autocmd BufRead,BufNewFile *.mod set syntax=gmpl
+
 " Disable current line highlight when split not in focus
 augroup line_highlight
 autocmd!
@@ -196,8 +198,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let g:tex_flavor='latex'
 set timeoutlen=1000 ttimeoutlen=0    " Removes the delay for escape key in tmux
 
-set relativenumber
-set number	       " Show number line in middle of relativenumber
+" set relativenumber
+set number	           " Show number line in middle of relativenumber
 set splitright         " Open new splits on the right
 set splitbelow         " Open new splits below, if not on the right
 set scrolloff=3        " Start scrolling three lines before end
@@ -239,6 +241,9 @@ nnoremap <Leader>wa :wa<CR>
 
 " Easier redo
 nnoremap U <C-r>
+
+" More logic Y
+nnoremap Y y$
 
 " Remap backtick to follow mark
 noremap ' `
