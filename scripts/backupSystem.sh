@@ -1,3 +1,16 @@
+## Simple saving of the system
+
+# Run from the backup device
+sudo tar czf backup.tar.gz --exclude=/dev --exclude=swapfile --exclude=/mnt --exclude=/proc --exclude=/sys --exclude=/tmp --exclude=/lost+found --exclude=/efi --exclude=/media --exclude=/run --exclude=".cache" /
+
+# To restore:
+#   1. Boot from live USB
+#   2. Mount the "bad system" in /mnt
+#   3. Run following command
+sudo tar xf /dev/sda1/backup.tar.gz -C /mnt
+#   4. Probably also reinstall GRUB or systemd-boot
+
+#===============================================================================================================================
 # Save of some commands and a script example for backup purposes
 
 # Save command
