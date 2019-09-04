@@ -378,7 +378,7 @@ autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex %<CR><CR>
 nmap <silent> <Leader>e :!zathura %:r.pdf 2&> /dev/null &<CR><CR>
 
 " Python
-autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python3.6 %" C-m<CR><CR>
+autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python %" C-m<CR><CR>
 
 " Java
 autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac % -d target" C-m<CR><CR>

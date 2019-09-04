@@ -33,7 +33,7 @@ alias gl="git log --graph --decorate --format=format:'%C(bold blue)%h%C(reset) -
 alias activ="source venv/bin/activate"
 alias deactiv="deactivate"
 # Start a webserver, also accepts a port as optional argument
-alias pyserver='python3 -m http.server'
+alias pyserver='python -m http.server'
 
 # Open program with specific parameters
 alias heigvpn="sudo openconnect --servercert sha256:37fb600e2df69cd181801741a4992232a924550378f86660ead5e76a30ac76e9 --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"
