@@ -8,7 +8,7 @@ alias ll="ls -lhaFv --color=auto --group-directories-first"
 alias cl="clear"
 alias cls="clear;l"
 alias du="du -hd 1"
-alias hist="history | tail -n "
+alias hist="history | grep "
 alias findinfile="grep -rnw '/path/to/somewhere/' -e 'pattern'"
 
 alias s="sudo"

@@ -12,7 +12,7 @@ source $HOME/Dev/dotfiles/zsh/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git virtualenv colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions vi-mode docker docker-compose)
+plugins=(git virtualenv colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions vi-mode github docker)
 
 # Config
 source $ZSH/oh-my-zsh.sh
@@ -36,24 +36,10 @@ source $HOME/Dev/dotfiles/zsh/functions
 # Executes ls on dir change
 chpwd() ls -v --group-directories-first
 
+autoload -Uz compinit
+compinit
+
 # Control functions{{{
-# git
-function git_prepare() {
-	if [ -n "$BUFFER" ];
-		then
-			BUFFER="git add -A; git commit -m \"$BUFFER\" && git push"
-	fi
-
-	if [ -z "$BUFFER" ];
-		then
-			BUFFER="git add -A; git commit -v && git push"
-	fi
-
-	zle accept-line
-}
-zle -N git_prepare
-bindkey "^g" git_prepare
-
 # home
 function go_back() {
 	BUFFER="cd .."
@@ -68,22 +54,22 @@ function edit_and_run() {
 	BUFFER="fc"
 	zle accept-line
 }
-	zle -N edit_and_run
-	bindkey "^v" edit_and_run
+zle -N edit_and_run
+bindkey "^v" edit_and_run
 
 # LS
-	function ctrl_l() {
-		BUFFER="cl"
-		zle accept-line
-	}
-	zle -N ctrl_l
-	bindkey "^w" ctrl_l
+function ctrl_l() {
+        BUFFER="cl"
+        zle accept-line
+}
+zle -N ctrl_l
+bindkey "^w" ctrl_l
 
 # Sudo
-	function add_sudo() {
-		BUFFER="sudo !!"
-		zle end-of-line
-	}
-	zle -N add_sudo
-	bindkey "^s" add_sudo
+function add_sudo() {
+        BUFFER="sudo !!"
+        zle end-of-line
+}
+zle -N add_sudo
+bindkey "^s" add_sudo
 # }}}
