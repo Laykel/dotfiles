@@ -1,6 +1,7 @@
 # Aliases
-# Processor governor -> performance (/etc/default/cpufrequtils)
-alias perf="/etc/init.d/cpufrequtils restart"
+alias cpuperf="sudo cpupower frequency-set -g performance"
+alias cpusave="sudo cpupower frequency-set -g powersave"
+alias cpugovernor="cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
 
 # Very common
 alias l="ls -v --group-directories-first"
