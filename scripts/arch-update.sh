@@ -8,6 +8,7 @@ sudo pacman -Qe > installedPackages.txt
 
 # Fully update distro and apt packages
 sudo pacman -Syu
+# yay to also update aur packages
 # Remove unneeded dependencies
 pacman -Qdtq | sudo pacman -Rs -
 
