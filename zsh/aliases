@@ -31,10 +31,16 @@ alias gpush="git push"
 alias gl="git log --graph --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 # Python helpers
+alias py="python"
 alias activ="source venv/bin/activate"
 alias deactiv="deactivate"
 # Start a webserver, also accepts a port as optional argument
 alias pyserver='python -m http.server'
+
+# Docker helpers
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcb='docker-compose build'
 
 # Open program with specific parameters
 alias heigvpn="sudo openconnect --servercert sha256:37fb600e2df69cd181801741a4992232a924550378f86660ead5e76a30ac76e9 --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"

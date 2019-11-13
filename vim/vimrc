@@ -361,7 +361,7 @@ autocmd FileType vimwiki imap <Leader>mc ````{}<CR>```<Esc>klla
 " vimwiki create table
 autocmd FileType vimwiki nnoremap <Leader>mt :VimwikiTable<CR>
 " Rmarkdown prelude
-autocmd FileType vimwiki nnoremap <Leader>mm ggI---<CR>title: <++><CR>fontsize: 12pt<CR>geometry: margin=0.8in<CR>output: pdf_document<CR>subparagraph: yes<CR>header-includes: <bar><CR>    <Bslash>usepackage{titlesec}<CR><Bslash>titlespacing{<Bslash>section}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR><Bslash>titlespacing{<Bslash>subsubsection}{0pt}{2pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}<CR>---<Esc><<gg
+autocmd FileType vimwiki nnoremap <Leader>mm ggI---<CR>title: <++><CR>fontsize: 12pt<CR>geometry: margin=0.8in<CR>output: pdf_document<CR>---<Esc><<gg
 " Add an image with R
 autocmd FileType vimwiki nnoremap <Leader>mg I```{r, echo=FALSE, out.width="350px", fig.align="center"}<CR>knitr::include_graphics("<++>")<CR>```<Esc>kk0
 "}}}
@@ -381,9 +381,9 @@ nmap <silent> <Leader>e :!zathura %:r.pdf 2&> /dev/null &<CR><CR>
 autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python %" C-m<CR><CR>
 
 " Java
-autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac % -d target" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac %" C-m<CR><CR>
 autocmd FileType java nmap <buffer> <Leader>r :!tmux send-keys -t right "rm -R target/*" C-m<CR><CR>
-autocmd FileType java nmap <buffer> <Leader>e :!tmux send-keys -t right "java -cp target %:r" C-m<CR><CR>
+autocmd FileType java nmap <buffer> <Leader>e :!tmux send-keys -t right "java %:r" C-m<CR><CR>
 autocmd FileType java nmap <buffer> <Leader>m :!tmux send-keys -t right "mvn clean test" C-m<CR><CR>
 
 " gcc, g++ compiler{{{

@@ -22,9 +22,15 @@ HYPHEN_INSENSITIVE="true"
 export EDITOR='vim'
 export CHEATCOLORS=true
 
+# Go path
+export GOPATH=/home/luc/.go
+
 # Set CapsLock to act as Escape on tap and Ctrl on hold
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
+
+# Deactivate ctrl-S to freeze the terminal
+stty -ixon
 
 # Aliases
 # source /etc/zsh/zshenv

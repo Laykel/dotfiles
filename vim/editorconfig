@@ -17,7 +17,7 @@ indent_style = tab
 [*.tex]
 indent_size = 2
 
-[*.{html,js,json}]
+[*.{html,js,json,yml,xml,jsp}]
 indent_size = 2
 
 # Like default
