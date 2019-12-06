@@ -209,6 +209,8 @@ set confirm            " Dialog when :q, :w or :wq fails
 set undofile           " Persistent undo across sessions
 set hidden             " Hide buffers instead of unloading them (speeds up syntastic)
 set linebreak          " Break only at word boundaries
+set encoding=utf8
+set fileencoding=utf8
 
 set showcmd            " Show (partial) command in status line.
 set showmatch          " Show matching brackets.
