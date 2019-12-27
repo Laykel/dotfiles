@@ -39,7 +39,7 @@ alias pyserver='python -m http.server'
 
 # Docker helpers
 alias dc="docker-compose"
-alias dcd='docker-compose down'
+alias dcd='docker-compose down -v'
 alias dcb='docker-compose build'
 alias dcu='docker-compose up -d'
 
@@ -60,7 +60,7 @@ alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
 alias cnotes="cd ~/Notebooks/"
-alias cheig="cd ~/HEIG/Semestre4/"
+alias cheig="cd ~/HEIG/Semestre5/"
 alias cwww="cd ~/Shortcuts/web/www/"
 alias cshort="cd ~/Shortcuts/"
 alias csnip="cd ~/Dev/dotfiles/vim/snippets"
