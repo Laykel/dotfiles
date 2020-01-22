@@ -22,10 +22,10 @@ vim +PlugUpdate +qa
 sudo R -e 'update.packages(repos="https://stat.ethz.ch/CRAN/")'
 
 # Update Pip packages ?
-# import pip
+# import pkg_resources
 # from subprocess import call
-# packages = [dist.project_name for dist in pip.get_installed_distributions()]
-# call("pip install --upgrade " + ' '.join(packages), shell=True)
+# packages = [dist.project_name for dist in pkg_resources.working_set]
+# call("pip install --upgrade --user " + ' '.join(packages), shell=True)
 
 # Update npm packages
 # npm update -g
