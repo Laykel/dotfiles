@@ -45,6 +45,9 @@ chpwd() ls -v --group-directories-first
 autoload -Uz compinit
 compinit
 
+# Dumb config for dumb miniconda3
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
 # Control functions{{{
 # home
 function go_back() {

@@ -26,7 +26,6 @@ Plug 'airblade/vim-gitgutter' " git diff in the gutter
 " Syntax
 Plug 'scrooloose/syntastic'                             " Syntax checker (synchronous, but awesome)
 Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
-" Plug 'artur-shaik/vim-javacomplete2'                    " Java autocomplete
 Plug 'sheerun/vim-polyglot'                             " 100+ languages syntax highlight
 
 " Style
@@ -47,10 +46,9 @@ Plug 'christoomey/vim-tmux-navigator' " Navigating from vim and tmux panes
 Plug 'epeli/slimux'                   " tmux helper for REPL and shell
 
 " Looks
-Plug 'morhetz/gruvbox'                                      " A theme inspired by solarized
-Plug 'romainl/Apprentice'                                   " Nice theme, yés good
-Plug 'sheerun/vim-wombat-scheme'                            " Simple dark theme
-" Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git' " Collection of beautiful themes (don't work in Konsole)
+Plug 'morhetz/gruvbox'           " A theme inspired by solarized
+Plug 'romainl/Apprentice'        " Nice theme, yés good
+Plug 'sheerun/vim-wombat-scheme' " Simple dark theme
 
 call plug#end()
 " automatic filetype plugin indent on and syntax enable
