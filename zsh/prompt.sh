@@ -18,7 +18,7 @@ set_prompt() {
 	if git rev-parse --is-inside-work-tree 2> /dev/null | grep -q 'true' ; then
 		PS1+=', '
 		PS1+="%{$fg[blue]%}$(git rev-parse --abbrev-ref HEAD)%{$reset_color%}"
-		if [ $(git status --short | wc -l) -gt 0 ]; then 
+		if [ $(git status --short | wc -l) -gt 0 ]; then
 			PS1+="%{$fg[red]%}+$(git status --short | wc -l | awk '{$1=$1};1')%{$reset_color%}"
 		fi
 	fi
@@ -44,7 +44,10 @@ set_prompt() {
 		PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
 	fi
 
-	PS1+="%{$fg[white]%}] $(virtualenv_prompt_info)"$'\n'">> %{$reset_color%}% "
+    # Python virtual env
+	PS1+="%{$fg[white]%}] $(virtualenv_prompt_info)"
+    # Conda virtual env
+    PS1+="%{$fg[white]%} ($CONDA_DEFAULT_ENV)"$'\n'">> %{$reset_color%}% "
 }
 
 precmd_functions+=set_prompt
@@ -56,5 +59,5 @@ preexec () {
 
 precmd () {
    (( _start >= 0 )) && _elapsed+=($(( SECONDS-_start )))
-   _start=-1 
+   _start=-1
 }
