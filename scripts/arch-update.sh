@@ -6,6 +6,9 @@ sudo pacman -Q > allPackages.txt
 # Get only strictly installed packages
 sudo pacman -Qe > installedPackages.txt
 
+# Get all strictly aur installed packages (awful, but works)
+#for x in `pacman -Qm`; do yay -Ss "$x" | grep 'aur/' | grep '(Installed)'; done
+
 # Fully update distro and apt packages
 sudo pacman -Syu
 # yay to also update aur packages

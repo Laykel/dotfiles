@@ -1,7 +1,7 @@
 # Aliases
 alias cpuperf="sudo cpupower frequency-set -g performance"
 alias cpusave="sudo cpupower frequency-set -g powersave"
-alias cpugovernor="cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+alias cpugovernor="cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference"
 
 # Very common
 alias l="ls -v --group-directories-first"
@@ -56,6 +56,7 @@ alias wifis="nmcli device wifi list"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|time\ to\ full|percentage"'
 
 # Moving around
+alias tb="cd ~/HEIG/TB/repo/"
 alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
