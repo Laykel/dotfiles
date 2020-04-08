@@ -56,7 +56,7 @@ alias wifis="nmcli device wifi list"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|time\ to\ full|percentage"'
 
 # Moving around
-alias tb="cd ~/HEIG/TB/repo/"
+alias tb="cd ~/HEIG/TB/REPO_nfc-rf-fingerprinting/"
 alias cdev="cd ~/Dev/"
 alias cdot="cd ~/Dev/dotfiles/"
 alias cdoc="cd ~/Documents/"
