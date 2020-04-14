@@ -38,8 +38,7 @@ set_prompt() {
 
 	# Sudo: https://superuser.com/questions/195781/sudo-is-there-a-command-to-check-if-i-have-sudo-and-or-how-much-time-is-left
 	CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep "load"|wc -l)
-	if [ ${CAN_I_RUN_SUDO} -gt 0 ]
-	then
+	if [ ${CAN_I_RUN_SUDO} -gt 0 ]; then
 		PS1+=', '
 		PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
 	fi
@@ -47,7 +46,11 @@ set_prompt() {
     # Python virtual env
 	PS1+="%{$fg[white]%}] $(virtualenv_prompt_info)"
     # Conda virtual env
-    PS1+="%{$fg[white]%} ($CONDA_DEFAULT_ENV)"$'\n'">> %{$reset_color%}% "
+    if [[ ! -z "$CONDA_DEFAULT_ENV" ]]; then
+        PS1+="%{$fg[white]%} ($CONDA_DEFAULT_ENV)"$'\n'">> %{$reset_color%}% "
+    else
+        PS1+=$'\n'">> %{$reset_color%}% "
+    fi
 }
 
 precmd_functions+=set_prompt
