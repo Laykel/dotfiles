@@ -44,7 +44,7 @@ alias dcb='docker-compose build'
 alias dcu='docker-compose up -d'
 
 # Open program with specific parameters
-alias heigvpn="sudo openconnect --servercert sha256:37fb600e2df69cd181801741a4992232a924550378f86660ead5e76a30ac76e9 --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"
+alias heigvpn="sudo openconnect --servercert pin-sha256:yTGN7sWDRlysAzbRb/yPUB6onrOaf6PujtcUdw5hdRY= --authgroup=All_Users --user=luc.wachter remote.heig-vd.ch"
 alias clamhome="sudo clamscan ~ -r -i > clam-report.txt"
 
 alias lc="find . -name '*.java' | xargs wc -l"
