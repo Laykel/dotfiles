@@ -15,6 +15,9 @@ sudo pacman -Syu
 # Remove unneeded dependencies
 pacman -Qdtq | sudo pacman -Rs -
 
+# Clean package cache
+#pacman -Sc
+
 # Update tmux plugins
 "$HOME/.tmux/plugins/tpm/bin/update_plugins" all
 
