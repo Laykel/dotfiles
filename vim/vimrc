@@ -349,8 +349,8 @@ inoremap <Leader>à <Esc>A<Space>{}<Esc>i
 nnoremap <Leader>à A<Space>{}<Esc>i
 
 " Python : Insert colon at end of line
-autocmd FileType python imap <Leader>; <Esc>A:
-autocmd FileType python nmap <Leader>; A:
+autocmd FileType python imap <Leader>: <Esc>A:
+autocmd FileType python nmap <Leader>: A:
 autocmd FileType python imap <Leader>" """"""""<Esc>hhi
 autocmd FileType python nmap <Leader>" i""""""""<Esc>hhi
 
