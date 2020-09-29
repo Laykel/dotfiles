@@ -16,7 +16,7 @@ sudo pacman -Syu
 pacman -Qdtq | sudo pacman -Rs -
 
 # Clean package cache
-#pacman -Sc
+sudo pacman -Sc
 
 # Update tmux plugins
 "$HOME/.tmux/plugins/tpm/bin/update_plugins" all
@@ -25,7 +25,7 @@ pacman -Qdtq | sudo pacman -Rs -
 vim +PlugUpdate +qa
 
 # Update R packages
-sudo R -e 'update.packages(repos="https://stat.ethz.ch/CRAN/")'
+# sudo R -e 'update.packages(repos="https://stat.ethz.ch/CRAN/")'
 
 # Update Pip packages ?
 # import pkg_resources

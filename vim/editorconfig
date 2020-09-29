@@ -14,10 +14,13 @@ indent_size = 3
 [Makefile]
 indent_style = tab
 
-[*.tex]
+[*.{js,scala}]
 indent_size = 2
 
-[*.{html,js,json,yaml,yml,xml,jsp,scala}]
+[*.{tex,html,css,jsp}]
+indent_size = 2
+
+[*.{json,yaml,yml,xml}]
 indent_size = 2
 
 # Like default

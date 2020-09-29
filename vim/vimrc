@@ -379,7 +379,7 @@ autocmd FileType rmd nmap <silent> <Leader>c :!echo<space>"require(rmarkdown);<s
 autocmd FileType vimwiki nmap <silent> <Leader>e :!zathura ~/Notebooks/HEIGWiki/pdf/%:t:r.pdf 2&> /dev/null &<CR><CR>
 
 " Create pdf from Latex
-autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex % && biber %:r && pdflatex %<CR><CR>
+autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex % && makeglossaries %:r && biber %:r && pdflatex %<CR><CR>
 " Open LaTeX PDF file in zathura
 nmap <silent> <Leader>e :!zathura %:r.pdf 2&> /dev/null &<CR><CR>
 
