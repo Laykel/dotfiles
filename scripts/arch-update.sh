@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Get all info on "installed" packages
-sudo pacman -Q > allPackages.txt
-
-# Get only strictly installed packages
-sudo pacman -Qe > installedPackages.txt
-
-# Get all strictly aur installed packages (awful, but works)
-#for x in `pacman -Qm`; do yay -Ss "$x" | grep 'aur/' | grep '(Installed)'; done
-
 # Fully update distro and apt packages
 sudo pacman -Syu
 # yay to also update aur packages
@@ -18,12 +9,31 @@ pacman -Qdtq | sudo pacman -Rs -
 # Clean package cache
 sudo pacman -Sc
 
+# Get all info on "installed" packages
+sudo pacman -Q > allPackages.txt
+
+# Get only strictly installed packages
+sudo pacman -Qe > installedPackages.txt
+
+# Get all strictly aur installed packages (awful, but works)
+#for x in `pacman -Qm`; do yay -Ss "$x" | grep 'aur/' | grep '(Installed)'; done
+
 # Update tmux plugins
 "$HOME/.tmux/plugins/tpm/bin/update_plugins" all
 
 # Update vim plugins
 vim +PlugUpdate +qa
 
+# System maintenance
+echo -e "\nList pacnew and pacsave files to take care of"
+echo "============================================="
+find / -regextype posix-extended -regex ".+\.pac(new|save)" 2> /dev/null
+
+echo -e "\nList syncthing conflicts"
+echo "============================================="
+find /home/luc -name "*sync-conflict*" 2> /dev/null
+
+# =======================================================================
 # Update R packages
 # sudo R -e 'update.packages(repos="https://stat.ethz.ch/CRAN/")'
 

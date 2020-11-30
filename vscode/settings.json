@@ -1,0 +1,94 @@
+{
+  "explorer.confirmDelete": false,
+  "terminal.integrated.rendererType": "dom",
+  "vim.leader": ",",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.focus"]
+      // <C-J> to close terminal
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["extension.rerunLastCommand"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":w"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["H"],
+      "commands": [":tabprevious"]
+    },
+    {
+      "before": ["L"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["U"],
+      "after": ["<C-r>"]
+    },
+    {
+      "before": ["J"],
+      "after": ["}"]
+    },
+    {
+      "before": ["K"],
+      "after": ["{"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["J"],
+      "after": ["}"]
+    },
+    {
+      "before": ["K"],
+      "after": ["{"]
+    }
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "vim.useSystemClipboard": true,
+  "workbench.tree.indent": 16,
+  // "workbench.colorTheme": "Monokai",
+  "editor.minimap.enabled": false,
+  "terminal.integrated.fontFamily": "monospace",
+  "editor.fontFamily": "'Fira Code'",
+  "editor.fontLigatures": true,
+  "editor.wordWrap": "on",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Solarized Dark",
+  "workbench.panel.defaultLocation": "right",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 0.5,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.format.enable": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "gitlens.codeLens.enabled": false,
+  "editor.formatOnSave": true
+}
