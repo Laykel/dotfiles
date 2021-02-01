@@ -1,3 +1,4 @@
+" <C-S-O> to reload ideavimrc in IDE
 " Options ------
 set ignorecase
 set smartcase
@@ -6,6 +7,10 @@ set scrolloff=3
 
 " Integrate with system clipboard
 set clipboard=unnamedplus,unnamed
+
+" Plugins -----
+set commentary
+set surround
 
 " Mappings -----
 let mapleader=","
@@ -24,23 +29,19 @@ nmap H :action PreviousTab<CR>
 nmap L :action NextTab<CR>
 
 nmap <leader>t :action ActivateTerminalToolWindow<CR>
-" Also, F11 to switch it on and off
+nmap <leader>f :action GotoFile<CR>
 
-nmap <leader>v :action VimWindowSplitVertical<CR>
-nmap <leader>h :action VimWindowSplitHorizontal<CR>
-nmap <leader>q :action VimWindowClose<CR>
+nmap <leader>v :action SplitVertically<CR>
+nmap <leader>h :action SplitHorizontally<CR>
+nmap <leader>q :action CloseContent<CR>
 nmap <leader>x :action CloseContent<CR>
 
 nmap gt :action GotoTest<CR>
 nmap gi :action GotoImplementation<CR>
 nmap gd :action GotoDeclaration<CR>
 nmap <leader>b :action Back<CR>
-nmap <leader>f :action Forward<CR>
+nmap <leader>n :action Forward<CR>
 
 nmap <leader>c :action RunAnything<CR>
 nmap <leader>r :action Rerun<CR>
 nmap <leader>e :action RerunFailedTests<CR>
-
-" Commenting ----
-nmap gcc :action CommentByLineComment<CR>
-vmap gc :action CommentByLineComment<CR><Esc>

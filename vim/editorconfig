@@ -23,6 +23,9 @@ indent_size = 2
 [*.{json,yaml,yml,xml}]
 indent_size = 2
 
+[*.{sh,fish}]
+indent_size = 2
+
 # Like default
 # [*.java]
 # indent_style = space

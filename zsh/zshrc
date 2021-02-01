@@ -14,9 +14,6 @@ source $HOME/Dev/dotfiles/zsh/prompt.sh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git virtualenv colored-man-pages colorize z zsh-syntax-highlighting zsh-autosuggestions vi-mode github docker)
 
-# Config
-source $ZSH/oh-my-zsh.sh
-
 HYPHEN_INSENSITIVE="true"
 export EDITOR='vim'
 export CHEATCOLORS=true
@@ -45,26 +42,26 @@ autoload -Uz compinit
 compinit
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/luc/Downloads/software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/luc/Downloads/software/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/home/luc/Downloads/software/google-cloud-sdk/path.zsh.inc' ]; then . '/home/luc/Downloads/software/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/luc/Downloads/software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/luc/Downloads/software/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/home/luc/Downloads/software/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/luc/Downloads/software/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Python virtualenvs
-VIRTUAL_ENV_DISABLE_PROMPT=0
+# VIRTUAL_ENV_DISABLE_PROMPT=0
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/luc/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/luc/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/luc/.miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/luc/.miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-conda deactivate
+# __conda_setup="$('/home/luc/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/luc/.miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/luc/.miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/luc/.miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# conda deactivate
 # <<< conda initialize <<<
 
 # Control functions{{{
@@ -101,3 +98,6 @@ function add_sudo() {
 zle -N add_sudo
 bindkey "^s" add_sudo
 # }}}
+
+# Config
+source $ZSH/oh-my-zsh.sh
