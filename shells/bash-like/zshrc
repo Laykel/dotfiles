@@ -8,7 +8,7 @@ export SAVEHIST=$HISTSIZE
 # Themes (random, agnoster, bira, bureau, gallois)
 # ZSH_THEME="avit"
 # Parth's prompt (gallois-like)
-source $HOME/Dev/dotfiles/zsh/prompt.sh
+source $HOME/Dev/dotfiles/shells/bash-like/prompt.sh
 
 # Plugins
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -30,10 +30,10 @@ stty -ixon
 
 # Aliases
 # source /etc/zsh/zshenv
-source $HOME/Dev/dotfiles/zsh/aliases
+source $HOME/Dev/dotfiles/shells/bash-like/aliases
 
 # Functions
-source $HOME/Dev/dotfiles/zsh/functions
+source $HOME/Dev/dotfiles/shells/bash-like/functions
 
 # Executes ls on dir change
 chpwd() ls -v --group-directories-first

@@ -1,0 +1,75 @@
+# Fish abbreviations
+# Common
+abbr s sudo
+abbr v vim
+abbr cl clear
+abbr ,q exit
+abbr hist history search
+
+abbr l "ls -v --group-directories-first"
+abbr ll "ls -lhaFv --group-directories-first"
+
+abbr cpuperf "sudo cpupower frequency-set -g performance"
+abbr cpusave "sudo cpupower frequency-set -g powersave"
+abbr cpugovernor "cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference"
+
+# Git
+abbr g git
+abbr gs git status
+abbr ga git add
+abbr gp git pull
+abbr gpull git pull
+abbr gpush git push
+abbr gc git commit
+abbr gch git checkout
+abbr gb git branch -av
+abbr gl "git log --graph --decorate --all"
+
+# Moving around
+abbr csync "cd ~/Sync/"
+abbr cdev "cd ~/Dev/"
+abbr cdot "cd ~/Dev/dotfiles/"
+abbr cscripts "cd ~/Dev/dotfiles/scripts"
+abbr cdoc "cd ~/Documents/"
+abbr cnotes "cd ~/Notebooks/"
+abbr cshort "cd ~/Shortcuts/"
+
+# Tmux
+abbr tmux "tmux -2"
+abbr tm "tmux attach -t Dev || tmux new -s Dev"
+abbr tl "tmux ls"
+abbr tn "tmux new -s"
+abbr tk "tmux kill-session -t"
+
+# Configuration
+abbr fconf "vim ~/Dev/dotfiles/shells/fish/config.fish"
+abbr faconf "vim ~/Dev/dotfiles/shells/fish/abbrs"
+abbr vconf "vim ~/Dev/dotfiles/vim/vimrc"
+abbr tconf "vim ~/Dev/dotfiles/tmux/tmux.conf"
+
+# Python and Django helpers
+abbr py "python"
+abbr activ "source venv/bin/activate"
+abbr deactiv "deactivate"
+# Start a webserver, also accepts a port as optional argument
+abbr pyserver "python -m http.server"
+abbr dj "python manage.py"
+abbr djs "python manage.py shell"
+abbr djr "python manage.py runserver"
+abbr djmm "python manage.py makemigrations"
+abbr djm "python manage.py migrate"
+
+# Docker helpers
+abbr dc "docker-compose"
+abbr dcd 'docker-compose down -v'
+abbr dcb 'docker-compose build'
+abbr dcu 'docker-compose up -d'
+
+# Specific arguments
+abbr clamhome "sudo clamscan ~ -r -i > clam-report.txt"
+abbr mp3-dl "youtube-dl --audio-quality 1 --extract-audio --audio-format mp3"
+abbr meteo "curl wttr.in"
+abbr wifis "nmcli device wifi list"
+abbr battery 'upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|time\ to\ full|percentage"'
+
+# GCC (See zsh aliases)
