@@ -10,10 +10,10 @@ pacman -Qdtq | sudo pacman -Rs -
 sudo pacman -Sc
 
 # Get all info on "installed" packages
-sudo pacman -Q > allPackages.txt
+pacman -Q > system/allPackages.txt
 
 # Get only strictly installed packages
-sudo pacman -Qe > installedPackages.txt
+pacman -Qe > system/installedPackages.txt
 
 # Get all strictly aur installed packages (awful, but works)
 #for x in `pacman -Qm`; do yay -Ss "$x" | grep 'aur/' | grep '(Installed)'; done

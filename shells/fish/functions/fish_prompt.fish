@@ -94,7 +94,12 @@ function fish_prompt --description 'Write out the prompt'
     echo -n $pipestatus_string
     set_color normal
 
-    echo -n ']'
+    echo -n '] '
+
+    # Virtualenv
+    # if test $VIRTUAL_ENV
+    #     printf "(%s)" (set_color blue)(basename $VIRTUAL_ENV)(set_color normal)
+    # end
 
     echo -e "\n>> "
 end

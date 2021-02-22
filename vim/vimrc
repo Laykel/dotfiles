@@ -223,6 +223,7 @@ set ignorecase         " Do case insensitive matching
 set smartcase          " Do smart case matching (requires ignorecase)
 set incsearch          " Incremental search
 set mouse=a            " Enable mouse usage (all modes)
+set ttymouse=sgr       " Make the mouse work in Alacritty
 set wrapscan           " Searches wrap around end of file
 set autoread           " Reload files changed outside vim
 set notimeout          " Don't timeout after Leader for example
