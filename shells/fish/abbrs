@@ -16,6 +16,7 @@ abbr cpugovernor "cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_pr
 # Git
 abbr g git
 abbr gs git status
+abbr gd git diff
 abbr ga git add
 abbr gp git pull
 abbr gpull git pull
