@@ -1,0 +1,91 @@
+F hist history search
+Z hist history | grep
+
+# Shell agnostic "aliases"
+# Common
+s sudo
+v vim
+cl clear
+,q exit
+help man
+
+l ls -v --group-directories-first
+ll ls -lhaFv --group-directories-first
+
+cpuperf sudo cpupower frequency-set -g performance
+cpusave sudo cpupower frequency-set -g powersave
+cpugovernor cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
+
+# Git
+g git
+gs git status
+gb git branch -av
+gch git checkout
+gd git diff
+ga git add
+gc git commit
+gp git pull
+gpull git pull
+gpush git push
+gl git log --graph --decorate --all
+glo git log --graph --decorate --all --oneline
+
+# Moving around
+csync cd ~/Sync/
+cdev cd ~/Dev/
+cdot cd ~/Dev/dotfiles/
+cscripts cd ~/Dev/dotfiles/scripts
+cdoc cd ~/Documents/
+cnotes cd ~/Notebooks/
+cshort cd ~/Shortcuts/
+
+# Tmux
+tmux tmux -2
+tm tmux attach -t Dev || tmux new -s Dev
+tl tmux ls
+tn tmux new -s
+tk tmux kill-session -t
+
+# Configuration
+fconf vim ~/Dev/dotfiles/shells/fish/config.fish
+zconf vim ~/Dev/dotfiles/shells/bash-like/zshrc
+aconf vim ~/Dev/dotfiles/shells/aliases/aliases_list
+vconf vim ~/Dev/dotfiles/vim/vimrc
+tconf vim ~/Dev/dotfiles/tmux/tmux.conf
+
+# Python and Django helpers
+py python
+activ source venv/bin/activate
+deactiv deactivate
+# Start a webserver, also accepts a port as optional argument
+pyserver python -m http.server
+dj python manage.py
+djs python manage.py shell
+djr python manage.py runserver
+djmm python manage.py makemigrations
+djm python manage.py migrate
+
+# Docker helpers
+dc docker-compose
+dcd docker-compose down -v
+dcb docker-compose build
+dcu docker-compose up -d
+
+# Kubernetes helpers
+
+# Specific arguments
+clamhome sudo clamscan ~ -r -i > clam-report.txt
+mp3-dl youtube-dl --audio-quality 1 --extract-audio --audio-format mp3
+meteo curl wttr.in
+wifis nmcli device wifi list
+battery upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|time\ to\ full|percentage"
+
+# GCC
+# gpp g++ -Wall -Wconversion -Wextra -pedantic -std=c++11
+# gppo g++ -Wall -std=c++11 -O3
+# gppd g++ -Wall -std=c++11 -O0 -g
+# gcc gcc -Wall -Wconversion -Wextra -pedantic -std=c11
+# gcc gcc -Wall -Wconversion -Wextra -pedantic -std=c11
+# gccd gcc -Wall -std=c11 -lm -g
+# gccreverse gcc -O0 -m32 -fno-stack-protector -fno-pic -no-pie
+# valgrind valgrind --leak-check=full --show-leak-kinds=all
