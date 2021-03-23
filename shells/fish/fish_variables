@@ -2,8 +2,9 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr__2C_q:exit
+SETUVAR _fish_abbr_aconf:vim\x20\x7e/Dev/dotfiles/shells/aliases/aliases_list
 SETUVAR _fish_abbr_activ:source\x20venv/bin/activate
-SETUVAR _fish_abbr_battery:upower\x20\x2di\x20/org/freedesktop/UPower/devices/battery_BAT0\x7c\x20grep\x20\x2dE\x20\x22state\x7ctime\x5c\x20to\x5c\x20full\x7cpercentage\x22
+SETUVAR _fish_abbr_battery:upower\x20\x2di\x20/org/freedesktop/UPower/devices/battery_BAT0\x7c\x20grep\x20\x2dE\x20\x27state\x7ctime\x5c\x20to\x5c\x20full\x7cpercentage\x27
 SETUVAR _fish_abbr_cdev:cd\x20\x7e/Dev/
 SETUVAR _fish_abbr_cdoc:cd\x20\x7e/Documents/
 SETUVAR _fish_abbr_cdot:cd\x20\x7e/Dev/dotfiles/
@@ -35,11 +36,16 @@ SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gch:git\x20checkout
 SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gl:git\x20log\x20\x2d\x2dgraph\x20\x2d\x2ddecorate\x20\x2d\x2dall
+SETUVAR _fish_abbr_glo:git\x20log\x20\x2d\x2dgraph\x20\x2d\x2ddecorate\x20\x2d\x2dall\x20\x2d\x2doneline
 SETUVAR _fish_abbr_gp:git\x20pull
 SETUVAR _fish_abbr_gpull:git\x20pull
 SETUVAR _fish_abbr_gpush:git\x20push
 SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_help:man
 SETUVAR _fish_abbr_hist:history\x20search
+SETUVAR _fish_abbr_k:kubectl
+SETUVAR _fish_abbr_kgc:kubectl\x20config\x20get\x2dcontexts
+SETUVAR _fish_abbr_ksc:kubectl\x20config\x20use\x2dcontext
 SETUVAR _fish_abbr_l:ls\x20\x2dv\x20\x2d\x2dgroup\x2ddirectories\x2dfirst
 SETUVAR _fish_abbr_ll:ls\x20\x2dlhaFv\x20\x2d\x2dgroup\x2ddirectories\x2dfirst
 SETUVAR _fish_abbr_meteo:curl\x20wttr\x2ein
@@ -56,6 +62,7 @@ SETUVAR _fish_abbr_tn:tmux\x20new\x20\x2ds
 SETUVAR _fish_abbr_v:vim
 SETUVAR _fish_abbr_vconf:vim\x20\x7e/Dev/dotfiles/vim/vimrc
 SETUVAR _fish_abbr_wifis:nmcli\x20device\x20wifi\x20list
+SETUVAR _fish_abbr_zconf:vim\x20\x7e/Dev/dotfiles/shells/bash\x2dlike/zshrc
 SETUVAR fish_color_autosuggestion:586e75
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:93a1a1

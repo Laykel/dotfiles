@@ -10,7 +10,7 @@ source $HOME/Dev/dotfiles/shells/aliases/abbrs
 # set CHEATCOLORS true
 # set EDITOR vim
 # set GOPATH $HOME/.go
-# nvm? virtualenvs?
+# nvm? virtualenvs? sdkman?
 
 # Put those in functions folder
 # Testing functions
@@ -41,7 +41,7 @@ set -x LESS_TERMCAP_md (set_color --bold red)
 # end of all formatting:
 set -x LESS_TERMCAP_me (set_color normal)
 # start of underline:
-set -x LESS_TERMCAP_us (set_color --underline)
+set -x LESS_TERMCAP_us (set_color --bold green)
 # end of underline:
 set -x LESS_TERMCAP_ue (set_color normal)
 
