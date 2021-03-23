@@ -4,7 +4,7 @@ set fish_greeting
 # Nice blue-green
 set fish_color_cwd 20907a
 
-source $HOME/Dev/dotfiles/shells/fish/abbrs
+source $HOME/Dev/dotfiles/shells/aliases/abbrs
 
 # Env vars
 # set CHEATCOLORS true

@@ -2,6 +2,9 @@ allPackages.txt
 installedPackages.txt
 ppasList.txt
 
+shells/aliases/aliases
+shells/aliases/abbrs
+
 *.log
 *.lock
 *.tmp

@@ -30,10 +30,7 @@ stty -ixon
 
 # Aliases
 # source /etc/zsh/zshenv
-source $HOME/Dev/dotfiles/shells/bash-like/aliases
-
-# Functions
-source $HOME/Dev/dotfiles/shells/bash-like/functions
+source $HOME/Dev/dotfiles/shells/aliases/aliases
 
 # Executes ls on dir change
 chpwd() ls -v --group-directories-first
