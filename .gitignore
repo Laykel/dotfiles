@@ -4,6 +4,7 @@ ppasList.txt
 
 shells/aliases/aliases
 shells/aliases/abbrs
+shells/fish/fish_variables
 
 *.log
 *.lock
