@@ -30,6 +30,7 @@ nmap L :action NextTab<CR>
 
 nmap <leader>t :action ActivateTerminalToolWindow<CR>
 nmap <leader>f :action GotoFile<CR>
+nmap <leader>g :action FindInPath<CR>
 
 nmap <leader>v :action SplitVertically<CR>
 nmap <leader>h :action SplitHorizontally<CR>
@@ -42,6 +43,7 @@ nmap gd :action GotoDeclaration<CR>
 nmap <leader>b :action Back<CR>
 nmap <leader>n :action Forward<CR>
 
-nmap <leader>c :action RunAnything<CR>
-nmap <leader>r :action Rerun<CR>
-nmap <leader>e :action RerunFailedTests<CR>
+nmap <leader>r :action RenameElement<CR>
+nmap <leader>cc :action RunAnything<CR>
+nmap <leader>cr :action Rerun<CR>
+nmap <leader>ce :action RerunFailedTests<CR>
