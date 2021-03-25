@@ -1,0 +1,69 @@
+# ZSH configuration
+# Inspired by https://thevaluable.dev/zsh-install-configure-mouseless/
+
+# Read files in this folder for future autoloading
+fpath=($DOTFILES/shells/zsh/plugins $fpath)
+
+# ----------------------------------------------------------------------
+# Navigation options
+setopt AUTO_CD              # Go to folder path without using cd.
+
+setopt AUTO_PUSHD           # Push the old directory onto the stack on cd.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+setopt EXTENDED_GLOB        # Use extended globbing syntax.
+
+# Navigate to previously visited directories
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# Executes ls on dir change
+chpwd() ls -v --group-directories-first
+
+# Navigate to parent directories
+autoload -Uz bd; bd
+
+# ----------------------------------------------------------------------
+# History
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+
+# ----------------------------------------------------------------------
+# Enable vim mode and speed up mode switching
+bindkey -v
+export KEYTIMEOUT=1
+
+# Change cursor
+autoload -Uz cursor_mode; cursor_mode
+
+# Use vim keys in tab complete menu
+# Should be called before compinit
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# ----------------------------------------------------------------------
+# Aliases
+source $DOTFILES/shells/aliases/aliases
+
+# ----------------------------------------------------------------------
+# Prompt
+fpath=($DOTFILES/shells/zsh $fpath)
+autoload -Uz prompt; prompt
+
+# ----------------------------------------------------------------------
+# Completion
+autoload -U compinit; compinit
+comp_options+=(globdots) # With hidden files
+
+# ----------------------------------------------------------------------
+# External plugins
+source $DOTFILES/shells/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
