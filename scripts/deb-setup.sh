@@ -8,6 +8,8 @@ sudo apt-get install fish vim tmux zathura tldr wget curl httpie xcape exuberant
 # CHANGE SHELL TO FISH
 # Make sure fish is in /etc/shells
 # chsh -s (fish_path)
+# OR TO ZSH
+# chsh -s $(which zsh)
 
 # Move dotfiles to appropriate locations
 ln -s "/home/luc/Dev/dotfiles/shells/fish" "$HOME/.config/fish"
