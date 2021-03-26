@@ -43,14 +43,16 @@ set_prompt() {
 		PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
 	fi
 
+  PS1+="]"$'\n'">> %{$reset_color%}% "
+
     # Python virtual env
-	PS1+="%{$fg[white]%}] $(virtualenv_prompt_info)"
-    # Conda virtual env
-    if [[ ! -z "$CONDA_DEFAULT_ENV" ]]; then
-        PS1+="%{$fg[white]%} ($CONDA_DEFAULT_ENV)"$'\n'">> %{$reset_color%}% "
-    else
-        PS1+=$'\n'">> %{$reset_color%}% "
-    fi
+	# PS1+="%{$fg[white]%}] $(virtualenv_prompt_info)"
+    # # Conda virtual env
+    # if [[ ! -z "$CONDA_DEFAULT_ENV" ]]; then
+        # PS1+="%{$fg[white]%} ($CONDA_DEFAULT_ENV)"$'\n'">> %{$reset_color%}% "
+    # else
+        # PS1+=$'\n'">> %{$reset_color%}% "
+    # fi
 }
 
 precmd_functions+=set_prompt
@@ -64,3 +66,5 @@ precmd () {
    (( _start >= 0 )) && _elapsed+=($(( SECONDS-_start )))
    _start=-1
 }
+
+set_prompt
