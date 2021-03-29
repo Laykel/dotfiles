@@ -5,6 +5,7 @@ v vim
 cl clear
 ,q exit
 help man
+ls ls --color=auto
 l ls -v --group-directories-first
 ll ls -lhaFv --group-directories-first
 
