@@ -45,7 +45,6 @@ set -x LESS_TERMCAP_us (set_color --bold green)
 # end of underline:
 set -x LESS_TERMCAP_ue (set_color normal)
 
-# TODO Put this somewhere better...
 # Set CapsLock to act as Escape on tap and Ctrl on hold
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
+# setxkbmap -option ctrl:nocaps
+# xcape -e 'Control_L=Escape'
