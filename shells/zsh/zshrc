@@ -18,15 +18,14 @@ setopt EXTENDED_GLOB        # Use extended globbing syntax.
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
-# Executes ls on dir change
-chpwd() ls -v --group-directories-first
-
 # Navigate to parent directories
 autoload -Uz bd; bd
 
+# Executes ls on dir change
+chpwd() ls --color=auto -v --group-directories-first
+
 # ----------------------------------------------------------------------
 # History
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
 setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
@@ -50,8 +49,14 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # ----------------------------------------------------------------------
-# Aliases
+# Aliases and functions
 source $DOTFILES/shells/aliases/aliases
+
+source $DOTFILES/shells/zsh/functions
+
+# ----------------------------------------------------------------------
+# Kudelski security config
+[ -s "$DOTFILES/ks/ks-conf" ] && source "$DOTFILES/ks/ks-conf" 
 
 # ----------------------------------------------------------------------
 # Prompt
@@ -67,3 +72,15 @@ comp_options+=(globdots) # With hidden files
 # External plugins
 source $DOTFILES/shells/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ----------------------------------------------------------------------
+# External programs config
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# This must be at the end of the file
+[[ -s "/home/luc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/luc/.sdkman/bin/sdkman-init.sh"
+
+# Kubectl completions
+# This seems to only work at the end
+source <(kubectl completion zsh)

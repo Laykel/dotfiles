@@ -1,3 +1,6 @@
+# KS secret configuration
+ks/
+
 allPackages.txt
 installedPackages.txt
 ppasList.txt
@@ -12,6 +15,3 @@ shells/fish/fish_variables
 *.temp
 *.swp
 tags
-
-#Example of exception:
-# !debug.log
