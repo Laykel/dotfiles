@@ -5,7 +5,7 @@ Parse my weird shell-agnostic aliases file and write
 aliases files for bash/zsh and for fish
 """
 
-ALIASES_FILE = 'aliases_list'
+ALIASES_FILE = 'all-aliases'
 
 FISH_OUTPUT = 'abbrs'
 ZSH_OUTPUT = 'aliases'

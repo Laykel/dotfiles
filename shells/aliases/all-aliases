@@ -5,12 +5,13 @@ v vim
 cl clear
 ,q exit
 help man
-ls ls --color=auto
-l ls -v --group-directories-first
-ll ls -lhaFv --group-directories-first
+ls ls -v --color=auto
+l ls --group-directories-first
+ll ls -lhaF --group-directories-first
 
 F hist history search
-Z hist history | grep
+Z history history -E
+Z hist history -E 0 | grep
 
 cpuperf sudo cpupower frequency-set -g performance
 cpusave sudo cpupower frequency-set -g powersave
@@ -73,8 +74,12 @@ dcu docker-compose up -d
 
 # Kubernetes helpers
 k kubectl
-kgc kubectl config get-contexts
-ksc kubectl config use-context
+kga kubectl get all
+kgi kubectl get ingress
+kl kubectl logs
+
+kcg kubectl config get-contexts
+kcu kubectl config use-context
 
 # Specific arguments
 clamhome sudo clamscan ~ -r -i > clam-report.txt
