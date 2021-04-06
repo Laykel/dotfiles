@@ -60,8 +60,8 @@ source $DOTFILES/shells/zsh/functions
 
 # ----------------------------------------------------------------------
 # Prompt
-fpath=($DOTFILES/shells/zsh $fpath)
-autoload -Uz prompt; prompt
+fpath=($DOTFILES/shells/zsh/prompts $fpath)
+autoload -Uz purification; purification
 
 # ----------------------------------------------------------------------
 # Completion

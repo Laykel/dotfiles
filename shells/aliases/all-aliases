@@ -48,11 +48,11 @@ tn tmux new -s
 tk tmux kill-session -t
 
 # Configuration
-fconf vim ~/Dev/dotfiles/shells/fish/config.fish
-zconf vim ~/Dev/dotfiles/shells/bash-like/zshrc
-aconf vim ~/Dev/dotfiles/shells/aliases/aliases_list
-vconf vim ~/Dev/dotfiles/vim/vimrc
-tconf vim ~/Dev/dotfiles/tmux/tmux.conf
+fconf vim $DOTFILES/shells/fish/config.fish
+zconf vim $DOTFILES/shells/zsh/zshrc
+aconf vim $DOTFILES/shells/aliases/all-aliases
+vconf vim $DOTFILES/vim/vimrc
+tconf vim $DOTFILES/tmux/tmux.conf
 
 # Python and Django helpers
 py python
