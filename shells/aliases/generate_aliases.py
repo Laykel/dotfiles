@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 
+import os
+
 """
 Parse my weird shell-agnostic aliases file and write
 aliases files for bash/zsh and for fish
 """
 
-ALIASES_FILE = 'all-aliases'
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
-FISH_OUTPUT = 'abbrs'
-ZSH_OUTPUT = 'aliases'
+ALIASES_FILE = f'{DIR_PATH}/all-aliases'
+
+FISH_OUTPUT = f'{DIR_PATH}/abbrs'
+ZSH_OUTPUT = f'{DIR_PATH}/aliases'
 
 
 def fish_template(abbr, command):
@@ -46,4 +50,3 @@ def parse(tokens, zsh, fish):
 with open(ZSH_OUTPUT, 'w') as zsh, open(FISH_OUTPUT, 'w') as fish:
     for tokens in lines(ALIASES_FILE):
         parse(tokens, zsh, fish)
-

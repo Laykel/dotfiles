@@ -1,5 +1,7 @@
 # Shell agnostic "aliases"
 # Common
+genaliases python $DOTFILES/shells/aliases/generate_aliases.py
+
 s sudo
 v vim
 cl clear
@@ -23,6 +25,7 @@ gs git status
 gb git branch -av
 gch git checkout
 gd git diff
+gds git diff --staged
 ga git add
 gc git commit
 gp git pull
@@ -51,7 +54,7 @@ tk tmux kill-session -t
 fconf vim $DOTFILES/shells/fish/config.fish
 zconf vim $DOTFILES/shells/zsh/zshrc
 aconf vim $DOTFILES/shells/aliases/all-aliases
-vconf vim $DOTFILES/vim/vimrc
+vconf vim $DOTFILES/editors/vim/vimrc
 tconf vim $DOTFILES/tmux/tmux.conf
 
 # Python and Django helpers

@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vimwiki/vimwiki'              " Wiki notetaking in vim
 Plug 'Yggdroot/LeaderF'             " Fuzzy finder
 Plug 'majutsushi/tagbar'            " Lists the file's tags
-Plug 'ludovicchabant/vim-gutentags' " Manages tags file for us (important for <C-i>)
+" Plug 'ludovicchabant/vim-gutentags' " Manages tags file for us (important for <C-i>)
 
 " Vim lines
 Plug 'itchyny/lightline.vim'        " Light status line
