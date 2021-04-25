@@ -1,5 +1,0 @@
-prompt_setup() {
-    PROMPT=$'%F{white}%~ %B%F{blue}>%f%b '
-}
-
-prompt_setup

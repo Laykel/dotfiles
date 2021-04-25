@@ -1,66 +1,42 @@
-# Reference for colors: http://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
+# Colours: blue, cyan, magenta, green, yellow, red, white, black
+# https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 
-autoload -U colors && colors
-
-setopt PROMPT_SUBST
-
-set_prompt() {
-
-	# [
-	PS1="%{$fg[white]%}[%{$reset_color%}"
-
-	# Path: http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-	PS1+="%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
-
-	# Status Code
-	PS1+='%(?.., %{$fg[red]%}%?%{$reset_color%})'
-
-	if git rev-parse --is-inside-work-tree 2> /dev/null | grep -q 'true' ; then
-		PS1+=', '
-		PS1+="%{$fg[blue]%}$(git rev-parse --abbrev-ref HEAD)%{$reset_color%}"
-		if [ $(git status --short | wc -l) -gt 0 ]; then
-			PS1+="%{$fg[red]%}+$(git status --short | wc -l | awk '{$1=$1};1')%{$reset_color%}"
-		fi
-	fi
-
-
-	# Timer: http://stackoverflow.com/questions/2704635/is-there-a-way-to-find-the-running-time-of-the-last-executed-command-in-the-shel
-	if [[ $_elapsed[-1] -ne 0 ]]; then
-		PS1+=', '
-		PS1+="%{$fg[magenta]%}$_elapsed[-1]s%{$reset_color%}"
-	fi
-
-	# PID
-	if [[ $! -ne 0 ]]; then
-		PS1+=', '
-		PS1+="%{$fg[yellow]%}PID:$!%{$reset_color%}"
-	fi
-
-	# Sudo: https://superuser.com/questions/195781/sudo-is-there-a-command-to-check-if-i-have-sudo-and-or-how-much-time-is-left
-	CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep "load"|wc -l)
-	if [ ${CAN_I_RUN_SUDO} -gt 0 ]; then
-		PS1+=', '
-		PS1+="%{$fg_bold[red]%}SUDO%{$reset_color%}"
-	fi
-
-    # Python virtual env
-	PS1+="%{$fg[white]%}] $(virtualenv_prompt_info)"
-    # Conda virtual env
-    if [[ ! -z "$CONDA_DEFAULT_ENV" ]]; then
-        PS1+="%{$fg[white]%} ($CONDA_DEFAULT_ENV)"$'\n'">> %{$reset_color%}% "
-    else
-        PS1+=$'\n'">> %{$reset_color%}% "
-    fi
+prompt_precmd() {
+    print -P '' # Pass a line before each prompt
 }
 
-precmd_functions+=set_prompt
-
-preexec () {
-   (( ${#_elapsed[@]} > 1000 )) && _elapsed=(${_elapsed[@]: -1000})
-   _start=$SECONDS
+prompt_git_branch() {
+    autoload -Uz vcs_info 
+    precmd_vcs_info() { vcs_info }
+    precmd_functions+=( precmd_vcs_info )
+    setopt prompt_subst
+    zstyle ':vcs_info:git:*' formats '%b'
 }
 
-precmd () {
-   (( _start >= 0 )) && _elapsed+=($(( SECONDS-_start )))
-   _start=-1
+prompt_git_info() {
+    [ ! -z "$vcs_info_msg_0_" ] && echo "$ZSH_THEME_GIT_PROMPT_PREFIX$vcs_info_msg_0_$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
+
+prompt_setup() {
+    # Display git branch
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd prompt_precmd
+
+    ZSH_THEME_GIT_PROMPT_PREFIX=", %F{red}λ:%f%F{27}"
+    ZSH_THEME_GIT_PROMPT_SUFFIX="%F{white}"
+
+    prompt_git_branch
+
+    # Right prompt
+    # Get exit status code
+    RPROMPT='%(?..%F{red}$?%F{white})'
+
+    # Left prompt
+    PROMPT=$'%B[%F{yellow}%~%F{white}%b$(prompt_git_info)]'
+    # PROMPT=$'%B[%F{cyan}%~%F{white},%b $(prompt_git_info)%F{white}]%b'
+    PROMPT+=$'\n>> '
+
+    # TODO Add virtualenv info 
+}
+
+prompt_setup

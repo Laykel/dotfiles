@@ -56,12 +56,12 @@ source $DOTFILES/shells/zsh/functions
 
 # ----------------------------------------------------------------------
 # Kudelski security config
-[ -s "$DOTFILES/ks/ks-conf" ] && source "$DOTFILES/ks/ks-conf" 
+[ -s "$DOTFILES/ks/ks-shell-conf" ] && source "$DOTFILES/ks/ks-shell-conf" 
 
 # ----------------------------------------------------------------------
 # Prompt
 fpath=($DOTFILES/shells/zsh/prompts $fpath)
-autoload -Uz purification; purification
+autoload -Uz laykel; laykel
 
 # ----------------------------------------------------------------------
 # Completion
