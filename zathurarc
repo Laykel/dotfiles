@@ -30,12 +30,6 @@ set notification-error-fg "#657b83"
 set notification-warning-bg "#fdf6e3"
 set notification-warning-fg "#657b83"
 
-# Swap j,k with J,K
-# map j navigate next
-# map k navigate previous
-# map J scroll down
-# map K scroll up
-
 # Define mappings for fullscreen
 map [fullscreen] a adjust_window best-fit
 map [fullscreen] s adjust_window width
