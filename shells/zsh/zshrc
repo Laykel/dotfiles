@@ -62,6 +62,8 @@ source $DOTFILES/shells/zsh/functions
 # Prompt
 fpath=($DOTFILES/shells/zsh/prompts $fpath)
 autoload -Uz laykel; laykel
+# Disable every vcs but git
+zstyle ':vcs_info:*' enable git
 
 # ----------------------------------------------------------------------
 # Completion
