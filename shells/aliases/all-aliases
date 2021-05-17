@@ -1,3 +1,9 @@
+# Not shell agnostic
+F hist history search
+
+Z history history -E
+Z hist history -E 0 | grep
+
 # Shell agnostic "aliases"
 # Common
 genaliases python $DOTFILES/shells/aliases/generate_aliases.py
@@ -11,9 +17,8 @@ ls ls -v --color=auto
 l ls --group-directories-first
 ll ls -lhaF --group-directories-first
 
-F hist history search
-Z history history -E
-Z hist history -E 0 | grep
+grep grep --color
+highlight ack --passthru
 
 cpuperf sudo cpupower frequency-set -g performance
 cpusave sudo cpupower frequency-set -g powersave
@@ -70,6 +75,9 @@ djmm python manage.py makemigrations
 djm python manage.py migrate
 
 # Docker helpers
+dps docker ps
+dpsa docker ps -a
+
 dc docker-compose
 dcd docker-compose down -v
 dcb docker-compose build
