@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 " Big functionalities
 Plug 'vimwiki/vimwiki'              " Wiki notetaking in vim
 Plug 'Yggdroot/LeaderF'             " Fuzzy finder
-Plug 'majutsushi/tagbar'            " Lists the file's tags
+" Plug 'majutsushi/tagbar'            " Lists the file's tags
 " Plug 'ludovicchabant/vim-gutentags' " Manages tags file for us (important for <C-i>)
 
 " Vim lines
@@ -25,8 +25,8 @@ Plug 'airblade/vim-gitgutter' " git diff in the gutter
 
 " Syntax
 Plug 'scrooloose/syntastic'                             " Syntax checker (synchronous, but awesome)
-Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
-Plug 'sheerun/vim-polyglot'                             " 100+ languages syntax highlight
+" Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
+" Plug 'sheerun/vim-polyglot'                             " 100+ languages syntax highlight
 
 " Style
 Plug 'editorconfig/editorconfig-vim'                    " Have vim adapt to different projects
@@ -43,7 +43,7 @@ Plug 'tpope/vim-repeat'     " Add . command support for plugins
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator' " Navigating from vim and tmux panes
-Plug 'epeli/slimux'                   " tmux helper for REPL and shell
+" Plug 'epeli/slimux'                   " tmux helper for REPL and shell
 
 " Looks
 Plug 'morhetz/gruvbox'           " A theme inspired by solarized

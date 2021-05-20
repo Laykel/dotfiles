@@ -4,13 +4,14 @@ set fish_greeting
 # Nice blue-green
 set fish_color_cwd 20907a
 
-source $HOME/Dev/dotfiles/shells/aliases/abbrs
-
 # Env vars
+set DOTFILES $HOME/Dev/dotfiles
 # set CHEATCOLORS true
 # set EDITOR vim
 # set GOPATH $HOME/.go
 # nvm? virtualenvs? sdkman?
+
+source $DOTFILES/shells/aliases/abbrs
 
 # Put those in functions folder
 # Testing functions
