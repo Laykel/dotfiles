@@ -9,6 +9,9 @@ shells/aliases/aliases
 shells/aliases/abbrs
 shells/fish/fish_variables
 
+sync.json
+workspace
+
 *.log
 *.lock
 *.tmp
