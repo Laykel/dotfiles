@@ -1,6 +1,7 @@
 # KS secret configuration
 ks/
 
+# OS stats
 allPackages.txt
 installedPackages.txt
 ppasList.txt
@@ -9,6 +10,8 @@ shells/aliases/aliases
 shells/aliases/abbrs
 shells/fish/fish_variables
 
+# Obsidian config files
+obsidian/obsidian/plugins/
 sync.json
 workspace
 

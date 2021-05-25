@@ -1,23 +1,12 @@
 /* Font for the markdown source panel */
-div.markdown-source-view {
+div .markdown-source-view {
     /* font-family: var(--font-family-editor); */
     font-family: "Hack";
     font-size: 0.9em;
 }
 
 /* Font for the markdown preview panel */
-div.markdown-preview-view {
+div .markdown-preview-view {
     /* font-family: var(--font-family-preview); */
     font-family: "Overpass";
-}
-
-/* Editor font: make thicker */
-/*
-.cm-s-obsidian .CodeMirror-line * {
-    -webkit-font-smoothing: auto;
-}
-*/
-
-.cm-s-obsidian .cm-header {
-    -webkit-font-smoothing: antialiased;
 }
