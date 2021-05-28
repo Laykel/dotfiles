@@ -11,7 +11,7 @@ shells/aliases/abbrs
 shells/fish/fish_variables
 
 # Obsidian config files
-obsidian/obsidian/plugins/
+obsidian/plugins/
 sync.json
 workspace
 
