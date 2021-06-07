@@ -11,3 +11,7 @@ nmap <F9> :nohl
 
 " Yank to system clipboard
 set clipboard=unnamed
+
+" Custom stuff (might break)
+exmap switcher obcommand switcher:open
+nmap gf :switcher

@@ -32,7 +32,7 @@ prompt_setup() {
     RPROMPT='%(?..%F{red}$?%F{white})'
 
     # Left prompt
-    PROMPT=$'%B[%F{yellow}%~%F{white}%b$(prompt_git_info)]'
+    PROMPT=$'%B[%F{cyan}%~%F{white}%b$(prompt_git_info)]'
     # PROMPT=$'%B[%F{cyan}%~%F{white},%b $(prompt_git_info)%F{white}]%b'
     PROMPT+=$'\n>> '
 
