@@ -28,6 +28,7 @@ cpugovernor cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preferen
 g git
 gs git status
 gb git branch -av
+gr git remote -v
 gch git checkout
 gd git diff
 gds git diff --staged
@@ -36,6 +37,8 @@ gc git commit
 gp git pull
 gpull git pull
 gpush git push
+grm git rebase master
+grc git rebase --continue
 gl git log --graph --decorate --all
 glo git log --graph --decorate --all --oneline
 
