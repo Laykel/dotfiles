@@ -1,21 +1,26 @@
 # Tools' dotfiles
-My system/tools' configuration.
 
-## zsh
-- _Shell with cool features_
-- `oh-my-zsh` as a "framework".
-- `prompt.sh` is my prompt, modified from [Parth's](https://github.com/Parth/dotfiles).
-- `aliases` is a list of my shell aliases.
-- `functions` contains all my shell functions.
-- `bashrc` for when I have to use bash.
+## shells
+- `python shells/aliases/generate_aliases.py` to generate the shell aliases for zsh and fish
+- No shell framework, all manual config
 
-## vim
+### zsh
+- `zshenv` goes to `$HOME/.zshenv`
+- `zshrc` goes to `$HOME/.config/zsh/.zshrc`
+- `git submodule update --init --recursive` to pull the zsh plugins
+- `chsh -s $(which zsh)`
+
+### fish
+- `ln -s "/home/luc/Dev/dotfiles/shells/fish" "$HOME/.config/fish"`
+- `chsh -s `which fish``
+
+## editors
+- `editorconfig` describes tab types and sizes for different filetypes.
+
+### vim
 - _Modal text editor / Swiss army knife_
 - `vim-plug` for plugin management.
 - `np-vimrc` is a version without plugins.
-- `editorconfig` describes tab types and sizes for different filetypes.
-- `gitignore` is an example gitignore.
-- `snippets` contains code snippets...
 
 ## tmux
 - _Terminal multiplexer_
@@ -36,11 +41,3 @@ My system/tools' configuration.
 ## ranger
 - _A file navigator for the terminal_
 - Config from [Luke Smith](https://github.com/LukeSmithxyz/voidrice).
-
-## Scripts folder
-- This folder contains a script to update the package lists and the configs plugins, a script to deploy the dotfiles on a new system (provided the folder is cloned in ~/Dev/dotfiles), and the package lists.
-
-### Package lists:
-- allPackages.txt is the output of `dpkg -l | grep ii`
-- installedPackages.txt is the output of `comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)`
-- ppasList.txt is pretty self-explanatory.
