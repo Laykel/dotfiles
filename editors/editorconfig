@@ -1,4 +1,3 @@
-# To be put in my home folder as '.editorconfig'
 root = true
 
 [*]
@@ -6,10 +5,6 @@ indent_style = space
 indent_size = 4
 # Remove whitespaces before newlines
 trim_trailing_whitespace = true
-
-# HEIG requisites
-[*.{cpp,hpp,c,h}]
-indent_size = 3
 
 [Makefile]
 indent_style = tab
@@ -39,3 +34,7 @@ indent_size = 2
 # indent_style = space
 # indent_size = 4
 # trim_trailing_whitespace = true
+
+# HEIG requisites
+# [*.{cpp,hpp,c,h}]
+# indent_size = 3
