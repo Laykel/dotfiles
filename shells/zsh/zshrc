@@ -78,6 +78,9 @@ source $DOTFILES/shells/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ----------------------------------------------------------------------
+# Path update
+path+="$HOME/.local/bin"
+
 # External programs config
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
