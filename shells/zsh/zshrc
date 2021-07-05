@@ -88,6 +88,8 @@ path+="$HOME/.local/bin"
 # This must be at the end of the file
 [[ -s "/home/luc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/luc/.sdkman/bin/sdkman-init.sh"
 
+source <(doctl completion zsh)
+
 # Kubectl completions
 # This seems to only work at the end
 source <(kubectl completion zsh)

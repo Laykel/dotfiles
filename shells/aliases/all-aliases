@@ -44,6 +44,7 @@ glo git log --graph --decorate --all --oneline
 
 # Moving around
 csync cd ~/Sync/
+cks cd ~/KS/
 cdev cd ~/Dev/
 cdot cd ~/Dev/dotfiles/
 cscripts cd ~/Dev/dotfiles/scripts
