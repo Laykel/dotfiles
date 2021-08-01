@@ -86,6 +86,7 @@ dc docker-compose
 dcd docker-compose down -v
 dcb docker-compose build
 dcu docker-compose up -d
+dcl docker-compose logs
 
 # Kubernetes helpers
 k kubectl

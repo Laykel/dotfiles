@@ -1,0 +1,31 @@
+{
+  "spellcheck": true,
+  "foldHeading": true,
+  "foldIndent": false,
+  "showLineNumber": true,
+  "vimMode": true,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "Attachments",
+  "useTab": false,
+  "spellcheckDictionary": [
+    "cfc",
+    "artifactory",
+    "dsl",
+    "api",
+    "onboarding",
+    "deserialization",
+    "serializer",
+    "nullable",
+    "kotlin",
+    "frontend",
+    "backend",
+    "config",
+    "MRs",
+    "Julien",
+    "sherlock",
+    "Florian",
+    "iam"
+  ]
+}
