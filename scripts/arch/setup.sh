@@ -2,7 +2,7 @@
 
 # Install stuff
 sudo pacman -Syu
-sudo pacman -S fish vim tmux zathura tldr wget curl httpie xcape
+sudo pacman -S fish vim tmux zathura tldr wget curl httpie xcape xsel
 
 # CHANGE SHELL TO FISH
 # Make sure fish is in /etc/shells

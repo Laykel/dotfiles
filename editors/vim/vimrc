@@ -43,7 +43,7 @@ Plug 'tpope/vim-repeat'     " Add . command support for plugins
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator' " Navigating from vim and tmux panes
-" Plug 'epeli/slimux'                   " tmux helper for REPL and shell
+Plug 'epeli/slimux'                   " tmux helper for REPL and shell
 
 " Looks
 Plug 'morhetz/gruvbox'           " A theme inspired by solarized
@@ -177,6 +177,9 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 set path+=** " Tab-completion in command line
 set wildmenu " Display menu showing following files
 
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
 " HEIG max column count
 autocmd FileType cpp,hpp,c,h,java setlocal colorcolumn=85
 
@@ -307,6 +310,11 @@ nnoremap <silent> <C-w>l :vertical resize +10<CR>
 nnoremap <silent> <C-w>h :vertical resize -10<CR>
 nnoremap <silent> <C-w>k :resize +10<CR>
 nnoremap <silent> <C-w>j :resize -10<CR>
+
+" Zoom split
+nnoremap <leader>z :wincmd _<cr>:wincmd \|<cr>
+" Rebalance splits
+nnoremap <leader>= :wincmd =<cr>
 "}}}
 
 " Misc{{{
