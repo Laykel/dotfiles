@@ -99,14 +99,6 @@
       "key": "C"
     }
   ],
-  "editor:toggle-highlight": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "V"
-    }
-  ],
   "daily-notes:goto-next": [
     {
       "modifiers": [

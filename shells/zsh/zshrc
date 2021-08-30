@@ -56,7 +56,7 @@ source $DOTFILES/shells/zsh/functions
 
 # ----------------------------------------------------------------------
 # Kudelski security config
-[ -s "$DOTFILES/ks/ks-shell-conf" ] && source "$DOTFILES/ks/ks-shell-conf" 
+[ -s "$DOTFILES/ks/ks-shell-conf" ] && source "$DOTFILES/ks/ks-shell-conf"
 
 # ----------------------------------------------------------------------
 # Prompt
@@ -80,6 +80,7 @@ source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 # ----------------------------------------------------------------------
 # Path update
 path+="$HOME/.local/bin"
+path+="$DENO_DIR/bin"
 
 # External programs config
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

@@ -22,4 +22,5 @@ export GOCACHE="$XDG_CACHE_HOME/go-build"
 
 # Special apps config
 export NVM_DIR="$HOME/.nvm"
+export DENO_DIR="$HOME/.deno"
 export SDKMAN_DIR="$HOME/.sdkman"
