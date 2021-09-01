@@ -30,6 +30,9 @@
     "linters",
     "Dockerfile",
     "Dockerfiles",
-    "rebase"
+    "rebase",
+    "grafana",
+    "anadash",
+    "Todo"
   ]
 }

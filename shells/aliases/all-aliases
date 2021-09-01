@@ -97,6 +97,9 @@ kl kubectl logs
 kcg kubectl config get-contexts
 kcu kubectl config use-context
 
+# Maven helpers
+ktlint mvn antrun:run@ktlint-format
+
 # Specific arguments
 clamhome sudo clamscan ~ -r -i > clam-report.txt
 mp3-dl youtube-dl --audio-quality 1 --extract-audio --audio-format mp3
