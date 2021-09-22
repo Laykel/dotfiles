@@ -33,6 +33,14 @@
     "rebase",
     "grafana",
     "anadash",
-    "Todo"
+    "Todo",
+    "terraform",
+    "Infomaniak",
+    "PaaS",
+    "Postgres",
+    "Nginx",
+    "ansible",
+    "dev",
+    "backends"
   ]
 }

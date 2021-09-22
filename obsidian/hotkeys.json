@@ -123,5 +123,13 @@
       ],
       "key": "Q"
     }
+  ],
+  "slides:start": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "F5"
+    }
   ]
 }
