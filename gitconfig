@@ -1,0 +1,7 @@
+[user]
+	name = Laykel
+	email = layke.luc@gmail.com
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
