@@ -1,1 +1,34 @@
-{"items":[{"type":"file","title":"December 52","path":"Perso/Tasks/December 52.md"}]}
+{
+  "items": [
+    {
+      "type": "file",
+      "title": "December 52",
+      "path": "Perso/Tasks/December 52.md"
+    },
+    {
+      "type": "file",
+      "title": "Champignac",
+      "path": "Perso/Projects/Champignac.md"
+    },
+    {
+      "type": "file",
+      "title": "1. Service workers",
+      "path": "Perso/Learning/Courses/PWA/1. Service workers.md"
+    },
+    {
+      "type": "file",
+      "title": "tolearn",
+      "path": "Perso/Learning/Courses/tolearn.md"
+    },
+    {
+      "type": "file",
+      "title": "Infra as code",
+      "path": "Perso/Projects/Infra as code.md"
+    },
+    {
+      "type": "file",
+      "title": "VSCode",
+      "path": "Perso/Software/Tools/VSCode.md"
+    }
+  ]
+}

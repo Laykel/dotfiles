@@ -2,6 +2,7 @@
   "enabledCssSnippets": [
     "font"
   ],
-  "cssTheme": "Subtlegold",
-  "baseFontSize": 17
+  "cssTheme": "",
+  "baseFontSize": 18,
+  "translucency": false
 }

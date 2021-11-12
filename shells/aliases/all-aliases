@@ -104,6 +104,7 @@ ktlint mvn antrun:run@ktlint-format
 clamhome sudo clamscan ~ -r -i > clam-report.txt
 mp3-dl youtube-dl --audio-quality 1 --extract-audio --audio-format mp3
 meteo curl wttr.in
+map telnet mapscii.me
 wifis nmcli device wifi list
 battery upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E 'state|time\ to\ full|percentage'
 

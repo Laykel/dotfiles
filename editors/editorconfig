@@ -19,9 +19,12 @@ indent_size = 2
 indent_size = 2
 
 [pom.xml]
-indent_size = 4
+indent_size = 2
 
 [*.{sh,fish}]
+indent_size = 2
+
+[*.tf]
 indent_size = 2
 
 # Like default

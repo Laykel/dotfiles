@@ -41,6 +41,13 @@
     "Nginx",
     "ansible",
     "dev",
-    "backends"
+    "backends",
+    "lifecycle",
+    "Hasura",
+    "hasura",
+    "postgres",
+    "env",
+    "graphql",
+    "decorrelate"
   ]
 }

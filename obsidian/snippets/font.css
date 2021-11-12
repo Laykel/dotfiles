@@ -2,7 +2,8 @@
 div .markdown-source-view {
     /* font-family: var(--font-family-editor); */
     font-family: "Hack";
-    font-size: 0.9em;
+    /*font-size: calc(var(--editor-font-size) * 1.2);*/
+    font-size: 1em;
 }
 
 /* Font for the markdown preview panel */
