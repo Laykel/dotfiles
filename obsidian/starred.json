@@ -29,6 +29,11 @@
       "type": "file",
       "title": "VSCode",
       "path": "Perso/Software/Tools/VSCode.md"
+    },
+    {
+      "type": "file",
+      "title": "Oauth 2.0",
+      "path": "Perso/Learning/Courses/Security/OAuth 2.0/Terminology.md"
     }
   ]
 }
