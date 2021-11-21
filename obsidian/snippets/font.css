@@ -3,11 +3,12 @@ div .markdown-source-view {
     /* font-family: var(--font-family-editor); */
     font-family: "Hack";
     /*font-size: calc(var(--editor-font-size) * 1.2);*/
-    font-size: 1em;
+    /*font-size: 1em;*/
 }
 
 /* Font for the markdown preview panel */
-div .markdown-preview-view {
+/*div .markdown-preview-view {*/
     /* font-family: var(--font-family-preview); */
-    font-family: "Overpass";
-}
+    /*font-family: "Overpass";*/
+    /* font-size: 25px; */
+/*}*/
