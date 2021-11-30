@@ -1,17 +1,20 @@
 {
   "window.zoomLevel": 0.5,
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "editor.minimap.enabled": false,
   "editor.fontFamily": "'Hack'",
   "editor.wordWrap": "on",
   "editor.formatOnSave": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "workbench.tree.indent": 16,
   "workbench.colorTheme": "Solarized Dark",
   "workbench.panel.defaultLocation": "right",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.enableExperiments": false,
+  "workbench.editor.pinnedTabSizing": "compact",
   "terminal.integrated.fontFamily": "'Hack'",
-  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.tabs.enabled": false,
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
@@ -31,6 +34,7 @@
   "npm.fetchOnlinePackageInfo": false,
   "vim.leader": ",",
   "vim.useSystemClipboard": true,
+  "vim.showMarksInGutter": true,
   "vim.insertModeKeyBindings": [
     {
       "before": [
@@ -45,7 +49,7 @@
   "vim.normalModeKeyBindings": [
     {
       "before": [
-        ":"
+        ";"
       ],
       "commands": [
         "workbench.action.showCommands"
@@ -68,7 +72,7 @@
       "commands": [
         "workbench.action.terminal.focus"
       ]
-      // <C-J> to close terminal
+      // <C-J> or <C-D> to close terminal
     },
     {
       "before": [
@@ -155,5 +159,5 @@
         "{"
       ]
     }
-  ]
+  ],
 }

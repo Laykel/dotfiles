@@ -48,6 +48,8 @@
     "postgres",
     "env",
     "graphql",
-    "decorrelate"
+    "decorrelate",
+    "Frontends",
+    "dotfiles"
   ]
 }
