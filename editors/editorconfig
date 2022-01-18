@@ -15,7 +15,7 @@ indent_size = 2
 [*.{tex,html,css,jsp}]
 indent_size = 2
 
-[*.{json,yaml,yml,xml}]
+[*.{json,yaml,yml,xml,tpl}]
 indent_size = 2
 
 [pom.xml]

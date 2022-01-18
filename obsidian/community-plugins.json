@@ -1,9 +1,9 @@
 [
   "table-editor-obsidian",
-  "cm-editor-syntax-highlight-obsidian",
   "obsidian-mind-map",
   "dataview",
   "obsidian-kindle-plugin",
   "obsidian-vimrc-support",
-  "mrj-add-codemirror-matchbrackets"
+  "mrj-add-codemirror-matchbrackets",
+  "cm-editor-syntax-highlight-obsidian"
 ]

@@ -13,7 +13,7 @@
     {
       "type": "file",
       "title": "1. Service workers",
-      "path": "Perso/Learning/Courses/PWA/1. Service workers.md"
+      "path": "Perso/Learning/Courses/Front-end/PWA/1. Service workers.md"
     },
     {
       "type": "file",
@@ -23,7 +23,7 @@
     {
       "type": "file",
       "title": "Infra as code",
-      "path": "Perso/Projects/Infra as code.md"
+      "path": "Perso/Software/Setup/Infrastructure/Cloud (IaC).md"
     },
     {
       "type": "file",
@@ -39,6 +39,11 @@
       "type": "file",
       "title": "index",
       "path": "Index.md"
+    },
+    {
+      "type": "file",
+      "title": "Infrastructure",
+      "path": "Perso/Software/Setup/Infrastructure/Homelab software.md"
     }
   ]
 }

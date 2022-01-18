@@ -51,5 +51,11 @@
     "decorrelate",
     "Frontends",
     "dotfiles"
+  ],
+  "legacyEditor": false,
+  "livePreview": true,
+  "spellcheckLanguages": [
+    "en-GB",
+    "fr-FR"
   ]
 }

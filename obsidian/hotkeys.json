@@ -52,7 +52,8 @@
   "editor:focus-top": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
       "key": "K"
     }
@@ -130,6 +131,14 @@
         "Mod"
       ],
       "key": "F5"
+    }
+  ],
+  "global-search:open": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "K"
     }
   ]
 }

@@ -1,7 +1,9 @@
 {
-  "enabledCssSnippets": [],
+  "enabledCssSnippets": [
+    "codeblock"
+  ],
   "cssTheme": "Obsidian Nord",
-  "baseFontSize": 16,
+  "baseFontSize": 17,
   "translucency": false,
   "baseFontSizeAction": false
 }

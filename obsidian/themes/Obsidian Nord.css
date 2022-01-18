@@ -272,7 +272,11 @@ thead
     padding-top: 0 !important;
 }
 
-.cm-hashtag,
+.cm-hashtag
+{
+    color: var(--text-tag) !important;
+}
+
 .search-result-file-matched-text
 {
     color: var(--light3) !important;
@@ -483,3 +487,9 @@ input.task-list-item-checkbox:checked {
     fill: var(--frost3) !important;
 }
 
+.setting-item-control input[type="text"] {
+    color: var(--text-normal);
+}
+.setting-item-control input[type="text"]::placeholder {
+    color: var(--dark3);
+}
