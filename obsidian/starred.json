@@ -44,6 +44,11 @@
       "type": "file",
       "title": "Infrastructure",
       "path": "Perso/Software/Setup/Infrastructure/Homelab software.md"
+    },
+    {
+      "type": "file",
+      "title": "GitLab Ops",
+      "path": "Perso/Learning/Courses/Ops/GitLab Ops.md"
     }
   ]
 }

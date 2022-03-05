@@ -101,7 +101,7 @@ kcu kubectl config use-context
 ktlint mvn antrun:run@ktlint-format
 
 # Specific arguments
-clamhome sudo clamscan ~ -r -i > clam-report.txt
+clamhome sudo clamscan ~ -ri --exclude-dir="node_modules" --exclude-dir=".npm" --exclude-dir=".yarn" --exclude-dir="JetBrains" --exclude-dir=".m2" > clam-report.txt
 mp3-dl youtube-dl --audio-quality 1 --extract-audio --audio-format mp3
 meteo curl wttr.in
 map telnet mapscii.me

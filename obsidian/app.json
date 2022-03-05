@@ -1,4 +1,6 @@
 {
+  "legacyEditor": false,
+  "livePreview": true,
   "spellcheck": true,
   "foldHeading": true,
   "foldIndent": false,
@@ -52,10 +54,9 @@
     "Frontends",
     "dotfiles"
   ],
-  "legacyEditor": false,
-  "livePreview": true,
   "spellcheckLanguages": [
     "en-GB",
     "fr-FR"
-  ]
+  ],
+  "readableLineLength": true
 }
