@@ -81,6 +81,7 @@ djm python manage.py migrate
 # Docker helpers
 dps docker ps
 dpsa docker ps -a
+drma docker ps -a --format {{.ID}} | xargs docker rm
 
 dc docker-compose
 dcd docker-compose down -v
@@ -107,6 +108,8 @@ meteo curl wttr.in
 map telnet mapscii.me
 wifis nmcli device wifi list
 battery upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E 'state|time\ to\ full|percentage'
+
+ipaddr ip addr | grep 'state UP' -A 2
 
 # GCC
 # gpp g++ -Wall -Wconversion -Wextra -pedantic -std=c++11

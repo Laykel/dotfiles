@@ -49,6 +49,11 @@
       "type": "file",
       "title": "GitLab Ops",
       "path": "Perso/Learning/Courses/Ops/GitLab Ops.md"
+    },
+    {
+      "type": "file",
+      "title": "Une Cérémonie",
+      "path": "Perso/Learning/Books/Une Cérémonie.md"
     }
   ]
 }
