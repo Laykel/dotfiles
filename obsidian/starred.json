@@ -54,6 +54,11 @@
       "type": "file",
       "title": "Une Cérémonie",
       "path": "Perso/Learning/Books/Une Cérémonie.md"
+    },
+    {
+      "type": "file",
+      "title": "Oenologie",
+      "path": "Perso/Learning/Others/Oenologie.md"
     }
   ]
 }

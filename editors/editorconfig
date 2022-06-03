@@ -9,7 +9,7 @@ trim_trailing_whitespace = true
 [Makefile]
 indent_style = tab
 
-[*.{js,scala}]
+[*.{js,ts,jsx,tsx,svelte,scala}]
 indent_size = 2
 
 [*.{tex,html,css,jsp}]

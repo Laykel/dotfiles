@@ -58,5 +58,5 @@
     "en-GB",
     "fr-FR"
   ],
-  "readableLineLength": true
+  "readableLineLength": false
 }
