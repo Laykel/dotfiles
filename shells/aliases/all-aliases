@@ -19,6 +19,7 @@ ll ls -lhaF --group-directories-first
 
 grep grep --color
 highlight ack --passthru
+ipaddr ip addr | grep 'state UP' -A 2
 
 cpuperf sudo cpupower frequency-set -g performance
 cpusave sudo cpupower frequency-set -g powersave
@@ -26,21 +27,23 @@ cpugovernor cat /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preferen
 
 # Git
 g git
-gs git status
+ga git add
+gaa git restore --staged
 gb git branch -av
-gr git remote -v
+gc git commit
 gch git checkout
 gd git diff
 gds git diff --staged
-ga git add
-gc git commit
+gl git log --graph --decorate --all
+glo git log --graph --decorate --all --oneline
 gp git pull
 gpull git pull
 gpush git push
-grm git rebase master
+gr git remote -v
+gra git rebase --abort
 grc git rebase --continue
-gl git log --graph --decorate --all
-glo git log --graph --decorate --all --oneline
+grm git rebase main
+gs git status
 
 # Moving around
 csync cd ~/Sync/
@@ -79,6 +82,7 @@ djmm python manage.py makemigrations
 djm python manage.py migrate
 
 # Docker helpers
+di docker images
 dps docker ps
 dpsa docker ps -a
 drma docker ps -a --format {{.ID}} | xargs docker rm
@@ -108,8 +112,6 @@ meteo curl wttr.in
 map telnet mapscii.me
 wifis nmcli device wifi list
 battery upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E 'state|time\ to\ full|percentage'
-
-ipaddr ip addr | grep 'state UP' -A 2
 
 # GCC
 # gpp g++ -Wall -Wconversion -Wextra -pedantic -std=c++11
