@@ -84,6 +84,9 @@ source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 path+="$HOME/.local/bin"
 path+="$DENO_DIR/bin"
 
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # External programs config
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
@@ -92,6 +95,9 @@ path+="$DENO_DIR/bin"
 [[ -s "/home/luc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/luc/.sdkman/bin/sdkman-init.sh"
 
 source <(doctl completion zsh)
+
+# Has to be added after compinit is called
+eval "$(zoxide init zsh)"
 
 # Kubectl completions
 # This seems to only work at the end

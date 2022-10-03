@@ -3,7 +3,9 @@
   "obsidian-mind-map",
   "dataview",
   "obsidian-kindle-plugin",
-  "obsidian-vimrc-support",
   "mrj-add-codemirror-matchbrackets",
-  "cm-editor-syntax-highlight-obsidian"
+  "cm-editor-syntax-highlight-obsidian",
+  "obsidian-vimrc-support",
+  "waypoint",
+  "sliding-panes-obsidian"
 ]

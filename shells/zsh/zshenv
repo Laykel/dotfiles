@@ -29,3 +29,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # ----------------------------------------------------------------------
 # Kudelski security config
 [ -s "$DOTFILES/ks/ks-env-vars" ] && source "$DOTFILES/ks/ks-env-vars"
+. "$HOME/.cargo/env"

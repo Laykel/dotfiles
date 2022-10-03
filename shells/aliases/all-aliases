@@ -17,6 +17,8 @@ ls ls -v --color=auto
 l ls --group-directories-first
 ll ls -lhaF --group-directories-first
 
+cat bat
+
 grep grep --color
 highlight ack --passthru
 ipaddr ip addr | grep 'state UP' -A 2
