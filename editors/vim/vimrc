@@ -25,6 +25,7 @@ Plug 'airblade/vim-gitgutter' " git diff in the gutter
 
 " Syntax
 Plug 'scrooloose/syntastic'                             " Syntax checker (synchronous, but awesome)
+Plug 'rust-lang/rust.vim', {'for': ['rust']}
 " Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
 " Plug 'sheerun/vim-polyglot'                             " 100+ languages syntax highlight
 
@@ -100,7 +101,7 @@ endfunction"}}}
 " Syntastic{{{
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["cpp", "c", "python"],
+    \ "active_filetypes": ["cpp", "c", "python", "rust"],
     \ "passive_filetypes": ["tex"] }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -137,6 +138,8 @@ let g:delimitMate_expand_space = 1
 
 " GitGutter
 let g:gitgutter_map_keys = 0
+
+let g:rustfmt_autosave = 1
 
 " RipClang
 " let g:clang_library_path = '/usr/lib/libclang.so'
@@ -397,7 +400,10 @@ autocmd FileType tex nmap <buffer> <silent> <Leader>c :!pdflatex % && makeglossa
 nmap <silent> <Leader>e :!zathura %:r.pdf 2&> /dev/null &<CR><CR>
 
 " Python
-autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "python %" C-m<CR><CR>
+autocmd FileType python nmap <buffer> <Leader>c :!tmux send-keys -t right "cd %:p:h && python %:t" C-m<CR><CR>
+
+" Javascript
+autocmd FileType javascript nmap <buffer> <Leader>c :!tmux send-keys -t right "cd %:p:h && node %:t" C-m<CR><CR>
 
 " Java
 autocmd FileType java nmap <buffer> <Leader>c :!tmux send-keys -t right "javac %" C-m<CR><CR>

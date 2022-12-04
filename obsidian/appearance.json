@@ -2,8 +2,9 @@
   "enabledCssSnippets": [
     "codeblock"
   ],
-  "cssTheme": "",
+  "cssTheme": "Minimal",
   "baseFontSize": 17,
   "translucency": false,
-  "baseFontSizeAction": false
+  "baseFontSizeAction": false,
+  "accentColor": ""
 }
