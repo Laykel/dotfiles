@@ -1,10 +1,4 @@
 {
-  "enabledCssSnippets": [
-    "codeblock"
-  ],
-  "cssTheme": "Minimal",
-  "baseFontSize": 17,
-  "translucency": false,
-  "baseFontSizeAction": false,
-  "accentColor": ""
+  "accentColor": "",
+  "baseFontSize": 17
 }

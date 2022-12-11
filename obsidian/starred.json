@@ -2,28 +2,8 @@
   "items": [
     {
       "type": "file",
-      "title": "December 52",
-      "path": "Perso/Tasks/December 52.md"
-    },
-    {
-      "type": "file",
-      "title": "Champignac",
-      "path": "Perso/Projects/Champignac.md"
-    },
-    {
-      "type": "file",
-      "title": "1. Service workers",
-      "path": "Perso/Learning/Courses/Front-end/PWA/1. Service workers.md"
-    },
-    {
-      "type": "file",
       "title": "tolearn",
       "path": "Perso/Learning/Courses/tolearn.md"
-    },
-    {
-      "type": "file",
-      "title": "Infra as code",
-      "path": "Perso/Software/Setup/Infrastructure/Cloud (IaC).md"
     },
     {
       "type": "file",
@@ -32,38 +12,23 @@
     },
     {
       "type": "file",
-      "title": "Oauth 2.0",
-      "path": "Perso/Learning/Courses/Security/OAuth 2.0/Terminology.md"
-    },
-    {
-      "type": "file",
-      "title": "index",
+      "title": "Index",
       "path": "Index.md"
     },
     {
       "type": "file",
-      "title": "Infrastructure",
+      "title": "Homelab software",
       "path": "Perso/Software/Setup/Infrastructure/Homelab software.md"
-    },
-    {
-      "type": "file",
-      "title": "GitLab Ops",
-      "path": "Perso/Learning/Courses/Ops/GitLab Ops.md"
-    },
-    {
-      "type": "file",
-      "title": "Une Cérémonie",
-      "path": "Perso/Learning/Books/Une Cérémonie.md"
-    },
-    {
-      "type": "file",
-      "title": "Oenologie",
-      "path": "Perso/Learning/Others/Oenologie.md"
     },
     {
       "type": "file",
       "title": "Genèses",
       "path": "Perso/Bible/Genèses.md"
+    },
+    {
+      "type": "file",
+      "title": "Oenologie",
+      "path": "Perso/Learning/Others/Oenologie.md"
     }
   ]
 }

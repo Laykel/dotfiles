@@ -1,5 +1,5 @@
 # ZSH configuration
-# Inspired by https://thevaluable.dev/zsh-install-configure-mouseless/
+# Inspired in part by https://thevaluable.dev/zsh-install-configure-mouseless/
 
 # Read files in this folder for future autoloading
 fpath=($DOTFILES/shells/zsh/plugins $fpath)
@@ -15,14 +15,11 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 
 # Navigate to previously visited directories
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+# alias d='dirs -v'
+# for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 # Navigate to parent directories
-autoload -Uz bd; bd
-
-# Executes ls on dir change
-chpwd() ls --color=auto -v --group-directories-first
+# autoload -Uz bd; bd
 
 # ----------------------------------------------------------------------
 # History
@@ -41,9 +38,10 @@ export KEYTIMEOUT=1
 # Change cursor
 # autoload -Uz cursor_mode; cursor_mode
 
-# Use vim keys in tab complete menu
 # Should be called before compinit
 zmodload zsh/complist
+
+# Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -56,9 +54,8 @@ source $DOTFILES/shells/aliases/aliases
 source $DOTFILES/shells/zsh/functions
 
 # ----------------------------------------------------------------------
-# Kudelski security config
-alias shuttle='sshuttle -r wachter@dev-jump.ksi.dev --dns 10.32.0.0/13 10.3.28.0/24 10.3.30.0/24 10.177.0.0/16 10.0.0.0/16 10.192.0.0/16'
-alias dlogin="echo $ARTIFACTORY_PASSWORD | docker login --username=$ARTIFACTORY_USER --password-stdin $ARTIFACTORY_HOST"
+# Executes ls on dir change
+chpwd() l
 
 # ----------------------------------------------------------------------
 # Prompt
@@ -84,20 +81,18 @@ source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 path+="$HOME/.local/bin"
 path+="$DENO_DIR/bin"
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 # External programs config
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 # This must be at the end of the file
 [[ -s "/home/luc/.sdkman/bin/sdkman-init.sh" ]] && source "/home/luc/.sdkman/bin/sdkman-init.sh"
 
-source <(doctl completion zsh)
+command -v doctl > /dev/null && source <(doctl completion zsh)
 
 # Has to be added after compinit is called
-eval "$(zoxide init zsh)"
+command -v zoxide > /dev/null && eval "$(zoxide init zsh)"
 
 # Kubectl completions
 # This seems to only work at the end

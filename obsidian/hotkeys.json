@@ -1,19 +1,10 @@
 {
-  "app:reload": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "R"
-    }
-  ],
-  "obsidian-mind-map:app:markmap-preview": [
+  "editor:cycle-list-checklist": [
     {
       "modifiers": [
         "Mod"
       ],
-      "key": "M"
+      "key": " "
     }
   ],
   "workspace:split-vertical": [
@@ -22,48 +13,6 @@
         "Mod"
       ],
       "key": "-"
-    }
-  ],
-  "editor:open-search-replace": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "R"
-    }
-  ],
-  "app:toggle-left-sidebar": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "A"
-    }
-  ],
-  "app:toggle-right-sidebar": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "D"
-    }
-  ],
-  "editor:delete-paragraph": [],
-  "editor:focus-top": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "K"
-    }
-  ],
-  "editor:focus-bottom": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "J"
     }
   ],
   "editor:focus-left": [
@@ -82,58 +31,15 @@
       "key": "L"
     }
   ],
-  "editor:insert-link": [],
-  "workspace:split-horizontal": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "-"
-    }
-  ],
-  "editor:toggle-strikethrough": [
+  "editor:focus-bottom": [
     {
       "modifiers": [
         "Mod"
       ],
-      "key": "C"
+      "key": "J"
     }
   ],
-  "daily-notes:goto-next": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "N"
-    }
-  ],
-  "file-explorer:new-file": [],
-  "daily-notes:goto-prev": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "V"
-    }
-  ],
-  "workspace:close": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "Q"
-    }
-  ],
-  "slides:start": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "F5"
-    }
-  ],
-  "global-search:open": [
+  "editor:focus-top": [
     {
       "modifiers": [
         "Mod"
@@ -141,12 +47,49 @@
       "key": "K"
     }
   ],
-  "editor:cycle-list-checklist": [
+  "editor:insert-link": [],
+  "editor:open-search-replace": [
     {
       "modifiers": [
         "Mod"
       ],
-      "key": " "
+      "key": "R"
+    }
+  ],
+  "editor:toggle-checklist-status": [],
+  "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "A"
+    }
+  ],
+  "app:toggle-right-sidebar": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "D"
+    }
+  ],
+  "editor:delete-paragraph": [],
+  "app:reload": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "R"
+    }
+  ],
+  "workspace:split-horizontal": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "-"
     }
   ]
 }

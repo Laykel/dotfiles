@@ -1,9 +1,5 @@
 [
-  "table-editor-obsidian",
-  "obsidian-mind-map",
-  "dataview",
-  "mrj-add-codemirror-matchbrackets",
   "obsidian-vimrc-support",
-  "waypoint",
-  "cm-editor-syntax-highlight-obsidian"
+  "table-editor-obsidian",
+  "obsidian-mind-map"
 ]

@@ -14,4 +14,4 @@ set clipboard=unnamed
 
 " Custom stuff (might break)
 exmap switcher obcommand switcher:open
-nmap gf :switcher
+nmap ; :switcher

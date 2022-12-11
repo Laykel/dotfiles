@@ -1,26 +1,26 @@
 {
   "main": {
-    "id": "4a3481305e64552e",
+    "id": "39dbf53d8cc05865",
     "type": "split",
     "children": [
       {
-        "id": "505ee59cd0ced10e",
+        "id": "7329c50fb0de3c1e",
         "type": "tabs",
         "children": [
           {
-            "id": "0a8cacc213f8166f",
+            "id": "ebe639096473ec74",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Perso/Software/Setup/Infrastructure/Homelab software.md",
+                "file": "_Archive/Storybook issues.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "316fa6f2ec697743",
+            "id": "ca77a86a308ed0ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -39,15 +39,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "99ecf2f1268a9f2b",
+    "id": "2a49e57dd0e7ba36",
     "type": "split",
     "children": [
       {
-        "id": "d537edb68274d35a",
+        "id": "937e43ff2d0c25e7",
         "type": "tabs",
         "children": [
           {
-            "id": "7128ab8353bb44a8",
+            "id": "1b1c90a12c3f8ff8",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -57,7 +57,7 @@
             }
           },
           {
-            "id": "06b90e3da462215f",
+            "id": "97418493641446f7",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -72,7 +72,7 @@
             }
           },
           {
-            "id": "c573897c44fce742",
+            "id": "48f508323f6f0344",
             "type": "leaf",
             "state": {
               "type": "starred",
@@ -83,19 +83,18 @@
       }
     ],
     "direction": "horizontal",
-    "width": 303.5
+    "width": 248.5
   },
   "right": {
-    "id": "f9ea56b7200b81d9",
+    "id": "6b144be1b44595ab",
     "type": "split",
     "children": [
       {
-        "id": "c617cbc728495752",
+        "id": "c3e00ac001cf970a",
         "type": "tabs",
-        "dimension": 65,
         "children": [
           {
-            "id": "88a98dc69335530e",
+            "id": "d420c9909ead4ac0",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -112,47 +111,56 @@
             }
           },
           {
-            "id": "4bb75b0e6380f528",
+            "id": "998111de1e1c5a4c",
             "type": "leaf",
             "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {}
+              "type": "outgoing-link",
+              "state": {
+                "file": "KS/Daily/2022-06-16.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
             }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "cca4fa2c978ae4d6",
-        "type": "tabs",
-        "dimension": 35,
-        "children": [
+          },
           {
-            "id": "22c171fed3f67216",
+            "id": "15b24a9866625be2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "db8dc4c019d1373f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "KS/Daily/2022-06-16.md"
+              }
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 298.5,
+    "width": 300,
     "collapsed": true
   },
-  "active": "316fa6f2ec697743",
+  "active": "ca77a86a308ed0ec",
   "lastOpenFiles": [
-    "Perso/Software/Setup/Infrastructure/Homelab software.md",
+    "_Archive/Storybook issues.md",
     "KS/Daily/2022-06-16.md",
-    "KS/Projects/Customer API/Add Client device name.md",
-    "KS/Projects/Customer API/~ Running in local.md",
-    "Perso/Learning/Courses/Kubernetes/Ingress controller.md",
-    "Perso/Learning/Courses/Kubernetes/Fundamentals.md",
-    "Perso/Learning/Courses/Kubernetes/K3s.md",
-    "Perso/Learning/Courses/Kubernetes/Prometheus stack.md",
-    "Perso/Learning/Courses/Kubernetes/Sealed secrets.md",
-    "KS/Knowledge/Environments.md"
+    "Perso/Learning/Books/Une Cérémonie.md",
+    "Perso/Learning/Courses/Front-end/Testing/Testing asynchronous code.md",
+    "KS/Projects/Customer portal/Threat intel advisories.md",
+    "Perso/Software/Setup/Infrastructure/Homelab software.md",
+    "Perso/Software/Tools/VSCode.md",
+    "Index.md",
+    "Perso/Learning/Courses/Ops/GitLab Ops.md",
+    "Perso/Bible/Genèses.md"
   ]
 }

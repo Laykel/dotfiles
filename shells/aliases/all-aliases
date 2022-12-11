@@ -1,8 +1,8 @@
 # Not shell agnostic
 F hist history search
 
-Z history history -E
-Z hist history -E 0 | grep
+#Z history history -E
+Z hist history | grep
 
 # Shell agnostic "aliases"
 # Common
@@ -13,10 +13,11 @@ v vim
 cl clear
 ,q exit
 help man
-ls ls -v --color=auto
-l ls --group-directories-first
-ll ls -lhaF --group-directories-first
 
+ls ls -v
+l exa --group-directories-first
+ll exa -Flag --group-directories-first
+tree exa --group-directories-first -aTL
 cat bat
 
 grep grep --color
