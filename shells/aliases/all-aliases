@@ -1,7 +1,7 @@
 # Not shell agnostic
 F hist history search
 
-#Z history history -E
+Z history history -E
 Z hist history | grep
 
 # Shell agnostic "aliases"

@@ -80,6 +80,7 @@ source $DOTFILES/shells/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 # Path update
 path+="$HOME/.local/bin"
 path+="$DENO_DIR/bin"
+path+="$PNPM_HOME"
 
 # External programs config
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -93,6 +94,8 @@ command -v doctl > /dev/null && source <(doctl completion zsh)
 
 # Has to be added after compinit is called
 command -v zoxide > /dev/null && eval "$(zoxide init zsh)"
+
+eval "$(starship init zsh)"
 
 # Kubectl completions
 # This seems to only work at the end

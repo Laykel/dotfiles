@@ -23,6 +23,7 @@ export SPRING_PROFILES_ACTIVE="dev"
 
 # Special apps config
 export NVM_DIR="$HOME/.config/nvm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export DENO_DIR="$HOME/.deno"
 export SDKMAN_DIR="$HOME/.sdkman"
 
