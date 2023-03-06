@@ -1,16 +1,221 @@
 # ~/.config/starship.toml
 # https://starship.rs/config
+# Based on plain text preset
 
 add_newline = false
 
+# temporary conf to know current shell
+[shell]
+disabled = false
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+vimcmd_symbol = "[<](bold green)"
+
 [directory]
+read_only = " ro"
 truncation_length = 5
 truncation_symbol = '…/'
 
 [sudo]
-disabled = false
+disabled = true
 style = 'bold red'
+symbol = "sudo "
 
 [git_status]
+ahead = ">"
+behind = "<"
+diverged = "<>"
+renamed = "r"
+deleted = "x"
 # Remove the stash status, as I always have stuff stashed
 format = '([\[$conflicted$deleted$renamed$modified$staged$untracked$ahead_behind\]]($style) )'
+
+[package]
+symbol = "pkg "
+disabled = true
+
+[git_commit]
+tag_symbol = " tag "
+
+[aws]
+symbol = "aws "
+
+[bun]
+symbol = "bun "
+
+[c]
+symbol = "C "
+
+[cobol]
+symbol = "cobol "
+
+[conda]
+symbol = "conda "
+
+[crystal]
+symbol = "cr "
+
+[cmake]
+symbol = "cmake "
+
+[daml]
+symbol = "daml "
+
+[dart]
+symbol = "dart "
+
+[deno]
+symbol = "deno "
+
+[dotnet]
+symbol = ".NET "
+
+[docker_context]
+symbol = "docker "
+
+[elixir]
+symbol = "exs "
+
+[elm]
+symbol = "elm "
+
+[fennel]
+symbol = "fnl "
+
+[fossil_branch]
+symbol = "fossil "
+
+[git_branch]
+symbol = "git "
+
+[golang]
+symbol = "go "
+
+[gradle]
+symbol = "gradle "
+
+[guix_shell]
+symbol = "guix "
+
+[hg_branch]
+symbol = "hg "
+
+[java]
+symbol = "java "
+
+[julia]
+symbol = "jl "
+
+[kotlin]
+symbol = "kt "
+
+[lua]
+symbol = "lua "
+
+[nodejs]
+symbol = "node "
+
+[memory_usage]
+symbol = "mem "
+
+[meson]
+symbol = "meson "
+
+[nim]
+symbol = "nim "
+
+[nix_shell]
+symbol = "nix "
+
+[ocaml]
+symbol = "ml "
+
+[opa]
+symbol = "opa "
+
+[os.symbols]
+Alpine = "alp "
+Amazon = "amz "
+Android = "andr "
+Arch = "rch "
+CentOS = "cent "
+Debian = "deb "
+DragonFly = "dfbsd "
+Emscripten = "emsc "
+EndeavourOS = "ndev "
+Fedora = "fed "
+FreeBSD = "fbsd "
+Garuda = "garu "
+Gentoo = "gent "
+HardenedBSD = "hbsd "
+Illumos = "lum "
+Linux = "lnx "
+Macos = "mac "
+Manjaro = "mjo "
+Mariner = "mrn "
+MidnightBSD = "mid "
+Mint = "mint "
+NetBSD = "nbsd "
+NixOS = "nix "
+OpenBSD = "obsd "
+OpenCloudOS = "ocos "
+openEuler = "oeul "
+openSUSE = "osuse "
+OracleLinux = "orac "
+Pop = "pop "
+Raspbian = "rasp "
+Redhat = "rhl "
+RedHatEnterprise = "rhel "
+Redox = "redox "
+Solus = "sol "
+SUSE = "suse "
+Ubuntu = "ubnt "
+Unknown = "unk "
+Windows = "win "
+
+[perl]
+symbol = "pl "
+
+[php]
+symbol = "php "
+
+[pijul_channel]
+symbol = "pijul "
+
+[pulumi]
+symbol = "pulumi "
+
+[purescript]
+symbol = "purs "
+
+[python]
+symbol = "py "
+
+[raku]
+symbol = "raku "
+
+[ruby]
+symbol = "rb "
+
+[rust]
+symbol = "rs "
+
+[scala]
+symbol = "scala "
+
+[spack]
+symbol = "spack "
+
+[status]
+symbol = "[x](bold red) "
+
+[swift]
+symbol = "swift "
+
+[terraform]
+symbol = "tf "
+
+[zig]
+symbol = "zig "

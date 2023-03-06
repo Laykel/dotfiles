@@ -1,8 +1,8 @@
 [user]
     name = Wachter Luc
-    email = TODO
+    email = luc.wachter@gmail.com
 [pull]
-    rebase = true
+    rebase = false
 [init]
     defaultBranch = main
 [push]

@@ -59,8 +59,8 @@ chpwd() l
 
 # ----------------------------------------------------------------------
 # Prompt
-fpath=($DOTFILES/shells/zsh/prompts $fpath)
-autoload -Uz laykel; laykel
+# fpath=($DOTFILES/shells/zsh/prompts $fpath)
+# autoload -Uz laykel; laykel
 # Disable every vcs but git
 zstyle ':vcs_info:*' enable git
 
