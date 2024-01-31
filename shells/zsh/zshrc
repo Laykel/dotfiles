@@ -100,3 +100,11 @@ eval "$(starship init zsh)"
 # Kubectl completions
 # This seems to only work at the end
 source <(kubectl completion zsh)
+
+# pnpm
+export PNPM_HOME="/home/luc/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -27,7 +27,7 @@ Plug 'airblade/vim-gitgutter' " git diff in the gutter
 Plug 'scrooloose/syntastic'                             " Syntax checker (synchronous, but awesome)
 Plug 'rust-lang/rust.vim', {'for': ['rust']}
 " Plug 'Rip-Rip/clang_complete', {'for': ['cpp', 'c']}    " C/C++ autocomplete
-" Plug 'sheerun/vim-polyglot'                             " 100+ languages syntax highlight
+Plug 'sheerun/vim-polyglot'                             " 100+ languages syntax highlight
 
 " Style
 Plug 'editorconfig/editorconfig-vim'                    " Have vim adapt to different projects
