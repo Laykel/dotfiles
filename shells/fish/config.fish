@@ -33,3 +33,6 @@ starship init fish | source
 # setxkbmap -option ctrl:nocaps
 # xcape -e 'Control_L=Escape'
 
+
+# Generated for envman. Do not edit.
+test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish

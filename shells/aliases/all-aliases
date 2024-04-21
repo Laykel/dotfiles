@@ -49,6 +49,7 @@ grm git rebase main
 gs git status
 
 # Moving around
+cd z
 csync cd ~/Sync/
 cks cd ~/KS/
 cdev cd ~/Dev/
@@ -115,6 +116,7 @@ meteo curl wttr.in
 map telnet mapscii.me
 wifis nmcli device wifi list
 battery upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E 'state|time\ to\ full|percentage'
+gentr git ls-files -cdmo --exclude-standard | entr -dr "$@"
 
 # GCC
 # gpp g++ -Wall -Wconversion -Wextra -pedantic -std=c++11

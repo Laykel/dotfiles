@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 " Big functionalities
 Plug 'vimwiki/vimwiki'              " Wiki notetaking in vim
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+" Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' } " TODO DISABLED for now because it breaks
 " Plug 'majutsushi/tagbar'            " Lists the file's tags
 " Plug 'ludovicchabant/vim-gutentags' " Manages tags file for us (important for <C-i>)
 
@@ -116,11 +116,11 @@ let g:syntastic_cpp_check_header = 1
 "}}}
 
 " Leaderf
-let g:Lf_ShowHidden=1
-let g:Lf_MruFileExclude = ['*.so', '*.class', '*.out']
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_ShowDevIcons = 0
+" let g:Lf_ShowHidden=1
+" let g:Lf_MruFileExclude = ['*.so', '*.class', '*.out']
+" let g:Lf_WindowPosition = 'popup'
+" let g:Lf_PreviewInPopup = 1
+" let g:Lf_ShowDevIcons = 0
 
 " Supertab
 " let g:SuperTabDefaultCompletionType = "context"
@@ -172,7 +172,7 @@ let g:lightline = {
 \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
 \ },
 \ 'component_function': {
-\   'gitbranch': 'fugitive#head'
+\   'gitbranch': 'fugitive#Head'
 \ },
 \ }
 let g:lightline.tabline          = {'left': [['buffers']]}

@@ -30,7 +30,8 @@ nmap L :action NextTab<CR>
 
 nmap <leader>t :action ActivateTerminalToolWindow<CR>
 nmap <leader>f :action GotoFile<CR>
-nmap <leader>g :action FindInPath<CR>
+nmap ; :action GotoFile<CR>
+nmap _ :action FindInPath<CR>
 
 nmap <leader>v :action SplitVertically<CR>
 nmap <leader>h :action SplitHorizontally<CR>
