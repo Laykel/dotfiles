@@ -2,7 +2,7 @@
 F hist history search
 
 Z history history -E
-Z hist history | grep
+Z hist history 1 | grep
 
 # Shell agnostic "aliases"
 # Common
@@ -13,6 +13,7 @@ v vim
 cl clear
 ,q exit
 help man
+diff diff --color
 
 ls ls -v
 l exa --group-directories-first

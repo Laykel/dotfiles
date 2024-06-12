@@ -24,11 +24,13 @@ setopt EXTENDED_GLOB        # Use extended globbing syntax.
 # ----------------------------------------------------------------------
 # History
 setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt INC_APPEND_HISTORY        # Add each command to history (don't wait for end of shell).
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # ----------------------------------------------------------------------
 # Enable vim mode and speed up mode switching

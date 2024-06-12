@@ -9,8 +9,8 @@ export DOTFILES="$HOME/Dev/dotfiles"
 
 # ZSH and shell specific
 export HISTFILE="$ZDOTDIR/history"
-export HISTSIZE=10000                   # Maximum events for internal history
-export SAVEHIST=10000                   # Maximum events in history file
+export HISTSIZE=5000                   # Maximum events for internal history
+export SAVEHIST=5000                   # Maximum events in history file
 
 export EDITOR="vim"
 export VISUAL="vim"
